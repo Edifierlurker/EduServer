@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="lotteryOrderRecordDAO" class="com.pinke.uni.lottery.dao.LotteryOrderRecordDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="lotteryOrderRecordDS"
+		class="com.pinke.uni.lottery.service.LotteryOrderRecordDS"
+		autowire="byName" remoting="true" servicepath="lotteryOrderRecordDS"
+		service="com.pinke.uni.lottery.service.ILotteryOrderRecordDS">
+		<property name="dao" ref="lotteryOrderRecordDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="lotteryOrderRecordLS" class="com.pinke.uni.lottery.ls.LotteryOrderRecordLS"
+		autowire="byName" remoting="true" servicepath="lotteryOrderRecordLSFacade"
+		service="com.pinke.uni.lottery.ls.ILotteryOrderRecordLS">
+		<property name="lotteryOrderRecordDS" ref="lotteryOrderRecordDS" />
+	</bean>
+	<bean id="lotteryPrintRecordDAO" class="com.pinke.uni.lottery.dao.LotteryPrintRecordDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="lotteryPrintRecordDS"
+		class="com.pinke.uni.lottery.service.LotteryPrintRecordDS"
+		autowire="byName" remoting="true" servicepath="lotteryPrintRecordDS"
+		service="com.pinke.uni.lottery.service.ILotteryPrintRecordDS">
+		<property name="dao" ref="lotteryPrintRecordDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="lotteryPrintRecordLS" class="com.pinke.uni.lottery.ls.LotteryPrintRecordLS"
+		autowire="byName" remoting="true" servicepath="lotteryPrintRecordLSFacade"
+		service="com.pinke.uni.lottery.ls.ILotteryPrintRecordLS">
+		<property name="lotteryPrintRecordDS" ref="lotteryPrintRecordDS" />
+	</bean>
+</beans>

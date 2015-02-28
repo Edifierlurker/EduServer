@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testreport>
+    <report>
+        <name>TestReport</name>
+        <dir>/output</dir>
+    </report>
+    <test>
+        <category>UT</category>
+        <testTools>
+            <testTool>junit</testTool>
+        </testTools>
+        <testsuite>
+            <dir>/target/surefire-reports/</dir>
+            
+        </testsuite>
+    </test>
+   <!-- 相对路径 0 ； 绝对路径 1 -->
+    <dirmode>0</dirmode>
+</testreport>

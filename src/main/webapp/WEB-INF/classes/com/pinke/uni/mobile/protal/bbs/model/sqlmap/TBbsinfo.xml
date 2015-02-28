@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TBbsinfo">
+	<typeAlias alias="alias_tbbsinfo"
+		type="com.pinke.uni.mobile.protal.bbs.model.TBbsinfo" />
+
+	<resultMap id="tbbsinfoResult_extends" class="alias_tbbsinfo">
+		<result column="bbsindex" property="bbsindex" />
+		<result column="bbstitle" property="bbstitle" />
+		<result column="bbsbref" property="bbsbref" />
+		<result column="createtime" property="createtime" />
+		<result column="status" property="status" />
+		<result column="note" property="note" />
+		<result column="creatorindex" property="creatorindex" />
+		<result column="weight" property="weight" />
+		<result column="schoolindex" property="schoolindex" />
+		<result column="bbsicon" property="bbsicon" />
+		<result column="attendcount" property="attendcount" />
+		<result column="attendindex" property="attendindex" />
+	</resultMap>
+
+	<resultMap id="tbbsinfoResult" class="alias_tbbsinfo">
+		<result column="bbsindex" property="bbsindex" />
+		<result column="bbstitle" property="bbstitle" />
+		<result column="bbsbref" property="bbsbref" />
+		<result column="createtime" property="createtime" />
+		<result column="status" property="status" />
+		<result column="note" property="note" />
+		<result column="creatorindex" property="creatorindex" />
+		<result column="weight" property="weight" />
+		<result column="schoolindex" property="schoolindex" />
+		<result column="bbsicon" property="bbsicon" />
+		<result column="attendcount" property="attendcount" />
+	</resultMap>
+
+	<sql id="TBbsinfo_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="bbsindex">
+				bbsindex = #bbsindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbstitle">
+				bbstitle = #bbstitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsbref">
+				bbsbref = #bbsbref#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="creatorindex">
+				creatorindex =
+				#creatorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weight">
+				weight = #weight#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsicon">
+				bbsicon = #bbsicon#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendcount">
+				attendcount =
+				#attendcount#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<sql id="TBbsinfo_Where_Clause_extends">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="bbsindex">
+				s.bbsindex = #bbsindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbstitle">
+				bbstitle = #bbstitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsbref">
+				bbsbref = #bbsbref#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				s.status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				s.note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="creatorindex">
+				creatorindex =
+				#creatorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weight">
+				weight = #weight#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsicon">
+				bbsicon = #bbsicon#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendcount">
+				attendcount =
+				#attendcount#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendindex">
+				t.attendindex =
+				#attendindex#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<sql id="TBbsinfo_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="bbsindex">
+				bbsindex = #bbsindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbstitle">
+				bbstitle = #bbstitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsbref">
+				bbsbref = #bbsbref#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="creatorindex">
+				creatorindex =
+				#creatorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weight">
+				weight = #weight#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsicon">
+				bbsicon = #bbsicon#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendcount">
+				attendcount =
+				#attendcount#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="insertTBbsinfo" parameterClass="alias_tbbsinfo">
+		insert into t_bbsinfo (
+		bbsindex
+		<dynamic>
+			<isNotEmpty prepend="," property="bbstitle">
+				bbstitle
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="bbsbref">
+				bbsbref
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="createtime">
+				createtime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				note
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="creatorindex">
+				creatorindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="weight">
+				weight
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="schoolindex">
+				schoolindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="bbsicon">
+				bbsicon
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="attendcount">
+				attendcount
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#bbsindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="bbstitle">
+				#bbstitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="bbsbref">
+				#bbsbref#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="createtime">
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				#note#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="creatorindex">
+				#creatorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="weight">
+				#weight#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="schoolindex">
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="bbsicon">
+				#bbsicon#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="attendcount">
+				#attendcount#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateTBbsinfo" parameterClass="alias_tbbsinfo">
+		update t_bbsinfo
+		set
+		bbsindex = #bbsindex#
+		<dynamic>
+			<isNotNull prepend="," property="bbstitle">
+				bbstitle = #bbstitle#
+			</isNotNull>
+			<isNotNull prepend="," property="bbsbref">
+				bbsbref = #bbsbref#
+			</isNotNull>
+			<isNotNull prepend="," property="createtime">
+				createtime = #createtime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+			<isNotEmpty prepend="," property="creatorindex">
+				creatorindex =
+				#creatorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="weight">
+				weight = #weight#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="bbsicon">
+				bbsicon = #bbsicon#
+			</isNotNull>
+			<isNotEmpty prepend="," property="attendcount">
+				attendcount =
+				#attendcount#
+			</isNotEmpty>
+			<isEmpty prepend="," property="attendcount">
+				attendcount =
+				attendcount +1
+			</isEmpty>
+			<isNotEmpty prepend="," property="caclecount">
+				attendcount =
+				#attendcount# - #caclecount#
+			</isNotEmpty>
+		</dynamic>
+		where bbsindex = #bbsindex#
+	</update>
+	<update id="updateTBbsinfoByCond" parameterClass="alias_tbbsinfo">
+		update t_bbsinfo
+		set
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="bbstitle">
+				bbstitle = #bbstitle#
+			</isNotNull>
+			<isNotNull prepend="," property="bbsbref">
+				bbsbref = #bbsbref#
+			</isNotNull>
+			<isNotNull prepend="," property="createtime">
+				createtime = #createtime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+			<isNotEmpty prepend="," property="creatorindex">
+				creatorindex =
+				#creatorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="weight">
+				weight = #weight#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="bbsicon">
+				bbsicon = #bbsicon#
+			</isNotNull>
+			<isNotEmpty prepend="," property="attendcount">
+				attendcount =
+				#attendcount#
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="bbsindex">
+				bbsindex = #bbsindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbstitle">
+				bbstitle = #bbstitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsbref">
+				bbsbref = #bbsbref#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="creatorindex">
+				creatorindex =
+				#creatorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weight">
+				weight = #weight#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsicon">
+				bbsicon = #bbsicon#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendcount">
+				attendcount =
+				#attendcount#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteTBbsinfo" parameterClass="alias_tbbsinfo">
+		delete from t_bbsinfo
+		where bbsindex = #bbsindex#
+	</delete>
+	<delete id="deleteTBbsinfoByCond" parameterClass="alias_tbbsinfo">
+		delete from t_bbsinfo
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="bbsindex">
+				bbsindex = #bbsindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbstitle">
+				bbstitle = #bbstitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsbref">
+				bbsbref = #bbsbref#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="creatorindex">
+				creatorindex =
+				#creatorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weight">
+				weight = #weight#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsicon">
+				bbsicon = #bbsicon#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendcount">
+				attendcount =
+				#attendcount#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="getTBbsinfo" parameterClass="alias_tbbsinfo"
+		resultMap="tbbsinfoResult">
+		select
+		bbsindex,bbstitle,bbsbref,createtime,status,note,creatorindex,weight,schoolindex,bbsicon,attendcount
+		from t_bbsinfo
+		where bbsindex = #bbsindex#
+	</select>
+
+	<select id="queryTBbsinfoListByCond" parameterClass="alias_tbbsinfo"
+		resultMap="tbbsinfoResult_extends">
+		SELECT
+		s.bbsindex AS bbsindex,
+		bbstitle,
+		bbsbref,
+		createtime,
+		s.STATUS AS
+		STATUS,
+		s.note AS note,
+		creatorindex,
+		weight,
+		schoolindex,
+		bbsicon,
+		attendcount,
+		t.attendindex AS attendindex
+		FROM t_bbsinfo s
+		LEFT JOIN
+		t_bbsinfo_notice_map t
+		ON
+		s.bbsindex = t.bbsindex
+		AND t.STATUS =
+		1
+		<isNotEmpty prepend="and" property="studentindex">
+			t.attendindex =
+			#studentindex#
+		</isNotEmpty>
+
+		<include refid="TBbsinfo_Where_Clause_extends" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryTBbsinfoListCntByCond" parameterClass="alias_tbbsinfo"
+		resultClass="java.lang.Integer">
+		select count(1)
+		FROM t_bbsinfo s
+		LEFT JOIN t_bbsinfo_notice_map t
+		ON
+		s.bbsindex = t.bbsindex
+		AND t.STATUS =
+		1
+		<isNotEmpty prepend="and" property="studentindex">
+			t.attendindex =
+			#studentindex#
+		</isNotEmpty>
+		<include refid="TBbsinfo_Where_Clause_extends" />
+	</select>
+
+	<select id="queryTBbsinfoListByCondExact" parameterClass="alias_tbbsinfo"
+		resultMap="tbbsinfoResult">
+		select
+		bbsindex,bbstitle,bbsbref,createtime,status,note,creatorindex,weight,schoolindex,bbsicon,attendcount
+		from t_bbsinfo
+		<include refid="TBbsinfo_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+</sqlMap>

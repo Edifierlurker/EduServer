@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="UserActivityInviteMap">
+	<typeAlias alias="alias_userActivityInviteMap"
+		type="com.pinke.uni.mobile.protal.activity.model.UserActivityInviteMap" />
+
+	<resultMap id="userActivityInviteMapResult" class="alias_userActivityInviteMap">
+		<result column="inviteindex" property="inviteindex" />
+		<result column="activityindex" property="activityindex" />
+		<result column="studentindex" property="studentindex" />
+		<result column="isaccpet" property="isaccpet" />
+		<result column="status" property="status" />
+	</resultMap>
+
+	<sql id="UserActivityInviteMap_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="inviteindex">
+				inviteindex =
+				#inviteindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="activityindex">
+				activityindex =
+				#activityindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="isaccpet">
+				isaccpet = #isaccpet#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+	
+	
+
+	<resultMap id="userActivityInviteMapResultExtends" class="alias_userActivityInviteMap">
+		<result column="inviteindex" property="inviteindex" />
+		<result column="activityindex" property="activityindex" />
+		<result column="studentindex" property="studentindex" />
+		<result column="isaccpet" property="isaccpet" />
+		<result column="status" property="status" />	
+		<result column="activitytitle" property="activitytitle" />
+		<result column="originatorindex" property="originatorindex" />
+		<result column="iconurl" property="iconurl" />
+		<result column="content" property="content" />
+		<result column="site" property="site" />		
+		<result column="starttime" property="starttime" />
+		<result column="endtime" property="endtime" />
+		<result column="createtime" property="createtime" />
+		<result column="updatetime" property="updatetime" />
+		<result column="recordurl" property="recordurl" />
+		<result column="originatorName" property="originatorName" />
+		<result column="longitude" property="longitude" />
+		<result column="latitude" property="latitude" />
+		<result column="attendcount" property="attendcount" />		
+	</resultMap>
+
+
+	<sql id="UserActivityInviteMap_Where_Clause_Extends">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="inviteindex">
+				inviteindex =
+				#inviteindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="activityindex">
+				s.activityindex =
+				#activityindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				s.studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="isaccpet">
+				s.isaccpet = #isaccpet#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				s.status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<sql id="UserActivityInviteMap_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="inviteindex">
+				inviteindex =
+				#inviteindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="activityindex">
+				activityindex =
+				#activityindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="isaccpet">
+				isaccpet = #isaccpet#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="insertUserActivityInviteMap" parameterClass="alias_userActivityInviteMap">
+		insert into user_activity_invite_map (
+		inviteindex
+		<dynamic>
+			<isNotEmpty prepend="," property="activityindex">
+				activityindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentindex">
+				studentindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="isaccpet">
+				isaccpet
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#inviteindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="activityindex">
+				#activityindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentindex">
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="isaccpet">
+				#isaccpet#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateUserActivityInviteMap" parameterClass="alias_userActivityInviteMap">
+		update user_activity_invite_map
+		set
+		inviteindex = #inviteindex#
+		<dynamic>
+			<isNotNull prepend="," property="activityindex">
+				activityindex =
+				#activityindex#
+			</isNotNull>
+			<isNotEmpty prepend="," property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="isaccpet">
+				isaccpet = #isaccpet#
+			</isNotNull>
+			<isNotNull prepend="," property="status">
+				status = #status#
+			</isNotNull>
+		</dynamic>
+		where inviteindex = #inviteindex#
+	</update>
+	<update id="updateUserActivityInviteMapByCond" parameterClass="alias_userActivityInviteMap">
+		update user_activity_invite_map
+		set
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="activityindex">
+				activityindex =
+				#activityindex#
+			</isNotNull>
+			<isNotEmpty prepend="," property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="isaccpet">
+				isaccpet = #isaccpet#
+			</isNotNull>
+			<isNotNull prepend="," property="status">
+				status = #status#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="inviteindex">
+				inviteindex =
+				#inviteindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="activityindex">
+				activityindex =
+				#activityindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="isaccpet">
+				isaccpet = #isaccpet#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteUserActivityInviteMap" parameterClass="alias_userActivityInviteMap">
+		delete
+		from user_activity_invite_map
+		where inviteindex = #inviteindex#
+	</delete>
+	<delete id="deleteUserActivityInviteMapByCond" parameterClass="alias_userActivityInviteMap">
+		delete from user_activity_invite_map
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="inviteindex">
+				inviteindex =
+				#inviteindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="activityindex">
+				activityindex =
+				#activityindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="isaccpet">
+				isaccpet = #isaccpet#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="getUserActivityInviteMap" parameterClass="alias_userActivityInviteMap"
+		resultMap="userActivityInviteMapResult">
+		select
+		inviteindex,activityindex,studentindex,isaccpet,status
+		from
+		user_activity_invite_map
+		where inviteindex = #inviteindex#
+	</select>
+
+	<select id="queryUserActivityInviteMapListByCond"
+		parameterClass="alias_userActivityInviteMap" resultMap="userActivityInviteMapResult">
+		select
+		inviteindex,activityindex,studentindex,isaccpet,status
+		from
+		user_activity_invite_map
+		<include refid="UserActivityInviteMap_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryUserActivityInviteMapListCntByCond"
+		parameterClass="alias_userActivityInviteMap" resultClass="java.lang.Integer">
+		select count(1)
+		from user_activity_invite_map
+		<include refid="UserActivityInviteMap_Where_Clause" />
+	</select>
+
+	<select id="queryUserActivityInviteMapListByCondExact"
+		parameterClass="alias_userActivityInviteMap" resultMap="userActivityInviteMapResult">
+		select
+		inviteindex,activityindex,studentindex,isaccpet,status
+		from
+		user_activity_invite_map
+		<include refid="UserActivityInviteMap_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+
+	<select id="queryUserActivityInviteMapListByCondExtends"
+		parameterClass="alias_userActivityInviteMap" resultMap="userActivityInviteMapResultExtends">
+		SELECT
+		inviteindex,
+		s.activityindex AS activityindex,
+		m.originatorindex
+		AS studentindex,
+		isaccpet,
+		s.status AS STATUS,
+		activitytitle,
+		originatorindex,
+		iconurl,
+		content,
+		site,
+		starttime,
+		endtime,
+		createtime,
+		updatetime,
+		recordurl,
+		longitude,
+		latitude,
+		attendcount,
+		n.studentname AS
+		originatorName
+		FROM user_activity_invite_map s
+		LEFT JOIN
+		user_schedule_activity m
+		ON s.activityindex = m.activityindex
+		AND
+		m.status = 1
+		LEFT JOIN t_studentinfo n
+		ON m.originatorindex =
+		n.studentindex
+		<include refid="UserActivityInviteMap_Where_Clause_Extends" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<select id="queryUserActivityInviteMapListCntByCondExtends"
+		parameterClass="alias_userActivityInviteMap" resultClass="java.lang.Integer">
+		select count(1)
+		FROM user_activity_invite_map s
+		LEFT JOIN
+		user_schedule_activity m
+		ON s.activityindex = m.activityindex
+		AND
+		m.status = 1
+		LEFT JOIN t_studentinfo n
+		ON m.originatorindex =
+		n.studentindex
+		<include refid="UserActivityInviteMap_Where_Clause_Extends" />
+	</select>
+
+
+</sqlMap>

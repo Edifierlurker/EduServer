@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<!-- 组件描述文件加载 classpath:misp-common-context.xml, classpath:misp-tml-context.xml, -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+		    classpath:ssb-application-context.xml
+		</param-value>
+	</context-param>
+	<listener>
+		<listener-class>
+			com.zte.ssb.framework.util.ApplicationGlobalResourceListener
+		</listener-class>
+	</listener>
+
+	<!-- 编码过滤器 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>com.zte.ssb.filter.EncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>*.ssm</url-pattern>
+	</filter-mapping>
+	<!-- RIA处理Servlet -->
+	<servlet>
+		<servlet-name>RIAServer</servlet-name>
+		<servlet-class>
+			com.zte.ssb.servicecontainer.business.server.RIAServiceServlet
+		</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RIAServer</servlet-name>
+		<url-pattern>*.ssm</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description>WEB服务器启动初始化类</description>
+		<servlet-name>InitServlet</servlet-name>
+		<servlet-class>
+            com.pinke.uni.mobile.protal.common.servlet.InitServlet
+        </servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+    <servlet>
+        <servlet-name>InterviewByServlet</servlet-name>
+        <servlet-class>com.pinke.uni.mobile.protal.common.servlet.InterviewByServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>InterviewByServlet</servlet-name>
+        <url-pattern>/serviceCode.do</url-pattern>
+    </servlet-mapping>
+
+    <!--<servlet-mapping>-->
+    <!--<servlet-name>testReture</servlet-name>-->
+    <!--<url-pattern>/return.do</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <servlet>
+        <servlet-name>AppActionServlet</servlet-name>
+        <servlet-class>com.pinke.uni.mobile.protal.common.servlet.AppActionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AppActionServlet</servlet-name>
+        <url-pattern>/unistore/servicedata.do</url-pattern>
+    </servlet-mapping>
+    <!-- 获取短信验证码或修改密码 -->
+    <servlet>
+        <servlet-name>GetUserCodeServlet</servlet-name>
+        <servlet-class>com.pinke.uni.mobile.protal.common.servlet.GetVerifycodeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetUserCodeServlet</servlet-name>
+        <url-pattern>/getusercode.do</url-pattern>
+    </servlet-mapping>
+    <!-- 上传图片 -->
+    <servlet>
+        <servlet-name>UploadServlet</servlet-name>
+        <servlet-class>com.pinke.uni.mobile.protal.common.servlet.UploadServlets</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UploadServlet</servlet-name>
+        <url-pattern>/uploadPicServlet.do</url-pattern>
+    </servlet-mapping>
+    <!-- 生成图形验证码 -->
+    <servlet>
+        <servlet-name>PicVercodeServlet</servlet-name>
+        <servlet-class>com.pinke.uni.mobile.protal.common.servlet.GetPicVercodeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PicVercodeServlet</servlet-name>
+        <url-pattern>/getPicVercode.do</url-pattern>
+    </servlet-mapping>
+
+ <servlet>
+        <servlet-name>TestServlet</servlet-name>
+        <servlet-class>com.pinke.uni.mobile.protal.common.servlet.TestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TestServlet</servlet-name>
+        <url-pattern>/test.do</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>com.pinke.uni.mobile.protal.common.filter.LoginFilter</filter-class>
+        <init-param>
+            <param-name>includePageService</param-name>
+            <param-value>orderinfo,mylottery,pay,payconfirm</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/pages/html/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/services/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <description>HTML5</description>
+        <servlet-name>PageServlet</servlet-name>
+        <servlet-class>
+            com.pinke.uni.mobile.protal.common.servlet.PageServiceServlet
+        </servlet-class>
+        <load-on-startup>5</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PageServlet</servlet-name>
+        <url-pattern>/pages/html/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>HTML5</description>
+        <servlet-name>ServiceServlet</servlet-name>
+        <servlet-class>
+            com.pinke.uni.mobile.protal.common.servlet.PageServiceServlet
+        </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServiceServlet</servlet-name>
+        <url-pattern>/services/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>caipiao</description>
+        <servlet-name>CaipiaoServlet</servlet-name>
+        <servlet-class>
+            com.pinke.uni.mobile.protal.common.servlet.PageServiceServlet
+        </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CaipiaoServlet</servlet-name>
+        <url-pattern>/caipiao/*</url-pattern>
+    </servlet-mapping>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/page/500.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/page/404.jsp</location>
+    </error-page>
+</web-app>

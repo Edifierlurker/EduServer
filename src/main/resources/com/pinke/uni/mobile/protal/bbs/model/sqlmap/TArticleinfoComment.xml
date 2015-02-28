@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TArticleinfoComment">
+	<typeAlias alias="alias_tarticleinfoComment"
+		type="com.pinke.uni.mobile.protal.bbs.model.TArticleinfoComment" />
+
+	<resultMap id="tarticleinfoCommentResult" class="alias_tarticleinfoComment">
+		<result column="commentindex" property="commentindex" />
+		<result column="articleindex" property="articleindex" />
+		<result column="commenterindex" property="commenterindex" />
+		<result column="commentdesc" property="commentdesc" />
+		<result column="commentstarts" property="commentstarts" />
+		<result column="createtime" property="createtime" />
+		<result column="status" property="status" />
+		<result column="note" property="note" />
+	</resultMap>
+
+	<resultMap id="tarticleinfoCommentResultExtends" class="alias_tarticleinfoComment">
+		<result column="commentindex" property="commentindex" />
+		<result column="articleindex" property="articleindex" />
+		<result column="commenterindex" property="commenterindex" />
+		<result column="commentdesc" property="commentdesc" />
+		<result column="commentstarts" property="commentstarts" />
+		<result column="createtime" property="createtime" />
+		<result column="status" property="status" />
+		<result column="note" property="note" />
+		<result column="commenter" property="commenter" />
+		<result column="commenttimes" property="commenttimes" />
+		<result column="articletitle" property="articletitle" />
+		<result column="headpic" property="headpic" />
+
+
+	</resultMap>
+
+	<sql id="TArticleinfoComment_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="commentindex">
+				commentindex =
+				#commentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articleindex">
+				articleindex =
+				#articleindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commenterindex">
+				commenterindex =
+				#commenterindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commentdesc">
+				commentdesc =
+				#commentdesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commentstarts">
+				commentstarts =
+				#commentstarts#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<sql id="TArticleinfoComment_Where_Clause_extends">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="commentindex">
+				commentindex =
+				#commentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articleindex">
+				articleindex =
+				#articleindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commenterindex">
+				commenterindex =
+				#commenterindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commentdesc">
+				commentdesc =
+				#commentdesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commentstarts">
+				commentstarts =
+				#commentstarts#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				s.status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="authorindex">
+				n.createrindex  =
+				#authorindex#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<sql id="TArticleinfoComment_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="commentindex">
+				commentindex =
+				#commentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articleindex">
+				articleindex =
+				#articleindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commenterindex">
+				commenterindex =
+				#commenterindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commentdesc">
+				commentdesc =
+				#commentdesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commentstarts">
+				commentstarts =
+				#commentstarts#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="insertTArticleinfoComment" parameterClass="alias_tarticleinfoComment">
+		insert into t_articleinfo_comment (
+		commentindex
+		<dynamic>
+			<isNotEmpty prepend="," property="articleindex">
+				articleindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="commenterindex">
+				commenterindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="commentdesc">
+				commentdesc
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="commentstarts">
+				commentstarts
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="createtime">
+				createtime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				note
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#commentindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="articleindex">
+				#articleindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="commenterindex">
+				#commenterindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="commentdesc">
+				#commentdesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="commentstarts">
+				#commentstarts#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="createtime">
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				#note#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateTArticleinfoComment" parameterClass="alias_tarticleinfoComment">
+		update t_articleinfo_comment
+		set
+		commentindex = #commentindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="articleindex">
+				articleindex =
+				#articleindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="commenterindex">
+				commenterindex =
+				#commenterindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="commentdesc">
+				commentdesc = #commentdesc#
+			</isNotNull>
+			<isNotEmpty prepend="," property="commentstarts">
+				commentstarts =
+				#commentstarts#
+			</isNotEmpty>
+			<isNotNull prepend="," property="createtime">
+				createtime = #createtime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+		</dynamic>
+		where commentindex = #commentindex#
+	</update>
+	<update id="updateTArticleinfoCommentByCond" parameterClass="alias_tarticleinfoComment">
+		update t_articleinfo_comment
+		set
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="articleindex">
+				articleindex =
+				#articleindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="commenterindex">
+				commenterindex =
+				#commenterindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="commentdesc">
+				commentdesc = #commentdesc#
+			</isNotNull>
+			<isNotEmpty prepend="," property="commentstarts">
+				commentstarts =
+				#commentstarts#
+			</isNotEmpty>
+			<isNotNull prepend="," property="createtime">
+				createtime = #createtime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="commentindex">
+				commentindex =
+				#commentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articleindex">
+				articleindex =
+				#articleindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commenterindex">
+				commenterindex =
+				#commenterindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commentdesc">
+				commentdesc =
+				#commentdesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commentstarts">
+				commentstarts =
+				#commentstarts#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteTArticleinfoComment" parameterClass="alias_tarticleinfoComment">
+		delete
+		from t_articleinfo_comment
+		where commentindex = #commentindex#
+	</delete>
+	<delete id="deleteTArticleinfoCommentByCond" parameterClass="alias_tarticleinfoComment">
+		delete from t_articleinfo_comment
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="commentindex">
+				commentindex =
+				#commentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articleindex">
+				articleindex =
+				#articleindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commenterindex">
+				commenterindex =
+				#commenterindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commentdesc">
+				commentdesc =
+				#commentdesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commentstarts">
+				commentstarts =
+				#commentstarts#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="getTArticleinfoComment" parameterClass="alias_tarticleinfoComment"
+		resultMap="tarticleinfoCommentResult">
+		select
+		commentindex,articleindex,commenterindex,commentdesc,commentstarts,createtime,status,note
+		from t_articleinfo_comment
+		where commentindex = #commentindex#
+	</select>
+
+	<select id="queryTArticleinfoCommentListByCond" parameterClass="alias_tarticleinfoComment"
+		resultMap="tarticleinfoCommentResultExtends">
+		SELECT
+		commentindex,
+		articleindex,
+		commenterindex,
+		commentdesc,
+		commentstarts,
+		createtime,
+		s.status AS STATUS,
+		m.studentname AS
+		commenter,
+		note,
+        m.headpic as articletitle,
+        m.headpic as headpic,
+        1 as commenttimes
+		FROM t_articleinfo_comment s
+		LEFT JOIN t_studentinfo m
+		ON
+		s.commenterindex = m.studentindex
+		AND m.status = 1
+		<include refid="TArticleinfoComment_Where_Clause_extends" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryTArticleinfoCommentListCntByCond"
+		parameterClass="alias_tarticleinfoComment" resultClass="java.lang.Integer">
+		select count(1)
+		FROM t_articleinfo_comment s
+		LEFT JOIN t_studentinfo m
+		ON
+		s.commenterindex = m.studentindex
+		AND m.status = 1
+		<include refid="TArticleinfoComment_Where_Clause_extends" />
+	</select>
+
+
+
+
+	<select id="queryTArticleinfoCommentListByCondExtends"
+		parameterClass="alias_tarticleinfoComment" resultMap="tarticleinfoCommentResultExtends">
+		SELECT
+		commentindex,
+		s.articleindex AS articleindex,
+		commenterindex,
+		commentdesc,
+		commentstarts,
+		s.createtime AS createtime,
+		s.status AS
+		STATUS,
+		m.studentname AS commenter,
+		n.articletitle AS articletitle,
+		s.note AS note,
+		n.commenttimes as commenttimes,
+		headpic as headpic
+		FROM t_articleinfo_comment s
+		LEFT JOIN t_articleinfo n
+		ON
+		n.status = 1
+		AND s.articleindex = n.articleindex
+		LEFT JOIN t_studentinfo
+		m
+		ON s.commenterindex = m.studentindex
+		AND m.status = 1
+		<include refid="TArticleinfoComment_Where_Clause_extends" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryTArticleinfoCommentListCntByCondExtends"
+		parameterClass="alias_tarticleinfoComment" resultClass="java.lang.Integer">
+		select count(1)
+		FROM t_articleinfo_comment s
+		LEFT JOIN t_articleinfo n
+		ON n.status = 1
+		AND s.articleindex = n.articleindex
+		LEFT JOIN
+		t_studentinfo m
+		ON s.commenterindex = m.studentindex
+		AND m.status = 1
+		<include refid="TArticleinfoComment_Where_Clause_extends" />
+	</select>
+
+
+
+	<select id="queryTArticleinfoCommentListByCondExact"
+		parameterClass="alias_tarticleinfoComment" resultMap="tarticleinfoCommentResult">
+		select
+		commentindex,articleindex,commenterindex,commentdesc,commentstarts,createtime,status,note
+		from t_articleinfo_comment
+		<include refid="TArticleinfoComment_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+</sqlMap>

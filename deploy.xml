@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<project name="pccdeploy" default="all" basedir=".">
+     <description>
+        工程描述信息:V1.0
+		编译环境:ANT1.7 JDK1.6.0
+		引用外部变量:deploy.ftp.dir  hudson.home
+		
+	</description>
+        <!--引用变量定义-->
+	<property environment="env"/>
+	<property file="C:/worktool/localhost.properties" />
+    <property file="/home/zxin10/localhost.properties" />
+	<property file="c:/worktool/deploy.preporties" />
+	<property file="deploy.properties" />
+	
+	<property name="base.dir" value="."/>
+    <target name="clean">
+	  <!--delete>
+	  <fileset dir="D:\deploy\pcc" includes="*.zip" />
+	  </delete-->
+	</target>
+
+  
+  	<target name="copyversion">
+			<!--copy todir="${deploy.ftp.dir}/pcc">
+				<fileset dir="${hudson.home}/workspace/pcc_service/output" includes="*.zip"/>
+			</copy-->
+	 </target>
+     
+    <target name="ftpdeploy">
+      <ftp server="${ftp.deploy.ip}"
+       port="21"
+       remotedir="${ftp.deploy.remote.dir}"
+       userid="${ftp.deploy.userid}"
+       password="${ftp.deploy.userpwd}"
+       depends="yes"
+       verbose="yes">
+       <fileset dir="${ftp.deploy.dir}/">
+         <include name="${file.type}"/>
+		 <include name="${sh.type}"/>
+       </fileset>
+      </ftp>
+	</target>
+	
+	<taskdef name="telnet" classname="org.apache.tools.ant.taskdefs.optional.net.TelnetTask"/>
+  	<target name="telnetdeploy" description=" telnet ">
+  	  <telnet server="${deploy.ip}" port="23" initialCR="yes" timeout="50">
+        <read>login:</read>
+        <write>${deploy.userid}</write>
+		<read>ssword:</read>
+		<write>${deploy.userpwd}</write>
+		<read timeout="30">${os.prompt}</read>
+        <write>cd ${deploy.dir}</write>
+		<read timeout="30">${os.prompt}</read>
+		<write>sh ${deploy.shell}</write>
+		<read timeout="600">${deploy.end.char}</read>
+	    <write>exit</write>
+       </telnet>
+
+  </target>
+	 
+ 
+    <target name="all" depends="clean,copyversion,ftpdeploy,telnetdeploy" />
+</project>
+
+

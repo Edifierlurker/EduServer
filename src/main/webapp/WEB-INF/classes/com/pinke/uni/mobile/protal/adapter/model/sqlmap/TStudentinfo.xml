@@ -1,0 +1,1124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TStudentinfo">
+	<typeAlias alias="alias_tstudentinfo"
+		type="com.pinke.uni.mobile.protal.adapter.model.TStudentinfo" />
+
+	<resultMap id="tstudentinfoResult" class="alias_tstudentinfo">
+		<result column="studentindex" property="studentindex" />
+		<result column="studentid" property="studentid" />
+		<result column="userphone" property="userphone" />
+		<result column="password" property="password" />
+		<result column="headpic" property="headpic" />
+		<result column="registertime" property="registertime" />
+		<result column="canceltime" property="canceltime" />
+		<result column="studentname" property="studentname" />
+		<result column="status" property="status" />
+		<result column="gender" property="gender" />
+		<result column="birthmonth" property="birthmonth" />
+		<result column="origin" property="origin" />
+		<result column="contactinfo" property="contactinfo" />
+		<result column="idcard" property="idcard" />
+		<result column="usertype" property="usertype" />
+		<result column="profession" property="profession" />
+		<result column="studentno" property="studentno" />
+		<result column="classindex" property="classindex" />
+		<result column="majorindex" property="majorindex" />
+		<result column="schoolindex" property="schoolindex" />
+		<result column="collegeindex" property="collegeindex" />
+		<result column="entertime" property="entertime" />
+		<result column="signature" property="signature" />
+		<result column="weeks" property="weeks" />
+		<result column="weekbegin" property="weekbegin" />
+		<result column="starseat" property="starseat" />
+		<result column="hobby" property="hobby" />
+		<result column="userrecordurl" property="userrecordurl" />
+
+	</resultMap>
+
+	<sql id="TStudentinfo_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentid">
+				studentid = #studentid#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userphone">
+				userphone = #userphone#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="password">
+				password = #password#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="headpic">
+				headpic = #headpic#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="registertime">
+				registertime =
+				#registertime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="canceltime">
+				canceltime =
+				#canceltime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentname">
+				studentname =
+				#studentname#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="gender">
+				gender = #gender#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="birthmonth">
+				birthmonth =
+				#birthmonth#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="origin">
+				origin = #origin#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="contactinfo">
+				contactinfo =
+				#contactinfo#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="idcard">
+				idcard = #idcard#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="usertype">
+				usertype = #usertype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="profession">
+				profession =
+				#profession#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentno">
+				studentno = #studentno#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="classindex">
+				classindex =
+				#classindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="majorindex">
+				majorindex =
+				#majorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="collegeindex">
+				collegeindex =
+				#collegeindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="entertime">
+				entertime = #entertime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="signature">
+				signature = #signature#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weeks">
+				weeks = #weeks#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weekbegin">
+				weekbegin = #weekbegin#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="starseat">
+				starseat = #starseat#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="hobby">
+				hobby = #hobby#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userrecordurl">
+				userrecordurl = #userrecordurl#
+			</isNotEmpty>
+
+		</dynamic>
+	</sql>
+
+	<sql id="TStudentinfo_Where_Clause_Extends">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="studentindex">
+				s.studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentid">
+				s.studentid =
+				#studentid#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userphone">
+				s.userphone =
+				#userphone#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="password">
+				password = #password#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="headpic">
+				headpic = #headpic#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="registertime">
+				registertime =
+				#registertime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="canceltime">
+				canceltime =
+				#canceltime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentname">
+				studentname =
+				#studentname#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				s.status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="gender">
+				gender = #gender#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="birthmonth">
+				birthmonth =
+				#birthmonth#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="origin">
+				origin = #origin#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="contactinfo">
+				contactinfo =
+				#contactinfo#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="idcard">
+				idcard = #idcard#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="usertype">
+				usertype = #usertype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="profession">
+				profession =
+				#profession#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentno">
+				studentno = #studentno#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="classindex">
+				classindex =
+				#classindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="majorindex">
+				majorindex =
+				#majorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				s.schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="collegeindex">
+				collegeindex =
+				#collegeindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="entertime">
+				entertime = #entertime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="signature">
+				signature = #signature#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weeks">
+				s.weeks = #weeks#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weekbegin">
+				s.weekbegin =
+				#weekbegin#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="starseat">
+				starseat = #starseat#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="hobby">
+				hobby = #hobby#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userrecordurl">
+				userrecordurl = #userrecordurl#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+	<sql id="TStudentinfo_Where_Clause_Search">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and " property="studentid">
+
+				<isNotEmpty prepend="(" property="userphone">				
+				<![CDATA[
+				userphone like  '%$userphone$%' escape '/'
+				or  studentid like '%$studentid$%' escape '/' )]]>
+
+				</isNotEmpty>
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="password">
+				password = #password#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="headpic">
+				headpic = #headpic#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="registertime">
+				registertime =
+				#registertime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="canceltime">
+				canceltime =
+				#canceltime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentname">
+				studentname =
+				#studentname#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="gender">
+				gender = #gender#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="birthmonth">
+				birthmonth =
+				#birthmonth#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="origin">
+				origin = #origin#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="contactinfo">
+				contactinfo =
+				#contactinfo#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="idcard">
+				idcard = #idcard#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="usertype">
+				usertype = #usertype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="profession">
+				profession =
+				#profession#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentno">
+				studentno = #studentno#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="classindex">
+				classindex =
+				#classindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="majorindex">
+				majorindex =
+				#majorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="collegeindex">
+				collegeindex =
+				#collegeindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="entertime">
+				entertime = #entertime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="signature">
+				signature = #signature#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weeks">
+				weeks = #weeks#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weekbegin">
+				weekbegin = #weekbegin#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="starseat">
+				starseat = #starseat#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="hobby">
+				hobby = #hobby#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userrecordurl">
+				userrecordurl = #userrecordurl#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+
+	<sql id="TStudentinfo_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentid">
+				studentid = #studentid#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userphone">
+				userphone = #userphone#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="password">
+				password = #password#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="headpic">
+				headpic = #headpic#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="registertime">
+				registertime =
+				#registertime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="canceltime">
+				canceltime =
+				#canceltime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentname">
+				studentname =
+				#studentname#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="gender">
+				gender = #gender#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="birthmonth">
+				birthmonth =
+				#birthmonth#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="origin">
+				origin = #origin#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="contactinfo">
+				contactinfo =
+				#contactinfo#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="idcard">
+				idcard = #idcard#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="usertype">
+				usertype = #usertype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="profession">
+				profession =
+				#profession#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentno">
+				studentno = #studentno#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="classindex">
+				classindex =
+				#classindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="majorindex">
+				majorindex =
+				#majorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="collegeindex">
+				collegeindex =
+				#collegeindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="entertime">
+				entertime = #entertime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="signature">
+				signature = #signature#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weeks">
+				weeks = #weeks#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weekbegin">
+				weekbegin = #weekbegin#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="starseat">
+				starseat = #starseat#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="hobby">
+				hobby = #hobby#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userrecordurl">
+				userrecordurl = #userrecordurl#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="insertTStudentinfo" parameterClass="alias_tstudentinfo">
+		insert into t_studentinfo (
+		studentindex
+		<dynamic>
+			<isNotEmpty prepend="," property="studentid">
+				studentid
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="userphone">
+				userphone
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="password">
+				password
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="headpic">
+				headpic
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="registertime">
+				registertime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="canceltime">
+				canceltime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentname">
+				studentname
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="gender">
+				gender
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="birthmonth">
+				birthmonth
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="origin">
+				origin
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="contactinfo">
+				contactinfo
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="idcard">
+				idcard
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="usertype">
+				usertype
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="profession">
+				profession
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentno">
+				studentno
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="classindex">
+				classindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="majorindex">
+				majorindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="schoolindex">
+				schoolindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="collegeindex">
+				collegeindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="entertime">
+				entertime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="signature">
+				signature
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="weeks">
+				weeks
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="weekbegin">
+				weekbegin
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="starseat">
+				starseat
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="hobby">
+				hobby
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="userrecordurl">
+				userrecordurl
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#studentindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="studentid">
+				#studentid#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="userphone">
+				#userphone#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="password">
+				#password#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="headpic">
+				#headpic#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="registertime">
+				#registertime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="canceltime">
+				#canceltime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentname">
+				#studentname#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="gender">
+				#gender#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="birthmonth">
+				#birthmonth#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="origin">
+				#origin#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="contactinfo">
+				#contactinfo#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="idcard">
+				#idcard#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="usertype">
+				#usertype#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="profession">
+				#profession#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentno">
+				#studentno#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="classindex">
+				#classindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="majorindex">
+				#majorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="schoolindex">
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="collegeindex">
+				#collegeindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="entertime">
+				#entertime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="signature">
+				#signature#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="weeks">
+				#weeks#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="weekbegin">
+				#weekbegin#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="starseat">
+				#starseat#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="hobby">
+				#hobby#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="userrecordurl">
+				#userrecordurl#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateTStudentinfo" parameterClass="alias_tstudentinfo">
+		update t_studentinfo
+		set
+		studentindex = #studentindex#
+		<dynamic>
+			<isNotNull prepend="," property="studentid">
+				studentid = #studentid#
+			</isNotNull>
+			<isNotNull prepend="," property="userphone">
+				userphone = #userphone#
+			</isNotNull>
+			<isNotNull prepend="," property="password">
+				password = #password#
+			</isNotNull>
+			<isNotNull prepend="," property="headpic">
+				headpic = #headpic#
+			</isNotNull>
+			<isNotNull prepend="," property="registertime">
+				registertime =
+				#registertime#
+			</isNotNull>
+			<isNotNull prepend="," property="canceltime">
+				canceltime = #canceltime#
+			</isNotNull>
+			<isNotNull prepend="," property="studentname">
+				studentname = #studentname#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="gender">
+				gender = #gender#
+			</isNotEmpty>
+			<isNotNull prepend="," property="birthmonth">
+				birthmonth = #birthmonth#
+			</isNotNull>
+			<isNotNull prepend="," property="origin">
+				origin = #origin#
+			</isNotNull>
+			<isNotNull prepend="," property="contactinfo">
+				contactinfo = #contactinfo#
+			</isNotNull>
+			<isNotNull prepend="," property="idcard">
+				idcard = #idcard#
+			</isNotNull>
+			<isNotEmpty prepend="," property="usertype">
+				usertype = #usertype#
+			</isNotEmpty>
+			<isNotNull prepend="," property="profession">
+				profession = #profession#
+			</isNotNull>
+			<isNotNull prepend="," property="studentno">
+				studentno = #studentno#
+			</isNotNull>
+			<isNotEmpty prepend="," property="classindex">
+				classindex = #classindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="majorindex">
+				majorindex = #majorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="collegeindex">
+				collegeindex =
+				#collegeindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="entertime">
+				entertime = #entertime#
+			</isNotNull>
+			<isNotNull prepend="," property="signature">
+				signature = #signature#
+			</isNotNull>
+			<isNotEmpty prepend="," property="weeks">
+				weeks = #weeks#
+			</isNotEmpty>
+			<isNotNull prepend="," property="weekbegin">
+				weekbegin = #weekbegin#
+			</isNotNull>
+			<isNotEmpty prepend="," property="starseat">
+				starseat = #starseat#
+			</isNotEmpty>
+			<isNotNull prepend="," property="hobby">
+				hobby = #hobby#
+			</isNotNull>
+			<isNotNull prepend="," property="userrecordurl">
+				userrecordurl = #userrecordurl#
+			</isNotNull>
+		</dynamic>
+		where studentindex = #studentindex#
+	</update>
+	<update id="updateTStudentinfoByCond" parameterClass="alias_tstudentinfo">
+		update t_studentinfo
+		set
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="studentid">
+				studentid = #studentid#
+			</isNotNull>
+			<isNotNull prepend="," property="userphone">
+				userphone = #userphone#
+			</isNotNull>
+			<isNotNull prepend="," property="password">
+				password = #password#
+			</isNotNull>
+			<isNotNull prepend="," property="headpic">
+				headpic = #headpic#
+			</isNotNull>
+			<isNotNull prepend="," property="registertime">
+				registertime =
+				#registertime#
+			</isNotNull>
+			<isNotNull prepend="," property="canceltime">
+				canceltime = #canceltime#
+			</isNotNull>
+			<isNotNull prepend="," property="studentname">
+				studentname = #studentname#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="gender">
+				gender = #gender#
+			</isNotEmpty>
+			<isNotNull prepend="," property="birthmonth">
+				birthmonth = #birthmonth#
+			</isNotNull>
+			<isNotNull prepend="," property="origin">
+				origin = #origin#
+			</isNotNull>
+			<isNotNull prepend="," property="contactinfo">
+				contactinfo = #contactinfo#
+			</isNotNull>
+			<isNotNull prepend="," property="idcard">
+				idcard = #idcard#
+			</isNotNull>
+			<isNotEmpty prepend="," property="usertype">
+				usertype = #usertype#
+			</isNotEmpty>
+			<isNotNull prepend="," property="profession">
+				profession = #profession#
+			</isNotNull>
+			<isNotNull prepend="," property="studentno">
+				studentno = #studentno#
+			</isNotNull>
+			<isNotEmpty prepend="," property="classindex">
+				classindex = #classindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="majorindex">
+				majorindex = #majorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="collegeindex">
+				collegeindex =
+				#collegeindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="entertime">
+				entertime = #entertime#
+			</isNotNull>
+			<isNotNull prepend="," property="signature">
+				signature = #signature#
+			</isNotNull>
+			<isNotEmpty prepend="," property="weeks">
+				weeks = #weeks#
+			</isNotEmpty>
+			<isNotNull prepend="," property="weekbegin">
+				weekbegin = #weekbegin#
+			</isNotNull>
+			<isNotEmpty prepend="," property="starseat">
+				starseat = #starseat#
+			</isNotEmpty>
+			<isNotNull prepend="," property="hobby">
+				hobby = #hobby#
+			</isNotNull>
+			<isNotNull prepend="," property="userrecordurl">
+				userrecordurl = #userrecordurl#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentid">
+				studentid = #studentid#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userphone">
+				userphone = #userphone#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="password">
+				password = #password#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="headpic">
+				headpic = #headpic#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="registertime">
+				registertime =
+				#registertime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="canceltime">
+				canceltime =
+				#canceltime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentname">
+				studentname =
+				#studentname#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="gender">
+				gender = #gender#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="birthmonth">
+				birthmonth =
+				#birthmonth#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="origin">
+				origin = #origin#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="contactinfo">
+				contactinfo =
+				#contactinfo#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="idcard">
+				idcard = #idcard#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="usertype">
+				usertype = #usertype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="profession">
+				profession =
+				#profession#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentno">
+				studentno = #studentno#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="classindex">
+				classindex =
+				#classindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="majorindex">
+				majorindex =
+				#majorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="collegeindex">
+				collegeindex =
+				#collegeindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="entertime">
+				entertime = #entertime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="signature">
+				signature = #signature#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weeks">
+				weeks = #weeks#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weekbegin">
+				weekbegin = #weekbegin#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="starseat">
+				starseat = #starseat#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="hobby">
+				hobby = #hobby#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userrecordurl">
+				userrecordurl = #userrecordurl#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteTStudentinfo" parameterClass="alias_tstudentinfo">
+		delete from
+		t_studentinfo
+		where studentindex = #studentindex#
+	</delete>
+	<delete id="deleteTStudentinfoByCond" parameterClass="alias_tstudentinfo">
+		delete from t_studentinfo
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentid">
+				studentid = #studentid#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userphone">
+				userphone = #userphone#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="password">
+				password = #password#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="headpic">
+				headpic = #headpic#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="registertime">
+				registertime =
+				#registertime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="canceltime">
+				canceltime =
+				#canceltime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentname">
+				studentname =
+				#studentname#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="gender">
+				gender = #gender#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="birthmonth">
+				birthmonth =
+				#birthmonth#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="origin">
+				origin = #origin#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="contactinfo">
+				contactinfo =
+				#contactinfo#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="idcard">
+				idcard = #idcard#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="usertype">
+				usertype = #usertype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="profession">
+				profession =
+				#profession#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentno">
+				studentno = #studentno#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="classindex">
+				classindex =
+				#classindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="majorindex">
+				majorindex =
+				#majorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="collegeindex">
+				collegeindex =
+				#collegeindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="entertime">
+				entertime = #entertime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="signature">
+				signature = #signature#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weeks">
+				weeks = #weeks#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weekbegin">
+				weekbegin = #weekbegin#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="starseat">
+				starseat = #starseat#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="hobby">
+				hobby = #hobby#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userrecordurl">
+				userrecordurl = #userrecordurl#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="getTStudentinfo" parameterClass="alias_tstudentinfo"
+		resultMap="tstudentinfoResult">
+		select
+		studentindex,studentid,userphone,password,headpic,registertime,canceltime,studentname,status,gender,birthmonth,origin,contactinfo,idcard,usertype,profession,studentno,classindex,majorindex,schoolindex,collegeindex,entertime,signature,weeks,weekbegin,starseat,hobby,userrecordurl
+		from t_studentinfo
+		WHERE studentindex = #studentindex#
+	</select>
+
+	<select id="getTStudentinfoByUsercode" parameterClass="alias_tstudentinfo"
+		resultMap="tstudentinfoResult">
+		select
+		studentindex,studentid,userphone,password,headpic,registertime,canceltime,studentname,status,gender,birthmonth,origin,contactinfo,idcard,usertype,profession,studentno,classindex,majorindex,schoolindex,collegeindex,entertime,signature,weeks,weekbegin,starseat,hobby,userrecordurl
+		from t_studentinfo
+		WHERE userphone = #userphone#
+	</select>
+
+	<select id="queryTStudentinfoListByCond" parameterClass="alias_tstudentinfo"
+		resultMap="tstudentinfoResult">
+		select
+		studentindex,studentid,userphone,password,headpic,registertime,canceltime,studentname,status,gender,birthmonth,origin,contactinfo,idcard,usertype,profession,studentno,classindex,majorindex,schoolindex,collegeindex,entertime,signature,weeks,weekbegin,starseat,hobby,userrecordurl
+		from t_studentinfo
+		<include refid="TStudentinfo_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryTStudentinfoListCntByCond" parameterClass="alias_tstudentinfo"
+		resultClass="java.lang.Integer">
+		select count(1)
+		from t_studentinfo
+		<include refid="TStudentinfo_Where_Clause" />
+	</select>
+
+	<select id="queryTStudentinfoListByCondExact" parameterClass="alias_tstudentinfo"
+		resultMap="tstudentinfoResult">
+		select
+		studentindex,studentid,userphone,password,headpic,registertime,canceltime,studentname,status,gender,birthmonth,origin,contactinfo,idcard,usertype,profession,studentno,classindex,majorindex,schoolindex,collegeindex,entertime,signature,weeks,weekbegin,starseat,hobby,userrecordurl
+		from t_studentinfo
+		<include refid="TStudentinfo_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+
+	<select id="queryTStudentinfoListByCondExtends" parameterClass="alias_tstudentinfo"
+		resultMap="tstudentinfoResult">
+		select
+		studentindex,studentid,userphone,password,headpic,registertime,canceltime,studentname,status,gender,birthmonth,origin,contactinfo,idcard,usertype,profession,studentno,classindex,majorindex,schoolindex,collegeindex,entertime,signature,weeks,weekbegin,starseat,hobby,userrecordurl
+		from t_studentinfo
+		<include refid="TStudentinfo_Where_Clause_Search" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryTStudentinfoListCntByCondExtends"
+		parameterClass="alias_tstudentinfo" resultClass="java.lang.Integer">
+		select count(1)
+		from t_studentinfo
+		<include refid="TStudentinfo_Where_Clause_Search" />
+	</select>
+
+	<select id="queryTStudentinfoListByCondTempExtends"
+		parameterClass="alias_tstudentinfo" resultMap="tstudentinfoResult">
+		SELECT
+		studentindex,
+		studentid,
+		userphone,
+		PASSWORD,
+		headpic,
+		s.registertime AS registertime,
+		s.canceltime AS canceltime,
+		studentname,
+		s.status AS STATUS,
+		gender,
+		birthmonth,
+		origin,
+		contactinfo,
+		idcard,
+		usertype,
+		profession,
+		studentno,
+		classindex,
+		majorindex,
+		s.schoolindex AS schoolindex,
+		collegeindex,
+		entertime,
+		signature,
+		(CASE
+		WHEN s.weeks = 0 THEN t.weeks ELSE s.weeks END) AS weeks,
+		(CASE WHEN
+		s.weekbegin IS NULL OR s.weekbegin ='' THEN t.weekbegin ELSE
+		s.weekbegin END ) AS weekbegin,starseat,hobby,userrecordurl
+		FROM t_studentinfo s
+		LEFT
+		JOIN
+		t_schoolinfo t
+		ON s.schoolindex = t.schoolindex
+		AND t.schoolstatus =
+		1
+		<include refid="TStudentinfo_Where_Clause_Extends" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+</sqlMap>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+	<!-- dcache异步写入回调类 -->
+	<appender name="DCACHEDEBUG" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/home/zxin10/was/tomcat/logs/dcachedebug.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="100MB" />
+		<param name="MaxBackupIndex" value="2" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%c %d{ISO8601}
+			-- %p -- %m%n" />
+		</layout>
+	</appender>
+	<!-- appender 部分是可用的日志输出方式定义，可以定义多个 -->
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%c %d{ISO8601}
+			-- %p -- %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="DEBUG" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/home/zxin10/was/tomcat/logs/mobile.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="500KB" />
+		<param name="MaxBackupIndex" value="2" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%c %d{ISO8601}
+			-- %p -- %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="DEBUG" />
+			<param name="LevelMax" value="DEBUG" />
+		</filter>
+	</appender>
+
+	<appender name="INFO" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/home/zxin10/was/tomcat/logs/mobile.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="500KB" />
+		<param name="MaxBackupIndex" value="2" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%c %d{ISO8601}
+	-- %p -- %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="INFO" />
+			<param name="LevelMax" value="INFO" />
+		</filter>
+	</appender>
+
+	<appender name="WARN" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/home/zxin10/was/tomcat/logs/mobile_warn.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="500KB" />
+		<param name="MaxBackupIndex" value="2" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%c %d{ISO8601}
+	-- %p -- %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="WARN" />
+			<param name="LevelMax" value="WARN" />
+		</filter>
+	</appender>
+
+	<appender name="ERROR" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/home/zxin10/was/tomcat/logs/mobile_err.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="500KB" />
+		<param name="MaxBackupIndex" value="2" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%c %d{ISO8601}
+	-- %p -- %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="ERROR" />
+			<param name="LevelMax" value="ERROR" />
+		</filter>
+	</appender>
+	<!-- sql warn log -->
+	<appender name="FILE_MISP_SQL" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/home/zxin10/was/tomcat/logs/misp-warn-sql.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="1024KB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%c %d{ISO8601} -- %p -- %m%n" />
+		</layout>
+	</appender>
+
+	<!-- category 部分定义了特定包或者类的输出级别和方式，可以有多个 -->
+	<category name="org.apache">
+		<priority value="warn" />
+		<appender-ref ref="WARN" />
+	</category>
+
+	<category name="net.sf">
+		<priority value="warn" />
+		<appender-ref ref="WARN" />
+	</category>
+
+	<!-- sql warn log -->
+	<category name="com.zte.misp.common.dynamicobj.DynamicObjectMispDAO">
+		<priority value="WARN" />
+		<appender-ref ref="FILE_MISP_SQL" />
+	</category>
+
+
+	<category name="com.zte.appstore.common.DcacheCallBack">
+		<priority value="info" />
+		<appender-ref ref="DCACHEDEBUG" />
+	</category>
+
+
+
+	<!-- root部分定义了log4j的默认输出级别和方式 -->
+	<root>
+		<priority value="INFO" />
+		<appender-ref ref="DEBUG" />
+		<appender-ref ref="INFO" />
+		<appender-ref ref="WARN" />
+		<appender-ref ref="ERROR" />
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE_MISP_SQL" />
+	</root>
+</log4j:configuration>

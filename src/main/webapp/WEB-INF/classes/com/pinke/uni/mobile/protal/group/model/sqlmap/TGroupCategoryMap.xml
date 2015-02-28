@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TGroupCategoryMap">
+	<typeAlias alias="alias_tgroupCategoryMap"
+		type="com.pinke.uni.mobile.protal.group.model.TGroupCategoryMap" />
+
+	<resultMap id="tgroupCategoryMapResult" class="alias_tgroupCategoryMap">
+		<result column="mapindex" property="mapindex" />
+		<result column="categoryindex" property="categoryindex" />
+		<result column="groupindex" property="groupindex" />
+		<result column="weight" property="weight" />
+		<result column="status" property="status" />
+	</resultMap>
+
+	<sql id="TGroupCategoryMap_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="categoryindex">
+				categoryindex =
+				#categoryindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupindex">
+				groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weight">
+				weight = #weight#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<resultMap id="tgroupCategoryMapResultExtends" class="alias_tgroupCategoryMap">
+		<result column="mapindex" property="mapindex" />
+		<result column="categoryindex" property="categoryindex" />
+		<result column="groupindex" property="groupindex" />
+		<result column="weight" property="weight" />
+		<result column="status" property="status" />
+		<result column="grouppic" property="grouppic" />
+		<result column="grouppbref" property="grouppbref" />
+		<result column="grouptitle" property="grouptitle" />
+		<result column="site" property="site" />
+	</resultMap>
+
+	<sql id="TGroupCategoryMap_Where_Clause_Extends">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="categoryindex">
+				categoryindex =
+				#categoryindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupindex">
+				groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weight">
+				weight = #weight#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				s.status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+
+	<sql id="TGroupCategoryMap_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="categoryindex">
+				categoryindex =
+				#categoryindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupindex">
+				groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weight">
+				weight = #weight#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="insertTGroupCategoryMap" parameterClass="alias_tgroupCategoryMap">
+		insert into t_group_category_map (
+		mapindex
+		<dynamic>
+			<isNotEmpty prepend="," property="categoryindex">
+				categoryindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupindex">
+				groupindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="weight">
+				weight
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#mapindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="categoryindex">
+				#categoryindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupindex">
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="weight">
+				#weight#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateTGroupCategoryMap" parameterClass="alias_tgroupCategoryMap">
+		update t_group_category_map
+		set
+		mapindex = #mapindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="categoryindex">
+				categoryindex =
+				#categoryindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupindex">
+				groupindex = #groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="weight">
+				weight = #weight#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+		where mapindex = #mapindex#
+	</update>
+	<update id="updateTGroupCategoryMapByCond" parameterClass="alias_tgroupCategoryMap">
+		update t_group_category_map
+		set
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="categoryindex">
+				categoryindex =
+				#categoryindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupindex">
+				groupindex = #groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="weight">
+				weight = #weight#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="categoryindex">
+				categoryindex =
+				#categoryindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupindex">
+				groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weight">
+				weight = #weight#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteTGroupCategoryMap" parameterClass="alias_tgroupCategoryMap">
+		delete from
+		t_group_category_map
+		where mapindex = #mapindex#
+	</delete>
+	<delete id="deleteTGroupCategoryMapByCond" parameterClass="alias_tgroupCategoryMap">
+		delete from t_group_category_map
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="categoryindex">
+				categoryindex =
+				#categoryindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupindex">
+				groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weight">
+				weight = #weight#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="getTGroupCategoryMap" parameterClass="alias_tgroupCategoryMap"
+		resultMap="tgroupCategoryMapResult">
+		select mapindex,categoryindex,groupindex,weight,status
+		from
+		t_group_category_map
+		where mapindex = #mapindex#
+	</select>
+
+	<select id="queryTGroupCategoryMapListByCond" parameterClass="alias_tgroupCategoryMap"
+		resultMap="tgroupCategoryMapResultExtends">
+		SELECT
+		mapindex,
+		categoryindex,
+		s.groupindex AS categoryindex,
+		weight,
+		s.status AS STATUS,
+		m.grouptitle AS grouptitle,
+		m.groupbref AS
+		groupbref,
+		m.grouppic AS grouppic,
+		m.site AS site
+		FROM
+		t_group_category_map s
+		LEFT JOIN
+		t_groupinfo m
+		ON s.groupindex =
+		m.groupindex
+		AND m.status=1 and AND m.grouptype=0
+		<include refid="TGroupCategoryMap_Where_Clause_Extends" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryTGroupCategoryMapListCntByCond" parameterClass="alias_tgroupCategoryMap"
+		resultClass="java.lang.Integer">
+		select count(1)
+		FROM t_group_category_map s
+		LEFT JOIN
+		t_groupinfo m
+		ON
+		s.groupindex = m.groupindex
+		AND m.status=1
+		<include refid="TGroupCategoryMap_Where_Clause_Extends" />
+	</select>
+
+	<select id="queryTGroupCategoryMapListByCondExact"
+		parameterClass="alias_tgroupCategoryMap" resultMap="tgroupCategoryMapResult">
+		select
+		mapindex,categoryindex,groupindex,weight,status
+		from
+		t_group_category_map
+		<include refid="TGroupCategoryMap_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+</sqlMap>

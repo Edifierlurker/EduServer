@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="mcourseFS" class="com.pinke.uni.mobile.protal.course.fs.CourseFS"
+		autowire="byName" remoting="true" servicepath="mcourseFS"
+		service="com.pinke.uni.mobile.protal.course.fs.ICourseFS">
+		<property name="userScheduleCourseLS" ref="userScheduleCourseLS" />
+		<property name="userScheduleCourseAttendMapLS" ref="userScheduleCourseAttendMapLS" />
+
+
+
+	</bean>
+	<bean id="userScheduleCourseDAO"
+		class="com.pinke.uni.mobile.protal.course.dao.UserScheduleCourseDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="userScheduleCourseDS"
+		class="com.pinke.uni.mobile.protal.course.service.UserScheduleCourseDS"
+		autowire="byName" remoting="true" servicepath="userScheduleCourseFacade"
+		service="com.pinke.uni.mobile.protal.course.service.IUserScheduleCourseDS">
+		<property name="dao" ref="userScheduleCourseDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="userScheduleCourseLS"
+		class="com.pinke.uni.mobile.protal.course.ls.UserScheduleCourseLS"
+		autowire="byName" remoting="true" servicepath="userScheduleCourseLSFacade"
+		service="com.pinke.uni.mobile.protal.course.ls.IUserScheduleCourseLS">
+		<property name="userScheduleCourseDS" ref="userScheduleCourseDS" />
+	</bean>
+
+	<bean id="userScheduleCourseAttendMapDAO"
+		class="com.pinke.uni.mobile.protal.course.dao.UserScheduleCourseAttendMapDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="userScheduleCourseAttendMapDS"
+		class="com.pinke.uni.mobile.protal.course.service.UserScheduleCourseAttendMapDS"
+		autowire="byName" remoting="true" servicepath="userScheduleCourseAttendMapFacade"
+		service="com.pinke.uni.mobile.protal.course.service.IUserScheduleCourseAttendMapDS">
+		<property name="dao" ref="userScheduleCourseAttendMapDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="userScheduleCourseAttendMapLS"
+		class="com.pinke.uni.mobile.protal.course.ls.UserScheduleCourseAttendMapLS"
+		autowire="byName" remoting="true" servicepath="userScheduleCourseAttendMapLSFacade"
+		service="com.pinke.uni.mobile.protal.course.ls.IUserScheduleCourseAttendMapLS">
+		<property name="userScheduleCourseAttendMapDS" ref="userScheduleCourseAttendMapDS" />
+	</bean>
+
+
+</beans>

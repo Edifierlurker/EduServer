@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TNearStudent">
+	<typeAlias alias="alias_tnearStudent"
+		type="com.pinke.uni.mobile.protal.group.model.TNearStudent" />
+
+	<resultMap id="tnearStudentResult" class="alias_tnearStudent">
+		<result column="studentindex" property="studentindex" />
+		<result column="createtime" property="createtime" />
+		<result column="site" property="site" />
+		<result column="longitude" property="longitude" />
+		<result column="latitude" property="latitude" />
+		<result column="status" property="status" />
+	</resultMap>
+
+	<resultMap id="tnearStudentResult_Extends" class="alias_tnearStudent">
+		<result column="studentindex" property="studentindex" />
+		<result column="createtime" property="createtime" />
+		<result column="site" property="site" />
+		<result column="longitude" property="longitude" />
+		<result column="latitude" property="latitude" />
+		<result column="status" property="status" />
+		<result column="gender" property="gender" />
+		<result column="headpic" property="headpic" />
+		<result column="studentname" property="studentname" />
+		<result column="signature" property="signature" />
+		<result column="DISTANCE" property="DISTANCE" />
+
+	</resultMap>
+
+	<sql id="TNearStudent_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="longitude">
+				longitude = #longitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="latitude">
+				latitude = #latitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<sql id="TNearStudent_Where_Clause_Extends">
+		<dynamic prepend="where">
+			
+			<isNotEmpty prepend="and" property="studentindex">
+				s.studentindex !=
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				s.createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				s.status = #status# and  m.studentindex IS NOT null
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="gender">
+				m.gender = #gender#
+			</isNotEmpty>
+
+		</dynamic>
+	</sql>
+
+
+	<sql id="TNearStudent_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="longitude">
+				longitude = #longitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="latitude">
+				latitude = #latitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="insertTNearStudent" parameterClass="alias_tnearStudent">
+		insert into t_near_student (
+		studentindex
+		<dynamic>
+			<isNotEmpty prepend="," property="createtime">
+				createtime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="site">
+				site
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="longitude">
+				longitude
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="latitude">
+				latitude
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#studentindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="createtime">
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="site">
+				#site#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="longitude">
+				#longitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="latitude">
+				#latitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateTNearStudent" parameterClass="alias_tnearStudent">
+		update t_near_student
+		set
+		studentindex = #studentindex#
+		<dynamic>
+			<isNotNull prepend="," property="createtime">
+				createtime = #createtime#
+			</isNotNull>
+			<isNotNull prepend="," property="site">
+				site = #site#
+			</isNotNull>
+			<isNotNull prepend="," property="longitude">
+				longitude = #longitude#
+			</isNotNull>
+			<isNotNull prepend="," property="latitude">
+				latitude = #latitude#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+		where studentindex = #studentindex#
+	</update>
+	<update id="updateTNearStudentByCond" parameterClass="alias_tnearStudent">
+		update t_near_student
+		set
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="createtime">
+				createtime = #createtime#
+			</isNotNull>
+			<isNotNull prepend="," property="site">
+				site = #site#
+			</isNotNull>
+			<isNotNull prepend="," property="longitude">
+				longitude = #longitude#
+			</isNotNull>
+			<isNotNull prepend="," property="latitude">
+				latitude = #latitude#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="longitude">
+				longitude = #longitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="latitude">
+				latitude = #latitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteTNearStudent" parameterClass="alias_tnearStudent">
+		delete from
+		t_near_student
+		where studentindex = #studentindex#
+	</delete>
+	<delete id="deleteTNearStudentByCond" parameterClass="alias_tnearStudent">
+		delete from t_near_student
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="longitude">
+				longitude = #longitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="latitude">
+				latitude = #latitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="getTNearStudent" parameterClass="alias_tnearStudent"
+		resultMap="tnearStudentResult">
+		select
+		studentindex,createtime,site,longitude,latitude,status
+		from
+		t_near_student
+		where studentindex = #studentindex#
+	</select>
+
+	<select id="queryTNearStudentListByCond" parameterClass="alias_tnearStudent"
+		resultMap="tnearStudentResult_Extends">
+		SELECT
+		s.studentindex AS studentindex,
+		s.createtime AS createtime,
+		site,
+		longitude,
+		latitude,
+		s.status AS STATUS,
+		m.studentname AS studentname,
+		m.headpic AS headpic,
+		m.gender AS gender,
+		m.signature AS signature,
+		GetDistance(latitude
+		,longitude ,#latitude#,#longitude#) AS DISTANCE
+		FROM t_near_student s
+		LEFT JOIN t_studentinfo m
+		ON m.studentindex =
+		s.studentindex
+		AND
+		m.status=1
+		<include refid="TNearStudent_Where_Clause_Extends" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryTNearStudentListCntByCond" parameterClass="alias_tnearStudent"
+		resultClass="java.lang.Integer">
+		select count(1)
+		FROM t_near_student s
+		LEFT JOIN t_studentinfo m
+		ON
+		m.studentindex = s.studentindex
+		AND m.status=1
+		<include refid="TNearStudent_Where_Clause_Extends" />
+	</select>
+
+	<select id="queryTNearStudentListByCondExact" parameterClass="alias_tnearStudent"
+		resultMap="tnearStudentResult">
+		select
+		studentindex,createtime,site,longitude,latitude,status
+		from
+		t_near_student
+		<include refid="TNearStudent_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+</sqlMap>

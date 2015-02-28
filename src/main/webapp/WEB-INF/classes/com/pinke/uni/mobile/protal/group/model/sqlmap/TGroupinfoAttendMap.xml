@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TGroupinfoAttendMap">
+	<typeAlias alias="alias_tgroupinfoAttendMap"
+		type="com.pinke.uni.mobile.protal.group.model.TGroupinfoAttendMap" />
+
+	<resultMap id="tgroupinfoAttendMapResult" class="alias_tgroupinfoAttendMap">
+		<result column="mapindex" property="mapindex" />
+		<result column="groupindex" property="groupindex" />
+		<result column="attendindex" property="attendindex" />
+		<result column="status" property="status" />
+		<result column="attendtime" property="attendtime" />
+		<result column="applytime" property="applytime" />
+		<result column="note" property="note" />
+		<result column="grpnickname" property="grpnickname" />
+
+	</resultMap>
+
+	<resultMap id="tgroupinfoAttendMapResultExtends" class="alias_tgroupinfoAttendMap">
+		<result column="mapindex" property="mapindex" />
+		<result column="groupindex" property="groupindex" />
+		<result column="attendindex" property="attendindex" />
+		<result column="status" property="status" />
+		<result column="attendtime" property="attendtime" />
+		<result column="applytime" property="applytime" />
+		<result column="note" property="note" />
+		<result column="studentname" property="studentname" />
+		<result column="headpic" property="headpic" />
+		<result column="userphone" property="userphone" />
+		<result column="studentid" property="studentid" />
+		<result column="grpnickname" property="grpnickname" />
+	</resultMap>
+
+	<resultMap id="tgroupinfoAttendMapResultAttend" class="alias_tgroupinfoAttendMap">
+		<result column="mapindex" property="mapindex" />
+		<result column="groupindex" property="groupindex" />
+		<result column="attendindex" property="attendindex" />
+		<result column="status" property="status" />
+		<result column="attendtime" property="attendtime" />
+		<result column="applytime" property="applytime" />
+		<result column="note" property="note" />
+		<result column="grouptitle" property="grouptitle" />
+		<result column="site" property="site" />
+		<result column="groupbref" property="groupbref" />
+		<result column="grouppic" property="grouppic" />
+		<result column="groupid" property="groupid" />
+		<result column="grpnickname" property="grpnickname" />
+		<result column="grouptype" property="grouptype" />
+		<result column="groupmanagerindex" property="groupmanagerindex" />
+	</resultMap>
+
+
+	<sql id="TGroupinfoAttendMap_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupindex">
+				groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendindex">
+				attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendtime">
+				attendtime =
+				#attendtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="applytime">
+				applytime = #applytime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grpnickname">
+				grpnickname =
+				#grpnickname#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<sql id="TGroupinfoAttendMap_Where_Clause_Attend">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				s.mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupindex">
+				s.groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendindex">
+				s.attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				s.status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendtime">
+				attendtime =
+				#attendtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="applytime">
+				s.applytime =
+				#applytime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				s.note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grpnickname">
+				grpnickname =
+				#grpnickname#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<sql id="TGroupinfoAttendMap_Where_Clause_Extends_search">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupindex">
+				s.groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendindex">
+				attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				s.status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendtime">
+				attendtime =
+				#attendtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="applytime">
+				applytime = #applytime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="" property="studentid">
+				<isNotEmpty prepend="and (" property="studentname">
+				<![CDATA[studentid like
+				'%$studentid$%' escape '/'
+			or 
+				studentname like
+				'%$studentname$%' escape '/'
+			or grpnickname like '%$studentname$%' escape '/' )]]>
+				</isNotEmpty>
+			</isNotEmpty>
+			<isEmpty prepend="" property="studentid">
+				<isNotEmpty prepend="and" property="studentname">
+					<![CDATA[(studentname like
+					'%$studentname$%' escape '/' or grpnickname like '%$studentname$%' escape '/' )]]>
+				</isNotEmpty>
+			</isEmpty>
+			<isNotEmpty prepend="and" property="grpnickname">
+				grpnickname =
+				#grpnickname#
+			</isNotEmpty>
+
+		</dynamic>
+	</sql>
+
+	<sql id="TGroupinfoAttendMap_Where_Clause_Extends">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupindex">
+				s.groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendindex">
+				attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				s.status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendtime">
+				attendtime =
+				#attendtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="applytime">
+				applytime = #applytime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grpnickname">
+				grpnickname =
+				#grpnickname#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<sql id="TGroupinfoAttendMap_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupindex">
+				groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendindex">
+				attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendtime">
+				attendtime =
+				#attendtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="applytime">
+				applytime = #applytime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grpnickname">
+				grpnickname =
+				#grpnickname#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="insertTGroupinfoAttendMap" parameterClass="alias_tgroupinfoAttendMap">
+		insert into t_groupinfo_attend_map (
+		mapindex
+		<dynamic>
+			<isNotEmpty prepend="," property="groupindex">
+				groupindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="attendindex">
+				attendindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="attendtime">
+				attendtime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="applytime">
+				applytime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				note
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="grpnickname">
+				grpnickname
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#mapindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="groupindex">
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="attendindex">
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="attendtime">
+				#attendtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="applytime">
+				#applytime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				#note#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="grpnickname">
+				#grpnickname#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateTGroupinfoAttendMap" parameterClass="alias_tgroupinfoAttendMap">
+		update t_groupinfo_attend_map
+		set
+		mapindex = #mapindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="groupindex">
+				groupindex = #groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="attendindex">
+				attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotNull prepend="," property="attendtime">
+				attendtime = #attendtime#
+			</isNotNull>
+			<isNotNull prepend="," property="applytime">
+				applytime = #applytime#
+			</isNotNull>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+			<isNotNull prepend="," property="grpnickname">
+				grpnickname = #grpnickname#
+			</isNotNull>
+		</dynamic>
+		where mapindex = #mapindex#
+	</update>
+	<update id="updateTGroupinfoAttendMapByCond" parameterClass="alias_tgroupinfoAttendMap">
+		update t_groupinfo_attend_map
+		set
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="groupindex">
+				groupindex = #groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="attendindex">
+				attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotNull prepend="," property="attendtime">
+				attendtime = #attendtime#
+			</isNotNull>
+			<isNotNull prepend="," property="applytime">
+				applytime = #applytime#
+			</isNotNull>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+			<isNotNull prepend="," property="grpnickname">
+				grpnickname = #grpnickname#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupindex">
+				groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendindex">
+				attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendtime">
+				attendtime =
+				#attendtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="applytime">
+				applytime = #applytime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grpnickname">
+				grpnickname =
+				#grpnickname#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteTGroupinfoAttendMap" parameterClass="alias_tgroupinfoAttendMap">
+		delete
+		from t_groupinfo_attend_map
+		where mapindex = #mapindex#
+	</delete>
+	<delete id="deleteTGroupinfoAttendMapByCond" parameterClass="alias_tgroupinfoAttendMap">
+		delete from t_groupinfo_attend_map
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupindex">
+				groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendindex">
+				attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendtime">
+				attendtime =
+				#attendtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="applytime">
+				applytime = #applytime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grpnickname">
+				grpnickname =
+				#grpnickname#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="getTGroupinfoAttendMap" parameterClass="alias_tgroupinfoAttendMap"
+		resultMap="tgroupinfoAttendMapResult">
+		select
+		mapindex,groupindex,attendindex,status,attendtime,applytime,note,grpnickname
+		from
+		t_groupinfo_attend_map
+		<include refid="TGroupinfoAttendMap_Where_Clause" />
+	</select>
+
+	<select id="queryTGroupinfoAttendMapListByCond" parameterClass="alias_tgroupinfoAttendMap"
+		resultMap="tgroupinfoAttendMapResultAttend">
+		SELECT
+		mapindex,
+		s.groupindex AS groupindex,
+		attendindex,
+		s.status AS
+		STATUS,
+		attendtime,
+		applytime,
+		s.note AS note,
+		m.grouptitle AS grouptitle,
+		m.site AS site,
+		m.groupbref AS groupbref,
+		m.grouppic AS grouppic,
+		m.groupid AS groupid,grpnickname,grouptype,m.groupmanagerindex AS
+		groupmanagerindex
+		FROM t_groupinfo_attend_map
+		s
+		LEFT JOIN
+		t_groupinfo
+		m
+		ON
+		s.groupindex = m.groupindex
+		AND m.status=1
+		<dynamic>
+			<isNotEmpty prepend="and" property="grouptype">
+				m.grouptype =
+				#grouptype#
+			</isNotEmpty>
+		</dynamic>
+		<include refid="TGroupinfoAttendMap_Where_Clause_Attend" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryTGroupinfoAttendMapListCntByCond"
+		parameterClass="alias_tgroupinfoAttendMap" resultClass="java.lang.Integer">
+		select count(1)
+		FROM t_groupinfo_attend_map s
+		LEFT JOIN t_groupinfo
+		m
+		ON
+		s.groupindex = m.groupindex
+		AND m.status=1
+		<dynamic>
+			<isNotEmpty prepend="and" property="grouptype">
+				m.grouptype =
+				#grouptype#
+			</isNotEmpty>
+		</dynamic>
+		<include refid="TGroupinfoAttendMap_Where_Clause_Attend" />
+	</select>
+
+
+
+
+
+	<select id="queryTGroupinfoAttendMapListByCondExtends"
+		parameterClass="alias_tgroupinfoAttendMap" resultMap="tgroupinfoAttendMapResultExtends">
+		SELECT
+		mapindex,
+		s.groupindex AS groupindex,
+		attendindex,
+		s.status AS
+		STATUS,
+		attendtime,
+		applytime,
+		s.note AS note,
+		m.studentname AS
+		studentname,
+		m.headpic AS headpic,
+		m.userphone AS userphone,
+		m.studentid
+		AS studentid,
+		n.groupcreaterindex AS createindex,grpnickname
+		FROM
+		t_groupinfo_attend_map s
+		LEFT JOIN t_studentinfo m
+		ON s.attendindex =
+		m.studentindex
+		AND m.status = 1
+		LEFT JOIN t_groupinfo n
+		ON n.groupindex =
+		s.groupindex
+		AND n.status = 1
+		<include refid="TGroupinfoAttendMap_Where_Clause_Extends" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+
+	<select id="queryTGroupinfoAttendMapListByCondExact"
+		parameterClass="alias_tgroupinfoAttendMap" resultMap="tgroupinfoAttendMapResultExtends">
+		SELECT
+		mapindex,
+		s.groupindex AS groupindex,
+		attendindex,
+		s.status AS
+		STATUS,
+		attendtime,
+		applytime,
+		s.note AS note,
+		m.studentname AS
+		studentname,
+		m.headpic AS headpic,
+		m.userphone AS userphone,
+		m.studentid
+		AS studentid,
+		1 as createindex,grpnickname
+		FROM t_groupinfo_attend_map s
+		LEFT JOIN
+		t_studentinfo m
+		ON s.attendindex
+		= m.studentindex
+		AND m.status =
+		1
+		<include refid="TGroupinfoAttendMap_Where_Clause_Extends_search" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+</sqlMap>

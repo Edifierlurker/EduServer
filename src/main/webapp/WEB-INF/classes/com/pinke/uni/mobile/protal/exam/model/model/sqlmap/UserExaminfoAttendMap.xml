@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+  <sqlMap namespace="UserExaminfoAttendMap">
+	<typeAlias alias="alias_userExaminfoAttendMap"	type="com.pinke.uni.mobile.protal.exam.model.UserExaminfoAttendMap" />
+	
+	<resultMap id="userExaminfoAttendMapResult" class="alias_userExaminfoAttendMap">
+  		<result column="attendindex" property="attendindex" />
+  		<result column="examindex" property="examindex" />
+  		<result column="userindex" property="userindex" />
+  		<result column="status" property="status" />
+  		<result column="note" property="note" />
+	</resultMap>
+
+  <sql id="UserExaminfoAttendMap_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="attendindex">
+			    attendindex = #attendindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="examindex">
+			    examindex = #examindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="userindex">
+			    userindex = #userindex#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+
+
+  <sql id="UserExaminfoAttendMap_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="attendindex">
+			  attendindex = #attendindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="examindex">
+			  examindex = #examindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="userindex">
+			  userindex = #userindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="note">
+			  note = #note#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+	
+	<insert id="insertUserExaminfoAttendMap" parameterClass="alias_userExaminfoAttendMap">
+		insert into user_examinfo_attend_map (
+			attendindex
+			<dynamic>
+				<isNotEmpty prepend="," property="examindex">
+					examindex
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="userindex">
+					userindex
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					status
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="note">
+					note
+				</isNotEmpty>	
+			</dynamic>
+	   	)values(
+			#attendindex#			
+			<dynamic>
+				<isNotEmpty prepend="," property="examindex">
+					#examindex#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="userindex">
+					#userindex#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					#status#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="note">
+					#note#
+				</isNotEmpty>	
+			</dynamic>	
+	   	)
+	</insert>	    
+	
+	<update id="updateUserExaminfoAttendMap"	parameterClass="alias_userExaminfoAttendMap">
+	    update user_examinfo_attend_map
+	    set
+		 attendindex = #attendindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="examindex">
+			  examindex = #examindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="userindex">
+			  userindex = #userindex#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="status">
+			  status = #status#
+			</isNotNull>
+			<isNotNull prepend="," property="note">
+			  note = #note#
+			</isNotNull>
+		</dynamic>
+		where attendindex = #attendindex#
+  	</update>
+	<update id="updateUserExaminfoAttendMapByCond" parameterClass="alias_userExaminfoAttendMap">
+		update user_examinfo_attend_map
+		set
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="examindex">
+			  examindex = #examindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="userindex">
+			  userindex = #userindex#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="status">
+			  status = #status#
+			</isNotNull>
+			<isNotNull prepend="," property="note">
+			  note = #note#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+           <isNotEmpty prepend="and" property="attendindex">
+		     attendindex = #attendindex#		
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="examindex">
+		     examindex = #examindex#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="userindex">
+		     userindex = #userindex#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="note">
+		     note = #note#
+ 		   </isNotEmpty>
+ 		</dynamic>
+    </update>
+
+	<delete id="deleteUserExaminfoAttendMap" parameterClass="alias_userExaminfoAttendMap">
+		delete from user_examinfo_attend_map 
+	    where attendindex = #attendindex#
+	</delete>
+	<delete id="deleteUserExaminfoAttendMapByCond" parameterClass="alias_userExaminfoAttendMap">
+		delete from user_examinfo_attend_map 
+		<dynamic prepend="where">
+          <isNotEmpty prepend="and" property="attendindex">
+		    attendindex = #attendindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="examindex">
+		    examindex = #examindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="userindex">
+		    userindex = #userindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="status">
+		    status = #status#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="note">
+		    note = #note#
+          </isNotEmpty>
+        </dynamic>
+	</delete>
+
+	<select id="getUserExaminfoAttendMap" parameterClass="alias_userExaminfoAttendMap" resultMap="userExaminfoAttendMapResult">
+		select attendindex,examindex,userindex,status,note
+    	from user_examinfo_attend_map
+		where attendindex = #attendindex#
+	</select>
+
+	<select id="queryUserExaminfoAttendMapListByCond" parameterClass="alias_userExaminfoAttendMap" resultMap="userExaminfoAttendMapResult" >
+		select 
+		  attendindex,examindex,userindex,status,note
+		from user_examinfo_attend_map 
+		<include refid="UserExaminfoAttendMap_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>	
+	
+	<select id="queryUserExaminfoAttendMapListCntByCond" parameterClass="alias_userExaminfoAttendMap" resultClass="java.lang.Integer">
+		select count(1)
+		from user_examinfo_attend_map 
+		<include refid="UserExaminfoAttendMap_Where_Clause" />
+	</select>
+	
+	<select id="queryUserExaminfoAttendMapListByCondExact" parameterClass="alias_userExaminfoAttendMap" resultMap="userExaminfoAttendMapResult" >
+		select 
+		  attendindex,examindex,userindex,status,note
+		from user_examinfo_attend_map 
+		<include refid="UserExaminfoAttendMap_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+</sqlMap>

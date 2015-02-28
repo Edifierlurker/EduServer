@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TFriendinfo">
+	<typeAlias alias="alias_tfriendinfo"
+		type="com.pinke.uni.mobile.protal.bbs.model.TFriendinfo" />
+
+	<resultMap id="tfriendinfoResult" class="alias_tfriendinfo">
+		<result column="mapindex" property="mapindex" />
+		<result column="userindex" property="userindex" />
+		<result column="friendindex" property="friendindex" />
+		<result column="status" property="status" />
+		<result column="remark" property="remark" />
+	</resultMap>
+
+	<resultMap id="tfriendinfoResultExtends" class="alias_tfriendinfo">
+		<result column="mapindex" property="mapindex" />
+		<result column="userindex" property="userindex" />
+		<result column="friendindex" property="friendindex" />
+		<result column="status" property="status" />
+		<result column="remark" property="remark" />
+		<result column="userphone" property="userphone" />
+		<result column="studentname" property="studentname" />
+		<result column="studentid" property="studentid" />
+		<result column="headpic" property="headpic" />
+
+	</resultMap>
+
+	<sql id="TFriendinfo_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userindex">
+				userindex = #userindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="friendindex">
+				friendindex =
+				#friendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="remark">
+				remark = #remark#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<sql id="TFriendinfo_Where_Clause_Extends">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				s.mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userindex">
+				s.userindex =
+				#userindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="friendindex">
+				s.friendindex =
+				#friendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				s.status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="remark">
+				s.remark = #remark#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+
+
+	<sql id="TFriendinfo_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userindex">
+				userindex = #userindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="friendindex">
+				friendindex =
+				#friendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="remark">
+				remark = #remark#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="insertTFriendinfo" parameterClass="alias_tfriendinfo">
+		insert into t_friendinfo (
+		mapindex
+		<dynamic>
+			<isNotEmpty prepend="," property="userindex">
+				userindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="friendindex">
+				friendindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="remark">
+				remark
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#mapindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="userindex">
+				#userindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="friendindex">
+				#friendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="remark">
+				#remark#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateTFriendinfo" parameterClass="alias_tfriendinfo">
+		update t_friendinfo
+		set
+		mapindex = #mapindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="userindex">
+				userindex = #userindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="friendindex">
+				friendindex =
+				#friendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotNull prepend="," property="remark">
+				remark = #remark#
+			</isNotNull>
+		</dynamic>
+		where mapindex = #mapindex#
+	</update>
+	<update id="updateTFriendinfoByCond" parameterClass="alias_tfriendinfo">
+		update t_friendinfo
+		set
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="userindex">
+				userindex = #userindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="friendindex">
+				friendindex =
+				#friendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotNull prepend="," property="remark">
+				remark = #remark#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userindex">
+				userindex = #userindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="friendindex">
+				friendindex =
+				#friendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteTFriendinfo" parameterClass="alias_tfriendinfo">
+		delete from
+		t_friendinfo
+		where mapindex = #mapindex#
+	</delete>
+	<delete id="deleteTFriendinfoByCond" parameterClass="alias_tfriendinfo">
+		delete from t_friendinfo
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userindex">
+				userindex = #userindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="friendindex">
+				friendindex =
+				#friendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="remark">
+				remark = #remark#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="getTFriendinfo" parameterClass="alias_tfriendinfo"
+		resultMap="tfriendinfoResult">
+		select mapindex,userindex,friendindex,status,remark
+		from
+		t_friendinfo
+		<include refid="TFriendinfo_Where_Clause" />
+	</select>
+
+	<select id="queryTFriendinfoListByCond" parameterClass="alias_tfriendinfo"
+		resultMap="tfriendinfoResultExtends">
+		SELECT
+		mapindex,
+		userindex,
+		friendindex,
+		s.status AS STATUS,
+		remark,
+		m.userphone AS
+		userphone,
+		m.studentname AS studentname,
+		m.studentid AS
+		studentid,
+		m.headpic AS headpic
+		FROM
+		t_friendinfo s
+		LEFT JOIN
+		t_studentinfo m
+		ON
+		s.friendindex = m.studentindex
+		AND m.status=1
+		<include refid="TFriendinfo_Where_Clause_Extends" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryTFriendinfoListCntByCond" parameterClass="alias_tfriendinfo"
+		resultClass="java.lang.Integer">
+		select count(1)
+		FROM
+		t_friendinfo s
+		LEFT JOIN t_studentinfo m
+		ON
+		s.friendindex = m.studentindex
+		AND m.status=1
+		<include refid="TFriendinfo_Where_Clause_Extends" />
+	</select>
+
+	<select id="queryTFriendinfoListByCondExact" parameterClass="alias_tfriendinfo"
+		resultMap="tfriendinfoResult">
+		select
+		mapindex,userindex,friendindex,status,remark
+		from t_friendinfo
+		<include refid="TFriendinfo_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+</sqlMap>

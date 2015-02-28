@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TGroupinfoBulletin">
+	<typeAlias alias="alias_tgroupinfoBulletin"
+		type="com.pinke.uni.mobile.protal.group.model.TGroupinfoBulletin" />
+
+	<resultMap id="tgroupinfoBulletinResult" class="alias_tgroupinfoBulletin">
+		<result column="bulletinidnex" property="bulletinidnex" />
+		<result column="groupindex" property="groupindex" />
+		<result column="bulletintitle" property="bulletintitle" />
+		<result column="bulletindesc" property="bulletindesc" />
+		<result column="studentindex" property="studentindex" />
+		<result column="createtime" property="createtime" />
+		<result column="status" property="status" />
+		<result column="note" property="note" />
+	</resultMap>
+
+	<sql id="TGroupinfoBulletin_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="bulletinidnex">
+				bulletinidnex =
+				#bulletinidnex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupindex">
+				groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bulletintitle">
+				bulletintitle =
+				#bulletintitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bulletindesc">
+				bulletindesc =
+				#bulletindesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<resultMap id="tgroupinfoBulletinResult_Extends" class="alias_tgroupinfoBulletin">
+		<result column="bulletinidnex" property="bulletinidnex" />
+		<result column="groupindex" property="groupindex" />
+		<result column="bulletintitle" property="bulletintitle" />
+		<result column="bulletindesc" property="bulletindesc" />
+		<result column="studentindex" property="studentindex" />
+		<result column="createtime" property="createtime" />
+		<result column="status" property="status" />
+		<result column="note" property="note" />
+		<result column="studentname" property="studentname" />
+	</resultMap>
+
+	<sql id="TGroupinfoBulletin_Where_Clause_Extends">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="bulletinidnex">
+				bulletinidnex =
+				#bulletinidnex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupindex">
+				groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bulletintitle">
+				bulletintitle =
+				#bulletintitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bulletindesc">
+				bulletindesc =
+				#bulletindesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				s.studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				s.createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				s.status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<sql id="TGroupinfoBulletin_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="bulletinidnex">
+				bulletinidnex =
+				#bulletinidnex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupindex">
+				groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bulletintitle">
+				bulletintitle =
+				#bulletintitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bulletindesc">
+				bulletindesc =
+				#bulletindesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="insertTGroupinfoBulletin" parameterClass="alias_tgroupinfoBulletin">
+		insert into t_groupinfo_bulletin (
+		bulletinidnex
+		<dynamic>
+			<isNotEmpty prepend="," property="groupindex">
+				groupindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="bulletintitle">
+				bulletintitle
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="bulletindesc">
+				bulletindesc
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentindex">
+				studentindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="createtime">
+				createtime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				note
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#bulletinidnex#
+		<dynamic>
+			<isNotEmpty prepend="," property="groupindex">
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="bulletintitle">
+				#bulletintitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="bulletindesc">
+				#bulletindesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentindex">
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="createtime">
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				#note#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateTGroupinfoBulletin" parameterClass="alias_tgroupinfoBulletin">
+		update t_groupinfo_bulletin
+		set
+		bulletinidnex = #bulletinidnex#
+		<dynamic>
+			<isNotEmpty prepend="," property="groupindex">
+				groupindex = #groupindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="bulletintitle">
+				bulletintitle =
+				#bulletintitle#
+			</isNotNull>
+			<isNotNull prepend="," property="bulletindesc">
+				bulletindesc =
+				#bulletindesc#
+			</isNotNull>
+			<isNotEmpty prepend="," property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="createtime">
+				createtime = #createtime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+		</dynamic>
+		where bulletinidnex = #bulletinidnex#
+		and
+		studentindex =
+		#studentindex#
+
+	</update>
+	<update id="updateTGroupinfoBulletinByCond" parameterClass="alias_tgroupinfoBulletin">
+		update t_groupinfo_bulletin
+		set
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="groupindex">
+				groupindex = #groupindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="bulletintitle">
+				bulletintitle =
+				#bulletintitle#
+			</isNotNull>
+			<isNotNull prepend="," property="bulletindesc">
+				bulletindesc =
+				#bulletindesc#
+			</isNotNull>
+			<isNotEmpty prepend="," property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="createtime">
+				createtime = #createtime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="bulletinidnex">
+				bulletinidnex =
+				#bulletinidnex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupindex">
+				groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bulletintitle">
+				bulletintitle =
+				#bulletintitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bulletindesc">
+				bulletindesc =
+				#bulletindesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteTGroupinfoBulletin" parameterClass="alias_tgroupinfoBulletin">
+		delete from
+		t_groupinfo_bulletin
+		where bulletinidnex = #bulletinidnex#
+	</delete>
+	<delete id="deleteTGroupinfoBulletinByCond" parameterClass="alias_tgroupinfoBulletin">
+		delete from t_groupinfo_bulletin
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="bulletinidnex">
+				bulletinidnex =
+				#bulletinidnex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupindex">
+				groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bulletintitle">
+				bulletintitle =
+				#bulletintitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bulletindesc">
+				bulletindesc =
+				#bulletindesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="getTGroupinfoBulletin" parameterClass="alias_tgroupinfoBulletin"
+		resultMap="tgroupinfoBulletinResult">
+		select
+		bulletinidnex,groupindex,bulletintitle,bulletindesc,studentindex,createtime,status,note
+		from t_groupinfo_bulletin
+		where bulletinidnex = #bulletinidnex#
+	</select>
+
+	<select id="queryTGroupinfoBulletinListByCond" parameterClass="alias_tgroupinfoBulletin"
+		resultMap="tgroupinfoBulletinResult_Extends">
+		SELECT
+		bulletinidnex,
+		groupindex,
+		bulletintitle,
+		bulletindesc,
+		s.studentindex AS studentindex,
+		s.createtime AS createtime,
+		s.status AS
+		STATUS,
+		s.note AS note,
+		m.studentname AS studentname
+		FROM
+		t_groupinfo_bulletin s
+		LEFT JOIN t_studentinfo m
+		ON s.studentindex =
+		m.studentindex
+		AND m.status=1
+		<include refid="TGroupinfoBulletin_Where_Clause_Extends" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryTGroupinfoBulletinListCntByCond"
+		parameterClass="alias_tgroupinfoBulletin" resultClass="java.lang.Integer">
+		select count(1)
+		FROM
+		t_groupinfo_bulletin s
+		LEFT JOIN t_studentinfo m
+		ON
+		s.studentindex =
+		m.studentindex
+		AND m.status=1
+		<include refid="TGroupinfoBulletin_Where_Clause_Extends" />
+	</select>
+
+	<select id="queryTGroupinfoBulletinListByCondExact"
+		parameterClass="alias_tgroupinfoBulletin" resultMap="tgroupinfoBulletinResult">
+		select
+		bulletinidnex,groupindex,bulletintitle,bulletindesc,studentindex,createtime,status,note
+		from t_groupinfo_bulletin
+		<include refid="TGroupinfoBulletin_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+</sqlMap>

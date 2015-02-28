@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config>
+	<general>
+		<!-- seconds of timeout for synchronous operation -->
+		<sessionwait>60</sessionwait>
+		<!-- seconds of timeout for asynchronous operation -->
+		<listenerwait>30</listenerwait>
+		<!-- max concurrent packet number -->
+		<maxconcurrent>2000</maxconcurrent>
+		<!-- enable/disable TCP_NO_DELAY of socket -->
+		<tcpnodelay>1</tcpnodelay>
+		<!-- using reliable mode if set to 1 -->
+		<reliablemode>0</reliablemode>
+	</general>
+	<dcache>
+		<IPvX>4</IPvX>
+		<localIP>localhost</localIP>
+		<seedcount>1</seedcount>
+		<seedport>7000</seedport>
+		<s0>10.46.178.60</s0>
+		<!-- <seedcount>3</seedcount> <seedport>17000</seedport> <s0>10.42.106.134</s0> 
+			<s1>10.42.106.135</s1> <s2>10.42.106.136</s2> -->
+	</dcache>
+</config>

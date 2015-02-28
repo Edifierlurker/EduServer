@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+  <sqlMap namespace="TArticleinfoShare">
+	<typeAlias alias="alias_tarticleinfoShare"	type="com.pinke.uni.mobile.protal.bbs.model.TArticleinfoShare" />
+	
+	<resultMap id="tarticleinfoShareResult" class="alias_tarticleinfoShare">
+  		<result column="shareindex" property="shareindex" />
+  		<result column="articleindex" property="articleindex" />
+  		<result column="userindex" property="userindex" />
+  		<result column="sharesite" property="sharesite" />
+  		<result column="sharelinkurl" property="sharelinkurl" />
+  		<result column="createtime" property="createtime" />
+  		<result column="status" property="status" />
+  		<result column="note" property="note" />
+	</resultMap>
+
+  <sql id="TArticleinfoShare_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="shareindex">
+			    shareindex = #shareindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="articleindex">
+			    articleindex = #articleindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="userindex">
+			    userindex = #userindex#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="sharesite">
+				sharesite = #sharesite#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="sharelinkurl">
+			    sharelinkurl = #sharelinkurl#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="createtime">
+				createtime = #createtime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="status">
+			    status = #status#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+
+
+  <sql id="TArticleinfoShare_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="shareindex">
+			  shareindex = #shareindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="articleindex">
+			  articleindex = #articleindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="userindex">
+			  userindex = #userindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="sharesite">
+			  sharesite = #sharesite#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="sharelinkurl">
+			  sharelinkurl = #sharelinkurl#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="createtime">
+			  createtime = #createtime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="note">
+			  note = #note#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+	
+	<insert id="insertTArticleinfoShare" parameterClass="alias_tarticleinfoShare">
+		insert into t_articleinfo_share (
+			shareindex
+			<dynamic>
+				<isNotEmpty prepend="," property="articleindex">
+					articleindex
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="userindex">
+					userindex
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="sharesite">
+					sharesite
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="sharelinkurl">
+					sharelinkurl
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="createtime">
+					createtime
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					status
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="note">
+					note
+				</isNotEmpty>	
+			</dynamic>
+	   	)values(
+			#shareindex#			
+			<dynamic>
+				<isNotEmpty prepend="," property="articleindex">
+					#articleindex#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="userindex">
+					#userindex#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="sharesite">
+					#sharesite#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="sharelinkurl">
+					#sharelinkurl#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="createtime">
+					#createtime#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					#status#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="note">
+					#note#
+				</isNotEmpty>	
+			</dynamic>	
+	   	)
+	</insert>	    
+	
+	<update id="updateTArticleinfoShare"	parameterClass="alias_tarticleinfoShare">
+	    update t_articleinfo_share
+	    set
+		 shareindex = #shareindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="articleindex">
+			  articleindex = #articleindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="userindex">
+			  userindex = #userindex#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="sharesite">
+			  sharesite = #sharesite#
+			</isNotNull>
+			<isNotEmpty prepend="," property="sharelinkurl">
+			  sharelinkurl = #sharelinkurl#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="createtime">
+			  createtime = #createtime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="note">
+			  note = #note#
+			</isNotNull>
+		</dynamic>
+		where shareindex = #shareindex#
+  	</update>
+	<update id="updateTArticleinfoShareByCond" parameterClass="alias_tarticleinfoShare">
+		update t_articleinfo_share
+		set
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="articleindex">
+			  articleindex = #articleindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="userindex">
+			  userindex = #userindex#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="sharesite">
+			  sharesite = #sharesite#
+			</isNotNull>
+			<isNotEmpty prepend="," property="sharelinkurl">
+			  sharelinkurl = #sharelinkurl#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="createtime">
+			  createtime = #createtime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="note">
+			  note = #note#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+           <isNotEmpty prepend="and" property="shareindex">
+		     shareindex = #shareindex#		
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="articleindex">
+		     articleindex = #articleindex#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="userindex">
+		     userindex = #userindex#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="sharesite">
+		     sharesite = #sharesite#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="sharelinkurl">
+		     sharelinkurl = #sharelinkurl#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="createtime">
+		     createtime = #createtime#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="status">
+		     status = #status#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="note">
+		     note = #note#
+ 		   </isNotEmpty>
+ 		</dynamic>
+    </update>
+
+	<delete id="deleteTArticleinfoShare" parameterClass="alias_tarticleinfoShare">
+		delete from t_articleinfo_share 
+	    where shareindex = #shareindex#
+	</delete>
+	<delete id="deleteTArticleinfoShareByCond" parameterClass="alias_tarticleinfoShare">
+		delete from t_articleinfo_share 
+		<dynamic prepend="where">
+          <isNotEmpty prepend="and" property="shareindex">
+		    shareindex = #shareindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="articleindex">
+		    articleindex = #articleindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="userindex">
+		    userindex = #userindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="sharesite">
+		    sharesite = #sharesite#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="sharelinkurl">
+		    sharelinkurl = #sharelinkurl#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="createtime">
+		    createtime = #createtime#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="status">
+		    status = #status#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="note">
+		    note = #note#
+          </isNotEmpty>
+        </dynamic>
+	</delete>
+
+	<select id="getTArticleinfoShare" parameterClass="alias_tarticleinfoShare" resultMap="tarticleinfoShareResult">
+		select shareindex,articleindex,userindex,sharesite,sharelinkurl,createtime,status,note
+    	from t_articleinfo_share
+		where shareindex = #shareindex#
+	</select>
+
+	<select id="queryTArticleinfoShareListByCond" parameterClass="alias_tarticleinfoShare" resultMap="tarticleinfoShareResult" >
+		select 
+		  shareindex,articleindex,userindex,sharesite,sharelinkurl,createtime,status,note
+		from t_articleinfo_share 
+		<include refid="TArticleinfoShare_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>	
+	
+	<select id="queryTArticleinfoShareListCntByCond" parameterClass="alias_tarticleinfoShare" resultClass="java.lang.Integer">
+		select count(1)
+		from t_articleinfo_share 
+		<include refid="TArticleinfoShare_Where_Clause" />
+	</select>
+	
+	<select id="queryTArticleinfoShareListByCondExact" parameterClass="alias_tarticleinfoShare" resultMap="tarticleinfoShareResult" >
+		select 
+		  shareindex,articleindex,userindex,sharesite,sharelinkurl,createtime,status,note
+		from t_articleinfo_share 
+		<include refid="TArticleinfoShare_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+</sqlMap>

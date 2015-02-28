@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<config>
+	<db>
+		<drivers>
+			oracle.jdbc.driver.OracleDriver
+			com.microsoft.jdbc.sqlserver.SQLServerDriver
+			net.sourceforge.jtds.jdbc.Driver
+			com.sybase.jdbc2.jdbc.SybDriver
+			com.mysql.jdbc.Driver
+		</drivers>
+		<scpnum>2</scpnum>
+		<smpdb>
+			<!-- 2:oracle,1:sybase,3:sql server -->
+			<ver_database>6,1192</ver_database>
+		</smpdb>
+
+		<scpdb1>
+			<scpid>133</scpid>
+			<url>jdbc:mysql://127.0.0.1:3306/education</url>
+			<maxconn>10</maxconn>
+			<minconn>5</minconn>
+			<ctype>2</ctype>
+			<scpuser>root</scpuser>
+			<scppass>root</scppass>
+			<xmlenc>utf-8</xmlenc>
+			<maxrows>2000</maxrows>
+			<groupid>1</groupid>
+			<queue>1</queue>
+		</scpdb1>
+
+		<scpdb2>
+			<scpid>134</scpid>
+			<url>jdbc:mysql://127.0.0.1:3306/openfire</url>
+			<maxconn>10</maxconn>
+			<minconn>2</minconn>
+			<ctype>2</ctype>
+			<scpuser>root</scpuser>
+			<scppass>root</scppass>
+			<xmlenc>GBK</xmlenc>
+			<maxrows>2000</maxrows>
+			<groupid>1</groupid>
+		</scpdb2>
+<!--  
+		<scpdb3>
+			<scpid>136</scpid>
+			<url>jdbc:oracle:thin:@10.46.178.211:1521:zxin</url>
+			<maxconn>10</maxconn>
+			<minconn>2</minconn>
+			<ctype>2</ctype>
+			<scpuser>zxdbm_misp</scpuser>
+			<scppass>zxin_smap</scppass>
+			<xmlenc>GBK</xmlenc>
+			<maxrows>2000</maxrows>
+			<groupid>1</groupid>
+		</scpdb3> -->
+
+		<!-- <scpdb1> <scpid>133</scpid> <url>jdbc:jtds:sybase://10.42.104.3:4100</url> 
+			<maxconn>10</maxconn> <minconn>2</minconn> <ctype>2</ctype> <scpuser>zxdbm_umap</scpuser> 
+			<scppass>zxin_smap</scppass> <xmlenc>GBK</xmlenc> <maxrows>2000</maxrows> 
+			<groupid>1</groupid> </scpdb1> <scpdb2> <scpid>134</scpid> <url>jdbc:jtds:sybase://10.42.104.3:4100</url> 
+			<maxconn>10</maxconn> <minconn>2</minconn> <ctype>2</ctype> <scpuser>zxdbm_umap</scpuser> 
+			<scppass>zxin_smap</scppass> <xmlenc>GBK</xmlenc> <maxrows>2000</maxrows> 
+			<groupid>1</groupid> </scpdb2> -->
+	</db>
+	<app>
+		<debug>1</debug>
+		<webid>136</webid>
+		<webheart>0</webheart>
+		<zxin_version>3500</zxin_version>
+		<logpath>/home/zxin10/log</logpath>
+		<logtype>1</logtype>
+		<uppath>/home/zxin10/service</uppath>
+		<tmppath>/tmp</tmppath>
+		<downpath>/download</downpath>
+		<cardmapscpip></cardmapscpip>
+		<cardmapscppwd></cardmapscppwd>
+		<looptimes>15</looptimes>
+		<waittime>200</waittime>
+	</app>
+
+</config>
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="muserNoteFS" class="com.pinke.uni.mobile.protal.note.fs.UserNoteFS"
+		autowire="byName" remoting="true" servicepath="muserNoteFS"
+		service="com.pinke.uni.mobile.protal.note.fs.IUserNoteFS">
+		<property name="userNoteLS" ref="userNoteLS" />
+
+
+
+	</bean>
+
+
+	<bean id="userNoteDAO" class="com.pinke.uni.mobile.protal.note.dao.UserNoteDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="userNoteDS" class="com.pinke.uni.mobile.protal.note.service.UserNoteDS"
+		autowire="byName" remoting="true" servicepath="userNoteFacade"
+		service="com.pinke.uni.mobile.protal.note.service.IUserNoteDS">
+		<property name="dao" ref="userNoteDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="userNoteLS" class="com.pinke.uni.mobile.protal.note.ls.UserNoteLS"
+		autowire="byName" remoting="true" servicepath="userNoteLSFacade"
+		service="com.pinke.uni.mobile.protal.note.ls.IUserNoteLS">
+		<property name="userNoteDS" ref="userNoteDS" />
+	</bean>
+</beans>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SYSTEM>
+	<SETTER>
+		<!--头信息key，电话号码和ua信息，此项应与网关一致 -->
+		<HTTPHEADER phone="x-up-calling-line-id" ua="user-agent" handphone="handphone" handua="handua" settertype="settertype" version="version"/>
+		<!--每个服务验证日志的开关 ,isopen 0 关，1 开-->
+		<PRINTLOG isopen="1"/>
+		<!--及时拒绝黑名单用户访问的开关 ,isopen 0 关，1 开-->
+		<BLACKUSER isopen="1"/>
+		<!--评论长度限制-->
+		<COMMENT length="500" />
+		<!--热门关键字数量-->
+		<KEYWORDS number="20" />
+		<!--动态广告 0 不动态取 1 动态取广告信息-->
+		<advert dyna="1" />
+		<!-- 是否判断用户登陆 0关 1开-->
+		<ISLOGINUSER isopen="0"/>
+		<!-- 配置wap是否自动登录注册 0 关 1 开-->
+		<WAPSET authlogin = "1" />
+		<!-- 资源文件配置 -->
+		<SOURCE VALUE="message_ZH.xml" />
+		<!-- 和厂商通信的密钥 -->
+		<company key="D4F4B2794B6349DDFAFFBA1661484A91" />
+	</SETTER>
+	<!-- 客户端返回默认机型设置 -->
+	<UADEFAULT>
+		<wm name="DopodS610" ua="100380" />
+		<java name="NokiaN86" ua="100124" />
+		<Symbian name="NokiaN86" ua="100124" />
+		<android name="MOTOME600" ua="100474" />
+	</UADEFAULT>
+	<WAPURL>
+	  <!--网店wap门户商品详情地址和wap支付银行页面 -->
+	 <!-- <PATH rootpath="http://mstore.wo.com.cn/" appdetail="service/storeAppInfo.jsp" order="service/bankSelect.jsp"/> -->
+	 <PATH rootpath="http://client.wostore.cn:6106/wapportal/" appdetail="appDetail.action?productid=" order="service/bankSelect.jsp"/>
+		<!--手机服务端公告访问地址 -->
+		<!-- <NOTICEURL rootpath="http://store.wo.com.cn/appstore_agent/" page="shownotice.jsp"/> -->
+		<NOTICEURL rootpath="http://clientnew.wostore.cn:6106/appstore_agent/" page="shownotice.jsp"/>
+	</WAPURL>
+	<WEBURL>
+		<!-- 推荐给用户的商品详情url -->
+<!--	<WEBPATH  rootpath="http://store.wo.com.cn/wostore"  appdetail="/detail_initpage.do?productid=" />-->
+	<WEBPATH  rootpath="http://client.wostore.cn:6106/WebPortal"  appdetail="/detail_initpage.do?productid=" />
+	</WEBURL>
+	<URL>
+		<!-- 商品图片url 暂未使用 -->
+		<IMAGEURL rootpath = "/home/zxin10/was/tomcat/webapps/tmpfile/upload"  />
+	</URL>
+	<SHORTTMESSAGE>
+		<!-- type短信发送方式 1 短消息 2 push方式 -->
+		<SENTTYPE type="2"/>
+		<!-- ordertype 短消息的命令类型  -->
+		<ORDERTYPE otype="110" />
+	</SHORTTMESSAGE>
+		<!-- 计费模块调用   暂未使用-->
+	<BILLING>
+		<REMOTEURL VALUE="127.0.0.1:8181//localhost/billing" />
+		<BILLPARAM ptype="3" cusid="1003" ackey="mb123456"/>
+	</BILLING>
+	<APPLIST>
+		<WEBREMOTEURL VALUE="127.0.0.1:8080//localhost/appstore" />
+	</APPLIST>
+	<!-- 中间账户配置   暂未使用-->
+	<PAYCONFIG>
+	<!-- test -->
+	<!--  
+		<KEY VALUE="24e7252b-62d6-454d-b48e-438f5b11ce450427c786-828"/>
+		<accountType VALUE="A005"/>
+		<Port_address VALUE="http://211.94.67.95:9001/efb/map/services/PayService"/>
+		<requestWap VALUE="http://211.94.67.95:9001/efbmob/map/httpservices/pageAction.do"/>
+	    <addMoney VALUE="http://211.94.67.95:9001/efbmob/map/account/beforerecharge.do"/>
+	 -->    
+	<!-- zhengshi -->
+	 
+		<KEY VALUE="013aabc8-8065-4de1-87b1-6c240fbe2c247750fbe7-d52"/>
+		<accountType VALUE="A005"/>
+		<Port_address VALUE="http://epay.10010.com/efb/map/services/PayService"/>
+		<requestWap VALUE="http://epay.10010.com/efbmob/map/httpservices/pageAction.do"/>
+		<addMoney VALUE="http://epay.10010.com/efbmob/map/account/beforerecharge.do"/>
+	 
+	</PAYCONFIG>
+	<!-- task ,become effective with  rebort the web server 暂未使用-->
+	<TASKCONFIG>
+	 	<!-- starttime:begin time(hour),endtime:end time(hour),interval:amount time(minute) -->
+		<AUTOFRESHMEMORY starttime="0"  endtime="23" interval="30"/>
+		<AUTOFRESHCONFIG starttime="0"  endtime="23" interval="1"/>
+	</TASKCONFIG>
+</SYSTEM>

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<general>
+	<!--global子节点
+		inuse:		默认值0。1表示开启告警功能，其它值表示关闭
+		start:      是否开启被动启动功能，即：当业务第一次调用snmp模块的方法的时候，如果snmp模块没有启动，那么立即启动snmp模块
+		interval:	默认值30。监控线程两次运行之间的休眠时间，秒数
+		fileloc:	默认值./SerialNo.txt。告警消息的序列号保存的txt文件的路径
+		agentport:	默认值8001，agent监听的端口
+		trapport:   默认值8003，trap消息发送端口
+		statInfoPath: 后台性能脚本生成的文件的路径
+		topFilePath:  后台性能脚本生成的文件的路径
+		ftpLocalPath: EPG上报网管文件存放目录路径，默认值：/home/zxin10/was/tomcat/webapps/iptvepg/WEB-INF/statics
+		repeatuploadtimes: 上传文件失败 重传次数。默认值 3
+	-->
+  <global>
+   <inuse>0</inuse>
+   <start>0</start><!-- 是否开启被动启动功能,1开启,0不开启 -->
+   <interval>30</interval>
+   <fileloc>./SerialNo.txt</fileloc>
+   <agentport>8001</agentport>
+   <statInfoPath>/home/zxin10/was/script/statInfo.ini</statInfoPath>
+   <topFilePath>/home/zxin10/was/script/top.txt</topFilePath>
+   <ftpLocalPath>/home/zxin10/was/tomcat/webapps/iptvepg/WEB-INF/statics</ftpLocalPath>
+   <repeatuploadtimes>3</repeatuploadtimes>
+  </global> 
+	<!--device子节点
+		code: 设备号
+		workmode: 工作方式。main-backup表示主备机；stand-alone表示单机
+		serviceIp: 双机环境浮动ip
+		masterIp:  主机ip 
+		slaveIp:   备机ip
+		name:  设备名称
+		loc:   设备位置
+		desc:  设备描述
+		moduleID: 模块号
+		postoffice: 局号
+	 -->
+  <device>
+   <code>06136025</code>
+   <workmode>stand-alone</workmode>
+   <serviceIp>10.40.90.238</serviceIp>
+   <masterIp>10.40.90.236</masterIp>
+   <slaveIp>10.40.90.237</slaveIp>
+   <name>WEB Server</name>
+   <loc>zte zxin device room</loc>
+   <desc>desc of was web server</desc>
+   <moduleId></moduleId>
+   <postoffice></postoffice>
+  </device>
+	<!--os子节点
+		name: 操作系统名称
+		version: 操作系统版本
+		manufacturer: 操作系统制造商
+	--> 
+  <os>
+   <name>windows</name>
+   <version>2000,sp4</version>
+   <manufacturer>microsoft</manufacturer>
+  </os>
+	<!--app子节点
+		apache 
+			name:         名称
+			version:      版本
+			manufacturer: 制造商
+			description:  描述
+		tomcat
+			name:         名称
+			version:      版本
+			manufacturer: 制造商
+			description:  描述
+		jvm
+			name:         名称
+			version:      版本
+			manufacturer: 制造商
+			description:  描述
+	-->
+  <app>
+   <apache>
+    <name>apache</name>
+    <version>1.3.31</version>
+    <manufacturer>Apache group</manufacturer>
+    <description>Apache/1.3.31 (Win32) mod_jk/1.2.6</description>     
+   </apache>
+   <tomcat>
+    <name>tomcat</name>
+    <version>5.5.27</version>
+    <manufacturer>Apache group</manufacturer>
+    <description>Apache Tomcat Server 5.5.27</description>     
+   </tomcat>  
+   <jvm>
+    <name>jvm</name>
+    <version>1.5.0_19</version>
+    <manufacturer>Sun microsystem</manufacturer>
+    <description>Java HotSpot(TM) Client VM (build 1.5.0_19-b02, mixed mode)</description>     
+   </jvm>       
+  </app>
+	<!--hardware子节点
+		numberofcpu:    cpu数目
+		frequnecyofcpu: cpu频率
+		memorysizeinm:  内存大小，单位M
+		disksizeinm:    磁盘大小，单位M
+		descriptionOfDevice: 设备描述
+		totalSwap:           swap区大小，单位M
+	 -->
+  <hardware>
+    <numberofcpu>1</numberofcpu>
+    <frequnecyofcpu>1000</frequnecyofcpu>
+    <memorysizeinm>1024</memorysizeinm>
+    <disksizeinm>40960</disksizeinm>
+    <descriptionOfDevice></descriptionOfDevice>
+    <totalSwap>1000</totalSwap>
+  </hardware>
+  <alarm>
+    <!-- cpu告警
+        cpu_alarm_code_level1: 对于级别1的cpu告警码
+		cpu_alarm_code_level2: 对于级别2的cpu告警码
+		cpuThresholdGrade1:    对于级别1的cpu告警门限
+		cpuThresholdGrade2:    对于级别2的cpu告警门限
+		cpu_alarm_reason:      cpu告警信息		
+    -->
+  	<cpu_alarm_code_level1>47</cpu_alarm_code_level1>
+  	<cpu_alarm_code_level2>4047</cpu_alarm_code_level2>
+    <cpuThresholdGrade1>90</cpuThresholdGrade1>
+    <cpuThresholdGrade2>80</cpuThresholdGrade2>
+    <cpu_alarm_reason>cpu busy</cpu_alarm_reason>
+    
+    <!-- 内存告警 
+        mem_alarm_code_level1: 对于级别1的内存告警码
+		mem_alarm_code_level2: 对于级别2的内存告警码
+		memoryThresholdGrade1: 对于级别1的内存告警门限
+		memoryThresholdGrade2: 对于级别2的内存告警门限
+		mem_alarm_reason:      内存告警信息
+    -->
+  	<mem_alarm_code_level1>130</mem_alarm_code_level1>
+  	<mem_alarm_code_level2>4130</mem_alarm_code_level2>
+    <memoryThresholdGrade1>50</memoryThresholdGrade1>
+    <memoryThresholdGrade2>100</memoryThresholdGrade2>
+  	<mem_alarm_reason>lack of free memory</mem_alarm_reason>
+  	
+  	<!-- 磁盘空间告警
+  	    disk_alarm_code_level1: 对于级别1的磁盘空间告警码
+		disk_alarm_code_level2: 对于级别2的磁盘空间告警码
+		diskThresholdGrade1:    对于级别1的磁盘空间告警门限
+		diskThresholdGrade2:    对于级别2的磁盘空间告警门限
+		disk_alarm_reason:      磁盘空间告警信息
+  	-->
+  	<disk_alarm_code_level1>135</disk_alarm_code_level1>
+  	<disk_alarm_code_level2>4135</disk_alarm_code_level2>
+    <diskThresholdGrade1>300</diskThresholdGrade1>
+    <diskThresholdGrade2>400</diskThresholdGrade2>
+    <disk_alarm_reason>disk full</disk_alarm_reason>
+    
+  	<!-- 磁盘IO告警
+  	    diskio_alarm_code_level1: 对于级别1的磁盘IO告警码
+		diskio_alarm_code_level2: 对于级别2的磁盘IO告警码
+		diskIOThresholdGrade1:    对于级别1的磁盘IO告警门限
+		diskIOThresholdGrade2:    对于级别2的磁盘IO告警门限
+  	 -->
+  	<diskio_alarm_code_level1>4141</diskio_alarm_code_level1>
+  	<diskio_alarm_code_level2>4142</diskio_alarm_code_level2>
+    <diskIOThresholdGrade1>6000</diskIOThresholdGrade1>
+    <diskIOThresholdGrade2>5000</diskIOThresholdGrade2>
+  	
+  	<!-- swap交换区告警
+  	    swap_alarm_code_level1:   对于级别1的swap交换区告警码
+		swap_alarm_code_level2:   对于级别2的swap交换区告警码
+		swapUseRatioThresholdGrade1: 对于级别1的swap交换区告警门限
+		swapUseRatioThresholdGrade2: 对于级别1的swap交换区告警门限
+  	 -->
+  	<swap_alarm_code_level1>4143</swap_alarm_code_level1>
+  	<swap_alarm_code_level2>4144</swap_alarm_code_level2>
+    <swapUseRatioThresholdGrade1>80</swapUseRatioThresholdGrade1>
+    <swapUseRatioThresholdGrade2>100</swapUseRatioThresholdGrade2>
+  	
+  	<!-- 网卡收包数据告警 
+  	    etheriorecv_alarm_code_level1: 对于级别1的网卡接受数据告警码
+		etheriorecv_alarm_code_level2: 对于级别2的网卡接受数据告警码
+		etherIORecvThresholdGrade1:    对于级别1的网卡接受数据告警门限
+		etherIORecvThresholdGrade2:    对于级别2的网卡接受数据告警门限
+  	 -->
+  	<etheriorecv_alarm_code_level1>4145</etheriorecv_alarm_code_level1>
+  	<etheriorecv_alarm_code_level2>4146</etheriorecv_alarm_code_level2>
+    <etherIORecvThresholdGrade1>100</etherIORecvThresholdGrade1>
+    <etherIORecvThresholdGrade2>80</etherIORecvThresholdGrade2>
+  	
+  	<!-- 网卡发包数据告警 
+  	    etheriosend_alarm_code_level1: 对于级别1的网卡发送数据告警码
+		etheriosend_alarm_code_level2: 对于级别2的网卡发送数据告警码
+		etherIOSendThresholdGrade1:    对于级别1的网卡发送数据告警门限
+		etherIOSendThresholdGrade2:    对于级别2的网卡发送数据告警门限
+  	 -->
+  	<etheriosend_alarm_code_level1>4147</etheriosend_alarm_code_level1>
+  	<etheriosend_alarm_code_level2>4148</etheriosend_alarm_code_level2>
+    <etherIOSendThresholdGrade1>100</etherIOSendThresholdGrade1>
+    <etherIOSendThresholdGrade2>80</etherIOSendThresholdGrade2>
+   
+   
+   <!-- 数据库连接超时告警 
+       dbconnection_enable:      是否开启数据库连接超时告警功能
+       dbconnection_alarm_code:  告警码
+       dbconnection_alarm_level: 告警级别
+       dbconnection_alarm_type:  告警类型
+   -->
+   <dbconnection_enable>false</dbconnection_enable>
+   <dbconnection_alarm_code>800101</dbconnection_alarm_code>
+   <dbconnection_alarm_level>2</dbconnection_alarm_level>
+   <dbconnection_alarm_type>3</dbconnection_alarm_type>
+   
+   <!-- R01通讯断链告警 
+       wintcp_enable:      是否开启R01通讯断链告警功能
+       wintcp_alarm_code:  告警码
+       wintcp_alarm_level: 告警级别
+       wintcp_alarm_type:  告警类型
+   -->
+   <wintcp_enable>false</wintcp_enable>
+   <wintcp_alarm_code>800000</wintcp_alarm_code>
+   <wintcp_alarm_level>0</wintcp_alarm_level>
+   <wintcp_alarm_type>0</wintcp_alarm_type>
+   
+   <!-- 
+        zxdbbroken 	数据库池当掉告警, 如果由于网络原因(如：数据库的网线脱落，数据库宕了，导致数据库连接断链，自动上报告警)
+       				如果恢复，自动上报恢复
+       		enable:     	是否开启告警功能
+       		alarmcodebase:  告警码基数(告警码等于基数加上池序号[scpid]
+       		restorecodebase:恢复告警码基数(恢复告警码等于基数加上池序号[scpid]
+       		level: 			告警级别
+       		type:  			告警类型
+       	
+       	ignore
+       	     value:  用英文逗号分隔的整数串，例如配置为"1,3,5,7"
+       	               对于zxdb而言，表示池的序号等于1或者3或者5或者7的时候，即使池当掉，也不进行告警
+   -->
+   <zxdbbroken enable="false" alarmcodebase="802100" restorecodebase="802100" level="3" type="2" >
+   		<ignore value="" />
+   </zxdbbroken>
+   <!-- 
+   		r01broken   r01链接断掉告警, 由于网络原因导致R01通讯链路无法使用，ZXJOS平台需要向网关发送告警；断链的恢复时，ZXJOS平台恢复告警
+   		    enable:     	是否开启告警功能
+       		alarmcodebase:  告警码基数(告警码等于基数加上模块序号[按照r01配置的顺序])
+       		restorecodebase:恢复告警码基数(恢复告警码等于基数加上模块序号[按照r01配置的顺序])
+       		level: 			告警级别
+       		type:  			告警类型
+      
+       	ignore
+       	     value:  用英文逗号分隔的整数串，例如配置为"1,3,5,7"
+       	               对于r01而言，表示链接的序号等于1或者3或者5或者7的时候，即使链接断掉，也不进行告警
+    -->
+   <r01broken enable="false" alarmcodebase="802500" restorecodebase="802500" level="3" type="2" >
+   		<ignore value="" />
+   </r01broken>
+   <!--
+      webprotect 彩铃web防篡改告警，当被保护目录中的文件被篡改时，ZXJOS平台需要向网管发送告警。被篡改的文件得到恢复时，ZXJOS平台需发送恢复告警
+      enable：     是否开启告警功能
+      alarmcode:   告警码
+      restorecode: 恢复告警码
+      level:       告警级别   
+      type：       告警类型
+   -->
+   <webprotect enable="false" alarmcodebase="8025700" restorecodebase="8025800" level="3" type="2"></webprotect>
+  </alarm>
+  
+	<!--trap子节点
+		count:  trap信息生效的数目。
+		         如果配成1，那么trap方式发送snmp消息的时候只发给trap1元素中的网管机
+		         如果配成2，那么trap方式发送snmp消息的时候同时发给trap1和trap2元素中的网管机
+		trapx  
+			ip:   网管机的ip
+			port: 网管机的监听port
+	-->
+  <trap>
+   <count>1</count>
+   <trap1>
+    <ip>10.129.68.29</ip>
+    <port>8003</port>
+   </trap1>
+   <trap2>
+    <ip>10.40.58.151</ip>
+    <port>8003</port>   
+   </trap2>  
+  </trap> 
+</general>

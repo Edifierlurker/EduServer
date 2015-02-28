@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="muserActivityFS"
+		class="com.pinke.uni.mobile.protal.activity.fs.UserActivityFS"
+		autowire="byName" remoting="true" servicepath="muserActivityFS"
+		service="com.pinke.uni.mobile.protal.activity.fs.IUserActivityFS">
+		<property name="userActivityInviteMapLS" ref="userActivityInviteMapLS" />
+		<property name="userActivityAttendMapLS" ref="userActivityAttendMapLS" />
+		<property name="userScheduleActivityLS" ref="userScheduleActivityLS" />
+
+
+
+
+	</bean>
+
+
+	<bean id="userActivityInviteMapDAO"
+		class="com.pinke.uni.mobile.protal.activity.dao.UserActivityInviteMapDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="userActivityInviteMapDS"
+		class="com.pinke.uni.mobile.protal.activity.service.UserActivityInviteMapDS"
+		autowire="byName" remoting="true" servicepath="userActivityInviteMapFacade"
+		service="com.pinke.uni.mobile.protal.activity.service.IUserActivityInviteMapDS">
+		<property name="dao" ref="userActivityInviteMapDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="userActivityInviteMapLS"
+		class="com.pinke.uni.mobile.protal.activity.ls.UserActivityInviteMapLS"
+		autowire="byName" remoting="true" servicepath="userActivityInviteMapLSFacade"
+		service="com.pinke.uni.mobile.protal.activity.ls.IUserActivityInviteMapLS">
+		<property name="userActivityInviteMapDS" ref="userActivityInviteMapDS" />
+	</bean>
+
+	<bean id="userActivityAttendMapDAO"
+		class="com.pinke.uni.mobile.protal.activity.dao.UserActivityAttendMapDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="userActivityAttendMapDS"
+		class="com.pinke.uni.mobile.protal.activity.service.UserActivityAttendMapDS"
+		autowire="byName" remoting="true" servicepath="userActivityAttendMapFacade"
+		service="com.pinke.uni.mobile.protal.activity.service.IUserActivityAttendMapDS">
+		<property name="dao" ref="userActivityAttendMapDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="userActivityAttendMapLS"
+		class="com.pinke.uni.mobile.protal.activity.ls.UserActivityAttendMapLS"
+		autowire="byName" remoting="true" servicepath="userActivityAttendMapLSFacade"
+		service="com.pinke.uni.mobile.protal.activity.ls.IUserActivityAttendMapLS">
+		<property name="userActivityAttendMapDS" ref="userActivityAttendMapDS" />
+	</bean>
+
+	<bean id="userScheduleActivityDAO"
+		class="com.pinke.uni.mobile.protal.activity.dao.UserScheduleActivityDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="userScheduleActivityDS"
+		class="com.pinke.uni.mobile.protal.activity.service.UserScheduleActivityDS"
+		autowire="byName" remoting="true" servicepath="userScheduleActivityFacade"
+		service="com.pinke.uni.mobile.protal.activity.service.IUserScheduleActivityDS">
+		<property name="dao" ref="userScheduleActivityDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="userScheduleActivityLS"
+		class="com.pinke.uni.mobile.protal.activity.ls.UserScheduleActivityLS"
+		autowire="byName" remoting="true" servicepath="userScheduleActivityLSFacade"
+		service="com.pinke.uni.mobile.protal.activity.ls.IUserScheduleActivityLS">
+		<property name="userScheduleActivityDS" ref="userScheduleActivityDS" />
+	</bean>
+
+</beans>

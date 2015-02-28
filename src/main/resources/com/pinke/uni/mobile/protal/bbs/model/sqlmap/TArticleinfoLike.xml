@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+  <sqlMap namespace="TArticleinfoLike">
+	<typeAlias alias="alias_tarticleinfoLike"	type="com.pinke.uni.mobile.protal.bbs.model.TArticleinfoLike" />
+	
+	<resultMap id="tarticleinfoLikeResult" class="alias_tarticleinfoLike">
+  		<result column="likeindex" property="likeindex" />
+  		<result column="articleindex" property="articleindex" />
+  		<result column="userindex" property="userindex" />
+  		<result column="createtime" property="createtime" />
+  		<result column="status" property="status" />
+  		<result column="note" property="note" />
+	</resultMap>
+
+  <sql id="TArticleinfoLike_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="likeindex">
+			    likeindex = #likeindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="articleindex">
+			    articleindex = #articleindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="userindex">
+			    userindex = #userindex#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="createtime">
+				createtime = #createtime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="status">
+			    status = #status#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+
+
+  <sql id="TArticleinfoLike_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="likeindex">
+			  likeindex = #likeindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="articleindex">
+			  articleindex = #articleindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="userindex">
+			  userindex = #userindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="createtime">
+			  createtime = #createtime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="note">
+			  note = #note#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+	
+	<insert id="insertTArticleinfoLike" parameterClass="alias_tarticleinfoLike">
+		insert into t_articleinfo_like (
+			likeindex
+			<dynamic>
+				<isNotEmpty prepend="," property="articleindex">
+					articleindex
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="userindex">
+					userindex
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="createtime">
+					createtime
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					status
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="note">
+					note
+				</isNotEmpty>	
+			</dynamic>
+	   	)values(
+			#likeindex#			
+			<dynamic>
+				<isNotEmpty prepend="," property="articleindex">
+					#articleindex#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="userindex">
+					#userindex#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="createtime">
+					#createtime#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					#status#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="note">
+					#note#
+				</isNotEmpty>	
+			</dynamic>	
+	   	)
+	</insert>	    
+	
+	<update id="updateTArticleinfoLike"	parameterClass="alias_tarticleinfoLike">
+	    update t_articleinfo_like
+	    set
+		 likeindex = #likeindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="articleindex">
+			  articleindex = #articleindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="userindex">
+			  userindex = #userindex#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="createtime">
+			  createtime = #createtime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="note">
+			  note = #note#
+			</isNotNull>
+		</dynamic>
+		where likeindex = #likeindex#
+  	</update>
+	<update id="updateTArticleinfoLikeByCond" parameterClass="alias_tarticleinfoLike">
+		update t_articleinfo_like
+		set
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="articleindex">
+			  articleindex = #articleindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="userindex">
+			  userindex = #userindex#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="createtime">
+			  createtime = #createtime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="note">
+			  note = #note#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+           <isNotEmpty prepend="and" property="likeindex">
+		     likeindex = #likeindex#		
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="articleindex">
+		     articleindex = #articleindex#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="userindex">
+		     userindex = #userindex#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="createtime">
+		     createtime = #createtime#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="status">
+		     status = #status#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="note">
+		     note = #note#
+ 		   </isNotEmpty>
+ 		</dynamic>
+    </update>
+
+	<delete id="deleteTArticleinfoLike" parameterClass="alias_tarticleinfoLike">
+		delete from t_articleinfo_like 
+	    where likeindex = #likeindex#
+	</delete>
+	<delete id="deleteTArticleinfoLikeByCond" parameterClass="alias_tarticleinfoLike">
+		delete from t_articleinfo_like 
+		<dynamic prepend="where">
+          <isNotEmpty prepend="and" property="likeindex">
+		    likeindex = #likeindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="articleindex">
+		    articleindex = #articleindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="userindex">
+		    userindex = #userindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="createtime">
+		    createtime = #createtime#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="status">
+		    status = #status#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="note">
+		    note = #note#
+          </isNotEmpty>
+        </dynamic>
+	</delete>
+
+	<select id="getTArticleinfoLike" parameterClass="alias_tarticleinfoLike" resultMap="tarticleinfoLikeResult">
+		select likeindex,articleindex,userindex,createtime,status,note
+    	from t_articleinfo_like
+		where likeindex = #likeindex#
+	</select>
+
+	<select id="queryTArticleinfoLikeListByCond" parameterClass="alias_tarticleinfoLike" resultMap="tarticleinfoLikeResult" >
+		select 
+		  likeindex,articleindex,userindex,createtime,status,note
+		from t_articleinfo_like 
+		<include refid="TArticleinfoLike_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>	
+	
+	<select id="queryTArticleinfoLikeListCntByCond" parameterClass="alias_tarticleinfoLike" resultClass="java.lang.Integer">
+		select count(1)
+		from t_articleinfo_like 
+		<include refid="TArticleinfoLike_Where_Clause" />
+	</select>
+	
+	<select id="queryTArticleinfoLikeListByCondExact" parameterClass="alias_tarticleinfoLike" resultMap="tarticleinfoLikeResult" >
+		select 
+		  likeindex,articleindex,userindex,createtime,status,note
+		from t_articleinfo_like 
+		<include refid="TArticleinfoLike_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+</sqlMap>

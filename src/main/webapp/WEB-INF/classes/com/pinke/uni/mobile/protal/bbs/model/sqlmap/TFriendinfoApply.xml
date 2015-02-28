@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TFriendinfoApply">
+	<typeAlias alias="alias_tfriendinfoApply"
+		type="com.pinke.uni.mobile.protal.bbs.model.TFriendinfoApply" />
+
+	<resultMap id="tfriendinfoApplyResult" class="alias_tfriendinfoApply">
+		<result column="applyindex" property="applyindex" />
+		<result column="userindex" property="userindex" />
+		<result column="friendindex" property="friendindex" />
+		<result column="status" property="status" />
+		<result column="applynote" property="applynote" />
+	</resultMap>
+	
+	<resultMap id="tfriendinfoApplyResultExtends" class="alias_tfriendinfoApply">
+		<result column="applyindex" property="applyindex" />
+		<result column="userindex" property="userindex" />
+		<result column="friendindex" property="friendindex" />
+		<result column="status" property="status" />
+		<result column="applynote" property="applynote" />
+		
+		<result column="friendname" property="friendname" />
+		<result column="friendphone" property="friendphone" />
+		<result column="friendid" property="friendid" />
+		<result column="friendheadpic" property="friendheadpic" />
+	</resultMap>
+
+	<sql id="TFriendinfoApply_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="applyindex">
+				applyindex =
+				#applyindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userindex">
+				userindex = #userindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="friendindex">
+				friendindex =
+				#friendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="applynote">
+				applynote = #applynote#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<resultMap id="tfriendinfoApplyResultExtends" class="alias_tfriendinfoApply">
+		<result column="applyindex" property="applyindex" />
+		<result column="userindex" property="userindex" />
+		<result column="friendindex" property="friendindex" />
+		<result column="status" property="status" />
+		<result column="applynote" property="applynote" />
+		<result column="friendindex" property="friendindex" />
+		<result column="friendname" property="friendname" />
+		<result column="friendphone" property="friendphone" />
+		<result column="friendid" property="friendid" />
+		<result column="friendheadpic" property="friendheadpic" />
+	</resultMap>
+
+	<sql id="TFriendinfoApply_Where_Clause_Extends">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="applyindex">
+				applyindex =
+				#applyindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userindex">
+				userindex = #userindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="friendindex">
+				friendindex =
+				#friendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				s.status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="applynote">
+				applynote = #applynote#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<sql id="TFriendinfoApply_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="applyindex">
+				applyindex =
+				#applyindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userindex">
+				userindex = #userindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="friendindex">
+				friendindex =
+				#friendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="applynote">
+				applynote = #applynote#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="insertTFriendinfoApply" parameterClass="alias_tfriendinfoApply">
+		insert into t_friendinfo_apply (
+		applyindex
+		<dynamic>
+			<isNotEmpty prepend="," property="userindex">
+				userindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="friendindex">
+				friendindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="applynote">
+				applynote
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#applyindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="userindex">
+				#userindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="friendindex">
+				#friendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="applynote">
+				#applynote#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateTFriendinfoApply" parameterClass="alias_tfriendinfoApply">
+		update t_friendinfo_apply
+		set
+		applyindex = #applyindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="userindex">
+				userindex = #userindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="friendindex">
+				friendindex =
+				#friendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotNull prepend="," property="applynote">
+				applynote = #applynote#
+			</isNotNull>
+		</dynamic>
+		where applyindex = #applyindex#
+	</update>
+	<update id="updateTFriendinfoApplyByCond" parameterClass="alias_tfriendinfoApply">
+		update t_friendinfo_apply
+		set
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="userindex">
+				userindex = #userindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="friendindex">
+				friendindex =
+				#friendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotNull prepend="," property="applynote">
+				applynote = #applynote#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="applyindex">
+				applyindex =
+				#applyindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userindex">
+				userindex = #userindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="friendindex">
+				friendindex =
+				#friendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="applynote">
+				applynote = #applynote#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteTFriendinfoApply" parameterClass="alias_tfriendinfoApply">
+		delete from
+		t_friendinfo_apply
+		where applyindex = #applyindex#
+	</delete>
+	<delete id="deleteTFriendinfoApplyByCond" parameterClass="alias_tfriendinfoApply">
+		delete from t_friendinfo_apply
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="applyindex">
+				applyindex =
+				#applyindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userindex">
+				userindex = #userindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="friendindex">
+				friendindex =
+				#friendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="applynote">
+				applynote = #applynote#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="getTFriendinfoApply" parameterClass="alias_tfriendinfoApply"
+		resultMap="tfriendinfoApplyResult">
+		select applyindex,userindex,friendindex,status,applynote
+		from t_friendinfo_apply
+		where applyindex = #applyindex#
+	</select>
+
+	<select id="queryTFriendinfoApplyListByCondExtends"
+		parameterClass="alias_tfriendinfoApply" resultMap="tfriendinfoApplyResultExtends">
+		SELECT
+		applyindex,
+		userindex,
+		friendindex,
+		s.status AS STATUS,
+		applynote,
+		m.studentid AS friendid,
+		m.studentname AS friendname,
+		m.userphone AS
+		friendphone,
+		m.headpic AS friendheadpic
+		FROM t_friendinfo_apply s
+		LEFT
+		JOIN t_studentinfo m
+		ON s.friendindex = m.studentindex
+		AND m.status=1
+		<include refid="TFriendinfoApply_Where_Clause_Extends" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryTFriendinfoApplyListCntByCond" parameterClass="alias_tfriendinfoApply"
+		resultClass="java.lang.Integer">
+		select count(1)
+		FROM t_friendinfo_apply s
+		LEFT
+		JOIN t_studentinfo m
+		ON
+		s.friendindex = m.studentindex
+		AND m.status=1
+		<include refid="TFriendinfoApply_Where_Clause_Extends" />
+	</select>
+
+	<select id="queryTFriendinfoApplyListByCondExact"
+		parameterClass="alias_tfriendinfoApply" resultMap="tfriendinfoApplyResult">
+		select
+		applyindex,userindex,friendindex,status,applynote
+		from
+		t_friendinfo_apply
+		<include refid="TFriendinfoApply_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+	
+	<select id="queryTFriendinfoApplyListByCond"
+		parameterClass="alias_tfriendinfoApply" resultMap="tfriendinfoApplyResult">
+		select
+		applyindex,userindex,friendindex,status,applynote
+		from
+		t_friendinfo_apply
+		<include refid="TFriendinfoApply_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+</sqlMap>

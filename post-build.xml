@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<project name="post-build" default="all" basedir=".">
+
+    <property name="project.basedir" value="."/>
+    <property name="sourceDirectory" value="${project.basedir}/src/main/java"/>
+    <property name="resourceDirectory" value="${project.basedir}/src/main/resources"/>
+    <property name="webappDirectory" value="${project.basedir}/src/main/webapp"/>
+    <property name="envResourceDirectory" value="${project.basedir}/src/main/env-resources"/>
+    <property name="output" value="${project.basedir}/target"/>
+    <property name="build" value="${output}/classes"/>
+    <property name="project.build.finalName" value="${versionName}"/>
+    <property name="project.build.displayName" value="${displayName}"/>
+    <!--<property name="project.build.finalName" value="WebPortal-1.01"/>-->
+    <!--<property name="project.build.displayName" value="WebPortal"/>-->
+    <property name="project.build.dest" value="output"/>
+
+
+    <target name="init" description="init the variable">
+        <mkdir dir="${project.build.dest}/deploy/test"></mkdir>
+        <mkdir dir="${project.build.dest}/deploy/dev"></mkdir>
+    </target>
+
+
+    <target name="assembly.test" description="assembly  war for the verify" depends="init">
+        <filter filtersfile="${envResourceDirectory}/filter/test.filter.properties"/>
+        <copy todir="${output}/${project.build.finalName}/WEB-INF/classes" overwrite="true" filtering="true">
+            <fileset dir="${envResourceDirectory}/test">
+                <exclude name="**/*.svn"></exclude>
+            </fileset>
+        </copy>
+        <war destfile="${project.build.dest}/deploy/test/${project.build.displayName}.war"
+             description="assembly the test war"
+             webxml="${output}/${project.build.finalName}/WEB-INF/web.xml">
+            <fileset dir="${output}/${project.build.finalName}"/>
+        </war>
+    </target>
+
+    <target name="assembly.dev" description="assembly  war for the verify">
+        <filter filtersfile="${envResourceDirectory}/filter/dev.filter.properties"/>
+        <copy todir="${output}/${project.build.finalName}/WEB-INF/classes" overwrite="true" filtering="true">
+            <fileset dir="${envResourceDirectory}/test">
+                <exclude name="**/*.svn"></exclude>
+            </fileset>
+        </copy>
+        <war destfile="${project.build.dest}/deploy/dev/${project.build.displayName}.war"
+             description="assembly the test war"
+             webxml="${output}/${project.build.finalName}/WEB-INF/web.xml">
+            <fileset dir="${output}/${project.build.finalName}"/>
+        </war>
+    </target>
+
+    <target name="assembly">
+        <copy todir="${project.build.dest}/deploy" overwrite="true" filtering="true">
+            <fileset dir="${project.basedir}">
+                <filename name="transfer2env.xml"></filename>
+            </fileset>
+        </copy>
+    </target>
+
+
+    <!--<target name="filter.dev">-->
+    <!--<delete dir="${output}/dev"/>-->
+    <!--<mkdir dir="${output}/dev"/>-->
+    <!--<filter filtersfile="${envResourceDirectory}/filter/dev.filter.properties"/>-->
+    <!--<copy todir="${output}/dev" overwrite="true" filtering="true">-->
+    <!--<fileset dir="${envResourceDirectory}/test">-->
+    <!--<exclude name="**/*.svn"></exclude>-->
+    <!--</fileset>-->
+    <!--</copy>-->
+    <!--</target>-->
+
+    <!--<target name="filter.test">-->
+    <!--<filter filtersfile="${envResourceDirectory}/filter/test.filter.properties"/>-->
+    <!--<delete dir="${output}/test"/>-->
+    <!--<mkdir dir="${output}/test"/>-->
+    <!--<copy todir="${output}/test" overwrite="true" filtering="true">-->
+    <!--<fileset dir="${envResourceDirectory}/test">-->
+    <!--<exclude name="**/*.svn"></exclude>-->
+    <!--</fileset>-->
+    <!--</copy>-->
+    <!--</target>-->
+
+
+    <!--<target name="assembly">-->
+    <!--<move file="${output}/${project.build.finalName}" tofile="${output}/${project.build.displayName}"></move>-->
+    <!--<delete dir="${project.build.dest}/deploy"/>-->
+    <!--<mkdir dir="${project.build.dest}/deploy"/>-->
+    <!--<zip destfile="${project.build.dest}/deploy/${project.build.displayName}.zip">-->
+    <!--<fileset dir="${output}">-->
+    <!--<include name="${project.build.displayName}/"/>-->
+    <!--<include name="test/"/>-->
+    <!--<include name="dev/"/>-->
+    <!--</fileset>-->
+    <!--</zip>-->
+    <!--<copy todir="${project.build.dest}/deploy" overwrite="true" filtering="true">-->
+    <!--<fileset dir="${project.basedir}">-->
+    <!--<filename name="transfer2env.xml"></filename>-->
+    <!--</fileset>-->
+    <!--</copy>-->
+
+    <!--</target>-->
+
+    <target name="all" depends="init,assembly.test,assembly.dev,assembly"/>
+</project>

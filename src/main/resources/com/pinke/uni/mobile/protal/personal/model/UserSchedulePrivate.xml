@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+  <sqlMap namespace="UserSchedulePrivate">
+	<typeAlias alias="alias_userSchedulePrivate"	type="com.pinke.uni.mobile.protal.personal.model.UserSchedulePrivate" />
+	
+	<resultMap id="userSchedulePrivateResult" class="alias_userSchedulePrivate">
+  		<result column="privateindex" property="privateindex" />
+  		<result column="title" property="title" />
+  		<result column="studentindex" property="studentindex" />
+  		<result column="longitude" property="longitude" />
+  		<result column="latitude" property="latitude" />
+  		<result column="content" property="content" />
+  		<result column="site" property="site" />
+  		<result column="inventer" property="inventer" />
+  		<result column="status" property="status" />
+  		<result column="starttime" property="starttime" />
+  		<result column="endtime" property="endtime" />
+  		<result column="createtime" property="createtime" />
+  		<result column="updatetime" property="updatetime" />
+  		<result column="note" property="note" />
+	</resultMap>
+
+  <sql id="UserSchedulePrivate_Where_Clause">
+		<dynamic prepend="where">
+	 		<isNotEmpty prepend="and" property="privateindex">
+				privateindex = #privateindex#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="title">
+				title = #title#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="studentindex">
+			    studentindex = #studentindex#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="longitude">
+				longitude = #longitude#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="latitude">
+				latitude = #latitude#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="content">
+				content = #content#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="inventer">
+				inventer = #inventer#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="starttime">
+				starttime = #starttime#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="endtime">
+				endtime = #endtime#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="createtime">
+				createtime = #createtime#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="updatetime">
+				updatetime = #updatetime#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+
+
+  <sql id="UserSchedulePrivate_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="privateindex">
+			  privateindex = #privateindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="title">
+			  title = #title#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="studentindex">
+			  studentindex = #studentindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="longitude">
+			  longitude = #longitude#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="latitude">
+			  latitude = #latitude#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="content">
+			  content = #content#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="site">
+			  site = #site#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="inventer">
+			  inventer = #inventer#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="starttime">
+			  starttime = #starttime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="endtime">
+			  endtime = #endtime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="createtime">
+			  createtime = #createtime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="updatetime">
+			  updatetime = #updatetime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="note">
+			  note = #note#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+	
+	<insert id="insertUserSchedulePrivate" parameterClass="alias_userSchedulePrivate">
+		insert into user_schedule_private (
+			privateindex
+			<dynamic>
+				<isNotEmpty prepend="," property="title">
+					title
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="studentindex">
+					studentindex
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="longitude">
+					longitude
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="latitude">
+					latitude
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="content">
+					content
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="site">
+					site
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="inventer">
+					inventer
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					status
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="starttime">
+					starttime
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="endtime">
+					endtime
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="createtime">
+					createtime
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="updatetime">
+					updatetime
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="note">
+					note
+				</isNotEmpty>	
+			</dynamic>
+	   	)values(
+			#privateindex#			
+			<dynamic>
+				<isNotEmpty prepend="," property="title">
+					#title#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="studentindex">
+					#studentindex#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="longitude">
+					#longitude#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="latitude">
+					#latitude#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="content">
+					#content#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="site">
+					#site#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="inventer">
+					#inventer#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					#status#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="starttime">
+					#starttime#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="endtime">
+					#endtime#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="createtime">
+					#createtime#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="updatetime">
+					#updatetime#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="note">
+					#note#
+				</isNotEmpty>	
+			</dynamic>	
+	   	)
+	</insert>	    
+	
+	<update id="updateUserSchedulePrivate"	parameterClass="alias_userSchedulePrivate">
+	    update user_schedule_private
+	    set
+		 privateindex = #privateindex#
+		<dynamic>
+			<isNotNull prepend="," property="title">
+			  title = #title#
+			</isNotNull>
+			<isNotEmpty prepend="," property="studentindex">
+			  studentindex = #studentindex#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="longitude">
+			  longitude = #longitude#
+			</isNotNull>
+			<isNotNull prepend="," property="latitude">
+			  latitude = #latitude#
+			</isNotNull>
+			<isNotNull prepend="," property="content">
+			  content = #content#
+			</isNotNull>
+			<isNotNull prepend="," property="site">
+			  site = #site#
+			</isNotNull>
+			<isNotNull prepend="," property="inventer">
+			  inventer = #inventer#
+			</isNotNull>
+			<isNotNull prepend="," property="status">
+			  status = #status#
+			</isNotNull>
+			<isNotNull prepend="," property="starttime">
+			  starttime = #starttime#
+			</isNotNull>
+			<isNotNull prepend="," property="endtime">
+			  endtime = #endtime#
+			</isNotNull>
+			<isNotNull prepend="," property="createtime">
+			  createtime = #createtime#
+			</isNotNull>
+			<isNotNull prepend="," property="updatetime">
+			  updatetime = #updatetime#
+			</isNotNull>
+			<isNotNull prepend="," property="note">
+			  note = #note#
+			</isNotNull>
+		</dynamic>
+		where privateindex = #privateindex#
+  	</update>
+	<update id="updateUserSchedulePrivateByCond" parameterClass="alias_userSchedulePrivate">
+		update user_schedule_private
+		set
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="title">
+			  title = #title#
+			</isNotNull>
+			<isNotEmpty prepend="," property="studentindex">
+			  studentindex = #studentindex#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="longitude">
+			  longitude = #longitude#
+			</isNotNull>
+			<isNotNull prepend="," property="latitude">
+			  latitude = #latitude#
+			</isNotNull>
+			<isNotNull prepend="," property="content">
+			  content = #content#
+			</isNotNull>
+			<isNotNull prepend="," property="site">
+			  site = #site#
+			</isNotNull>
+			<isNotNull prepend="," property="inventer">
+			  inventer = #inventer#
+			</isNotNull>
+			<isNotNull prepend="," property="status">
+			  status = #status#
+			</isNotNull>
+			<isNotNull prepend="," property="starttime">
+			  starttime = #starttime#
+			</isNotNull>
+			<isNotNull prepend="," property="endtime">
+			  endtime = #endtime#
+			</isNotNull>
+			<isNotNull prepend="," property="createtime">
+			  createtime = #createtime#
+			</isNotNull>
+			<isNotNull prepend="," property="updatetime">
+			  updatetime = #updatetime#
+			</isNotNull>
+			<isNotNull prepend="," property="note">
+			  note = #note#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+           <isNotEmpty prepend="and" property="privateindex">
+		     privateindex = #privateindex#		
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="title">
+		     title = #title#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="studentindex">
+		     studentindex = #studentindex#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="longitude">
+		     longitude = #longitude#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="latitude">
+		     latitude = #latitude#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="content">
+		     content = #content#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="site">
+		     site = #site#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="inventer">
+		     inventer = #inventer#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="status">
+		     status = #status#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="starttime">
+		     starttime = #starttime#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="endtime">
+		     endtime = #endtime#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="createtime">
+		     createtime = #createtime#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="updatetime">
+		     updatetime = #updatetime#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="note">
+		     note = #note#
+ 		   </isNotEmpty>
+ 		</dynamic>
+    </update>
+
+	<delete id="deleteUserSchedulePrivate" parameterClass="alias_userSchedulePrivate">
+		delete from user_schedule_private 
+	    where privateindex = #privateindex#
+	</delete>
+	<delete id="deleteUserSchedulePrivateByCond" parameterClass="alias_userSchedulePrivate">
+		delete from user_schedule_private 
+		<dynamic prepend="where">
+          <isNotEmpty prepend="and" property="privateindex">
+		    privateindex = #privateindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="title">
+		    title = #title#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="studentindex">
+		    studentindex = #studentindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="longitude">
+		    longitude = #longitude#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="latitude">
+		    latitude = #latitude#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="content">
+		    content = #content#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="site">
+		    site = #site#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="inventer">
+		    inventer = #inventer#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="status">
+		    status = #status#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="starttime">
+		    starttime = #starttime#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="endtime">
+		    endtime = #endtime#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="createtime">
+		    createtime = #createtime#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="updatetime">
+		    updatetime = #updatetime#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="note">
+		    note = #note#
+          </isNotEmpty>
+        </dynamic>
+	</delete>
+
+	<select id="getUserSchedulePrivate" parameterClass="alias_userSchedulePrivate" resultMap="userSchedulePrivateResult">
+		select privateindex,title,studentindex,longitude,latitude,content,site,inventer,status,starttime,endtime,createtime,updatetime,note
+    	from user_schedule_private
+		where privateindex = #privateindex#
+	</select>
+
+	<select id="queryUserSchedulePrivateListByCond" parameterClass="alias_userSchedulePrivate" resultMap="userSchedulePrivateResult" >
+		select 
+		  privateindex,title,studentindex,longitude,latitude,content,site,inventer,status,starttime,endtime,createtime,updatetime,note
+		from user_schedule_private 
+		<include refid="UserSchedulePrivate_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>	
+	
+	<select id="queryUserSchedulePrivateListCntByCond" parameterClass="alias_userSchedulePrivate" resultClass="java.lang.Integer">
+		select count(1)
+		from user_schedule_private 
+		<include refid="UserSchedulePrivate_Where_Clause" />
+	</select>
+	
+	<select id="queryUserSchedulePrivateListByCondExact" parameterClass="alias_userSchedulePrivate" resultMap="userSchedulePrivateResult" >
+		select 
+		  privateindex,title,studentindex,longitude,latitude,content,site,inventer,status,starttime,endtime,createtime,updatetime,note
+		from user_schedule_private 
+		<include refid="UserSchedulePrivate_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+</sqlMap>

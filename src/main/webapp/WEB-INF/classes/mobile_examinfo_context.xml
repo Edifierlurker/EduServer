@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="mexamInfoFS" class="com.pinke.uni.mobile.protal.exam.fs.ExamInfoFS"
+		autowire="byName" remoting="true" servicepath="mexamInfoFS"
+		service="com.pinke.uni.mobile.protal.exam.fs.IExamInfoFS">
+		<property name="userScheduleExaminfoLS" ref="userScheduleExaminfoLS" />
+		<property name="userExaminfoAttendMapLS" ref="userExaminfoAttendMapLS" />
+
+
+
+	</bean>
+	<bean id="userScheduleExaminfoDAO"
+		class="com.pinke.uni.mobile.protal.exam.dao.UserScheduleExaminfoDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="userScheduleExaminfoDS"
+		class="com.pinke.uni.mobile.protal.exam.service.UserScheduleExaminfoDS"
+		autowire="byName" remoting="true" servicepath="userScheduleExaminfoFacade"
+		service="com.pinke.uni.mobile.protal.exam.service.IUserScheduleExaminfoDS">
+		<property name="dao" ref="userScheduleExaminfoDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="userScheduleExaminfoLS"
+		class="com.pinke.uni.mobile.protal.exam.ls.UserScheduleExaminfoLS"
+		autowire="byName" remoting="true" servicepath="userScheduleExaminfoLSFacade"
+		service="com.pinke.uni.mobile.protal.exam.ls.IUserScheduleExaminfoLS">
+		<property name="userScheduleExaminfoDS" ref="userScheduleExaminfoDS" />
+	</bean>
+
+	<bean id="userExaminfoAttendMapDAO"
+		class="com.pinke.uni.mobile.protal.exam.dao.UserExaminfoAttendMapDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="userExaminfoAttendMapDS"
+		class="com.pinke.uni.mobile.protal.exam.service.UserExaminfoAttendMapDS"
+		autowire="byName" remoting="true" servicepath="userExaminfoAttendMapFacade"
+		service="com.pinke.uni.mobile.protal.exam.service.IUserExaminfoAttendMapDS">
+		<property name="dao" ref="userExaminfoAttendMapDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="userExaminfoAttendMapLS"
+		class="com.pinke.uni.mobile.protal.exam.ls.UserExaminfoAttendMapLS"
+		autowire="byName" remoting="true" servicepath="userExaminfoAttendMapLSFacade"
+		service="com.pinke.uni.mobile.protal.exam.ls.IUserExaminfoAttendMapLS">
+		<property name="userExaminfoAttendMapDS" ref="userExaminfoAttendMapDS" />
+	</bean>
+
+</beans>

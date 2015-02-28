@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+  <sqlMap namespace="TCollegeinfo">
+	<typeAlias alias="alias_tcollegeinfo"	type="com.pinke.uni.mobile.protal.adapter.model.TCollegeinfo" />
+	
+	<resultMap id="tcollegeinfoResult" class="alias_tcollegeinfo">
+  		<result column="collegeindex" property="collegeindex" />
+  		<result column="collegename" property="collegename" />
+  		<result column="status" property="status" />
+  		<result column="createtime" property="createtime" />
+  		<result column="canceltime" property="canceltime" />
+  		<result column="level" property="level" />
+  		<result column="uperindex" property="uperindex" />
+	</resultMap>
+
+  <sql id="TCollegeinfo_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="collegeindex">
+			    collegeindex = #collegeindex#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="collegename">
+				collegename = #collegename#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="status">
+			    status = #status#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="createtime">
+				createtime = #createtime#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="canceltime">
+				canceltime = #canceltime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="level">
+			    level = #level#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="uperindex">
+			    uperindex = #uperindex#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+
+
+  <sql id="TCollegeinfo_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="collegeindex">
+			  collegeindex = #collegeindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="collegename">
+			  collegename = #collegename#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="createtime">
+			  createtime = #createtime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="canceltime">
+			  canceltime = #canceltime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="level">
+			  level = #level#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="uperindex">
+			  uperindex = #uperindex#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+	
+	<insert id="insertTCollegeinfo" parameterClass="alias_tcollegeinfo">
+		insert into t_collegeinfo (
+			collegeindex
+			<dynamic>
+				<isNotEmpty prepend="," property="collegename">
+					collegename
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					status
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="createtime">
+					createtime
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="canceltime">
+					canceltime
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="level">
+					level
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="uperindex">
+					uperindex
+				</isNotEmpty>	
+			</dynamic>
+	   	)values(
+			#collegeindex#			
+			<dynamic>
+				<isNotEmpty prepend="," property="collegename">
+					#collegename#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					#status#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="createtime">
+					#createtime#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="canceltime">
+					#canceltime#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="level">
+					#level#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="uperindex">
+					#uperindex#
+				</isNotEmpty>	
+			</dynamic>	
+	   	)
+	</insert>	    
+	
+	<update id="updateTCollegeinfo"	parameterClass="alias_tcollegeinfo">
+	    update t_collegeinfo
+	    set
+		 collegeindex = #collegeindex#
+		<dynamic>
+			<isNotNull prepend="," property="collegename">
+			  collegename = #collegename#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="createtime">
+			  createtime = #createtime#
+			</isNotNull>
+			<isNotNull prepend="," property="canceltime">
+			  canceltime = #canceltime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="level">
+			  level = #level#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="uperindex">
+			  uperindex = #uperindex#
+			</isNotEmpty> 
+		</dynamic>
+		where collegeindex = #collegeindex#
+  	</update>
+	<update id="updateTCollegeinfoByCond" parameterClass="alias_tcollegeinfo">
+		update t_collegeinfo
+		set
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="collegename">
+			  collegename = #collegename#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="createtime">
+			  createtime = #createtime#
+			</isNotNull>
+			<isNotNull prepend="," property="canceltime">
+			  canceltime = #canceltime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="level">
+			  level = #level#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="uperindex">
+			  uperindex = #uperindex#
+			</isNotEmpty> 
+		</dynamic>
+		<dynamic prepend="where">
+           <isNotEmpty prepend="and" property="collegeindex">
+		     collegeindex = #collegeindex#		
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="collegename">
+		     collegename = #collegename#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="status">
+		     status = #status#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="createtime">
+		     createtime = #createtime#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="canceltime">
+		     canceltime = #canceltime#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="level">
+		     level = #level#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="uperindex">
+		     uperindex = #uperindex#
+ 		   </isNotEmpty>
+ 		</dynamic>
+    </update>
+
+	<delete id="deleteTCollegeinfo" parameterClass="alias_tcollegeinfo">
+		delete from t_collegeinfo 
+	    where collegeindex = #collegeindex#
+	</delete>
+	<delete id="deleteTCollegeinfoByCond" parameterClass="alias_tcollegeinfo">
+		delete from t_collegeinfo 
+		<dynamic prepend="where">
+          <isNotEmpty prepend="and" property="collegeindex">
+		    collegeindex = #collegeindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="collegename">
+		    collegename = #collegename#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="status">
+		    status = #status#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="createtime">
+		    createtime = #createtime#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="canceltime">
+		    canceltime = #canceltime#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="level">
+		    level = #level#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="uperindex">
+		    uperindex = #uperindex#
+          </isNotEmpty>
+        </dynamic>
+	</delete>
+
+	<select id="getTCollegeinfo" parameterClass="alias_tcollegeinfo" resultMap="tcollegeinfoResult">
+		select collegeindex,collegename,status,createtime,canceltime,level,uperindex
+    	from t_collegeinfo
+		where collegeindex = #collegeindex#
+	</select>
+
+	<select id="queryTCollegeinfoListByCond" parameterClass="alias_tcollegeinfo" resultMap="tcollegeinfoResult" >
+		select 
+		  collegeindex,collegename,status,createtime,canceltime,level,uperindex
+		from t_collegeinfo 
+		<include refid="TCollegeinfo_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>	
+	
+	<select id="queryTCollegeinfoListCntByCond" parameterClass="alias_tcollegeinfo" resultClass="java.lang.Integer">
+		select count(1)
+		from t_collegeinfo 
+		<include refid="TCollegeinfo_Where_Clause" />
+	</select>
+	
+	<select id="queryTCollegeinfoListByCondExact" parameterClass="alias_tcollegeinfo" resultMap="tcollegeinfoResult" >
+		select 
+		  collegeindex,collegename,status,createtime,canceltime,level,uperindex
+		from t_collegeinfo 
+		<include refid="TCollegeinfo_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+</sqlMap>

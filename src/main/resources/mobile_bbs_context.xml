@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="mBBSFS" class="com.pinke.uni.mobile.protal.bbs.fs.BBSFS"
+		autowire="byName" remoting="true" servicepath="mBBSFS"
+		service="com.pinke.uni.mobile.protal.bbs.fs.IBBSFS">
+		<property name="tbbsinfoLS" ref="tbbsinfoLS" />
+		<property name="tarticleinfoLS" ref="tarticleinfoLS" />
+		<property name="tbbsinfoNoticeMapLS" ref="tbbsinfoNoticeMapLS" />
+		<property name="tarticleinfoCommentLS" ref="tarticleinfoCommentLS" />
+		<property name="tarticleinfoShareLS" ref="tarticleinfoShareLS" />
+		<property name="tarticleinfoLikeLS" ref="tarticleinfoLikeLS" />
+		<property name="tfriendinfoLS" ref="tfriendinfoLS" />
+		<property name="tfriendinfoApplyLS" ref="tfriendinfoApplyLS" />
+		<property name="tbulletinLS" ref="tbulletinLS" />
+
+	</bean>
+
+
+	<bean id="tbbsinfoDAO" class="com.pinke.uni.mobile.protal.bbs.dao.TBbsinfoDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tbbsinfoDS" class="com.pinke.uni.mobile.protal.bbs.service.TBbsinfoDS"
+		autowire="byName" remoting="true" servicepath="tbbsinfoFacade"
+		service="com.pinke.uni.mobile.protal.bbs.service.ITBbsinfoDS">
+		<property name="dao" ref="tbbsinfoDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tbbsinfoLS" class="com.pinke.uni.mobile.protal.bbs.ls.TBbsinfoLS"
+		autowire="byName" remoting="true" servicepath="tbbsinfoLSFacade"
+		service="com.pinke.uni.mobile.protal.bbs.ls.ITBbsinfoLS">
+		<property name="tbbsinfoDS" ref="tbbsinfoDS" />
+	</bean>
+	<bean id="tarticleinfoDAO" class="com.pinke.uni.mobile.protal.bbs.dao.TArticleinfoDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tarticleinfoDS"
+		class="com.pinke.uni.mobile.protal.bbs.service.TArticleinfoDS"
+		autowire="byName" remoting="true" servicepath="tarticleinfoFacade"
+		service="com.pinke.uni.mobile.protal.bbs.service.ITArticleinfoDS">
+		<property name="dao" ref="tarticleinfoDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tarticleinfoLS" class="com.pinke.uni.mobile.protal.bbs.ls.TArticleinfoLS"
+		autowire="byName" remoting="true" servicepath="tarticleinfoLSFacade"
+		service="com.pinke.uni.mobile.protal.bbs.ls.ITArticleinfoLS">
+		<property name="tarticleinfoDS" ref="tarticleinfoDS" />
+	</bean>
+	<bean id="tbbsinfoNoticeMapDAO"
+		class="com.pinke.uni.mobile.protal.bbs.dao.TBbsinfoNoticeMapDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tbbsinfoNoticeMapDS"
+		class="com.pinke.uni.mobile.protal.bbs.service.TBbsinfoNoticeMapDS"
+		autowire="byName" remoting="true" servicepath="tbbsinfoNoticeMapFacade"
+		service="com.pinke.uni.mobile.protal.bbs.service.ITBbsinfoNoticeMapDS">
+		<property name="dao" ref="tbbsinfoNoticeMapDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tbbsinfoNoticeMapLS"
+		class="com.pinke.uni.mobile.protal.bbs.ls.TBbsinfoNoticeMapLS"
+		autowire="byName" remoting="true" servicepath="tbbsinfoNoticeMapLSFacade"
+		service="com.pinke.uni.mobile.protal.bbs.ls.ITBbsinfoNoticeMapLS">
+		<property name="tbbsinfoNoticeMapDS" ref="tbbsinfoNoticeMapDS" />
+	</bean>
+	<bean id="tarticleinfoCommentDAO"
+		class="com.pinke.uni.mobile.protal.bbs.dao.TArticleinfoCommentDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tarticleinfoCommentDS"
+		class="com.pinke.uni.mobile.protal.bbs.service.TArticleinfoCommentDS"
+		autowire="byName" remoting="true" servicepath="tarticleinfoCommentFacade"
+		service="com.pinke.uni.mobile.protal.bbs.service.ITArticleinfoCommentDS">
+		<property name="dao" ref="tarticleinfoCommentDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tarticleinfoCommentLS"
+		class="com.pinke.uni.mobile.protal.bbs.ls.TArticleinfoCommentLS"
+		autowire="byName" remoting="true" servicepath="tarticleinfoCommentLSFacade"
+		service="com.pinke.uni.mobile.protal.bbs.ls.ITArticleinfoCommentLS">
+		<property name="tarticleinfoCommentDS" ref="tarticleinfoCommentDS" />
+	</bean>
+	<bean id="tarticleinfoShareDAO"
+		class="com.pinke.uni.mobile.protal.bbs.dao.TArticleinfoShareDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tarticleinfoShareDS"
+		class="com.pinke.uni.mobile.protal.bbs.service.TArticleinfoShareDS"
+		autowire="byName" remoting="true" servicepath="tarticleinfoShareFacade"
+		service="com.pinke.uni.mobile.protal.bbs.service.ITArticleinfoShareDS">
+		<property name="dao" ref="tarticleinfoShareDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tarticleinfoShareLS"
+		class="com.pinke.uni.mobile.protal.bbs.ls.TArticleinfoShareLS"
+		autowire="byName" remoting="true" servicepath="tarticleinfoShareLSFacade"
+		service="com.pinke.uni.mobile.protal.bbs.ls.ITArticleinfoShareLS">
+		<property name="tarticleinfoShareDS" ref="tarticleinfoShareDS" />
+	</bean>
+	<bean id="tarticleinfoLikeDAO"
+		class="com.pinke.uni.mobile.protal.bbs.dao.TArticleinfoLikeDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tarticleinfoLikeDS"
+		class="com.pinke.uni.mobile.protal.bbs.service.TArticleinfoLikeDS"
+		autowire="byName" remoting="true" servicepath="tarticleinfoLikeFacade"
+		service="com.pinke.uni.mobile.protal.bbs.service.ITArticleinfoLikeDS">
+		<property name="dao" ref="tarticleinfoLikeDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tarticleinfoLikeLS"
+		class="com.pinke.uni.mobile.protal.bbs.ls.TArticleinfoLikeLS"
+		autowire="byName" remoting="true" servicepath="tarticleinfoLikeLSFacade"
+		service="com.pinke.uni.mobile.protal.bbs.ls.ITArticleinfoLikeLS">
+		<property name="tarticleinfoLikeDS" ref="tarticleinfoLikeDS" />
+	</bean>
+
+	<bean id="tfriendinfoDAO" class="com.pinke.uni.mobile.protal.bbs.dao.TFriendinfoDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tfriendinfoDS"
+		class="com.pinke.uni.mobile.protal.bbs.service.TFriendinfoDS"
+		autowire="byName" remoting="true" servicepath="tfriendinfoFacade"
+		service="com.pinke.uni.mobile.protal.bbs.service.ITFriendinfoDS">
+		<property name="dao" ref="tfriendinfoDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tfriendinfoLS" class="com.pinke.uni.mobile.protal.bbs.ls.TFriendinfoLS"
+		autowire="byName" remoting="true" servicepath="tfriendinfoLSFacade"
+		service="com.pinke.uni.mobile.protal.bbs.ls.ITFriendinfoLS">
+		<property name="tfriendinfoDS" ref="tfriendinfoDS" />
+	</bean>
+
+	<bean id="tfriendinfoApplyDAO"
+		class="com.pinke.uni.mobile.protal.bbs.dao.TFriendinfoApplyDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tfriendinfoApplyDS"
+		class="com.pinke.uni.mobile.protal.bbs.service.TFriendinfoApplyDS"
+		autowire="byName" remoting="true" servicepath="tfriendinfoApplyFacade"
+		service="com.pinke.uni.mobile.protal.bbs.service.ITFriendinfoApplyDS">
+		<property name="dao" ref="tfriendinfoApplyDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tfriendinfoApplyLS"
+		class="com.pinke.uni.mobile.protal.bbs.ls.TFriendinfoApplyLS"
+		autowire="byName" remoting="true" servicepath="tfriendinfoApplyLSFacade"
+		service="com.pinke.uni.mobile.protal.bbs.ls.ITFriendinfoApplyLS">
+		<property name="tfriendinfoApplyDS" ref="tfriendinfoApplyDS" />
+	</bean>
+	
+	<bean id="tbulletinDAO"
+		class="com.pinke.uni.mobile.protal.bbs.dao.TBulletinDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tbulletinDS"
+		class="com.pinke.uni.mobile.protal.bbs.service.TBulletinDS"
+		autowire="byName"
+		remoting="true" 
+		servicepath="tbulletinFacade"
+		service="com.pinke.uni.mobile.protal.bbs.service.ITBulletinDS">
+		<property name="dao" ref="tbulletinDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tbulletinLS"
+		class="com.pinke.uni.mobile.protal.bbs.ls.TBulletinLS"
+		autowire="byName"
+		remoting="true" 
+		servicepath="tbulletinLSFacade"
+		service="com.pinke.uni.mobile.protal.bbs.ls.ITBulletinLS">
+		<property name="tbulletinDS" ref="tbulletinDS" />
+	</bean>
+
+
+</beans>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <bean id="DCacheInterceptor" class="com.zte.appstore.common.DCacheInterceptor"></bean>
+	
+	<bean id="dcachemtmlInfo" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.misp.tml.common.ls.IMtmlInfoLS</value>
+		</property>
+		<property name="target" ref="mtmlInfoLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcachemtmlBrand" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.misp.tml.common.ls.IMtmlBrandLS</value>
+		</property>
+		<property name="target" ref="mtmlBrandLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcachemproductDiscountStrategyMap" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.misp.product.common.ls.IMproductDiscountStrategyMapLS</value>
+		</property>
+		<property name="target" ref="mproductDiscountStrategyMapLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcachemsysFaq" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.misp.sys.common.ls.IMsysFaqLS</value>
+		</property>
+		<property name="target" ref="msysFaqLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcachemsysNewbieTutorial" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.misp.sys.common.ls.IMsysNewbieTutorialLS</value>
+		</property>
+		<property name="target" ref="msysNewbieTutorialLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+
+	<bean id="dcacheappAdpositionsourceMap" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.appstore.adv.common.ls.IAppAdpositionsourceMapLS</value>
+		</property>
+		<property name="target" ref="appAdpositionsourceMapLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcacheappAdposition" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.appstore.adv.common.ls.IAppAdpositionLS</value>
+		</property>
+		<property name="target" ref="appAdpositionLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcachemproductToplist" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.appstore.product.common.ls.IMproductToplistLS</value>
+		</property>
+		<property name="target" ref="mproductToplistLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcachemproduct" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.misp.product.common.ls.IMproductLS</value>
+		</property>
+		<property name="target" ref="mproductLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcachemproductCategory" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.misp.product.common.ls.IMproductCategoryLS</value>
+		</property>
+		<property name="target" ref="mproductCategoryLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcachemsysSearchkeywordStat" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.misp.sys.common.ls.IMsysSearchkeywordStatLS</value>
+		</property>
+		<property name="target" ref="msysSearchkeywordStatLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcachemstoreFile" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.appstore.store.common.ls.IMstoreFileLS</value>
+		</property>
+		<property name="target" ref="mstoreFileLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcachemstoreCategory" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.appstore.store.common.ls.IMstoreCategoryLS</value>
+		</property>
+		<property name="target" ref="mstoreCategoryLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcachemstore" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.appstore.store.common.ls.IMstoreLS</value>
+		</property>
+		<property name="target" ref="mstoreLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcachemsysGoodlink" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.misp.sys.common.ls.IMsysGoodlinkLS</value>
+		</property>
+		<property name="target" ref="msysGoodlinkLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcachemsysBulletin" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.misp.sys.common.ls.IMsysBulletinLS</value>
+		</property>
+		<property name="target" ref="msysBulletinLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcacheappsTheme" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.appstore.wolife.ls.IAppsThemeLS</value>
+		</property>
+		<property name="target" ref="appsThemeLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcacheappsThemePrdbind" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.appstore.wolife.ls.IAppsThemePrdbindLS</value>
+		</property>
+		<property name="target" ref="appsThemePrdbindLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcacheterminal" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.appstore.wolife.ls.IAppsCustomterminalLS</value>
+		</property>
+		<property name="target" ref="appsCustomterminalLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcacheappsHothandsetPrdbind" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.appstore.wolife.ls.IAppsHothandsetPrdbindLS</value>
+		</property>
+		<property name="target" ref="appsHothandsetPrdbindLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcachecommonTerminal" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.misp.tml.common.ls.IMtmlInfoLS</value>
+		</property>
+		<property name="target" ref="mtmlInfoLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+	<bean id="dcacheMproductfileTmlmapLS" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.misp.product.common.ls.IMproductfileTmlmapLS</value>
+		</property>
+		<property name="target" ref="mproductfileTmlmapLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	<bean id="dcacheMshelfLS" class="com.zte.ssb.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.zte.appstore.shelf.common.ls.IMshelfLS</value>
+		</property>
+		<property name="target" ref="mshelfLS"/>
+		<property name="interceptorNames"><list><value>DCacheInterceptor</value></list></property>
+	</bean>
+	
+</beans>

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+  <sqlMap namespace="TSchoolinfo">
+	<typeAlias alias="alias_tschoolinfo"	type="com.pinke.uni.mobile.protal.adapter.model.TSchoolinfo" />
+	
+	<resultMap id="tschoolinfoResult" class="alias_tschoolinfo">
+  		<result column="schoolindex" property="schoolindex" />
+  		<result column="schoolname" property="schoolname" />
+  		<result column="schoolstatus" property="schoolstatus" />
+  		<result column="registertime" property="registertime" />
+  		<result column="canceltime" property="canceltime" />
+  		<result column="schooltype" property="schooltype" />
+  		<result column="weeks" property="weeks" />
+  		<result column="weekbegin" property="weekbegin" />
+  		<result column="sections" property="sections" />
+	</resultMap>
+
+  <sql id="TSchoolinfo_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="schoolindex">
+			    schoolindex = #schoolindex#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="schoolname">
+				schoolname = #schoolname#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="schoolstatus">
+			    schoolstatus = #schoolstatus#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="registertime">
+				registertime = #registertime#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="canceltime">
+				canceltime = #canceltime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="schooltype">
+			    schooltype = #schooltype#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="weeks">
+			    weeks = #weeks#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="weekbegin">
+				weekbegin = #weekbegin#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="sections">
+			    sections = #sections#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+
+
+  <sql id="TSchoolinfo_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="schoolindex">
+			  schoolindex = #schoolindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="schoolname">
+			  schoolname = #schoolname#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="schoolstatus">
+			  schoolstatus = #schoolstatus#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="registertime">
+			  registertime = #registertime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="canceltime">
+			  canceltime = #canceltime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="schooltype">
+			  schooltype = #schooltype#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="weeks">
+			  weeks = #weeks#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="weekbegin">
+			  weekbegin = #weekbegin#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="sections">
+			  sections = #sections#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+	
+	<insert id="insertTSchoolinfo" parameterClass="alias_tschoolinfo">
+		insert into t_schoolinfo (
+			schoolindex
+			<dynamic>
+				<isNotEmpty prepend="," property="schoolname">
+					schoolname
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="schoolstatus">
+					schoolstatus
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="registertime">
+					registertime
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="canceltime">
+					canceltime
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="schooltype">
+					schooltype
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="weeks">
+					weeks
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="weekbegin">
+					weekbegin
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="sections">
+					sections
+				</isNotEmpty>	
+			</dynamic>
+	   	)values(
+			#schoolindex#			
+			<dynamic>
+				<isNotEmpty prepend="," property="schoolname">
+					#schoolname#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="schoolstatus">
+					#schoolstatus#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="registertime">
+					#registertime#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="canceltime">
+					#canceltime#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="schooltype">
+					#schooltype#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="weeks">
+					#weeks#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="weekbegin">
+					#weekbegin#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="sections">
+					#sections#
+				</isNotEmpty>	
+			</dynamic>	
+	   	)
+	</insert>	    
+	
+	<update id="updateTSchoolinfo"	parameterClass="alias_tschoolinfo">
+	    update t_schoolinfo
+	    set
+		 schoolindex = #schoolindex#
+		<dynamic>
+			<isNotNull prepend="," property="schoolname">
+			  schoolname = #schoolname#
+			</isNotNull>
+			<isNotEmpty prepend="," property="schoolstatus">
+			  schoolstatus = #schoolstatus#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="registertime">
+			  registertime = #registertime#
+			</isNotNull>
+			<isNotNull prepend="," property="canceltime">
+			  canceltime = #canceltime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="schooltype">
+			  schooltype = #schooltype#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="weeks">
+			  weeks = #weeks#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="weekbegin">
+			  weekbegin = #weekbegin#
+			</isNotNull>
+			<isNotEmpty prepend="," property="sections">
+			  sections = #sections#
+			</isNotEmpty> 
+		</dynamic>
+		where schoolindex = #schoolindex#
+  	</update>
+	<update id="updateTSchoolinfoByCond" parameterClass="alias_tschoolinfo">
+		update t_schoolinfo
+		set
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="schoolname">
+			  schoolname = #schoolname#
+			</isNotNull>
+			<isNotEmpty prepend="," property="schoolstatus">
+			  schoolstatus = #schoolstatus#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="registertime">
+			  registertime = #registertime#
+			</isNotNull>
+			<isNotNull prepend="," property="canceltime">
+			  canceltime = #canceltime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="schooltype">
+			  schooltype = #schooltype#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="weeks">
+			  weeks = #weeks#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="weekbegin">
+			  weekbegin = #weekbegin#
+			</isNotNull>
+			<isNotEmpty prepend="," property="sections">
+			  sections = #sections#
+			</isNotEmpty> 
+		</dynamic>
+		<dynamic prepend="where">
+           <isNotEmpty prepend="and" property="schoolindex">
+		     schoolindex = #schoolindex#		
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="schoolname">
+		     schoolname = #schoolname#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="schoolstatus">
+		     schoolstatus = #schoolstatus#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="registertime">
+		     registertime = #registertime#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="canceltime">
+		     canceltime = #canceltime#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="schooltype">
+		     schooltype = #schooltype#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="weeks">
+		     weeks = #weeks#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="weekbegin">
+		     weekbegin = #weekbegin#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="sections">
+		     sections = #sections#
+ 		   </isNotEmpty>
+ 		</dynamic>
+    </update>
+
+	<delete id="deleteTSchoolinfo" parameterClass="alias_tschoolinfo">
+		delete from t_schoolinfo 
+	    where schoolindex = #schoolindex#
+	</delete>
+	<delete id="deleteTSchoolinfoByCond" parameterClass="alias_tschoolinfo">
+		delete from t_schoolinfo 
+		<dynamic prepend="where">
+          <isNotEmpty prepend="and" property="schoolindex">
+		    schoolindex = #schoolindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="schoolname">
+		    schoolname = #schoolname#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="schoolstatus">
+		    schoolstatus = #schoolstatus#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="registertime">
+		    registertime = #registertime#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="canceltime">
+		    canceltime = #canceltime#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="schooltype">
+		    schooltype = #schooltype#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="weeks">
+		    weeks = #weeks#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="weekbegin">
+		    weekbegin = #weekbegin#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="sections">
+		    sections = #sections#
+          </isNotEmpty>
+        </dynamic>
+	</delete>
+
+	<select id="getTSchoolinfo" parameterClass="alias_tschoolinfo" resultMap="tschoolinfoResult">
+		select schoolindex,schoolname,schoolstatus,registertime,canceltime,schooltype,weeks,weekbegin,sections
+    	from t_schoolinfo
+		where schoolindex = #schoolindex#
+	</select>
+
+	<select id="queryTSchoolinfoListByCond" parameterClass="alias_tschoolinfo" resultMap="tschoolinfoResult" >
+		select 
+		  schoolindex,schoolname,schoolstatus,registertime,canceltime,schooltype,weeks,weekbegin,sections
+		from t_schoolinfo 
+		<include refid="TSchoolinfo_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>	
+	
+	<select id="queryTSchoolinfoListCntByCond" parameterClass="alias_tschoolinfo" resultClass="java.lang.Integer">
+		select count(1)
+		from t_schoolinfo 
+		<include refid="TSchoolinfo_Where_Clause" />
+	</select>
+	
+	<select id="queryTSchoolinfoListByCondExact" parameterClass="alias_tschoolinfo" resultMap="tschoolinfoResult" >
+		select 
+		  schoolindex,schoolname,schoolstatus,registertime,canceltime,schooltype,weeks,weekbegin,sections
+		from t_schoolinfo 
+		<include refid="TSchoolinfo_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+</sqlMap>

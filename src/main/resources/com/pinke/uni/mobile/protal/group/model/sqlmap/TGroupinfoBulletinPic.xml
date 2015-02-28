@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+  <sqlMap namespace="TGroupinfoBulletinPic">
+	<typeAlias alias="alias_tgroupinfoBulletinPic"	type="com.pinke.uni.mobile.protal.group.model.TGroupinfoBulletinPic" />
+	
+	<resultMap id="tgroupinfoBulletinPicResult" class="alias_tgroupinfoBulletinPic">
+  		<result column="picindex" property="picindex" />
+  		<result column="bulletinidnex" property="bulletinidnex" />
+  		<result column="iconurl" property="iconurl" />
+  		<result column="status" property="status" />
+  		<result column="note" property="note" />
+	</resultMap>
+
+  <sql id="TGroupinfoBulletinPic_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="picindex">
+			    picindex = #picindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="bulletinidnex">
+			    bulletinidnex = #bulletinidnex#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="iconurl">
+				iconurl = #iconurl#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="status">
+			    status = #status#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+
+
+  <sql id="TGroupinfoBulletinPic_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="picindex">
+			  picindex = #picindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="bulletinidnex">
+			  bulletinidnex = #bulletinidnex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="iconurl">
+			  iconurl = #iconurl#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="note">
+			  note = #note#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+	
+	<insert id="insertTGroupinfoBulletinPic" parameterClass="alias_tgroupinfoBulletinPic">
+		insert into t_groupinfo_bulletin_pic (
+			picindex
+			<dynamic>
+				<isNotEmpty prepend="," property="bulletinidnex">
+					bulletinidnex
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="iconurl">
+					iconurl
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					status
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="note">
+					note
+				</isNotEmpty>	
+			</dynamic>
+	   	)values(
+			#picindex#			
+			<dynamic>
+				<isNotEmpty prepend="," property="bulletinidnex">
+					#bulletinidnex#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="iconurl">
+					#iconurl#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					#status#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="note">
+					#note#
+				</isNotEmpty>	
+			</dynamic>	
+	   	)
+	</insert>	    
+	
+	<update id="updateTGroupinfoBulletinPic"	parameterClass="alias_tgroupinfoBulletinPic">
+	    update t_groupinfo_bulletin_pic
+	    set
+		 picindex = #picindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="bulletinidnex">
+			  bulletinidnex = #bulletinidnex#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="iconurl">
+			  iconurl = #iconurl#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="note">
+			  note = #note#
+			</isNotNull>
+		</dynamic>
+		where picindex = #picindex#
+  	</update>
+	<update id="updateTGroupinfoBulletinPicByCond" parameterClass="alias_tgroupinfoBulletinPic">
+		update t_groupinfo_bulletin_pic
+		set
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="bulletinidnex">
+			  bulletinidnex = #bulletinidnex#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="iconurl">
+			  iconurl = #iconurl#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="note">
+			  note = #note#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+           <isNotEmpty prepend="and" property="picindex">
+		     picindex = #picindex#		
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="bulletinidnex">
+		     bulletinidnex = #bulletinidnex#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="iconurl">
+		     iconurl = #iconurl#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="status">
+		     status = #status#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="note">
+		     note = #note#
+ 		   </isNotEmpty>
+ 		</dynamic>
+    </update>
+
+	<delete id="deleteTGroupinfoBulletinPic" parameterClass="alias_tgroupinfoBulletinPic">
+		delete from t_groupinfo_bulletin_pic 
+	    where picindex = #picindex#
+	</delete>
+	<delete id="deleteTGroupinfoBulletinPicByCond" parameterClass="alias_tgroupinfoBulletinPic">
+		delete from t_groupinfo_bulletin_pic 
+		<dynamic prepend="where">
+          <isNotEmpty prepend="and" property="picindex">
+		    picindex = #picindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="bulletinidnex">
+		    bulletinidnex = #bulletinidnex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="iconurl">
+		    iconurl = #iconurl#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="status">
+		    status = #status#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="note">
+		    note = #note#
+          </isNotEmpty>
+        </dynamic>
+	</delete>
+
+	<select id="getTGroupinfoBulletinPic" parameterClass="alias_tgroupinfoBulletinPic" resultMap="tgroupinfoBulletinPicResult">
+		select picindex,bulletinidnex,iconurl,status,note
+    	from t_groupinfo_bulletin_pic
+		where picindex = #picindex#
+	</select>
+
+	<select id="queryTGroupinfoBulletinPicListByCond" parameterClass="alias_tgroupinfoBulletinPic" resultMap="tgroupinfoBulletinPicResult" >
+		select 
+		  picindex,bulletinidnex,iconurl,status,note
+		from t_groupinfo_bulletin_pic 
+		<include refid="TGroupinfoBulletinPic_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>	
+	
+	<select id="queryTGroupinfoBulletinPicListCntByCond" parameterClass="alias_tgroupinfoBulletinPic" resultClass="java.lang.Integer">
+		select count(1)
+		from t_groupinfo_bulletin_pic 
+		<include refid="TGroupinfoBulletinPic_Where_Clause" />
+	</select>
+	
+	<select id="queryTGroupinfoBulletinPicListByCondExact" parameterClass="alias_tgroupinfoBulletinPic" resultMap="tgroupinfoBulletinPicResult" >
+		select 
+		  picindex,bulletinidnex,iconurl,status,note
+		from t_groupinfo_bulletin_pic 
+		<include refid="TGroupinfoBulletinPic_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+</sqlMap>

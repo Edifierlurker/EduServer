@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="mpersonalFS" class="com.pinke.uni.mobile.protal.personal.fs.PersonalFS"
+		autowire="byName" remoting="true" servicepath="mscheduleFS"
+		service="com.pinke.uni.mobile.protal.personal.fs.IPersonalFS">
+		<property name="userSchedulePrivateLS" ref="userSchedulePrivateLS" />
+
+
+
+	</bean>
+
+
+	<bean id="userSchedulePrivateDAO"
+		class="com.pinke.uni.mobile.protal.personal.dao.UserSchedulePrivateDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="userSchedulePrivateDS"
+		class="com.pinke.uni.mobile.protal.personal.service.UserSchedulePrivateDS"
+		autowire="byName" remoting="true" servicepath="userSchedulePrivateFacade"
+		service="com.pinke.uni.mobile.protal.personal.service.IUserSchedulePrivateDS">
+		<property name="dao" ref="userSchedulePrivateDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="userSchedulePrivateLS"
+		class="com.pinke.uni.mobile.protal.personal.ls.UserSchedulePrivateLS"
+		autowire="byName" remoting="true" servicepath="userSchedulePrivateLSFacade"
+		service="com.pinke.uni.mobile.protal.personal.ls.IUserSchedulePrivateLS">
+		<property name="userSchedulePrivateDS" ref="userSchedulePrivateDS" />
+	</bean>
+
+</beans>

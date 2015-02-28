@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+  <sqlMap namespace="AppVersionmgt">
+	<typeAlias alias="alias_appVersionmgt"	type="com.pinke.uni.mobile.protal.adapter.model.AppVersionmgt" />
+	
+	<resultMap id="appVersionmgtResult" class="alias_appVersionmgt">
+  		<result column="versionindex" property="versionindex" />
+  		<result column="packagename" property="packagename" />
+  		<result column="status" property="status" />
+  		<result column="versioncode" property="versioncode" />
+  		<result column="versioname" property="versioname" />
+  		<result column="updatedesc" property="updatedesc" />
+  		<result column="apppath" property="apppath" />
+  		<result column="updateflag" property="updateflag" />
+  		<result column="grouptype" property="grouptype" />
+  		<result column="createtime" property="createtime" />
+	</resultMap>
+
+  <sql id="AppVersionmgt_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="versionindex">
+			    versionindex = #versionindex#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="packagename">
+				packagename = #packagename#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="status">
+			    status = #status#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="versioncode">
+				versioncode = #versioncode#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="versioname">
+				versioname = #versioname#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="updatedesc">
+				updatedesc = #updatedesc#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="apppath">
+				apppath = #apppath#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="updateflag">
+			    updateflag = #updateflag#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="grouptype">
+			    grouptype = #grouptype#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="createtime">
+				createtime = #createtime#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+
+
+  <sql id="AppVersionmgt_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="versionindex">
+			  versionindex = #versionindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="packagename">
+			  packagename = #packagename#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="versioncode">
+			  versioncode = #versioncode#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="versioname">
+			  versioname = #versioname#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="updatedesc">
+			  updatedesc = #updatedesc#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="apppath">
+			  apppath = #apppath#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="updateflag">
+			  updateflag = #updateflag#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="grouptype">
+			  grouptype = #grouptype#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="createtime">
+			  createtime = #createtime#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+	
+	<insert id="insertAppVersionmgt" parameterClass="alias_appVersionmgt">
+		insert into app_versionmgt (
+			versionindex
+			<dynamic>
+				<isNotEmpty prepend="," property="packagename">
+					packagename
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					status
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="versioncode">
+					versioncode
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="versioname">
+					versioname
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="updatedesc">
+					updatedesc
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="apppath">
+					apppath
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="updateflag">
+					updateflag
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="grouptype">
+					grouptype
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="createtime">
+					createtime
+				</isNotEmpty>	
+			</dynamic>
+	   	)values(
+			#versionindex#			
+			<dynamic>
+				<isNotEmpty prepend="," property="packagename">
+					#packagename#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					#status#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="versioncode">
+					#versioncode#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="versioname">
+					#versioname#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="updatedesc">
+					#updatedesc#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="apppath">
+					#apppath#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="updateflag">
+					#updateflag#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="grouptype">
+					#grouptype#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="createtime">
+					#createtime#
+				</isNotEmpty>	
+			</dynamic>	
+	   	)
+	</insert>	    
+	
+	<update id="updateAppVersionmgt"	parameterClass="alias_appVersionmgt">
+	    update app_versionmgt
+	    set
+		 versionindex = #versionindex#
+		<dynamic>
+			<isNotNull prepend="," property="packagename">
+			  packagename = #packagename#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="versioncode">
+			  versioncode = #versioncode#
+			</isNotNull>
+			<isNotNull prepend="," property="versioname">
+			  versioname = #versioname#
+			</isNotNull>
+			<isNotNull prepend="," property="updatedesc">
+			  updatedesc = #updatedesc#
+			</isNotNull>
+			<isNotNull prepend="," property="apppath">
+			  apppath = #apppath#
+			</isNotNull>
+			<isNotEmpty prepend="," property="updateflag">
+			  updateflag = #updateflag#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="grouptype">
+			  grouptype = #grouptype#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="createtime">
+			  createtime = #createtime#
+			</isNotNull>
+		</dynamic>
+		where versionindex = #versionindex#
+  	</update>
+	<update id="updateAppVersionmgtByCond" parameterClass="alias_appVersionmgt">
+		update app_versionmgt
+		set
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="packagename">
+			  packagename = #packagename#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="versioncode">
+			  versioncode = #versioncode#
+			</isNotNull>
+			<isNotNull prepend="," property="versioname">
+			  versioname = #versioname#
+			</isNotNull>
+			<isNotNull prepend="," property="updatedesc">
+			  updatedesc = #updatedesc#
+			</isNotNull>
+			<isNotNull prepend="," property="apppath">
+			  apppath = #apppath#
+			</isNotNull>
+			<isNotEmpty prepend="," property="updateflag">
+			  updateflag = #updateflag#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="grouptype">
+			  grouptype = #grouptype#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="createtime">
+			  createtime = #createtime#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+           <isNotEmpty prepend="and" property="versionindex">
+		     versionindex = #versionindex#		
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="packagename">
+		     packagename = #packagename#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="status">
+		     status = #status#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="versioncode">
+		     versioncode = #versioncode#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="versioname">
+		     versioname = #versioname#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="updatedesc">
+		     updatedesc = #updatedesc#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="apppath">
+		     apppath = #apppath#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="updateflag">
+		     updateflag = #updateflag#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="grouptype">
+		     grouptype = #grouptype#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="createtime">
+		     createtime = #createtime#
+ 		   </isNotEmpty>
+ 		</dynamic>
+    </update>
+
+	<delete id="deleteAppVersionmgt" parameterClass="alias_appVersionmgt">
+		delete from app_versionmgt 
+	    where versionindex = #versionindex#
+	</delete>
+	<delete id="deleteAppVersionmgtByCond" parameterClass="alias_appVersionmgt">
+		delete from app_versionmgt 
+		<dynamic prepend="where">
+          <isNotEmpty prepend="and" property="versionindex">
+		    versionindex = #versionindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="packagename">
+		    packagename = #packagename#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="status">
+		    status = #status#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="versioncode">
+		    versioncode = #versioncode#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="versioname">
+		    versioname = #versioname#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="updatedesc">
+		    updatedesc = #updatedesc#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="apppath">
+		    apppath = #apppath#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="updateflag">
+		    updateflag = #updateflag#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="grouptype">
+		    grouptype = #grouptype#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="createtime">
+		    createtime = #createtime#
+          </isNotEmpty>
+        </dynamic>
+	</delete>
+
+	<select id="getAppVersionmgt" parameterClass="alias_appVersionmgt" resultMap="appVersionmgtResult">
+		select versionindex,packagename,status,versioncode,versioname,updatedesc,apppath,updateflag,grouptype,createtime
+    	from app_versionmgt
+		where versionindex = #versionindex#
+	</select>
+
+	<select id="queryAppVersionmgtListByCond" parameterClass="alias_appVersionmgt" resultMap="appVersionmgtResult" >
+		select 
+		  versionindex,packagename,status,versioncode,versioname,updatedesc,apppath,updateflag,grouptype,createtime
+		from app_versionmgt 
+		<include refid="AppVersionmgt_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>	
+	
+	<select id="queryAppVersionmgtListCntByCond" parameterClass="alias_appVersionmgt" resultClass="java.lang.Integer">
+		select count(1)
+		from app_versionmgt 
+		<include refid="AppVersionmgt_Where_Clause" />
+	</select>
+	
+	<select id="queryAppVersionmgtListByCondExact" parameterClass="alias_appVersionmgt" resultMap="appVersionmgtResult" >
+		select 
+		  versionindex,packagename,status,versioncode,versioname,updatedesc,apppath,updateflag,grouptype,createtime
+		from app_versionmgt 
+		<include refid="AppVersionmgt_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+</sqlMap>

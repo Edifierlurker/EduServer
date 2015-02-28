@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+  <sqlMap namespace="UserNote">
+	<typeAlias alias="alias_userNote"	type="com.pinke.uni.mobile.protal.note.model.UserNote" />
+	
+	<resultMap id="userNoteResult" class="alias_userNote">
+  		<result column="noteindex" property="noteindex" />
+  		<result column="notetitle" property="notetitle" />
+  		<result column="studentindex" property="studentindex" />
+  		<result column="status" property="status" />
+  		<result column="notedesc" property="notedesc" />
+  		<result column="iconurl" property="iconurl" />
+  		<result column="recordurl" property="recordurl" />
+  		<result column="createtime" property="createtime" />
+  		<result column="updatetime" property="updatetime" />
+  		<result column="note" property="note" />
+	</resultMap>
+
+  <sql id="UserNote_Where_Clause">
+		<dynamic prepend="where">
+	 		<isNotEmpty prepend="and" property="noteindex">
+				noteindex = #noteindex#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="notetitle">
+				notetitle = #notetitle#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="studentindex">
+			    studentindex = #studentindex#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="notedesc">
+				notedesc = #notedesc#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="iconurl">
+				iconurl = #iconurl#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="recordurl">
+				recordurl = #recordurl#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="createtime">
+				createtime = #createtime#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="updatetime">
+				updatetime = #updatetime#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+
+
+  <sql id="UserNote_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="noteindex">
+			  noteindex = #noteindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="notetitle">
+			  notetitle = #notetitle#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="studentindex">
+			  studentindex = #studentindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="notedesc">
+			  notedesc = #notedesc#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="iconurl">
+			  iconurl = #iconurl#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="recordurl">
+			  recordurl = #recordurl#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="createtime">
+			  createtime = #createtime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="updatetime">
+			  updatetime = #updatetime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="note">
+			  note = #note#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+	
+	<insert id="insertUserNote" parameterClass="alias_userNote">
+		insert into user_note (
+			noteindex
+			<dynamic>
+				<isNotEmpty prepend="," property="notetitle">
+					notetitle
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="studentindex">
+					studentindex
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					status
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="notedesc">
+					notedesc
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="iconurl">
+					iconurl
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="recordurl">
+					recordurl
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="createtime">
+					createtime
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="updatetime">
+					updatetime
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="note">
+					note
+				</isNotEmpty>	
+			</dynamic>
+	   	)values(
+			#noteindex#			
+			<dynamic>
+				<isNotEmpty prepend="," property="notetitle">
+					#notetitle#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="studentindex">
+					#studentindex#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					#status#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="notedesc">
+					#notedesc#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="iconurl">
+					#iconurl#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="recordurl">
+					#recordurl#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="createtime">
+					#createtime#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="updatetime">
+					#updatetime#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="note">
+					#note#
+				</isNotEmpty>	
+			</dynamic>	
+	   	)
+	</insert>	    
+	
+	<update id="updateUserNote"	parameterClass="alias_userNote">
+	    update user_note
+	    set
+		 noteindex = #noteindex#
+		<dynamic>
+			<isNotNull prepend="," property="notetitle">
+			  notetitle = #notetitle#
+			</isNotNull>
+			<isNotEmpty prepend="," property="studentindex">
+			  studentindex = #studentindex#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="status">
+			  status = #status#
+			</isNotNull>
+			<isNotNull prepend="," property="notedesc">
+			  notedesc = #notedesc#
+			</isNotNull>
+			<isNotNull prepend="," property="iconurl">
+			  iconurl = #iconurl#
+			</isNotNull>
+			<isNotNull prepend="," property="recordurl">
+			  recordurl = #recordurl#
+			</isNotNull>
+			<isNotNull prepend="," property="createtime">
+			  createtime = #createtime#
+			</isNotNull>
+			<isNotNull prepend="," property="updatetime">
+			  updatetime = #updatetime#
+			</isNotNull>
+			<isNotNull prepend="," property="note">
+			  note = #note#
+			</isNotNull>
+		</dynamic>
+		where noteindex = #noteindex#
+  	</update>
+	<update id="updateUserNoteByCond" parameterClass="alias_userNote">
+		update user_note
+		set
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="notetitle">
+			  notetitle = #notetitle#
+			</isNotNull>
+			<isNotEmpty prepend="," property="studentindex">
+			  studentindex = #studentindex#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="status">
+			  status = #status#
+			</isNotNull>
+			<isNotNull prepend="," property="notedesc">
+			  notedesc = #notedesc#
+			</isNotNull>
+			<isNotNull prepend="," property="iconurl">
+			  iconurl = #iconurl#
+			</isNotNull>
+			<isNotNull prepend="," property="recordurl">
+			  recordurl = #recordurl#
+			</isNotNull>
+			<isNotNull prepend="," property="createtime">
+			  createtime = #createtime#
+			</isNotNull>
+			<isNotNull prepend="," property="updatetime">
+			  updatetime = #updatetime#
+			</isNotNull>
+			<isNotNull prepend="," property="note">
+			  note = #note#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+           <isNotEmpty prepend="and" property="noteindex">
+		     noteindex = #noteindex#		
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="notetitle">
+		     notetitle = #notetitle#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="studentindex">
+		     studentindex = #studentindex#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="status">
+		     status = #status#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="notedesc">
+		     notedesc = #notedesc#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="iconurl">
+		     iconurl = #iconurl#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="recordurl">
+		     recordurl = #recordurl#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="createtime">
+		     createtime = #createtime#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="updatetime">
+		     updatetime = #updatetime#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="note">
+		     note = #note#
+ 		   </isNotEmpty>
+ 		</dynamic>
+    </update>
+
+	<delete id="deleteUserNote" parameterClass="alias_userNote">
+		delete from user_note 
+	    where noteindex = #noteindex#
+	</delete>
+	<delete id="deleteUserNoteByCond" parameterClass="alias_userNote">
+		delete from user_note 
+		<dynamic prepend="where">
+          <isNotEmpty prepend="and" property="noteindex">
+		    noteindex = #noteindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="notetitle">
+		    notetitle = #notetitle#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="studentindex">
+		    studentindex = #studentindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="status">
+		    status = #status#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="notedesc">
+		    notedesc = #notedesc#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="iconurl">
+		    iconurl = #iconurl#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="recordurl">
+		    recordurl = #recordurl#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="createtime">
+		    createtime = #createtime#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="updatetime">
+		    updatetime = #updatetime#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="note">
+		    note = #note#
+          </isNotEmpty>
+        </dynamic>
+	</delete>
+
+	<select id="getUserNote" parameterClass="alias_userNote" resultMap="userNoteResult">
+		select noteindex,notetitle,studentindex,status,notedesc,iconurl,recordurl,createtime,updatetime,note
+    	from user_note
+		where noteindex = #noteindex#
+	</select>
+
+	<select id="queryUserNoteListByCond" parameterClass="alias_userNote" resultMap="userNoteResult" >
+		select 
+		  noteindex,notetitle,studentindex,status,notedesc,iconurl,recordurl,createtime,updatetime,note
+		from user_note 
+		<include refid="UserNote_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>	
+	
+	<select id="queryUserNoteListCntByCond" parameterClass="alias_userNote" resultClass="java.lang.Integer">
+		select count(1)
+		from user_note 
+		<include refid="UserNote_Where_Clause" />
+	</select>
+	
+	<select id="queryUserNoteListByCondExact" parameterClass="alias_userNote" resultMap="userNoteResult" >
+		select 
+		  noteindex,notetitle,studentindex,status,notedesc,iconurl,recordurl,createtime,updatetime,note
+		from user_note 
+		<include refid="UserNote_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+</sqlMap>

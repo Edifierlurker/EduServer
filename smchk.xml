@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<sourcemonitor_commands>
+    <write_log>true</write_log>
+    <command>
+       <project_file>sm.smp</project_file>
+       <project_language>JAVA</project_language>
+       <source_directory>.</source_directory>
+       <include_subdirectories>true</include_subdirectories>
+       <checkpoint_name>Checkpoint 1</checkpoint_name>
+     <export>
+           <export_file>output\SMReport-java.xml</export_file>
+           <export_type>1 (project summary as XML)</export_type>
+     </export>
+   </command>
+ </sourcemonitor_commands>

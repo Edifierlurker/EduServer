@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="LotteryOrderRecord">
+	<typeAlias alias="alias_lotteryOrderRecord"
+		type="com.pinke.uni.lottery.model.LotteryOrderRecord" />
+
+    <resultMap id="lotteryOrderRecordResult" class="alias_lotteryOrderRecord">
+		<result column="orderindex" property="orderindex" />
+		<result column="orderid" property="orderid" />
+		<result column="outerorderid" property="outerorderid" />
+		<result column="userindex" property="userindex" />
+		<result column="useraccount" property="useraccount" />
+		<result column="username" property="username" />
+		<result column="status" property="status" />
+		<result column="lcode" property="lcode" />
+		<result column="ltype" property="ltype" />
+		<result column="lissue" property="lissue" />
+		<result column="lcount" property="lcount" />
+		<result column="price" property="price" />
+		<result column="payfee" property="payfee" />
+		<result column="payinfo" property="payinfo" />
+		<result column="payseqid" property="payseqid" />
+		<result column="printstatus" property="printstatus" />
+		<result column="printresult" property="printresult" />
+		<result column="printfee" property="printfee" />
+		<result column="winmoney" property="winmoney" />
+		<result column="winresult" property="winresult" />
+		<result column="paytime" property="paytime" />
+		<result column="ordertime" property="ordertime" />
+	</resultMap>
+
+	<sql id="LotteryOrderRecord_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="orderindex">
+                orderindex = #orderindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="orderid">
+                orderid = #orderid#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="outerorderid">
+                outerorderid = #outerorderid#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userindex">
+                userindex =	#userindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="useraccount">
+                useraccount =	#useraccount#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="username">
+                username = #username#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+                status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="lcode">
+                lcode =	#lcode#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="ltype">
+                ltype =	#ltype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="lissue">
+                lissue =	#lissue#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="lcount">
+                lcount =	#lcount#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="price">
+                price =	#price#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="payfee">
+                payfee =	#payfee#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="payinfo">
+                payinfo =	#payinfo#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="payseqid">
+                payseqid =	#payseqid#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="printstatus">
+                printstatus =	#printstatus#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="printresult">
+                printresult =	#printresult#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="printfee">
+                printfee =	#printfee#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="winmoney">
+                winmoney =	#winmoney#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="winresult">
+                winresult =	#winresult#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="paytime">
+                paytime =	#paytime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="ordertime">
+                ordertime =	#ordertime#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<insert id="insertLotteryOrderRecord" parameterClass="alias_lotteryOrderRecord">
+		insert into lottery_order_record (
+        orderindex
+		<dynamic>
+			<isNotEmpty prepend="," property="orderid">
+                orderid
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="outerorderid">
+                outerorderid
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="userindex">
+                userindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="useraccount">
+                useraccount
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="username">
+                username
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+                status
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lcode">
+                lcode
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="ltype">
+                ltype
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lissue">
+                lissue
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lcount">
+                lcount
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="price">
+                price
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="payfee">
+                payfee
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="payinfo">
+                payinfo
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="payseqid">
+                payseqid
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printstatus">
+                printstatus
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printresult">
+                printresult
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printfee">
+                printfee
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="winmoney">
+                winmoney
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="winresult">
+                winresult
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="paytime">
+                paytime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="ordertime">
+                ordertime
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#orderindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="orderid">
+				#orderid#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="outerorderid">
+				#outerorderid#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="userindex">
+				#userindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="useraccount">
+				#useraccount#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="username">
+				#username#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lcode">
+				#lcode#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="ltype">
+				#ltype#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lissue">
+				#lissue#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lcount">
+				#lcount#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="price">
+				#price#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="payfee">
+				#payfee#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="payinfo">
+				#payinfo#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="payseqid">
+				#payseqid#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printstatus">
+				#printstatus#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printresult">
+				#printresult#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printfee">
+				#printfee#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="winmoney">
+				#winmoney#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="winresult">
+				#winresult#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="paytime">
+				#paytime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="ordertime">
+				#ordertime#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateLotteryOrderRecord" parameterClass="alias_lotteryOrderRecord">
+		update lottery_order_record
+		set
+        orderindex = #orderindex#
+		<dynamic>
+			<isNotNull prepend="," property="orderid">
+                orderid = #orderid#
+			</isNotNull>
+			<isNotNull prepend="," property="outerorderid">
+                outerorderid = #outerorderid#
+			</isNotNull>
+			<isNotNull prepend="," property="userindex">
+                userindex = #userindex#
+			</isNotNull>
+			<isNotNull prepend="," property="useraccount">
+                useraccount = #useraccount#
+			</isNotNull>
+			<isNotNull prepend="," property="username">
+                username = #username#
+			</isNotNull>
+			<isNotNull prepend="," property="status">
+                status = #status#
+			</isNotNull>
+			<isNotEmpty prepend="," property="lcode">
+                lcode = #lcode#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="ltype">
+                ltype =	#ltype#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lissue">
+                lissue =	#lissue#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lcount">
+                lcount =	#lcount#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="price">
+                price =	#price#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="payfee">
+                payfee =	#payfee#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="payinfo">
+                payinfo =	#payinfo#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="payseqid">
+                payseqid =	#payseqid#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printstatus">
+                printstatus =	#printstatus#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printresult">
+                printresult =	#printresult#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printfee">
+                printfee =	#printfee#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="winmoney">
+                winmoney =	#winmoney#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="winresult">
+                winresult =	#winresult#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="paytime">
+                paytime =	#paytime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="ordertime">
+                ordertime =	#ordertime#
+			</isNotEmpty>
+		</dynamic>
+		where orderindex = #orderindex#
+	</update>
+	<update id="updateLotteryOrderRecordByCond" parameterClass="alias_lotteryOrderRecord">
+		update lottery_order_record
+		set
+		<dynamic prepend=" ">
+            <isNotNull prepend="," property="orderid">
+                orderid = #orderid#
+            </isNotNull>
+            <isNotNull prepend="," property="outerorderid">
+                outerorderid = #outerorderid#
+            </isNotNull>
+            <isNotNull prepend="," property="userindex">
+                userindex = #userindex#
+            </isNotNull>
+            <isNotNull prepend="," property="useraccount">
+                useraccount = #useraccount#
+            </isNotNull>
+            <isNotNull prepend="," property="username">
+                username = #username#
+            </isNotNull>
+            <isNotNull prepend="," property="status">
+                status = #status#
+            </isNotNull>
+            <isNotEmpty prepend="," property="lcode">
+                lcode = #lcode#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="ltype">
+                ltype =	#ltype#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="lissue">
+                lissue =	#lissue#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="lcount">
+                lcount =	#lcount#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="price">
+                price =	#price#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="payfee">
+                payfee =	#payfee#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="payinfo">
+                payinfo =	#payinfo#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="payseqid">
+                payseqid =	#payseqid#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="printstatus">
+                printstatus =	#printstatus#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="printresult">
+                printresult =	#printresult#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="printfee">
+                printfee =	#printfee#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="winmoney">
+                winmoney =	#winmoney#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="winresult">
+                winresult =	#winresult#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="paytime">
+                paytime =	#paytime#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="ordertime">
+                ordertime =	#ordertime#
+            </isNotEmpty>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="orderid">
+                orderid = #orderid#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteLotteryOrderRecord" parameterClass="alias_lotteryOrderRecord">
+		delete from
+		lottery_order_record
+		where orderindex = #orderindex#
+	</delete>
+
+	<select id="getLotteryOrderRecord" parameterClass="alias_lotteryOrderRecord"
+		resultMap="lotteryOrderRecordResult">
+		select
+        orderindex,orderid,outerorderid,userindex,useraccount,username,status,lcode,ltype,lissue,lcount,price,payfee,payinfo,payseqid,printstatus,printresult,printfee,winmoney,winresult,paytime,ordertime
+		from lottery_order_record
+		where orderindex = #orderindex#
+	</select>
+
+	<select id="queryLotteryOrderRecordListByCond" parameterClass="alias_lotteryOrderRecord"
+		resultMap="lotteryOrderRecordResult">
+		select
+        orderindex,orderid,outerorderid,userindex,useraccount,username,status,lcode,ltype,lissue,lcount,price,payfee,payinfo,payseqid,printstatus,printresult,printfee,winmoney,winresult,paytime,ordertime
+		from lottery_order_record
+		<include refid="LotteryOrderRecord_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryLotteryOrderRecordListCntByCond" parameterClass="alias_lotteryOrderRecord"
+		resultClass="java.lang.Integer">
+		select count(1)
+		from lottery_order_record
+		<include refid="LotteryOrderRecord_Where_Clause" />
+	</select>
+
+</sqlMap>

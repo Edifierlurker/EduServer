@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pdu>
+<typedef name="USERNUMBER" length="20" type="string" />
+
+<pduitem opcode="08010101">
+  <request>
+     <item name="auth_method" type="int" length="2" binding="auth_method" />     
+     <item name="version_flag" type="int" length="2" binding="version_flag" />
+ </request>
+</pduitem>
+
+<pduitem opcode="08020101">
+  <request>
+     <item name="random_number_size" type="int" length="4" binding="random_number_size" />     
+     <item name="random_number" type="string" length="16" binding="random_number" />
+ </request>
+</pduitem>
+
+<pduitem opcode="08010102">
+  <request>
+     <item name="sp_code" type="string" length="20" binding="sp_code" />     
+     <item name="response_length" type="int" length="4" binding="response_length" />
+     <item name="response" type="string" length="16" binding="response" />
+ </request>
+</pduitem>
+
+<pduitem opcode="08020102">
+</pduitem>
+
+<pduitem opcode="08020201">
+</pduitem>
+
+<pduitem opcode="08010202">
+</pduitem>
+
+<pduitem opcode="08020202">
+</pduitem>
+
+<pduitem opcode="08010401">
+</pduitem>
+
+<pduitem opcode="08020401">
+</pduitem>
+
+
+<pduitem opcode="01010101">
+  <request>
+     <item name="srcDeviceType" type="int" length="4" binding="srcDeviceType" />
+     <item name="srcDeviceID" type="string" length="40" binding="srcDeviceID" />
+     <item name="OA" type="string" length="40" binding="OA" />
+     <item name="OAType" type="int" length="2" binding="OAType" />
+     <item name="DA" type="string" length="60" binding="DA" />
+     <item name="DAType" type="int" length="2" binding="DAType" />
+     <item name="downType" type="int" length="2" binding="downType" />
+     <item name="IDType" type="int" length="2" binding="IDType" />
+     <item name="ID" type="string" length="40" binding="ID" />
+     <item name="subpkgID" type="string" length="40" binding="subpkgID" />
+     <item name="prdcount" type="int" length="2" binding="prdcount" />
+     <item name="accesstype" type="int" length="2" binding="accesstype" />
+     <item name="isvacmonth" type="int" length="2" binding="isvacmonth" />
+  </request>
+  <response>
+    <item name="status" type="int" length="5" />
+    <item name="price" type="string" length="10" />
+    <item name="realprice" type="string" length="10" />
+    <item name="realpoints" type="string" length="10" />
+    <item name="pointscanget" type="string" length="10" />
+    <item name="storepoint" type="string" length="10" />
+    <item name="ifvac" type="int" length="2" />
+  </response>    
+</pduitem>
+<pduitem opcode="01010102">
+  <request>
+     <item name="srcDeviceType" type="int" length="4" binding="srcDeviceType" />
+     <item name="srcDeviceID" type="string" length="40" binding="srcDeviceID" />
+     <item name="OA" type="string" length="40" binding="OA" />
+     <item name="OAType" type="int" length="2" binding="OAType" />
+     <item name="DA" type="string" length="60" binding="DA" />
+     <item name="DAType" type="int" length="2" binding="DAType" />
+     <item name="FA" type="string" length="40" binding="FA" />
+     <item name="FAType" type="int" length="2" binding="FAType" />
+     <item name="downType" type="int" length="2" binding="downType" />
+     <item name="IDType" type="int" length="2" binding="IDType" />
+     <item name="ID" type="string" length="40" binding="ID" />
+     <item name="subpkgID" type="string" length="40" binding="subpkgID" />
+     <item name="Prdcount" type="int" length="2" binding="Prdcount" />
+     <item name="PayType" type="int" length="4" binding="PayType" />
+     <item name="PaySubType" type="int" length="2" binding="PaySubType" />
+     <item name="Accounttype" type="string" length="50" binding="Accounttype" />
+     <item name="Payment_type" type="int" length="2" binding="Payment_type" />
+     <item name="Payment_desc" type="string" length="100" binding="Payment_desc" />
+     <item name="recommendflag" type="int" length="2" binding="recommendflag" />
+     <item name="recommendmdn" type="string" length="40" binding="recommendmdn" />
+     <item name="subrecommendmdn" type="string" length="40" binding="subrecommendmdn" />
+     <item name="Accesstype" type="int" length="2" binding="Accesstype" />
+     <item name="isquickbuy" type="int" length="2" binding="isquickbuy" />
+     <item name="ip" type="string" length="64" binding="ip" />
+     <item name="imei" type="string" length="20" binding="imei" />
+     <item name="imsi" type="string" length="20" binding="imsi" />
+     <item name="isvacmonth" type="int" length="2" binding="isvacmonth" />
+  </request>
+  <response>
+      <item name="status" type="string" length="5"/>
+      <item name="orderid" type="string" length="40"/>
+      <item name="pay_balance" type="int" length="10"/>
+      <item name="isluckstar" type="int" length="2"/>
+      <item name="luckpresentname" type="string" length="200"/>
+      <item name="tradeid" type="string" length="40"/>
+      <item name="storepoint" type="string" length="10"/>
+      <item name="ifrepeat" type="string" length="2"/>
+      <item name="isvacmonthbuy" type="string" length="10"/>
+  </response>  
+</pduitem>
+
+<pduitem opcode="01010103">
+    <request>
+        <item name="orderid" type="string" length="40" binding="orderid"/>
+        <item name="chargeResult" type="int" length="4" binding="chargeResult"/>
+        <item name="resp_time" type="string" length="19" binding="resp_time"/>
+        <item name="trancactionID" type="string" length="24" binding="trancactionID"/>
+        <item name="payfee" type="int" length="10" binding="payfee"/>
+        <item name="payfeedetail" type="string" length="200" binding="payfeedetail"/>
+        <item name="userID" type="string" length="40" binding="userID"/>
+        <item name="passport" type="string" length="100" binding="passport"/>
+    </request>
+    <response>
+        <item name="status" type="string" length="5"/>
+        <item name="tradeid" type="string" length="40"/>
+        <item name="ifshare" type="string" length="2"/>
+        <item name="sharerID" type="string" length="40"/>
+        <item name="productID" type="string" length="40"/>
+        <item name="ispkg" type="string" length="2"/>
+        <item name="userid" type="string" length="40"/>
+        <item name="orderID" type="string" length="40"/>
+        <item name="ifsend2cp" type="int" length="2"/>
+    </response>
+</pduitem>
+
+<pduitem opcode="01010104">
+  <request>
+     <item name="payuserid" type="string" length="40" binding="payuserid" /> 
+     <item name="useuserid" type="string" length="60" binding="useuserid" />     
+     <item name="orderid" type="string" length="40" binding="orderid" />
+     <item name="refund_desc" type="string" length="200" binding="refund_desc" />
+     <item name="accesstype" type="int" length="2" binding="accesstype" />
+ </request>
+  <response>
+    <item name="status" type="string" length="5" />
+    <item name="tradeid" type="string" length="40" />
+  </response>
+</pduitem>
+
+<pduitem opcode="01010105">
+  <request>
+     <item name="userid" type="string" length="40" binding="userid" />     
+     <item name="req_time" type="string" length="19" binding="req_time" />
+     <item name="mobile" type="string" length="11" binding="mobile" />
+     <item name="email" type="string" length="60" binding="email" />
+     <item name="accesstype" type="int" length="2" binding="accesstype" />
+ </request>
+  <response>
+    <item name="status" type="string" length="5" />
+    <item name="userid" type="string" length="40" />
+    <item name="passport" type="string" length="100" />
+    <item name="account_state" type="string" length="2" />
+    <item name="resp_time" type="string" length="19" />
+    <item name="account_balance" type="int" length="18" />
+    <item name="balance1" type="int" length="18" />
+    <item name="detail_account_type1" type="string" length="2" />
+    <item name="desc1" type="string" length="50" />
+    <item name="balance2" type="int" length="18" />
+    <item name="detail_account_type2" type="string" length="2" />
+    <item name="desc2" type="string" length="50" />
+    <item name="balance3" type="int" length="18" />
+    <item name="detail_account_type3" type="string" length="2" />
+    <item name="desc3" type="string" length="50" />
+  </response>
+</pduitem>
+
+<pduitem opcode="01010106">
+  <request>
+     <item name="orderid" type="string" length="40" binding="orderid" />     
+     <item name="req_time" type="string" length="19" binding="req_time" />
+     <item name="userid" type="string" length="40" binding="userid" />
+     <item name="mobile" type="string" length="11" binding="mobile" />
+     <item name="email" type="string" length="60" binding="email" />
+     <item name="accesstype" type="int" length="2" binding="accesstype" />
+ </request>
+  <response>
+    <item name="status" type="string" length="5" />
+    <item name="orderid" type="string" length="40" />
+    <item name="passport" type="string" length="100" />
+    <item name="sp_sett_id" type="string" length="100" />
+    <item name="pay_state" type="string" length="1" />
+    <item name="order_balance" type="string" length="18" />
+    <item name="order_balance_desc" type="string" length="200" />
+    <item name="order_desc" type="string" length="200" />
+    <item name="order_time" type="string" length="19" />
+    <item name="resp_time" type="string" length="19" />
+    <item name="refund_state" type="string" length="1" />
+  </response>
+</pduitem>
+
+<pduitem opcode="01010107">
+  <request>
+     <item name="query_type" type="string" length="2" binding="query_type" />     
+     <item name="query_value" type="string" length="200" binding="query_value" />
+     <item name="req_time" type="string" length="19" binding="req_time" />
+     <item name="email" type="string" length="60" binding="email" />
+     <item name="accesstype" type="int" length="2" binding="accesstype" />
+ </request>
+  <response>
+    <item name="status" type="string" length="5" />
+    <item name="epay_user_type" type="string" length="2" />
+    <item name="passport" type="string" length="100" />
+    <item name="mobile" type="string" length="11" />
+    <item name="email" type="string" length="60" />
+    <item name="userid" type="string" length="40" />
+    <item name="reg_state" type="string" length="2" />
+    <item name="user_state" type="string" length="2" />
+    <item name="bind_state" type="string" length="2" />
+    <item name="resp_time" type="string" length="19" />
+  </response>
+</pduitem>
+
+<pduitem opcode="01010108">
+  <request>
+     <item name="userid" type="string" length="40" binding="userid" />     
+     <item name="req_time" type="string" length="19" binding="req_time" />
+     <item name="mobile" type="string" length="11" binding="mobile" />
+     <item name="email" type="string" length="60" binding="email" />
+     <item name="accesstype" type="int" length="2" binding="accesstype" />
+ </request>
+  <response>
+    <item name="status" type="string" length="5" />
+    <item name="userid" type="string" length="40" />
+    <item name="resp_time" type="string" length="19" />
+  </response>
+</pduitem>
+
+<pduitem opcode="01010109">
+  <request>
+     <item name="userid" type="string" length="40" binding="userid" />     
+     <item name="mobile" type="string" length="11" binding="mobile" />
+     <item name="email" type="string" length="60" binding="email" />
+     <item name="user_type" type="string" length="2" binding="user_type" />
+     <item name="req_time" type="string" length="19" binding="req_time" />
+     <item name="accesstype" type="int" length="2" binding="accesstype" />
+ </request>
+  <response>
+    <item name="status" type="string" length="5" />
+    <item name="resp_time" type="string" length="19" />
+    <item name="userid" type="string" length="40" />
+    <item name="passport" type="string" length="100" />
+  </response>
+</pduitem>
+
+<pduitem opcode="01010110">
+  <request>
+     <item name="query_type" type="string" length="2" binding="query_type" />     
+     <item name="userid" type="string" length="40" binding="userid" />
+     <item name="mobile" type="string" length="11" binding="mobile" />
+     <item name="email" type="string" length="60" binding="email" />
+     <item name="accesstype" type="int" length="2" binding="accesstype" />
+ </request>
+  <response>
+    <item name="status" type="string" length="5" />
+    <item name="userid" type="string" length="40" />
+    <item name="account_type" type="string" length="256" />
+    <item name="resp_time" type="string" length="19" />
+  </response>
+</pduitem>
+
+<pduitem opcode="01010111">
+  <request>
+     <item name="stbid" type="string" length="36" binding="stbid" />     
+     <item name="spid" type="string" length="8" binding="spid" />
+ </request>
+  <response>
+    <item name="code" type="string" length="2" />
+    <item name="sequence" type="string" length="10" />
+    <item name="stbid" type="string" length="36" />  
+    <item name="manufacturer" type="string" length="32" />
+    <item name="producttype" type="string" length="256" />
+    <item name="resolution" type="string" length="3" />
+    <item name="description" type="string" length="200" />
+  </response>
+</pduitem>
+
+<pduitem opcode="01010112">
+  <request>
+     <item name="MSISDN" type="string" length="20" binding="MSISDN"/>     
+ </request>
+  <response>
+    <item name="MSISDN" type="string" length="20"/>
+    <item name="CompanyName" type="string" length="128"/>
+    <item name="CompanyName" type="string" length="128"/>
+  </response>
+</pduitem>
+
+<pduitem opcode="01010113">
+  <request>
+     <item name="mobile" type="string" length="20" binding="mobile"/>
+ </request>
+  <response>
+    <item name="status" type="string" length="5"/>
+    <item name="tcname" type="string" length="64"/>
+    <item name="usedvoice" type="string" length="15"/>
+    <item name="unusedvoice" type="string" length="15"/>
+    <item name="usedgprs" type="string" length="15"/>
+    <item name="unusedgprs" type="string" length="15"/>
+  </response>
+</pduitem>
+
+<errors>
+  <item code="0001" desc="鉴权失败" shown="true" exception="false"  />
+  <item code="00000" desc="鉴权成功" shown="true" exception="false"  />
+  <item code="00001" desc="您的账户余额不足了哟！" shown="true" exception="false"  />
+  <item code="00002" desc="网络超时，不给力啊！" shown="true" exception="false"  />
+  <item code="00003" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="00004" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="00005" desc="用户信息不存在,请重新确认" shown="true" exception="false"  />
+  <item code="00006" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="00007" desc="该用户名已被注册!" shown="true" exception="false"  />
+  <item code="00008" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="00009" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="00010" desc="账户状态异常!" shown="true" exception="false"  />
+  <item code="00011" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="00012" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="00013" desc="您的手机号码错误!" shown="true" exception="false"  />
+  <item code="00014" desc="手机号码已存在，请重新确认!" shown="true" exception="false"  />
+  <item code="00015" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="00016" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="00017" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="00018" desc="用户手机号码尚未绑定!" shown="true" exception="false"  />
+  <item code="00019" desc="该手机号码已被绑定!" shown="true" exception="false"  />
+  <item code="00020" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="00021" desc="您的订单已退款，请查收!" shown="true" exception="false"  />
+  <item code="00022" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="00023" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="00024" desc="账户不存在!" shown="true" exception="false"  />
+  <item code="00025" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="00026" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="90001" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="99999" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="00027" desc="用户已经绑定!" shown="true" exception="false"  />
+  <item code="00028" desc="该邮箱已被使用!" shown="true" exception="false"  />
+  <item code="00029" desc="沃支付账户名非法!" shown="true" exception="false"  />
+  <item code="00030" desc="邮箱名非法!" shown="true" exception="false"  />
+  <item code="00031" desc="密码非法!" shown="true" exception="false"  />
+  <item code="10001" desc="该用户名不存在!" shown="true" exception="false"  />
+  <item code="10002" desc="用户状态异常!" shown="true" exception="false"  />
+  <item code="10003" desc="对不起，已被列入黑名单!" shown="true" exception="false"  />
+  <item code="10004" desc="您选择的商品不存在!" shown="true" exception="false"  />
+  <item code="10005" desc="商品状态异常，请重新选择!" shown="true" exception="false"  />
+  <item code="10006" desc="您选择的礼包不存在!" shown="true" exception="false"  />
+  <item code="10007" desc="您选择的礼包状态异常" shown="true" exception="false"  />
+  <item code="10008" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10009" desc="您的积分余额不足咯，请充值" shown="true" exception="false"  />
+  <item code="10010" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10011" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10012" desc="商品状态异常，请重新选择！" shown="true" exception="false"  />
+  <item code="10013" desc="商品状态异常，请重新选择！" shown="true" exception="false"  />
+  <item code="10014" desc="商品状态异常，请重新选择！" shown="true" exception="false"  />
+  <item code="10015" desc="操作不正确，请重新选择购买" shown="true" exception="false"  />
+  <item code="10016" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10017" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10018" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10019" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10020" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10100" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10101" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10102" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10103" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10104" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10105" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10106" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10107" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10108" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10109" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10110" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10111" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10112" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10113" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10114" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"  />
+  <item code="10025" desc="您超过本月100次的限制，请下月再进行购买！" shown="true" exception="false"/>
+  <item code="01001" desc="订购用户不存在！" shown="true" exception="false"/>
+  <item code="01002" desc="订购用户状态被停止！" shown="true" exception="false"/>
+  <item code="01004" desc="订购用户在黑名单中！" shown="true" exception="false"/>
+  <item code="01005" desc="订购用户余额不足！" shown="true" exception="false"/>
+  <item code="01006" desc="扣费超时！" shown="true" exception="false"/>
+  <item code="01007" desc="订购关系不存在（VAC）！" shown="true" exception="false"/>
+  <item code="01008" desc="已存在订购关系（VAC）！" shown="true" exception="false"/>
+  <item code="01099" desc="其他异常，扣费失败！" shown="true" exception="false"/>
+  <item code="10028" desc="商品不支持VAC支付！" shown="true" exception="false"/>
+  <item code="10029" desc="用户不支持VAC支付！" shown="true" exception="false"/>
+  <item code="10030" desc="价格对应的VAC产品代码不存在！" shown="true" exception="false"/>
+  <item code="10032" desc="当前省份不支持Vac免流量包订购！" shown="true" exception="false"/>
+   <item code="02001" desc="对不起，系统正忙，请稍候再试！" shown="true" exception="false"/>
+</errors>
+</pdu>

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="LotteryPrintRecord">
+	<typeAlias alias="alias_lotteryPrintRecord"
+		type="com.pinke.uni.lottery.model.LotteryPrintRecord" />
+
+    <resultMap id="lotteryPrintRecordResult" class="alias_lotteryPrintRecord">
+		<result column="printindex" property="printindex" />
+		<result column="printid" property="printid" />
+		<result column="orderindex" property="orderindex" />
+		<result column="orderid" property="orderid" />
+		<result column="outerorderid" property="outerorderid" />
+		<result column="lcode" property="lcode" />
+		<result column="ltype" property="ltype" />
+		<result column="gtype" property="gtype" />
+		<result column="lissue" property="lissue" />
+		<result column="lcount" property="lcount" />
+		<result column="printstatus" property="printstatus" />
+		<result column="printresult" property="printresult" />
+		<result column="printtime" property="printtime" />
+		<result column="printfee" property="printfee" />
+		<result column="winmoney" property="winmoney" />
+		<result column="winresult" property="winresult" />
+		<result column="status" property="status" />
+		<result column="reqtime" property="reqtime" />
+	</resultMap>
+
+	<sql id="LotteryPrintRecord_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="printindex">
+                printindex = #printindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="printid">
+                printid = #printid#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="orderindex">
+                orderindex = #orderindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="orderid">
+                orderid = #orderid#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="outerorderid">
+                outerorderid = #outerorderid#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="lcode">
+                lcode =	#lcode#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="ltype">
+                ltype =	#ltype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="gtype">
+                gtype =	#gtype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="lissue">
+                lissue =	#lissue#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="lcount">
+                lcount =	#lcount#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="printstatus">
+                printstatus =	#printstatus#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="printresult">
+                printresult =	#printresult#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="printtime">
+                printtime =	#printtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="printfee">
+                printfee =	#printfee#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="winmoney">
+                winmoney =	#winmoney#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="winresult">
+                winresult =	#winresult#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+                status =	#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="reqtime">
+                reqtime =	#reqtime#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<insert id="insertLotteryPrintRecord" parameterClass="alias_lotteryPrintRecord">
+		insert into lottery_print_record (
+        printindex
+		<dynamic>
+			<isNotEmpty prepend="," property="printid">
+                printid
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="orderindex">
+                orderindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="orderid">
+                orderid
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="outerorderid">
+                outerorderid
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lcode">
+                lcode
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="ltype">
+                ltype
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="gtype">
+                gtype
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lissue">
+                lissue
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lcount">
+                lcount
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printstatus">
+                printstatus
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printresult">
+                printresult
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printtime">
+                printtime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printfee">
+                printfee
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="winmoney">
+                winmoney
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="winresult">
+                winresult
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+                status
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="reqtime">
+                reqtime
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#printindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="printid">
+				#printid#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="orderindex">
+				#orderindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="orderid">
+				#orderid#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="outerorderid">
+				#outerorderid#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lcode">
+				#lcode#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="ltype">
+				#ltype#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="gtype">
+				#gtype#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lissue">
+				#lissue#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lcount">
+				#lcount#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printstatus">
+				#printstatus#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printresult">
+				#printresult#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printtime">
+				#printtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printfee">
+				#printfee#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="winmoney">
+				#winmoney#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="winresult">
+				#winresult#
+            </isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+            </isNotEmpty>
+			<isNotEmpty prepend="," property="reqtime">
+				#reqtime#
+            </isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateLotteryPrintRecord" parameterClass="alias_lotteryPrintRecord">
+		update lottery_print_record
+		set
+        printindex = #printindex#
+		<dynamic>
+			<isNotNull prepend="," property="printid">
+                printid = #printid#
+			</isNotNull>
+			<isNotNull prepend="," property="orderindex">
+                orderindex = #orderindex#
+			</isNotNull>
+			<isNotNull prepend="," property="orderid">
+                orderid = #orderid#
+			</isNotNull>
+			<isNotNull prepend="," property="outerorderid">
+                outerorderid = #outerorderid#
+			</isNotNull>
+			<isNotEmpty prepend="," property="lcode">
+                lcode = #lcode#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="ltype">
+                ltype =	#ltype#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="gtype">
+                gtype =	#gtype#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lissue">
+                lissue =	#lissue#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lcount">
+                lcount =	#lcount#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printstatus">
+                printstatus =	#printstatus#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printresult">
+                printresult =	#printresult#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printtime">
+                printtime =	#printtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="printfee">
+                printfee =	#printfee#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="winmoney">
+                winmoney =	#winmoney#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="winresult">
+                winresult =	#winresult#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+                status =	#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="reqtime">
+                reqtime =	#reqtime#
+			</isNotEmpty>
+		</dynamic>
+		where printindex = #printindex#
+	</update>
+	<update id="updateLotteryPrintRecordByCond" parameterClass="alias_lotteryPrintRecord">
+		update lottery_print_record
+		set
+		<dynamic prepend=" ">
+            <isNotNull prepend="," property="printid">
+                printid = #printid#
+            </isNotNull>
+            <isNotNull prepend="," property="orderindex">
+                orderindex = #orderindex#
+            </isNotNull>
+            <isNotNull prepend="," property="orderid">
+                orderid = #orderid#
+            </isNotNull>
+            <isNotNull prepend="," property="outerorderid">
+                outerorderid = #outerorderid#
+            </isNotNull>
+            <isNotEmpty prepend="," property="lcode">
+                lcode = #lcode#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="ltype">
+                ltype =	#ltype#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="gtype">
+                gtype =	#gtype#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="lissue">
+                lissue =	#lissue#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="lcount">
+                lcount =	#lcount#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="printstatus">
+                printstatus =	#printstatus#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="printresult">
+                printresult =	#printresult#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="printtime">
+                printtime =	#printtime#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="printfee">
+                printfee =	#printfee#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="winmoney">
+                winmoney =	#winmoney#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="winresult">
+                winresult =	#winresult#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="status">
+                status =	#status#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="reqtime">
+                reqtime =	#reqtime#
+            </isNotEmpty>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="printid">
+                printid = #printid#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteLotteryPrintRecord" parameterClass="alias_lotteryPrintRecord">
+		delete from
+		lottery_print_record
+		where printindex = #printindex#
+	</delete>
+
+	<select id="getLotteryPrintRecord" parameterClass="alias_lotteryPrintRecord"
+		resultMap="lotteryPrintRecordResult">
+		select
+        printindex,printid,orderindex,orderid,outerorderid,lcode,ltype,gtype,lissue,lcount,printstatus,printresult,printtime,printfee,winmoney,winresult,status,reqtime
+		from lottery_print_record
+		where printindex = #printindex#
+	</select>
+
+	<select id="queryLotteryPrintRecordListByCond" parameterClass="alias_lotteryPrintRecord"
+		resultMap="lotteryPrintRecordResult">
+		select
+        printindex,printid,orderindex,orderid,outerorderid,lcode,ltype,gtype,lissue,lcount,printstatus,printresult,printtime,printfee,winmoney,winresult,status,reqtime
+		from lottery_print_record
+		<include refid="LotteryPrintRecord_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryLotteryPrintRecordListCntByCond" parameterClass="alias_lotteryPrintRecord"
+		resultClass="java.lang.Integer">
+		select count(1)
+		from lottery_print_record
+		<include refid="LotteryPrintRecord_Where_Clause" />
+	</select>
+
+</sqlMap>

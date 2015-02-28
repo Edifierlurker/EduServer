@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TBbsinfoNoticeMap">
+	<typeAlias alias="alias_tbbsinfoNoticeMap"
+		type="com.pinke.uni.mobile.protal.bbs.model.TBbsinfoNoticeMap" />
+
+	<resultMap id="tbbsinfoNoticeMapResult" class="alias_tbbsinfoNoticeMap">
+		<result column="mapindex" property="mapindex" />
+		<result column="bbsindex" property="bbsindex" />
+		<result column="attendindex" property="attendindex" />
+		<result column="status" property="status" />
+		<result column="note" property="note" />
+	</resultMap>
+
+	<resultMap id="tbbsinfoNoticeMapResultExtends" class="alias_tbbsinfoNoticeMap">
+		<result column="mapindex" property="mapindex" />
+		<result column="bbsindex" property="bbsindex" />
+		<result column="attendindex" property="attendindex" />
+		<result column="status" property="status" />
+		<result column="note" property="note" />
+		<result column="bbstitle" property="bbstitle" />
+		<result column="bbsbref" property="bbsbref" />
+		<result column="createtime" property="createtime" />
+		<result column="attendcount" property="attendcount" />
+	</resultMap>
+
+	<sql id="TBbsinfoNoticeMap_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsindex">
+				bbsindex = #bbsindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendindex">
+				attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<sql id="TBbsinfoNoticeMap_Where_Clause_extends">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsindex">
+				s.bbsindex = #bbsindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendindex">
+				s.attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				s.status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<sql id="TBbsinfoNoticeMap_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsindex">
+				bbsindex = #bbsindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendindex">
+				attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="insertTBbsinfoNoticeMap" parameterClass="alias_tbbsinfoNoticeMap">
+		insert into t_bbsinfo_notice_map (
+		mapindex
+		<dynamic>
+			<isNotEmpty prepend="," property="bbsindex">
+				bbsindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="attendindex">
+				attendindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				note
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#mapindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="bbsindex">
+				#bbsindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="attendindex">
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				#note#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateTBbsinfoNoticeMap" parameterClass="alias_tbbsinfoNoticeMap">
+		update t_bbsinfo_notice_map
+		set
+		mapindex = #mapindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="bbsindex">
+				bbsindex = #bbsindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="attendindex">
+				attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+		</dynamic>
+		where mapindex = #mapindex#
+	</update>
+	<update id="updateTBbsinfoNoticeMapByCond" parameterClass="alias_tbbsinfoNoticeMap">
+		update t_bbsinfo_notice_map
+		set
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="bbsindex">
+				bbsindex = #bbsindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="attendindex">
+				attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsindex">
+				bbsindex = #bbsindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendindex">
+				attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteTBbsinfoNoticeMap" parameterClass="alias_tbbsinfoNoticeMap">
+		delete from
+		t_bbsinfo_notice_map
+		where mapindex = #mapindex#
+	</delete>
+	<delete id="deleteTBbsinfoNoticeMapByCond" parameterClass="alias_tbbsinfoNoticeMap">
+		delete from t_bbsinfo_notice_map
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+				mapindex = #mapindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsindex">
+				bbsindex = #bbsindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendindex">
+				attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="getTBbsinfoNoticeMap" parameterClass="alias_tbbsinfoNoticeMap"
+		resultMap="tbbsinfoNoticeMapResult">
+		select mapindex,bbsindex,attendindex,status,note
+		from
+		t_bbsinfo_notice_map
+		where mapindex = #mapindex#
+	</select>
+
+	<select id="queryTBbsinfoNoticeMapListByCond" parameterClass="alias_tbbsinfoNoticeMap"
+		resultMap="tbbsinfoNoticeMapResultExtends">
+		SELECT
+		mapindex,
+		s.bbsindex AS bbsindex,
+		attendindex,
+		s.status AS STATUS,
+		s.note AS note,
+		m.bbstitle AS bbstitle,
+		m.bbsbref AS bbsbref,
+		m.createtime AS createtime,
+		m.attendcount AS attendcount
+		FROM
+		t_bbsinfo_notice_map s
+		LEFT JOIN
+		t_bbsinfo m
+		ON s.bbsindex = m.bbsindex
+		AND m.STATUS=1
+		<include refid="TBbsinfoNoticeMap_Where_Clause_extends" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryTBbsinfoNoticeMapListCntByCond" parameterClass="alias_tbbsinfoNoticeMap"
+		resultClass="java.lang.Integer">
+		select count(1)
+		FROM t_bbsinfo_notice_map s
+		LEFT JOIN t_bbsinfo m
+		ON
+		s.bbsindex = m.bbsindex AND m.STATUS=1
+		<include refid="TBbsinfoNoticeMap_Where_Clause_extends" />
+	</select>
+
+	<select id="queryTBbsinfoNoticeMapListByCondExact"
+		parameterClass="alias_tbbsinfoNoticeMap" resultMap="tbbsinfoNoticeMapResult">
+		select
+		mapindex,bbsindex,attendindex,status,note
+		from
+		t_bbsinfo_notice_map
+		<include refid="TBbsinfoNoticeMap_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+</sqlMap>

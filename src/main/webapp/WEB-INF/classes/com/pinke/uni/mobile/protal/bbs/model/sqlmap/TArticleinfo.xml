@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TArticleinfo">
+	<typeAlias alias="alias_tarticleinfo"
+		type="com.pinke.uni.mobile.protal.bbs.model.TArticleinfo" />
+
+	<resultMap id="tarticleinfoResult" class="alias_tarticleinfo">
+		<result column="articleindex" property="articleindex" />
+		<result column="bbsindex" property="bbsindex" />
+		<result column="articlepic" property="articlepic" />
+		<result column="articletitle" property="articletitle" />
+		<result column="articlebref" property="articlebref" />
+		<result column="articledesc" property="articledesc" />
+		<result column="createtime" property="createtime" />
+		<result column="status" property="status" />
+		<result column="note" property="note" />
+		<result column="createrindex" property="createrindex" />
+		<result column="articlestars" property="articlestars" />
+		<result column="ifissue" property="ifissue" />
+		<result column="articletype" property="articletype" />
+		<result column="istop" property="istop" />
+		<result column="lastposttime" property="lastposttime" />
+		<result column="commenttimes" property="commenttimes" />
+	</resultMap>
+
+	<resultMap id="tarticleinfoResultExtends" class="alias_tarticleinfo">
+		<result column="articleindex" property="articleindex" />
+		<result column="bbsindex" property="bbsindex" />
+		<result column="articlepic" property="articlepic" />
+		<result column="articletitle" property="articletitle" />
+		<result column="articlebref" property="articlebref" />
+		<result column="articledesc" property="articledesc" />
+		<result column="createtime" property="createtime" />
+		<result column="status" property="status" />
+		<result column="note" property="note" />
+		<result column="createrindex" property="createrindex" />
+		<result column="articlestars" property="articlestars" />
+		<result column="ifissue" property="ifissue" />
+		<result column="articletype" property="articletype" />
+		<result column="istop" property="istop" />
+		<result column="lastposttime" property="lastposttime" />
+		<result column="commenttimes" property="commenttimes" />
+		<result column="creator" property="creator" />
+		<result column="headpic" property="headpic" />
+	</resultMap>
+
+	<resultMap id="tarticleinfoResultMore" class="alias_tarticleinfo">
+		<result column="articleindex" property="articleindex" />
+		<result column="bbsindex" property="bbsindex" />
+		<result column="articlepic" property="articlepic" />
+		<result column="articletitle" property="articletitle" />
+		<result column="articlebref" property="articlebref" />
+		<result column="articledesc" property="articledesc" />
+		<result column="createtime" property="createtime" />
+		<result column="status" property="status" />
+		<result column="note" property="note" />
+		<result column="createrindex" property="createrindex" />
+		<result column="articlestars" property="articlestars" />
+		<result column="ifissue" property="ifissue" />
+		<result column="articletype" property="articletype" />
+		<result column="istop" property="istop" />
+		<result column="lastposttime" property="lastposttime" />
+		<result column="commenttimes" property="commenttimes" />
+		<result column="bbstitle" property="bbstitle" />
+	</resultMap>
+
+	<sql id="TArticleinfo_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="articleindex">
+				articleindex =
+				#articleindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsindex">
+				bbsindex = #bbsindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articlepic">
+				articlepic =
+				#articlepic#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articletitle">
+				articletitle =
+				#articletitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articlebref">
+				articlebref =
+				#articlebref#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articledesc">
+				articledesc =
+				#articledesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createrindex">
+				createrindex =
+				#createrindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articlestars">
+				articlestars =
+				#articlestars#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="ifissue">
+				ifissue = #ifissue#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articletype">
+				articletype =
+				#articletype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="istop">
+				istop = #istop#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="lastposttime">
+				lastposttime =
+				#lastposttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commenttimes">
+				commenttimes =
+				#commenttimes#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<sql id="TArticleinfo_Where_Clause_extends">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="articleindex">
+				articleindex =
+				#articleindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsindex">
+				bbsindex = #bbsindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articlepic">
+				articlepic =
+				#articlepic#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articletitle">
+				articletitle =
+				#articletitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articlebref">
+				articlebref =
+				#articlebref#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articledesc">
+				articledesc =
+				#articledesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				t.status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createrindex">
+				createrindex =
+				#createrindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articlestars">
+				articlestars =
+				#articlestars#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="ifissue">
+				ifissue = #ifissue#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articletype">
+				articletype =
+				#articletype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="istop">
+				istop = #istop#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="lastposttime">
+				lastposttime =
+				#lastposttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="noticeuserindex">
+				s.attendindex =
+				#noticeuserindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commenttimes">
+				commenttimes =
+				#commenttimes#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<sql id="TArticleinfo_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="articleindex">
+				articleindex =
+				#articleindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsindex">
+				bbsindex = #bbsindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articlepic">
+				articlepic =
+				#articlepic#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articletitle">
+				articletitle =
+				#articletitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articlebref">
+				articlebref =
+				#articlebref#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articledesc">
+				articledesc =
+				#articledesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createrindex">
+				createrindex =
+				#createrindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articlestars">
+				articlestars =
+				#articlestars#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="ifissue">
+				ifissue = #ifissue#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articletype">
+				articletype =
+				#articletype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="istop">
+				istop = #istop#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="lastposttime">
+				lastposttime =
+				#lastposttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commenttimes">
+				commenttimes =
+				#commenttimes#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="insertTArticleinfo" parameterClass="alias_tarticleinfo">
+		insert into t_articleinfo (
+		articleindex
+		<dynamic>
+			<isNotEmpty prepend="," property="bbsindex">
+				bbsindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="articlepic">
+				articlepic
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="articletitle">
+				articletitle
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="articlebref">
+				articlebref
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="articledesc">
+				articledesc
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="createtime">
+				createtime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				note
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="createrindex">
+				createrindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="articlestars">
+				articlestars
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="ifissue">
+				ifissue
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="articletype">
+				articletype
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="istop">
+				istop
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lastposttime">
+				lastposttime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="commenttimes">
+				commenttimes
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#articleindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="bbsindex">
+				#bbsindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="articlepic">
+				#articlepic#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="articletitle">
+				#articletitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="articlebref">
+				#articlebref#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="articledesc">
+				#articledesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="createtime">
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				#note#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="createrindex">
+				#createrindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="articlestars">
+				#articlestars#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="ifissue">
+				#ifissue#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="articletype">
+				#articletype#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="istop">
+				#istop#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lastposttime">
+				#lastposttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="commenttimes">
+				#commenttimes#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateTArticleinfo" parameterClass="alias_tarticleinfo">
+		update t_articleinfo
+		set
+		articleindex = #articleindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="bbsindex">
+				bbsindex = #bbsindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="articlepic">
+				articlepic = #articlepic#
+			</isNotNull>
+			<isNotNull prepend="," property="articletitle">
+				articletitle =
+				#articletitle#
+			</isNotNull>
+			<isNotNull prepend="," property="articlebref">
+				articlebref = #articlebref#
+			</isNotNull>
+			<isNotNull prepend="," property="articledesc">
+				articledesc = #articledesc#
+			</isNotNull>
+			<isNotNull prepend="," property="createtime">
+				createtime = #createtime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+			<isNotEmpty prepend="," property="createrindex">
+				createrindex =
+				#createrindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="articlestars">
+				articlestars =
+				#articlestars#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="ifissue">
+				ifissue = #ifissue#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="articletype">
+				articletype =
+				#articletype#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="istop">
+				istop = #istop#
+			</isNotEmpty>
+			<isNotNull prepend="," property="lastposttime">
+				lastposttime =
+				#lastposttime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="commenttimes">
+				commenttimes =
+				#commenttimes#
+			</isNotEmpty>
+			<isEmpty prepend="," property="commenttimes">
+				commenttimes =
+				commenttimes+1
+			</isEmpty>
+		</dynamic>
+		where articleindex = #articleindex#
+	</update>
+	<update id="updateTArticleinfoByCond" parameterClass="alias_tarticleinfo">
+		update t_articleinfo
+		set
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="bbsindex">
+				bbsindex = #bbsindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="articlepic">
+				articlepic = #articlepic#
+			</isNotNull>
+			<isNotNull prepend="," property="articletitle">
+				articletitle =
+				#articletitle#
+			</isNotNull>
+			<isNotNull prepend="," property="articlebref">
+				articlebref = #articlebref#
+			</isNotNull>
+			<isNotNull prepend="," property="articledesc">
+				articledesc = #articledesc#
+			</isNotNull>
+			<isNotNull prepend="," property="createtime">
+				createtime = #createtime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+			<isNotEmpty prepend="," property="createrindex">
+				createrindex =
+				#createrindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="articlestars">
+				articlestars =
+				#articlestars#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="ifissue">
+				ifissue = #ifissue#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="articletype">
+				articletype =
+				#articletype#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="istop">
+				istop = #istop#
+			</isNotEmpty>
+			<isNotNull prepend="," property="lastposttime">
+				lastposttime =
+				#lastposttime#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="articleindex">
+				articleindex =
+				#articleindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsindex">
+				bbsindex = #bbsindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articlepic">
+				articlepic =
+				#articlepic#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articletitle">
+				articletitle =
+				#articletitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articlebref">
+				articlebref =
+				#articlebref#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articledesc">
+				articledesc =
+				#articledesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createrindex">
+				createrindex =
+				#createrindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articlestars">
+				articlestars =
+				#articlestars#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="ifissue">
+				ifissue = #ifissue#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articletype">
+				articletype =
+				#articletype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="istop">
+				istop = #istop#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="lastposttime">
+				lastposttime =
+				#lastposttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commenttimes">
+				commenttimes =
+				#commenttimes#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteTArticleinfo" parameterClass="alias_tarticleinfo">
+		delete from
+		t_articleinfo
+		where articleindex = #articleindex#
+	</delete>
+	<delete id="deleteTArticleinfoByCond" parameterClass="alias_tarticleinfo">
+		delete from t_articleinfo
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="articleindex">
+				articleindex =
+				#articleindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="bbsindex">
+				bbsindex = #bbsindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articlepic">
+				articlepic =
+				#articlepic#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articletitle">
+				articletitle =
+				#articletitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articlebref">
+				articlebref =
+				#articlebref#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articledesc">
+				articledesc =
+				#articledesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createrindex">
+				createrindex =
+				#createrindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articlestars">
+				articlestars =
+				#articlestars#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="ifissue">
+				ifissue = #ifissue#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="articletype">
+				articletype =
+				#articletype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="istop">
+				istop = #istop#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="lastposttime">
+				lastposttime =
+				#lastposttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="commenttimes">
+				commenttimes =
+				#commenttimes#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="getTArticleinfo" parameterClass="alias_tarticleinfo"
+		resultMap="tarticleinfoResult">
+		select
+		articleindex,bbsindex,articlepic,articletitle,articlebref,articledesc,createtime,status,note,createrindex,articlestars,ifissue,articletype,istop,lastposttime,commenttimes
+		from t_articleinfo
+		where articleindex = #articleindex#
+	</select>
+
+	<select id="queryTArticleinfoListByCond" parameterClass="alias_tarticleinfo"
+		resultMap="tarticleinfoResultExtends">
+		SELECT
+		articleindex,
+		bbsindex,
+		articlepic,
+		articletitle,
+		articlebref,
+		articledesc,
+		createtime,
+		t.status AS STATUS,
+		note,
+		createrindex,
+		articlestars,
+		ifissue,
+		articletype,
+		istop ,
+		lastposttime,
+		commenttimes,
+		s.studentname AS
+		creator,
+		s.headpic as headpic
+		FROM
+		t_articleinfo t
+		LEFT
+		JOIN t_studentinfo s
+		ON
+		t.createrindex =
+		s.studentindex AND s.status=1
+		and t.status =1
+		<include refid="TArticleinfo_Where_Clause_extends" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryTArticleinfoListCntByCond" parameterClass="alias_tarticleinfo"
+		resultClass="java.lang.Integer">
+		select count(1)
+		from t_articleinfo
+		<include refid="TArticleinfo_Where_Clause" />
+	</select>
+
+	<select id="queryTArticleinfoListByCondExact" parameterClass="alias_tarticleinfo"
+		resultMap="tarticleinfoResult">
+		select
+		articleindex,bbsindex,articlepic,articletitle,articlebref,articledesc,createtime,status,note,createrindex,articlestars,ifissue,articletype,istop,lastposttime,commenttimes
+		from t_articleinfo
+		<include refid="TArticleinfo_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+
+	<select id="queryTArticleinfoListByCondExtends" parameterClass="alias_tarticleinfo"
+		resultMap="tarticleinfoResultMore">
+		SELECT
+		articleindex,
+		s.bbsindex AS bbsindex,
+		articlepic,
+		articletitle,
+		articlebref,
+		articledesc,
+		t.createtime AS createtime,
+		t.status AS STATUS,
+		s.note AS note,
+		createrindex,
+		articlestars,
+		ifissue,
+		articletype,
+		istop,
+		lastposttime,
+		commenttimes,
+		m.bbstitle AS bbstitle
+		FROM t_articleinfo t
+		LEFT JOIN t_bbsinfo_notice_map s
+		ON t.bbsindex = s.bbsindex
+		LEFT JOIN
+		t_bbsinfo m
+		ON t.bbsindex = m.bbsindex
+		AND m.STATUS = 1
+		<include refid="TArticleinfo_Where_Clause_extends" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryTArticleinfoListCntByCondExtends"
+		parameterClass="alias_tarticleinfo" resultClass="java.lang.Integer">
+		select count(1)
+		FROM t_articleinfo t
+		LEFT JOIN t_bbsinfo_notice_map s
+		ON
+		t.bbsindex = s.bbsindex
+		LEFT JOIN
+		t_bbsinfo m
+		ON t.bbsindex = m.bbsindex
+		AND m.STATUS = 1
+		<include refid="TArticleinfo_Where_Clause_extends" />
+	</select>
+
+</sqlMap>

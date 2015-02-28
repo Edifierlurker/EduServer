@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dcache-config>
+   	<!-- 缓存清除时间级别：30分钟 -->
+   	<level name="1">43200</level>
+   	
+   	<!-- 缓存清除时间级别：2小时 -->
+   	<level name="2">43200</level>
+   	
+   	<!-- 缓存清除时间级别：12小时 -->
+   	<level name="3">43200</level>
+   	
+   	<!-- 缓存清除时间级别：24小时 -->
+    <level name="4">43200</level>
+    
+   	<!-- 缓存清除时间级别：不过期 -->
+    <level name="5">0</level>
+    
+</dcache-config>

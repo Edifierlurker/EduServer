@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<customtimer name="two" purpose="hello" id="2" timertype="0">
+		<call methodname="threeOne" classname="com.zte.ssb.Three"
+			description="hello,world"/>
+		<trigger id="8a90a2a812c0d75c0112c0d75f300003" span="3"
+			times="-1" triggertype="1"  enabled="1"
+			firstruntime="2007-05-25T09:26:23.165+08:00" customtimerinfo="2" />		
+	</customtimer>	
+	<customtimer name="asdf" purpose="erer" id="1" timertype="0">
+	  <call methodname="threeTwo" classname="com.zte.ssb.Three"
+			description="hello,world" />
+	</customtimer>
+	<customtimer name="tefefsewo" purpose="helerelo" id="3" timertype="0">
+	  <call methodname="threeTwo" classname="com.zte.ssb.Three"
+			description="hello,world" />
+	</customtimer>
+	<customtimer name="ztett" purpose="测试" id="4" timertype="0">
+	   <call methodname="threeTwo" classname="com.zte.ssb.Three"
+			description="hello,world" />
+	</customtimer>
+	<customtimer name="fdfe" purpose="你好" id="5" timertype="1">
+	   <call methodname="threeTwo" classname="com.zte.ssb.Three"
+			description="hello,world" />
+	</customtimer>
+</root>

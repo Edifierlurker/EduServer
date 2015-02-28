@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<!-- 公用拦截器(需要调用的地方,只需用action所在的package继承struts-appstore即可,继承后的拦截器已经包含了struts2框架默认的所有功能) -->
+  <package name="struts-appstore" extends="struts-default">
+    <interceptors>
+       <!-- 配置渠道商拦截器 -->
+       <interceptor name="channelStack" class="com.pinke.uni.mobile.protal.common.interceptor.ChannelInterceptor"/>
+       <!-- 配置系统拦截器栈 -->
+       <interceptor-stack name="storeStack">
+            <!-- 引入框架默认拦截器(必须引入,不然整个工程的struts2框架只是一顿废品)-->
+       		<interceptor-ref name="defaultStack"/>
+       		<!-- 引入渠道商拦截器 -->
+       		<interceptor-ref name="channelStack"/>
+        </interceptor-stack>
+    </interceptors>
+    <!-- 配置系统默认拦截器栈-->
+    <default-interceptor-ref name="storeStack"/>
+  </package> 
+  <!-- 引入各模块配置文件 -->
+	<package name="mobile" extends="struts-default" namespace="/">
+		
+	</package>
+</struts>

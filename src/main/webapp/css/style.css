@@ -1,0 +1,224 @@
+body{
+	margin: 0px;
+	line-height: 1.5;
+	font-size: 16px;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+body,button,input,select,textarea{
+	line-height:1.5;
+	font-size:16px;
+	font-family:sans-serif
+}
+
+body,button,dl,fieldset,figure,h1,h2,h3,h4,h5,h6,input,menu,ol,p,select,textarea,ul{
+	margin:0
+}
+
+button,fieldset,input,table td,table th,textarea{
+	padding:0
+}
+
+article,aside,details,dialog,figcaption,figure,footer,header,hgroup,nav,section{
+	display:block
+}
+h1,h2,h3{
+	color:#242424;
+	font-weight:400;
+	font-size:100%
+}
+
+a{
+	text-decoration:none;
+	color:#fff
+}
+
+ol,ul{
+	padding-left:0;
+	list-style-type:none
+}
+
+dd{
+	margin-left:0
+}
+
+button,fieldset,img{
+	border:0
+}
+
+i{
+	display:inline-block
+}
+
+em{
+	font-style:normal
+}
+
+
+.qrcode{
+	background-color: #1ABC9C;
+	height: 625px;
+	min-width: 900px;
+	margin-bottom: 50px5
+	color: #fff;
+	padding: 80px 16% 0px;
+}
+.qrcode .scan{
+	float: right;
+	text-align: center;
+	margin-top: 50px;
+}
+.qrcode .iphone2 {
+	display:inline-block;
+	vertical-align: top;
+}
+.app{
+	width: 301px;
+	margin-right: 190px;
+	margin-top: 75px;
+}
+.download{
+	padding-top: 134px;
+	padding-bottom: 100px;
+	background-color: #34495E;
+	text-align: center;
+}
+.app .logo{
+	margin-bottom: 36px;
+}
+.app img{
+	vertical-align: top;
+}
+.app,.iphone1{
+	display: inline-block;
+	vertical-align: top;
+}
+.well{
+	margin-top: 50px;
+	display: block;
+	text-align: center;
+	color: #1ABC9C;
+	font-size: 30px;
+
+}
+
+.content{
+	min-width: 1300px;
+	text-align: center;
+	padding-top: 80px;
+	padding-bottom: 94px;
+	color: #777;
+}
+.content li{
+	width: 260px;
+	padding: 0 30px;
+	display: inline-block;
+	vertical-align: top;
+}
+.content .birthday i{
+	width: 120px;
+	height: 120px;
+	background: url('../images/mouse.png') no-repeat scroll 0% 0%;
+}
+.content strong{
+	font-size: 32px;
+	line-height: 2.2;
+	padding-top: 4px;
+	display: block;
+}
+.content p{
+	text-align: left;
+	line-height: 1.6;
+}
+.content .coupon i{
+	width: 120px;
+	height: 120px;
+	background: url('../images/pay.png') no-repeat scroll 0% 0%;
+
+}
+.content .bread i{
+	width: 120px;
+	height: 120px;
+	background: url('../images/analytics.png') no-repeat scroll 0% 0%;
+
+}
+.content .like i{
+	width: 120px;
+	height: 120px;
+	background: url('../images/like.png') no-repeat scroll 0% 0%;
+
+}
+.info{
+	margin: 80px 0 40px 0;
+}
+h2{
+	font-size: 35px;
+	margin-left: 220px;
+}
+hr{
+	border: 1px dashed #eee;
+	width: 95%;
+}
+.info2{
+	margin: 100px 0 40px 0;
+}
+.info2 h2{
+	font-size: 35px;
+	margin-left: 220px;
+	margin-bottom:20px; 
+}
+.buy{
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 100px;
+}
+.buy li{
+	width: 200px;
+	padding: 0 30px;
+	display: inline-block;
+	vertical-align: top;
+}
+.container{
+	text-align: center;
+	margin-top: 10px;
+	background-color: #FAFAFA;
+	height: 300px;
+}
+.container h2{text-align: left;}
+.text{
+	margin-top: 80px;
+	width: 650px;
+	padding: 0 30px;
+	display: inline-block;
+	vertical-align: top;
+}
+.text p{
+	text-align: left;
+	line-height: 1.6;
+}
+.p2{
+	color: #95A5A6;
+}
+/*
+.open{
+	height: 834px;
+	display: block;
+	background-color: #1ABC9C;
+	text-align: center;
+}
+.pic{
+	position: relative;left: 0;top: 25%;
+}
+.info{
+	height: 850px;
+	background-color: #34495E;
+}
+.pic-2{
+		text-align: center;
+	    padding-top: 90px;
+}
+.button{
+	position: relative;left:15.5%;top:-35%;
+
+}
+*/

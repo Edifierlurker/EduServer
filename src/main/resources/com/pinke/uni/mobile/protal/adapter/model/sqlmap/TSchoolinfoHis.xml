@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+  <sqlMap namespace="TSchoolinfoHis">
+	<typeAlias alias="alias_tschoolinfoHis"	type="com.pinke.uni.mobile.protal.adapter.model.TSchoolinfoHis" />
+	
+	<resultMap id="tschoolinfoHisResult" class="alias_tschoolinfoHis">
+  		<result column="mapindex" property="mapindex" />
+  		<result column="schoolindex" property="schoolindex" />
+  		<result column="sections" property="sections" />
+  		<result column="sectionstarttime" property="sectionstarttime" />
+  		<result column="sectionendtime" property="sectionendtime" />
+  		<result column="status" property="status" />
+	</resultMap>
+
+  <sql id="TSchoolinfoHis_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+			    mapindex = #mapindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="schoolindex">
+			    schoolindex = #schoolindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="sections">
+			    sections = #sections#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="sectionstarttime">
+				sectionstarttime = #sectionstarttime#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="sectionendtime">
+				sectionendtime = #sectionendtime#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+
+
+  <sql id="TSchoolinfoHis_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="mapindex">
+			  mapindex = #mapindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="schoolindex">
+			  schoolindex = #schoolindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="sections">
+			  sections = #sections#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="sectionstarttime">
+			  sectionstarttime = #sectionstarttime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="sectionendtime">
+			  sectionendtime = #sectionendtime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="status">
+			  status = #status#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+	
+	<insert id="insertTSchoolinfoHis" parameterClass="alias_tschoolinfoHis">
+		insert into t_schoolinfo_his (
+			mapindex
+			<dynamic>
+				<isNotEmpty prepend="," property="schoolindex">
+					schoolindex
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="sections">
+					sections
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="sectionstarttime">
+					sectionstarttime
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="sectionendtime">
+					sectionendtime
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					status
+				</isNotEmpty>	
+			</dynamic>
+	   	)values(
+			#mapindex#			
+			<dynamic>
+				<isNotEmpty prepend="," property="schoolindex">
+					#schoolindex#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="sections">
+					#sections#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="sectionstarttime">
+					#sectionstarttime#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="sectionendtime">
+					#sectionendtime#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					#status#
+				</isNotEmpty>	
+			</dynamic>	
+	   	)
+	</insert>	    
+	
+	<update id="updateTSchoolinfoHis"	parameterClass="alias_tschoolinfoHis">
+	    update t_schoolinfo_his
+	    set
+		 mapindex = #mapindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="schoolindex">
+			  schoolindex = #schoolindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="sections">
+			  sections = #sections#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="sectionstarttime">
+			  sectionstarttime = #sectionstarttime#
+			</isNotNull>
+			<isNotNull prepend="," property="sectionendtime">
+			  sectionendtime = #sectionendtime#
+			</isNotNull>
+			<isNotNull prepend="," property="status">
+			  status = #status#
+			</isNotNull>
+		</dynamic>
+		where mapindex = #mapindex#
+  	</update>
+	<update id="updateTSchoolinfoHisByCond" parameterClass="alias_tschoolinfoHis">
+		update t_schoolinfo_his
+		set
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="schoolindex">
+			  schoolindex = #schoolindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="sections">
+			  sections = #sections#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="sectionstarttime">
+			  sectionstarttime = #sectionstarttime#
+			</isNotNull>
+			<isNotNull prepend="," property="sectionendtime">
+			  sectionendtime = #sectionendtime#
+			</isNotNull>
+			<isNotNull prepend="," property="status">
+			  status = #status#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+           <isNotEmpty prepend="and" property="mapindex">
+		     mapindex = #mapindex#		
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="schoolindex">
+		     schoolindex = #schoolindex#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="sections">
+		     sections = #sections#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="sectionstarttime">
+		     sectionstarttime = #sectionstarttime#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="sectionendtime">
+		     sectionendtime = #sectionendtime#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="status">
+		     status = #status#
+ 		   </isNotEmpty>
+ 		</dynamic>
+    </update>
+
+	<delete id="deleteTSchoolinfoHis" parameterClass="alias_tschoolinfoHis">
+		delete from t_schoolinfo_his 
+	    where mapindex = #mapindex#
+	</delete>
+	<delete id="deleteTSchoolinfoHisByCond" parameterClass="alias_tschoolinfoHis">
+		delete from t_schoolinfo_his 
+		<dynamic prepend="where">
+          <isNotEmpty prepend="and" property="mapindex">
+		    mapindex = #mapindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="schoolindex">
+		    schoolindex = #schoolindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="sections">
+		    sections = #sections#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="sectionstarttime">
+		    sectionstarttime = #sectionstarttime#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="sectionendtime">
+		    sectionendtime = #sectionendtime#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="status">
+		    status = #status#
+          </isNotEmpty>
+        </dynamic>
+	</delete>
+
+	<select id="getTSchoolinfoHis" parameterClass="alias_tschoolinfoHis" resultMap="tschoolinfoHisResult">
+		select mapindex,schoolindex,sections,sectionstarttime,sectionendtime,status
+    	from t_schoolinfo_his
+		where mapindex = #mapindex#
+	</select>
+
+	<select id="queryTSchoolinfoHisListByCond" parameterClass="alias_tschoolinfoHis" resultMap="tschoolinfoHisResult" >
+		select 
+		  mapindex,schoolindex,sections,sectionstarttime,sectionendtime,status
+		from t_schoolinfo_his 
+		<include refid="TSchoolinfoHis_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>	
+	
+	<select id="queryTSchoolinfoHisListCntByCond" parameterClass="alias_tschoolinfoHis" resultClass="java.lang.Integer">
+		select count(1)
+		from t_schoolinfo_his 
+		<include refid="TSchoolinfoHis_Where_Clause" />
+	</select>
+	
+	<select id="queryTSchoolinfoHisListByCondExact" parameterClass="alias_tschoolinfoHis" resultMap="tschoolinfoHisResult" >
+		select 
+		  mapindex,schoolindex,sections,sectionstarttime,sectionendtime,status
+		from t_schoolinfo_his 
+		<include refid="TSchoolinfoHis_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+</sqlMap>

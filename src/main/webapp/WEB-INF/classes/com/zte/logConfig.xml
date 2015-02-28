@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="FILE" class="org.apache.log4j.RollingFileAppender">
+		<!-- 设置通道file和输出方式：org.apache.log4j.RollingFileAppender -->
+		<param name="File" value="output.log" /><!-- 设置File参数：日志输出文件名 -->
+		<param name="Append" value="true" /><!-- 设置是否在重新启动服务时，在原有日志的基础添加新日志 -->
+		<param name="MaxFileSize" value="20480000" /><!-- 设置文件大小 -->
+		<param name="MaxBackupIndex" value="50" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%p] %d [%t] %c{3} - %m%n" />
+		</layout>
+		<!--filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="info" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter-->
+	</appender>
+	<appender name="FILE_PACKET" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="output_packet.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="102400000" />
+		<param name="MaxBackupIndex" value="50" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{mm:ss,SSS}] %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMax" value="debug" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<!-- 设置监视器输出方式 -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%p] %d{mm:ss,SSS} [%t] %c{3}:%L - %m%n" />
+		</layout>
+		<!-- 滤镜设置输出的级别 -->
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="info" />
+			<!--param name="levelMax" value="info" /-->
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+
+	<!-- DcProtocolAdapter, debug information about protocol serialization/deserailization -->
+	<logger name="com.zte.zxcpp.dcache.dcjapi.DcProtocolAdapter">
+		<level value="info" />
+	</logger>
+	<!-- SyncAdapter, debug information about server ack packet -->
+	<logger name="com.zte.zxcpp.dcache.dcjapi.javatcp.SyncAdapter" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="FILE" />
+		<appender-ref ref="FILE_PACKET" />
+	</logger>
+	<!-- RemoteLink, contains packet statistic -->
+	<logger name="com.zte.zxcpp.dcache.dcjapi.javatcp.RemoteLink">
+		<level value="info" />
+	</logger>
+	
+	<!-- the root category -->
+	<logger name="com.zte.zxcpp.dcache.dcjapi">
+		<level value="info" /><!-- 设置级别 -->
+		<appender-ref ref="FILE" /><!-- 与前面的通道id相对应 -->
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+</log4j:configuration>  

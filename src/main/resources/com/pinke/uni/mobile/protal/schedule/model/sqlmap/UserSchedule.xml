@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="UserSchedule">
+	<typeAlias alias="alias_userSchedule"
+		type="com.pinke.uni.mobile.protal.schedule.model.UserSchedule" />
+
+	<resultMap id="userScheduleResult" class="alias_userSchedule">
+		<result column="scheduleindex" property="scheduleindex" />
+		<result column="schedulename" property="schedulename" />
+		<result column="studentindex" property="studentindex" />
+		<result column="status" property="status" />
+		<result column="scheduletype" property="scheduletype" />
+		<result column="scheduletitle" property="scheduletitle" />
+		<result column="detailindex" property="detailindex" />
+		<result column="scheduledate" property="scheduledate" />
+		<result column="starttime" property="starttime" />
+		<result column="endtime" property="endtime" />
+		<result column="createtime" property="createtime" />
+		<result column="updatetime" property="updatetime" />
+		<result column="note" property="note" />
+		<result column="isdelete" property="isdelete" />
+	</resultMap>
+
+	<sql id="UserSchedule_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="scheduleindex">
+				scheduleindex =
+				#scheduleindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schedulename">
+				schedulename =
+				#schedulename#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="scheduletype">
+				scheduletype =
+				#scheduletype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="scheduletitle">
+				scheduletitle =
+				#scheduletitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="detailindex">
+				detailindex =
+				#detailindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="scheduledate">
+				scheduledate like
+				'$scheduledate$%' escape '/'
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="scheduleweekStart">
+				scheduledate &gt;=
+				#scheduleweekStart# and scheduledate &lt;= #scheduleweekEnd#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="starttime">
+				starttime = #starttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="endtime">
+				endtime = #endtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="updatetime">
+				updatetime =
+				#updatetime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="isdelete">
+				isdelete = #isdelete#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+
+
+	<sql id="UserSchedule_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="scheduleindex">
+				scheduleindex =
+				#scheduleindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schedulename">
+				schedulename =
+				#schedulename#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="scheduletype">
+				scheduletype =
+				#scheduletype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="scheduletitle">
+				scheduletitle =
+				#scheduletitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="detailindex">
+				detailindex =
+				#detailindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="scheduledate">
+				scheduledate like
+				'%$scheduledate$%' escape '/'
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="starttime">
+				starttime = #starttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="endtime">
+				endtime = #endtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="updatetime">
+				updatetime =
+				#updatetime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="isdelete">
+				isdelete = #isdelete#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="insertUserSchedule" parameterClass="alias_userSchedule">
+		insert into user_schedule (
+		scheduleindex
+		<dynamic>
+			<isNotEmpty prepend="," property="schedulename">
+				schedulename
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentindex">
+				studentindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="scheduletype">
+				scheduletype
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="scheduletitle">
+				scheduletitle
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="detailindex">
+				detailindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="scheduledate">
+				scheduledate
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="starttime">
+				starttime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="endtime">
+				endtime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="createtime">
+				createtime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="updatetime">
+				updatetime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				note
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="isdelete">
+				isdelete
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#scheduleindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="schedulename">
+				#schedulename#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentindex">
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="scheduletype">
+				#scheduletype#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="scheduletitle">
+				#scheduletitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="detailindex">
+				#detailindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="scheduledate">
+				#scheduledate#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="starttime">
+				#starttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="endtime">
+				#endtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="createtime">
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="updatetime">
+				#updatetime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				#note#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="isdelete">
+				#isdelete#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateUserSchedule" parameterClass="alias_userSchedule">
+		update user_schedule
+		set
+		scheduleindex = #scheduleindex#
+		<dynamic>
+			<isNotNull prepend="," property="schedulename">
+				schedulename =
+				#schedulename#
+			</isNotNull>
+			<isNotEmpty prepend="," property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="status">
+				status = #status#
+			</isNotNull>
+			<isNotEmpty prepend="," property="scheduletype">
+				scheduletype =
+				#scheduletype#
+			</isNotEmpty>
+			<isNotNull prepend="," property="scheduletitle">
+				scheduletitle =
+				#scheduletitle#
+			</isNotNull>
+			<isNotEmpty prepend="," property="detailindex">
+				detailindex =
+				#detailindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="scheduledate">
+				scheduledate =
+				#scheduledate#
+			</isNotNull>
+			<isNotNull prepend="," property="starttime">
+				starttime = #starttime#
+			</isNotNull>
+			<isNotNull prepend="," property="endtime">
+				endtime = #endtime#
+			</isNotNull>
+			<isNotNull prepend="," property="createtime">
+				createtime = #createtime#
+			</isNotNull>
+			<isNotNull prepend="," property="updatetime">
+				updatetime = #updatetime#
+			</isNotNull>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+			<isNotNull prepend="," property="isdelete">
+				isdelete = #isdelete#
+			</isNotNull>
+		</dynamic>
+		where scheduleindex = #scheduleindex#
+	</update>
+	<update id="updateUserScheduleByCond" parameterClass="alias_userSchedule">
+		update user_schedule
+		set
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="schedulename">
+				schedulename =
+				#schedulename#
+			</isNotNull>
+			<isNotEmpty prepend="," property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="status">
+				status = #status#
+			</isNotNull>
+			<isNotEmpty prepend="," property="scheduletype">
+				scheduletype =
+				#scheduletype#
+			</isNotEmpty>
+			<isNotNull prepend="," property="scheduletitle">
+				scheduletitle =
+				#scheduletitle#
+			</isNotNull>
+			<isNotEmpty prepend="," property="detailindex">
+				detailindex =
+				#detailindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="scheduledate">
+				scheduledate =
+				#scheduledate#
+			</isNotNull>
+			<isNotNull prepend="," property="starttime">
+				starttime = #starttime#
+			</isNotNull>
+			<isNotNull prepend="," property="endtime">
+				endtime = #endtime#
+			</isNotNull>
+			<isNotNull prepend="," property="createtime">
+				createtime = #createtime#
+			</isNotNull>
+			<isNotNull prepend="," property="updatetime">
+				updatetime = #updatetime#
+			</isNotNull>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+			<isNotNull prepend="," property="isdelete">
+				isdelete = #isdelete#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="scheduleindex">
+				scheduleindex =
+				#scheduleindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schedulename">
+				schedulename =
+				#schedulename#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="scheduletype">
+				scheduletype =
+				#scheduletype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="scheduletitle">
+				scheduletitle =
+				#scheduletitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="detailindex">
+				detailindex =
+				#detailindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="scheduledate">
+				scheduledate =
+				#scheduledate#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="starttime">
+				starttime = #starttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="endtime">
+				endtime = #endtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="updatetime">
+				updatetime =
+				#updatetime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="isdelete">
+				isdelete = #isdelete#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteUserSchedule" parameterClass="alias_userSchedule">
+		delete from
+		user_schedule
+		where scheduleindex = #scheduleindex#
+	</delete>
+	<delete id="deleteUserScheduleByCond" parameterClass="alias_userSchedule">
+		delete from user_schedule
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="scheduleindex">
+				scheduleindex =
+				#scheduleindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schedulename">
+				schedulename =
+				#schedulename#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="scheduletype">
+				scheduletype =
+				#scheduletype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="scheduletitle">
+				scheduletitle =
+				#scheduletitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="detailindex">
+				detailindex =
+				#detailindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="scheduledate">
+				scheduledate =
+				#scheduledate#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="starttime">
+				starttime = #starttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="endtime">
+				endtime = #endtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="updatetime">
+				updatetime =
+				#updatetime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="isdelete">
+				isdelete = #isdelete#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="getUserSchedule" parameterClass="alias_userSchedule"
+		resultMap="userScheduleResult">
+		select
+		scheduleindex,schedulename,studentindex,status,scheduletype,scheduletitle,detailindex,scheduledate,starttime,endtime,createtime,updatetime,note,isdelete
+		from user_schedule
+		where scheduleindex = #scheduleindex#
+	</select>
+
+	<select id="queryUserScheduleListByCond" parameterClass="alias_userSchedule"
+		resultMap="userScheduleResult">
+		select
+		scheduleindex,schedulename,studentindex,status,scheduletype,scheduletitle,detailindex,scheduledate,starttime,endtime,createtime,updatetime,note,isdelete
+		from user_schedule
+		<include refid="UserSchedule_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryUserScheduleListCntByCond" parameterClass="alias_userSchedule"
+		resultClass="java.lang.Integer">
+		select count(1)
+		from user_schedule
+		<include refid="UserSchedule_Where_Clause" />
+	</select>
+
+	<select id="queryUserScheduleListByCondExact" parameterClass="alias_userSchedule"
+		resultMap="userScheduleResult">
+		select
+		scheduleindex,schedulename,studentindex,status,scheduletype,scheduletitle,detailindex,scheduledate,starttime,endtime,createtime,updatetime,note,isdelete
+		from user_schedule
+		<include refid="UserSchedule_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+</sqlMap>

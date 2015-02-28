@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<project name="transfer" default="all" basedir=".">
+
+    <!-- 默认开发环境 为 Dev 在设置 env  环境下为Test -->
+
+
+    <property file="transfer2env.properties"/>
+
+    <target name="setenv" if="env">
+        <property name="project.build.env" value="test"/>
+        <property name="remotedir" value="${test.remotedir}"/>
+        <property name="url" value="${test.url}"/>
+        <property name="ftp_port" value="${test.ftp_port}"/>
+        <property name="ftp_user" value="${test.ftp_user}"/>
+        <property name="ftp_pwd" value="${test.ftp_pwd}"/>
+        <property name="telnet_user" value="${test.telnet_user}"/>
+        <property name="telnet_pwd" value="${test.telnet_pwd}"/>
+        <property name="telnet_port" value="${test.telnet_port}"/>
+    </target>
+
+    <!--   默认开发环境 为 Dev  -->
+    <target name="init" depends="setenv">
+        <property name="project.build.env" value="dev"/>
+        <property name="remotedir" value="${dev.remotedir}"/>
+        <property name="url" value="${dev.url}"/>
+        <property name="ftp_port" value="${dev.ftp_port}"/>
+        <property name="ftp_user" value="${dev.ftp_user}"/>
+        <property name="ftp_pwd" value="${dev.ftp_pwd}"/>
+        <property name="telnet_user" value="${dev.telnet_user}"/>
+        <property name="telnet_pwd" value="${dev.telnet_pwd}"/>
+        <property name="telnet_port" value="${dev.telnet_port}"/>
+    </target>
+
+
+    <target name="echo" depends="init">
+        <echo message="${project.build.env}"></echo>
+        <echo message="${remotedir}"></echo>
+        <echo message="${url}"></echo>
+        <echo message="${ftp_port}"></echo>
+        <echo message="${ftp_user}"></echo>
+        <echo message="${ftp_pwd}"></echo>
+        <echo message="${telnet_user}"></echo>
+        <echo message="${telnet_pwd}"></echo>
+        <echo message="${telnet_port}"></echo>
+    </target>
+
+
+    <target name="stop.tomcat">
+        <echo message="shut down the tomcat" description="shutdown"></echo>
+        <telnet server="${url}" port="${telnet_port}" initialCR="yes" timeout="50">
+            <read>login:</read>
+            <write>${telnet_user}</write>
+            <read>Password:</read>
+            <write>${telnet_pwd}</write>
+            <read timeout="30">~></read>
+            <write>cd /etc/init.d</write>
+            <read timeout="30">></read>
+            <write>sh tomcat stop</write>
+            <read timeout="30">></read>
+            <write>exit</write>
+        </telnet>
+    </target>
+    <target name="transfer" description="transfer war to env" depends="stop.tomcat">
+        <ftp server="${url}" port="${ftp_port}" userid="${ftp_user}" password="${ftp_pwd}"
+             remotedir="${remotedir}" binary="yes">
+            <fileset dir="${project.build.env}">
+                <include name="*.war"/>
+            </fileset>
+        </ftp>
+    </target>
+    <target name="start.tomcat" depends="transfer">
+        <echo message="shut down the tomcat" description="shutdown"></echo>
+        <telnet server="${url}" port="${telnet_port}" initialCR="yes" timeout="50">
+            <read>login:</read>
+            <write>${telnet_user}</write>
+            <read>Password:</read>
+            <write>${telnet_pwd}</write>
+            <read timeout="30">~></read>
+            <write>cd /etc/init.d</write>
+            <read timeout="30">></read>
+            <write>sh tomcat start</write>
+            <read timeout="30">></read>
+            <write>exit</write>
+        </telnet>
+    </target>
+
+    <target name="all" depends="setenv,init,echo,stop.tomcat,transfer,start.tomcat"/>
+    <!--<target name="all" depends="setenv,init,echo"/>-->
+</project>

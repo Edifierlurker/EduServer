@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<general>
+  <poolcount>1</poolcount>
+  <pool1>
+    <alias>Colorring</alias>
+    <protocol>imp</protocol>
+    <maxthreads>5</maxthreads>
+    <initialthreads>1</initialthreads>
+    <minthreads>1</minthreads>
+    <lockedtime>35</lockedtime>
+    <isclient>1</isclient>
+    <address>
+      <ip>10.46.178.50</ip>
+      <port>7910</port>
+    </address>
+    <heart>
+      <heartinterval>30</heartinterval>
+      <hearttimeout>5</hearttimeout>
+    </heart>
+    <prefix></prefix>
+    <surfix></surfix>
+    <model>1</model>
+    <iowaiting>2</iowaiting>
+    <spcode>000</spcode>
+    <authcode>abcd</authcode>
+  </pool1> 
+  <log>/home/zxin10/weblog/socket</log>
+</general>

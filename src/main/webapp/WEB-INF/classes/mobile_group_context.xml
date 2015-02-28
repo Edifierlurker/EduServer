@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="mGroupFS" class="com.pinke.uni.mobile.protal.group.fs.GroupFS"
+		autowire="byName" remoting="true" servicepath="mGroupFS"
+		service="com.pinke.uni.mobile.protal.group.fs.IGroupFS">
+		<property name="tgroupinfoLS" ref="tgroupinfoLS" />
+		<property name="tgroupinfoAttendMapLS" ref="tgroupinfoAttendMapLS" />
+		<property name="tgroupCategoryLS" ref="tgroupCategoryLS" />
+		<property name="tgroupCategoryMapLS" ref="tgroupCategoryMapLS" />
+		<property name="tnearStudentLS" ref="tnearStudentLS" />
+		<property name="tgroupinfoBulletinLS" ref="tgroupinfoBulletinLS" />
+		<property name="tgroupinfoBulletinPicLS" ref="tgroupinfoBulletinPicLS" />
+
+	</bean>
+
+	<bean id="tgroupinfoDAO" class="com.pinke.uni.mobile.protal.group.dao.TGroupinfoDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tgroupinfoDS"
+		class="com.pinke.uni.mobile.protal.group.service.TGroupinfoDS"
+		autowire="byName" remoting="true" servicepath="tgroupinfoFacade"
+		service="com.pinke.uni.mobile.protal.group.service.ITGroupinfoDS">
+		<property name="dao" ref="tgroupinfoDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tgroupinfoLS" class="com.pinke.uni.mobile.protal.group.ls.TGroupinfoLS"
+		autowire="byName" remoting="true" servicepath="tgroupinfoLSFacade"
+		service="com.pinke.uni.mobile.protal.group.ls.ITGroupinfoLS">
+		<property name="tgroupinfoDS" ref="tgroupinfoDS" />
+	</bean>
+
+	<bean id="tgroupinfoAttendMapDAO"
+		class="com.pinke.uni.mobile.protal.group.dao.TGroupinfoAttendMapDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tgroupinfoAttendMapDS"
+		class="com.pinke.uni.mobile.protal.group.service.TGroupinfoAttendMapDS"
+		autowire="byName" remoting="true" servicepath="tgroupinfoAttendMapFacade"
+		service="com.pinke.uni.mobile.protal.group.service.ITGroupinfoAttendMapDS">
+		<property name="dao" ref="tgroupinfoAttendMapDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tgroupinfoAttendMapLS"
+		class="com.pinke.uni.mobile.protal.group.ls.TGroupinfoAttendMapLS"
+		autowire="byName" remoting="true" servicepath="tgroupinfoAttendMapLSFacade"
+		service="com.pinke.uni.mobile.protal.group.ls.ITGroupinfoAttendMapLS">
+		<property name="tgroupinfoAttendMapDS" ref="tgroupinfoAttendMapDS" />
+	</bean>
+
+	<bean id="tgroupCategoryDAO"
+		class="com.pinke.uni.mobile.protal.group.dao.TGroupCategoryDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tgroupCategoryDS"
+		class="com.pinke.uni.mobile.protal.group.service.TGroupCategoryDS"
+		autowire="byName" remoting="true" servicepath="tgroupCategoryFacade"
+		service="com.pinke.uni.mobile.protal.group.service.ITGroupCategoryDS">
+		<property name="dao" ref="tgroupCategoryDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tgroupCategoryLS"
+		class="com.pinke.uni.mobile.protal.group.ls.TGroupCategoryLS"
+		autowire="byName" remoting="true" servicepath="tgroupCategoryLSFacade"
+		service="com.pinke.uni.mobile.protal.group.ls.ITGroupCategoryLS">
+		<property name="tgroupCategoryDS" ref="tgroupCategoryDS" />
+	</bean>
+
+	<bean id="tgroupCategoryMapDAO"
+		class="com.pinke.uni.mobile.protal.group.dao.TGroupCategoryMapDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tgroupCategoryMapDS"
+		class="com.pinke.uni.mobile.protal.group.service.TGroupCategoryMapDS"
+		autowire="byName" remoting="true" servicepath="tgroupCategoryMapFacade"
+		service="com.pinke.uni.mobile.protal.group.service.ITGroupCategoryMapDS">
+		<property name="dao" ref="tgroupCategoryMapDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tgroupCategoryMapLS"
+		class="com.pinke.uni.mobile.protal.group.ls.TGroupCategoryMapLS"
+		autowire="byName" remoting="true" servicepath="tgroupCategoryMapLSFacade"
+		service="com.pinke.uni.mobile.protal.group.ls.ITGroupCategoryMapLS">
+		<property name="tgroupCategoryMapDS" ref="tgroupCategoryMapDS" />
+	</bean>
+
+	<bean id="tnearStudentDAO"
+		class="com.pinke.uni.mobile.protal.group.dao.TNearStudentDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tnearStudentDS"
+		class="com.pinke.uni.mobile.protal.group.service.TNearStudentDS"
+		autowire="byName" remoting="true" servicepath="tnearStudentFacade"
+		service="com.pinke.uni.mobile.protal.group.service.ITNearStudentDS">
+		<property name="dao" ref="tnearStudentDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tnearStudentLS" class="com.pinke.uni.mobile.protal.group.ls.TNearStudentLS"
+		autowire="byName" remoting="true" servicepath="tnearStudentLSFacade"
+		service="com.pinke.uni.mobile.protal.group.ls.ITNearStudentLS">
+		<property name="tnearStudentDS" ref="tnearStudentDS" />
+	</bean>
+
+	<bean id="tgroupinfoBulletinDAO"
+		class="com.pinke.uni.mobile.protal.group.dao.TGroupinfoBulletinDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tgroupinfoBulletinDS"
+		class="com.pinke.uni.mobile.protal.group.service.TGroupinfoBulletinDS"
+		autowire="byName" remoting="true" servicepath="tgroupinfoBulletinFacade"
+		service="com.pinke.uni.mobile.protal.group.service.ITGroupinfoBulletinDS">
+		<property name="dao" ref="tgroupinfoBulletinDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tgroupinfoBulletinLS"
+		class="com.pinke.uni.mobile.protal.group.ls.TGroupinfoBulletinLS"
+		autowire="byName" remoting="true" servicepath="tgroupinfoBulletinLSFacade"
+		service="com.pinke.uni.mobile.protal.group.ls.ITGroupinfoBulletinLS">
+		<property name="tgroupinfoBulletinDS" ref="tgroupinfoBulletinDS" />
+		<property name="tgroupinfoBulletinPicDS" ref="tgroupinfoBulletinPicDS" />
+	</bean>
+
+	<bean id="tgroupinfoBulletinPicDAO"
+		class="com.pinke.uni.mobile.protal.group.dao.TGroupinfoBulletinPicDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tgroupinfoBulletinPicDS"
+		class="com.pinke.uni.mobile.protal.group.service.TGroupinfoBulletinPicDS"
+		autowire="byName" remoting="true" servicepath="tgroupinfoBulletinPicFacade"
+		service="com.pinke.uni.mobile.protal.group.service.ITGroupinfoBulletinPicDS">
+		<property name="dao" ref="tgroupinfoBulletinPicDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tgroupinfoBulletinPicLS"
+		class="com.pinke.uni.mobile.protal.group.ls.TGroupinfoBulletinPicLS"
+		autowire="byName" remoting="true" servicepath="tgroupinfoBulletinPicLSFacade"
+		service="com.pinke.uni.mobile.protal.group.ls.ITGroupinfoBulletinPicLS">
+		<property name="tgroupinfoBulletinPicDS" ref="tgroupinfoBulletinPicDS" />
+	</bean>
+</beans>

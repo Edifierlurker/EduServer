@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <general>
+        <source>9</source>
+        <restdeclaredparams>source,userid,token,type</restdeclaredparams>
+        <!-- http request url for wostore to sns bind snsuser-->
+        <bindrequesturl>http://10.46.178.202:8080/pcc/wblinkaccount</bindrequesturl>
+        <!-- http request url for wostore query bind snsusers-->
+        <querybindurl>http://10.46.178.202:8080/pcc/rest/sns/profile/querybind/{source}</querybindurl>
+        <proxyhost></proxyhost>
+    </general>
+    <sns>
+        <name>sina</name>
+        <type>3</type>
+        <openbaseurl>http://10.46.178.202:8080/pcc</openbaseurl>
+        <!-- http request url for wostore to sns bind snsuser-->
+        <linkuri>/rest/sns/profile/linkaccount/{source}/{userid}</linkuri>
+        <shareuri>/rest/sns/behavior/share/{source}/{userid}/{token}/{type}</shareuri>
+    </sns>
+    <sns>
+        <name>renren</name>
+        <type>4</type>
+        <openbaseurl>http://10.46.178.202:8080/pcc</openbaseurl>
+        <linkuri>/rest/sns/profile/linkaccount/{source}/{userid}</linkuri>
+        <shareuri>/rest/sns/behavior/share/{source}/{userid}/{token}/{type}</shareuri>
+    </sns>
+    <sns>
+        <name>kaixin</name>
+        <type>5</type>
+        <openbaseurl>http://10.46.178.202:8080/pcc</openbaseurl>
+        <linkuri>/rest/sns/profile/linkaccount/{source}/{userid}</linkuri>
+        <shareuri>/rest/sns/behavior/share/{source}/{userid}/{token}/{type}</shareuri>
+    </sns>
+    <sns>
+        <name>tencent</name>
+        <type>6</type>
+        <openbaseurl>http://10.46.178.202:8080/pcc</openbaseurl>
+        <linkuri>/rest/sns/profile/linkaccount/{source}/{userid}</linkuri>
+        <shareuri>/rest/sns/behavior/share/{source}/{userid}/{token}/{type}</shareuri>
+    </sns>
+    <codelist>
+        <code name="0000" desc="成功"/>
+        <code name="0001" desc="必填参数{param}为空"/>
+        <code name="0002" desc="参数格式不正确"/>
+        <code name="1003" desc="用户不存在"/>
+        <code name="1005" desc="用户没有登录，请登录"/>
+        <code name="1007" desc="用户长时间未操作，请重新登录"/>
+        <code name="1011" desc="用户没有绑定{第三方账户名称}"/>
+        <code name="2010" desc="分享失败，{ucenter返回的message},innercode采用ucenter返回的错误码"/>
+        <code name="9999" desc="系统错误（未知异常类型）"/>
+    </codelist>
+</config>

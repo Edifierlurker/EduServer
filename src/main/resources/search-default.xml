@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+	<property>
+	  <name>qspsort.index.loadmemory.loadflag</name>
+	  <value>false</value>
+	  <description>true:memory load ;false:not load 
+	  </description>
+	</property>
+    
+    <!-- search global configurations -->
+    <property>
+      <name>intelligent.error.correction.flag</name>
+      <value>false</value>
+      <description>search flag:Intelligent error correction
+      </description>
+    </property>
+    
+	<property>
+	  <name>search.threadPool.number</name>
+	  <value>50</value>
+	  <description>search threadPool default number.
+	  </description>
+	</property> 
+	
+	<property>
+	  <name>search.bean.switch.interval</name>
+	  <value>10</value>
+	  <description>switch search (main/back) db (second).
+	  </description>
+	</property>	
+
+	<property>
+	  <name>search.qsp.time.out</name>
+	  <value>20</value>
+	  <description>search time out(second).
+	  </description>
+	</property>
+
+	<!-- end of search global configurations -->
+	
+	<!-- search query configurations -->
+    <property>
+      <name>qsp.searcher.logicExpress.num</name>
+      <value>5000</value>
+      <description>the max search logicExpress</description>
+    </property>
+    
+	<property>
+	  <name>search.similarity.min</name>
+	  <value>0</value>
+	  <description>a value is integer to set the required similarity
+      between the query term and the matching terms. 
+	  </description>
+	</property>
+	
+	<property>
+	  <name>search.phrase.query.slop</name>
+	  <value>1</value>
+	  <description>phrase query slop. 
+	  </description>
+	</property>
+	
+	<property>
+	  <name>qsp.high.lighter.begin.tag</name>
+	  <value>&lt;font color='red'&gt;</value>
+	  <description>the color of highlight
+	  </description>
+    </property>
+	
+	<property>
+	  <name>qsp.high.lighter.end.tag</name>
+	  <value>&lt;/font&gt;</value>
+	  <description>the end tag of highlight
+	  </description>
+    </property>
+	<!-- end of search query configurations -->	 
+	    
+	<!-- search index-load configurations -->
+    <property>
+      <name>qspsort.switch.lazydestory.flag</name>
+      <value>true</value>
+      <description>if true,lazydestory qsp main or back searcher object</description>
+    </property>
+    
+    <property>
+      <name>qspsort.switch.lazydestory.time</name>
+      <value>10</value>
+      <description>default lazydestory secode is 10 second</description>
+    </property>
+	<!-- end of search index-load configurations -->
+
+	<!-- ipc configurations -->
+	<property>
+	  <name>search.server.handlerNum</name>
+	  <value>50</value>
+	  <description>RPC server handler number.
+	  </description>
+	</property>
+
+	<property>
+	  <name>qsp.ipc.call.timeout</name>
+	  <value>5000</value>
+	  <description>qsp parallel call searcher server timeout.(millisecond) 
+	  </description>
+	</property>
+	<!-- end of ipc configurations -->
+
+    <!-- lucene configurations -->
+    <property>
+      <name>lucene.distance.search.disterrpct</name>
+      <value>0.001</value>
+      <description>modify the default dist err :0.1meter ,lucece default is 25meter and err is too big</description>
+    </property>
+    <!-- end of lucene configurations -->
+    
+    <!-- multisearch configurations -->
+    <property>
+	  <name>multi.search.result.group.flag</name>
+	  <value>true</value>
+	  <description>if multiQuerySearch group result 
+	  </description>
+	</property>
+	
+	<property>
+	  <name>multi.search.result.duplicate.field</name>
+	  <value>productindex</value>
+	  <description>default fieldName is null ,if result need duplicate,you need to set one index fieldName
+	  </description>
+	</property>
+	<property>
+	  <name>if_woStore_multiSearch</name>
+	  <value>true</value>
+	  <description>default fieldName is null ,if result need duplicate,you need to set one index fieldName
+	  </description>
+	</property>
+	<!-- end of multisearch configurations -->
+</configuration>

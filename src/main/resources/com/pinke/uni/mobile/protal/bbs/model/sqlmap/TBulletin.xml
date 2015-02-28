@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TBulletin">
+	<typeAlias alias="alias_tbulletin"
+		type="com.pinke.uni.mobile.protal.bbs.model.TBulletin" />
+
+	<resultMap id="tbulletinResult" class="alias_tbulletin">
+		<result column="bulindex" property="bulindex" />
+		<result column="theme" property="theme" />
+		<result column="content" property="content" />
+		<result column="createtime" property="createtime" />
+		<result column="validtime" property="validtime" />
+		<result column="invalidtime" property="invalidtime" />
+		<result column="validdays" property="validdays" />
+		<result column="schoolindex" property="schoolindex" />
+	</resultMap>
+
+	<sql id="TBulletin_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="bulindex">
+				bulindex = #bulindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="theme">
+				theme = #theme#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="content">
+				content = #content#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="validtime">
+				validtime &lt;
+				#validtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="invalidtime">
+				invalidtime &gt;
+				#invalidtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="validdays">
+				validdays = #validdays#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<sql id="TBulletin_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="bulindex">
+				bulindex = #bulindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="theme">
+				theme = #theme#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="content">
+				content = #content#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="validtime">
+				validtime &lt;
+				#validtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="invalidtime">
+				invalidtime &gt;
+				#invalidtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="validdays">
+				validdays = #validdays#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="insertTBulletin" parameterClass="alias_tbulletin">
+		insert into t_bulletin (
+		bulindex
+		<dynamic>
+			<isNotEmpty prepend="," property="theme">
+				theme
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="content">
+				content
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="createtime">
+				createtime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="validtime">
+				validtime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="invalidtime">
+				invalidtime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="validdays">
+				validdays
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="schoolindex">
+				schoolindex
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#bulindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="theme">
+				#theme#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="content">
+				#content#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="createtime">
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="validtime">
+				#validtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="invalidtime">
+				#invalidtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="validdays">
+				#validdays#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="schoolindex">
+				#schoolindex#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateTBulletin" parameterClass="alias_tbulletin">
+		update t_bulletin
+		set
+		bulindex = #bulindex#
+		<dynamic>
+			<isNotNull prepend="," property="theme">
+				theme = #theme#
+			</isNotNull>
+			<isNotNull prepend="," property="content">
+				content = #content#
+			</isNotNull>
+			<isNotNull prepend="," property="createtime">
+				createtime = #createtime#
+			</isNotNull>
+			<isNotNull prepend="," property="validtime">
+				validtime = #validtime#
+			</isNotNull>
+			<isNotNull prepend="," property="invalidtime">
+				invalidtime = #invalidtime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="validdays">
+				validdays = #validdays#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+		</dynamic>
+		where bulindex = #bulindex#
+	</update>
+	<update id="updateTBulletinByCond" parameterClass="alias_tbulletin">
+		update t_bulletin
+		set
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="theme">
+				theme = #theme#
+			</isNotNull>
+			<isNotNull prepend="," property="content">
+				content = #content#
+			</isNotNull>
+			<isNotNull prepend="," property="createtime">
+				createtime = #createtime#
+			</isNotNull>
+			<isNotNull prepend="," property="validtime">
+				validtime = #validtime#
+			</isNotNull>
+			<isNotNull prepend="," property="invalidtime">
+				invalidtime = #invalidtime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="validdays">
+				validdays = #validdays#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="bulindex">
+				bulindex = #bulindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="theme">
+				theme = #theme#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="content">
+				content = #content#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="validtime">
+				validtime = #validtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="invalidtime">
+				invalidtime =
+				#invalidtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="validdays">
+				validdays = #validdays#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteTBulletin" parameterClass="alias_tbulletin">
+		delete from
+		t_bulletin
+		where bulindex = #bulindex#
+	</delete>
+	<delete id="deleteTBulletinByCond" parameterClass="alias_tbulletin">
+		delete from t_bulletin
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="bulindex">
+				bulindex = #bulindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="theme">
+				theme = #theme#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="content">
+				content = #content#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="validtime">
+				validtime = #validtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="invalidtime">
+				invalidtime =
+				#invalidtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="validdays">
+				validdays = #validdays#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="getTBulletin" parameterClass="alias_tbulletin"
+		resultMap="tbulletinResult">
+		select
+		bulindex,theme,content,createtime,validtime,invalidtime,validdays,schoolindex
+		from t_bulletin
+		where bulindex = #bulindex#
+	</select>
+
+	<select id="queryTBulletinListByCond" parameterClass="alias_tbulletin"
+		resultMap="tbulletinResult">
+		select
+		bulindex,theme,content,createtime,validtime,invalidtime,validdays,schoolindex
+		from t_bulletin
+		<include refid="TBulletin_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryTBulletinListCntByCond" parameterClass="alias_tbulletin"
+		resultClass="java.lang.Integer">
+		select count(1)
+		from t_bulletin
+		<include refid="TBulletin_Where_Clause" />
+	</select>
+
+	<select id="queryTBulletinListByCondExact" parameterClass="alias_tbulletin"
+		resultMap="tbulletinResult">
+		select
+		bulindex,theme,content,createtime,validtime,invalidtime,validdays,schoolindex
+		from t_bulletin
+		<include refid="TBulletin_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+</sqlMap>

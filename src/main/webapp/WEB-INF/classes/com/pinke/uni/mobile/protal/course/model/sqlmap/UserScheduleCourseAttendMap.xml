@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+  <sqlMap namespace="UserScheduleCourseAttendMap">
+	<typeAlias alias="alias_userScheduleCourseAttendMap"	type="com.pinke.uni.mobile.protal.course.model.UserScheduleCourseAttendMap" />
+	
+	<resultMap id="userScheduleCourseAttendMapResult" class="alias_userScheduleCourseAttendMap">
+  		<result column="courseattendindex" property="courseattendindex" />
+  		<result column="courseindex" property="courseindex" />
+  		<result column="attendindex" property="attendindex" />
+  		<result column="status" property="status" />
+  		<result column="comments" property="comments" />
+  		<result column="coursestarttime" property="coursestarttime" />
+  		<result column="courseendtime" property="courseendtime" />
+	</resultMap>
+
+  <sql id="UserScheduleCourseAttendMap_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="courseattendindex">
+			    courseattendindex = #courseattendindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="courseindex">
+			    courseindex = #courseindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="attendindex">
+			    attendindex = #attendindex#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="comments">
+				comments = #comments#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="coursestarttime">
+				coursestarttime = #coursestarttime#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="courseendtime">
+				courseendtime = #courseendtime#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+
+
+  <sql id="UserScheduleCourseAttendMap_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="courseattendindex">
+			  courseattendindex = #courseattendindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="courseindex">
+			  courseindex = #courseindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="attendindex">
+			  attendindex = #attendindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="comments">
+			  comments = #comments#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="coursestarttime">
+			  coursestarttime = #coursestarttime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="courseendtime">
+			  courseendtime = #courseendtime#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+	
+	<insert id="insertUserScheduleCourseAttendMap" parameterClass="alias_userScheduleCourseAttendMap">
+		insert into user_schedule_course_attend_map (
+			courseattendindex
+			<dynamic>
+				<isNotEmpty prepend="," property="courseindex">
+					courseindex
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="attendindex">
+					attendindex
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					status
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="comments">
+					comments
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="coursestarttime">
+					coursestarttime
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="courseendtime">
+					courseendtime
+				</isNotEmpty>	
+			</dynamic>
+	   	)values(
+			#courseattendindex#			
+			<dynamic>
+				<isNotEmpty prepend="," property="courseindex">
+					#courseindex#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="attendindex">
+					#attendindex#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					#status#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="comments">
+					#comments#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="coursestarttime">
+					#coursestarttime#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="courseendtime">
+					#courseendtime#
+				</isNotEmpty>	
+			</dynamic>	
+	   	)
+	</insert>	    
+	
+	<update id="updateUserScheduleCourseAttendMap"	parameterClass="alias_userScheduleCourseAttendMap">
+	    update user_schedule_course_attend_map
+	    set
+		 courseattendindex = #courseattendindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="courseindex">
+			  courseindex = #courseindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="attendindex">
+			  attendindex = #attendindex#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="status">
+			  status = #status#
+			</isNotNull>
+			<isNotNull prepend="," property="comments">
+			  comments = #comments#
+			</isNotNull>
+			<isNotNull prepend="," property="coursestarttime">
+			  coursestarttime = #coursestarttime#
+			</isNotNull>
+			<isNotNull prepend="," property="courseendtime">
+			  courseendtime = #courseendtime#
+			</isNotNull>
+		</dynamic>
+		where courseattendindex = #courseattendindex#
+  	</update>
+	<update id="updateUserScheduleCourseAttendMapByCond" parameterClass="alias_userScheduleCourseAttendMap">
+		update user_schedule_course_attend_map
+		set
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="courseindex">
+			  courseindex = #courseindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="attendindex">
+			  attendindex = #attendindex#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="status">
+			  status = #status#
+			</isNotNull>
+			<isNotNull prepend="," property="comments">
+			  comments = #comments#
+			</isNotNull>
+			<isNotNull prepend="," property="coursestarttime">
+			  coursestarttime = #coursestarttime#
+			</isNotNull>
+			<isNotNull prepend="," property="courseendtime">
+			  courseendtime = #courseendtime#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+           <isNotEmpty prepend="and" property="courseattendindex">
+		     courseattendindex = #courseattendindex#		
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="courseindex">
+		     courseindex = #courseindex#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="attendindex">
+		     attendindex = #attendindex#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="comments">
+		     comments = #comments#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="coursestarttime">
+		     coursestarttime = #coursestarttime#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="courseendtime">
+		     courseendtime = #courseendtime#
+ 		   </isNotEmpty>
+ 		</dynamic>
+    </update>
+
+	<delete id="deleteUserScheduleCourseAttendMap" parameterClass="alias_userScheduleCourseAttendMap">
+		delete from user_schedule_course_attend_map 
+	    where courseattendindex = #courseattendindex#
+	</delete>
+	<delete id="deleteUserScheduleCourseAttendMapByCond" parameterClass="alias_userScheduleCourseAttendMap">
+		delete from user_schedule_course_attend_map 
+		<dynamic prepend="where">
+          <isNotEmpty prepend="and" property="courseattendindex">
+		    courseattendindex = #courseattendindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="courseindex">
+		    courseindex = #courseindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="attendindex">
+		    attendindex = #attendindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="status">
+		    status = #status#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="comments">
+		    comments = #comments#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="coursestarttime">
+		    coursestarttime = #coursestarttime#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="courseendtime">
+		    courseendtime = #courseendtime#
+          </isNotEmpty>
+        </dynamic>
+	</delete>
+
+	<select id="getUserScheduleCourseAttendMap" parameterClass="alias_userScheduleCourseAttendMap" resultMap="userScheduleCourseAttendMapResult">
+		select courseattendindex,courseindex,attendindex,status,comments,coursestarttime,courseendtime
+    	from user_schedule_course_attend_map
+		where courseattendindex = #courseattendindex#
+	</select>
+
+	<select id="queryUserScheduleCourseAttendMapListByCond" parameterClass="alias_userScheduleCourseAttendMap" resultMap="userScheduleCourseAttendMapResult" >
+		select 
+		  courseattendindex,courseindex,attendindex,status,comments,coursestarttime,courseendtime
+		from user_schedule_course_attend_map 
+		<include refid="UserScheduleCourseAttendMap_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>	
+	
+	<select id="queryUserScheduleCourseAttendMapListCntByCond" parameterClass="alias_userScheduleCourseAttendMap" resultClass="java.lang.Integer">
+		select count(1)
+		from user_schedule_course_attend_map 
+		<include refid="UserScheduleCourseAttendMap_Where_Clause" />
+	</select>
+	
+	<select id="queryUserScheduleCourseAttendMapListByCondExact" parameterClass="alias_userScheduleCourseAttendMap" resultMap="userScheduleCourseAttendMapResult" >
+		select 
+		  courseattendindex,courseindex,attendindex,status,comments,coursestarttime,courseendtime
+		from user_schedule_course_attend_map 
+		<include refid="UserScheduleCourseAttendMap_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+</sqlMap>

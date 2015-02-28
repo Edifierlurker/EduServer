@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="UserActivityAttendMap">
+	<typeAlias alias="alias_userActivityAttendMap"
+		type="com.pinke.uni.mobile.protal.activity.model.UserActivityAttendMap" />
+	<typeAlias alias="alias_userActivityAttendMap_Extends"
+		type="com.pinke.uni.mobile.protal.activity.model.UserActivityAttendMapExtends" />
+
+
+	<resultMap id="userActivityAttendMapResult" class="alias_userActivityAttendMap">
+		<result column="attendindex" property="attendindex" />
+		<result column="activityindex" property="activityindex" />
+		<result column="studentindex" property="studentindex" />
+		<result column="status" property="status" />
+		<result column="comments" property="comments" />
+	</resultMap>
+	<resultMap id="userActivityAttendMapResultExtends" class="alias_userActivityAttendMap_Extends">
+		<result column="attendindex" property="attendindex" />
+		<result column="activityindex" property="activityindex" />
+		<result column="studentindex" property="studentindex" />
+		<result column="status" property="status" />
+		<result column="comments" property="comments" />
+		<result column="attendUserName" property="attendUserName" />
+		<result column="attendUserHeadPic" property="attendUserHeadPic" />
+	</resultMap>
+
+	<sql id="UserActivityAttendMap_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="attendindex">
+				attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="activityindex">
+				activityindex =
+				#activityindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="comments">
+				comments = #comments#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<sql id="UserActivityAttendMap_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="attendindex">
+				attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="activityindex">
+				activityindex =
+				#activityindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="comments">
+				comments = #comments#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="insertUserActivityAttendMap" parameterClass="alias_userActivityAttendMap">
+		insert into user_activity_attend_map (
+		attendindex
+		<dynamic>
+			<isNotEmpty prepend="," property="activityindex">
+				activityindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentindex">
+				studentindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="comments">
+				comments
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#attendindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="activityindex">
+				#activityindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentindex">
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="comments">
+				#comments#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateUserActivityAttendMap" parameterClass="alias_userActivityAttendMap">
+		update user_activity_attend_map
+		set
+		attendindex = #attendindex#
+		<dynamic>
+			<isNotNull prepend="," property="activityindex">
+				activityindex =
+				#activityindex#
+			</isNotNull>
+			<isNotEmpty prepend="," property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="status">
+				status = #status#
+			</isNotNull>
+			<isNotNull prepend="," property="comments">
+				comments = #comments#
+			</isNotNull>
+		</dynamic>
+		where attendindex = #attendindex#
+	</update>
+	<update id="updateUserActivityAttendMapByCond" parameterClass="alias_userActivityAttendMap">
+		update user_activity_attend_map
+		set
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="activityindex">
+				activityindex =
+				#activityindex#
+			</isNotNull>
+			<isNotEmpty prepend="," property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="status">
+				status = #status#
+			</isNotNull>
+			<isNotNull prepend="," property="comments">
+				comments = #comments#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="attendindex">
+				attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="activityindex">
+				activityindex =
+				#activityindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			
+			<isNotEmpty prepend="and" property="comments">
+				comments = #comments#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteUserActivityAttendMap" parameterClass="alias_userActivityAttendMap">
+		delete
+		from user_activity_attend_map
+		where attendindex = #attendindex#
+	</delete>
+	<delete id="deleteUserActivityAttendMapByCond" parameterClass="alias_userActivityAttendMap">
+		delete from user_activity_attend_map
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="attendindex">
+				attendindex =
+				#attendindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="activityindex">
+				activityindex =
+				#activityindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="comments">
+				comments = #comments#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="getUserActivityAttendMap" parameterClass="alias_userActivityAttendMap"
+		resultMap="userActivityAttendMapResult">
+		select
+		attendindex,activityindex,studentindex,status,comments
+		from
+		user_activity_attend_map
+		where attendindex = #attendindex#
+	</select>
+
+	<select id="queryUserActivityAttendMapListByCond"
+		parameterClass="alias_userActivityAttendMap" resultMap="userActivityAttendMapResult">
+		select
+		attendindex,activityindex,studentindex,status,comments
+		from
+		user_activity_attend_map
+		<include refid="UserActivityAttendMap_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+
+	<select id="queryUserActivityAttendMapListByCondExtends"
+		parameterClass="alias_userActivityAttendMap_Extends" resultMap="userActivityAttendMapResultExtends">
+		select
+		attendindex,
+		activityindex,
+		comments,
+		t.studentindex AS
+		studentindex,
+		t.status AS STATUS,
+		q.studentname AS
+		attendUserName,
+		q.headpic AS attendUserHeadPic
+		FROM
+		user_activity_attend_map t
+		LEFT JOIN
+		t_studentinfo q
+		on t.studentindex = q.studentindex 
+		where t.studentindex =#studentindex#
+			 and t.status =1
+		
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryUserActivityAttendMapListCntByCond"
+		parameterClass="alias_userActivityAttendMap" resultClass="java.lang.Integer">
+		select count(1)
+		from user_activity_attend_map
+		<include refid="UserActivityAttendMap_Where_Clause" />
+	</select>
+
+	<select id="queryUserActivityAttendMapListByCondExact"
+		parameterClass="alias_userActivityAttendMap" resultMap="userActivityAttendMapResult">
+		select
+		attendindex,activityindex,studentindex,status,comments
+		from
+		user_activity_attend_map
+		<include refid="UserActivityAttendMap_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+</sqlMap>

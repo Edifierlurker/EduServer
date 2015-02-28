@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="mloginFS" class="com.pinke.uni.mobile.protal.adapter.fs.LoginFS"
+		autowire="byName" remoting="true" servicepath="mloginFS"
+		service="com.pinke.uni.mobile.protal.adapter.fs.ILoginFS">
+		<property name="tstudentinfoLS" ref="tstudentinfoLS" />
+		<property name="tschoolinfoLS" ref="tschoolinfoLS" />
+		<property name="tcollegeinfoLS" ref="tcollegeinfoLS" />
+		<property name="tmajorinfoLS" ref="tmajorinfoLS" />
+		<property name="tclassinfoLS" ref="tclassinfoLS" />
+		<property name="tschoolinfoHisLS" ref="tschoolinfoHisLS" />
+		<property name="appVersionmgtLS" ref="appVersionmgtLS" />
+
+
+
+	</bean>
+
+
+	<bean id="tstudentinfoDAO" class="com.pinke.uni.mobile.protal.adapter.dao.TStudentinfoDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tstudentinfoDS"
+		class="com.pinke.uni.mobile.protal.adapter.service.TStudentinfoDS"
+		autowire="byName" remoting="true" servicepath="tstudentinfoFacade"
+		service="com.pinke.uni.mobile.protal.adapter.service.ITStudentinfoDS">
+		<property name="dao" ref="tstudentinfoDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tstudentinfoLS" class="com.pinke.uni.mobile.protal.adapter.ls.TStudentinfoLS"
+		autowire="byName" remoting="true" servicepath="tstudentinfoLSFacade"
+		service="com.pinke.uni.mobile.protal.adapter.ls.ITStudentinfoLS">
+		<property name="tstudentinfoDS" ref="tstudentinfoDS" />
+	</bean>
+
+
+	<bean id="tschoolinfoDAO" class="com.pinke.uni.mobile.protal.adapter.dao.TSchoolinfoDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tschoolinfoDS"
+		class="com.pinke.uni.mobile.protal.adapter.service.TSchoolinfoDS"
+		autowire="byName" remoting="true" servicepath="tschoolinfoFacade"
+		service="com.pinke.uni.mobile.protal.adapter.service.ITSchoolinfoDS">
+		<property name="dao" ref="tschoolinfoDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tschoolinfoLS" class="com.pinke.uni.mobile.protal.adapter.ls.TSchoolinfoLS"
+		autowire="byName" remoting="true" servicepath="tschoolinfoLSFacade"
+		service="com.pinke.uni.mobile.protal.adapter.ls.ITSchoolinfoLS">
+		<property name="tschoolinfoDS" ref="tschoolinfoDS" />
+	</bean>
+
+	<bean id="tcollegeinfoDAO" class="com.pinke.uni.mobile.protal.adapter.dao.TCollegeinfoDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tcollegeinfoDS"
+		class="com.pinke.uni.mobile.protal.adapter.service.TCollegeinfoDS"
+		autowire="byName" remoting="true" servicepath="tcollegeinfoFacade"
+		service="com.pinke.uni.mobile.protal.adapter.service.ITCollegeinfoDS">
+		<property name="dao" ref="tcollegeinfoDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tcollegeinfoLS" class="com.pinke.uni.mobile.protal.adapter.ls.TCollegeinfoLS"
+		autowire="byName" remoting="true" servicepath="tcollegeinfoLSFacade"
+		service="com.pinke.uni.mobile.protal.adapter.ls.ITCollegeinfoLS">
+		<property name="tcollegeinfoDS" ref="tcollegeinfoDS" />
+	</bean>
+
+
+	<bean id="tmajorinfoDAO" class="com.pinke.uni.mobile.protal.adapter.dao.TMajorinfoDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tmajorinfoDS"
+		class="com.pinke.uni.mobile.protal.adapter.service.TMajorinfoDS"
+		autowire="byName" remoting="true" servicepath="tmajorinfoFacade"
+		service="com.pinke.uni.mobile.protal.adapter.service.ITMajorinfoDS">
+		<property name="dao" ref="tmajorinfoDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tmajorinfoLS" class="com.pinke.uni.mobile.protal.adapter.ls.TMajorinfoLS"
+		autowire="byName" remoting="true" servicepath="tmajorinfoLSFacade"
+		service="com.pinke.uni.mobile.protal.adapter.ls.ITMajorinfoLS">
+		<property name="tmajorinfoDS" ref="tmajorinfoDS" />
+	</bean>
+
+	<bean id="tclassinfoDAO" class="com.pinke.uni.mobile.protal.adapter.dao.TClassinfoDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tclassinfoDS"
+		class="com.pinke.uni.mobile.protal.adapter.service.TClassinfoDS"
+		autowire="byName" remoting="true" servicepath="tclassinfoFacade"
+		service="com.pinke.uni.mobile.protal.adapter.service.ITClassinfoDS">
+		<property name="dao" ref="tclassinfoDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="tclassinfoLS" class="com.pinke.uni.mobile.protal.adapter.ls.TClassinfoLS"
+		autowire="byName" remoting="true" servicepath="tclassinfoLSFacade"
+		service="com.pinke.uni.mobile.protal.adapter.ls.ITClassinfoLS">
+		<property name="tclassinfoDS" ref="tclassinfoDS" />
+	</bean>
+
+	<bean id="tschoolinfoHisDAO"
+		class="com.pinke.uni.mobile.protal.adapter.dao.TSchoolinfoHisDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="tschoolinfoHisDS"
+		class="com.pinke.uni.mobile.protal.adapter.service.TSchoolinfoHisDS"
+		autowire="byName" remoting="true" servicepath="tschoolinfoHisFacade"
+		service="com.pinke.uni.mobile.protal.adapter.service.ITSchoolinfoHisDS">
+		<property name="dao" ref="tschoolinfoHisDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+
+	<bean id="tschoolinfoHisLS" class="com.pinke.uni.mobile.protal.adapter.ls.TSchoolinfoHisLS"
+		autowire="byName" remoting="true" servicepath="tschoolinfoHisLSFacade"
+		service="com.pinke.uni.mobile.protal.adapter.ls.ITSchoolinfoHisLS">
+		<property name="tschoolinfoHisDS" ref="tschoolinfoHisDS" />
+	</bean>
+
+
+	<bean id="appVersionmgtDAO"
+		class="com.pinke.uni.mobile.protal.adapter.dao.AppVersionmgtDAO">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="appVersionmgtDS"
+		class="com.pinke.uni.mobile.protal.adapter.service.AppVersionmgtDS"
+		autowire="byName" remoting="true" servicepath="appVersionmgtFacade"
+		service="com.pinke.uni.mobile.protal.adapter.service.IAppVersionmgtDS">
+		<property name="dao" ref="appVersionmgtDAO" />
+		<property name="primaryKeyGenerator" ref="defaultPrimaryKeyGenerator" />
+	</bean>
+	<bean id="appVersionmgtLS" class="com.pinke.uni.mobile.protal.adapter.ls.AppVersionmgtLS"
+		autowire="byName" remoting="true" servicepath="appVersionmgtLSFacade"
+		service="com.pinke.uni.mobile.protal.adapter.ls.IAppVersionmgtLS">
+		<property name="appVersionmgtDS" ref="appVersionmgtDS" />
+	</bean>
+
+
+
+</beans>

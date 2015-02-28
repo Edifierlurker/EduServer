@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages>
+	<class>
+		<name>AddCommend</name>
+		<message>
+		<alert name="acb_1">您需要购买该商品后，才能发表评价</alert>
+		<alert name="acb_2">您已评价，不能再次评价</alert>
+		<alert name="acb_3">评价商品，商品编号:</alert>
+		<alert name="acb_4">评价已提交</alert>
+		<alert name="acb_5">您需要购买该商品后，才能发表评价</alert>
+		<alert name="acb_6">评价时间已过期不能评价</alert>
+		<alert name="acb_7">您已评价，不能再次评价</alert>
+		<alert name="acb_8">存在敏感字，不能发布</alert>
+		<alert name="acb_9">评价已提交，请等待管理员审批</alert>
+		<alert name="acb_10">评论为待审状态，敏感字自动过滤，并已星号代替</alert>
+		<alert name="acb_11">用户状态非法，无法评论</alert>
+		<alert name="acb_12">评价失败</alert>
+		<alert name="acb_13">评价内容不可以超过150个字</alert>
+		</message>
+	</class>
+	<class>
+		<name>AppDetailInfo</name>
+		<message>
+		<alert name="adi_1">您曾经下载过，现在免费期，但仍将收取流量费，请知晓。</alert>
+		<alert name="adi_2">浏览商品，商品编号:</alert>
+		<alert name="adi_3">元</alert>
+		<alert name="adi_4">请您先到设置菜单选择具体机型，再进行购买或下载操作!</alert>
+		<alert name="adi_5">抱歉，您当前设置的机型不适合该商品，请先到机型设置菜单里更改机型!</alert>
+		</message>
+	</class>
+	<class>
+		<name>AppFavorite</name>
+		<message>
+		<alert name="afb_1">您已收藏此应用</alert>
+		<alert name="afb_2">收藏商品，商品编号:</alert>
+		<alert name="afb_3">服务器内部出错</alert>
+		</message>
+	</class>
+	<class>
+		<name>BuyedAppList</name>
+		<message>
+		<alert name="bal_1">免费</alert>
+		<alert name="bal_2">元</alert>
+		<alert name="bal_3">积分</alert>
+		</message>
+	</class>
+	<class>
+		<name>Category</name>
+		<message>
+		<alert name="cb_1">全部</alert>
+		</message>
+	</class>
+	<class>
+		<name>ClearFavorite</name>
+		<message>
+		<alert name="cfb_1">收藏夹无应用，清除失败</alert>
+		</message>
+	</class>
+	
+	<class>
+		<name>ClearInBoxLetter</name>
+		<message>
+		<alert name="cilb_1">无消息</alert>
+		<alert name="cilb_2">清除失败</alert>
+		</message>
+	</class>
+	<class>
+		<name>DeleteFavorite</name>
+		<message>
+		<alert name="dfb_1">删除失败</alert>
+		</message>
+	</class>
+	<class>
+		<name>DeleteInBoxLetter</name>
+		<message>
+		<alert name="dilb_1">服务器内部出错</alert>
+		</message>
+	</class>
+	<class>
+		<name>Donate</name>
+		<message>
+		<alert name="db_1">您已被系统列入黑名单，无法赠送</alert>
+		<alert name="db_2">您的好友手机机型不适配此商品</alert>
+		<alert name="db_3">您的好友不是网店用户，赠送失败</alert>
+		<alert name="db_4">您未绑定账户</alert>
+		<alert name="db_5">此商品不容许积分购买</alert>
+		<alert name="db_6">支付失败</alert>
+		<alert name="db_7">获取下载链接失败</alert>
+		<alert name="db_8">您已被系统列入黑名单，无法赠送</alert>
+		<alert name="db_9">您的沃商店好友[</alert>
+		<alert name="db_10">]给您赠送了应用[</alert>
+		<alert name="db_11">]，请点击下载。</alert>
+		<alert name="db_12">欢迎免费注册中国联通沃商店，精彩随心选。</alert>
+		<alert name="db_13">赠送信息已发送</alert>
+		<alert name="db_14">发送短信失败</alert>
+		</message>
+	</class>
+	<class>
+		<name>GetBalance</name>
+		<message>
+		<alert name="gbb_1">您已被系统列入黑名单，无法购买</alert>
+		<alert name="gbb_2">您已被系统列入黑名单，无法赠送</alert>
+		<alert name="gbb_3">不支持</alert>		
+		<alert name="gbb_4">本次支付需￥</alert>		
+		<alert name="gbb_5">需要:</alert>
+		<alert name="gbb_6">元</alert>
+		<alert name="gbb_7">需要积分：</alert>
+		<alert name="gbb_8">您的积分不够,剩余积分为</alert>
+		<alert name="gbb_9">您的剩余积分为</alert>
+		<alert name="gbb_10">您的"沃支付"余额为￥</alert>
+		<alert name="gbb_11">,请尽快充值</alert>
+		<alert name="gbb_12">您的沃支付余额不足，目前余额为</alert>
+		<alert name="gbb_13">,点确定到沃门户充值。</alert>
+		<alert name="gbb_14">您的"沃支付"余额为￥</alert>
+		<alert name="gbb_15">您的沃支付余额为</alert>
+		<alert name="gbb_16">您还没有绑定"沃支付"，请免费绑定</alert>
+		<alert name="gbb_17">您还未绑定沃支付，点确定去沃门户进行绑定。</alert>
+		<alert name="gbb_18">您还没有"沃支付"，请免费注册绑定</alert>	
+		<alert name="gbb_19">您还未注册绑定沃支付，点击确定到沃门户注册绑定。</alert>
+		
+		<alert name="gbb_20">本次支付需要积分 </alert>
+		<alert name="gbb_21"> 点</alert>
+		<alert name="gbb_22">您的总积分为 </alert>
+		<alert name="gbb_23"> 点，积分不足不能支付</alert>
+		</message>
+	</class>
+	<class>
+		<name>GetPassword</name>
+		<message>
+		<alert name="gpb_1">尊敬的用户您好，您的密码是</alert>
+		<alert name="gpb_2">，请妥善保管</alert>
+		<alert name="gpb_3">短信发送成功</alert>
+		<alert name="gpb_4">短信发送失败</alert>
+		<alert name="gpb_5">您输入的号码还未注册</alert>
+		<alert name="gpb_6">您输入的号码存在异常情况，请重新输入一个号码</alert>
+		<alert name="gpb_7">您输入的是非手机号码，请输入手机号码</alert>
+		</message>
+	</class>
+	<class>
+		<name>Login</name>
+		<message>
+		<alert name="lb_1">感谢您登录中国联通沃商店，您已自动注册为会员,用户名为手机号,密码:</alert>
+		<alert name="lb_2">,请尽快登录store.wo.com.cn修改。 精彩随心选</alert>
+		<alert name="lb_3">感谢您登录中国联通沃商店，您还未绑定沃支付，您可以点击下面链接去绑定</alert>
+		<alert name="lb_4">感谢您登录中国联通沃商店，您还未注册绑定沃支付，您可以在购买应用时注册绑定沃支付</alert>
+		<alert name="lb_5">发送短信成功</alert>
+		<alert name="lb_6">发送短信失败</alert>
+		<alert name="lb_7">感谢您登录中国联通沃商店，已经为您开通了沃支付，帐户名为您的手机号码，密码为</alert>
+		<alert name="lb_8">感谢您登录中国联通沃商店，您还未绑定沃支付，您可以点击下面链接去绑定</alert>
+		</message>
+	</class>
+	<class>
+		<name>Order</name>
+		<message>
+		<alert name="ob_1">本手机机型不适配此商品</alert>
+		<alert name="ob_2">您未绑定账户</alert>
+		<alert name="ob_3">此商品不容许积分购买</alert>
+		<alert name="ob_4">支付失败</alert>
+		<alert name="ob_5">获取下载链接失败</alert>
+		<alert name="ob_6">您已被系统列入黑名单，无法购买</alert>
+		<alert name="ob_7">密码错误，请重新输入！</alert>
+		<alert name="ob_8">您购买的是收费商品，请先付费！</alert>
+		</message>
+	</class>
+	<class>
+		<name>RecommendToFriend</name>
+		<message>
+		<alert name="rtfb_1">您未购买此应用，无法进行推荐</alert>
+		<alert name="rtfb_2">已经通过短信方式推荐给您的好友！</alert>
+		<alert name="rtfb_3">服务器内部出错</alert>
+		<alert name="rtfb_4">推荐失败</alert>
+		<alert name="rtfb_5">尊敬的用户，中国联通应用商店提醒您：你的沃商店好友</alert>
+		<alert name="rtfb_6">推荐了商品'</alert>
+		<alert name="rtfb_7">'给您，请点击以下链接查看！</alert>
+		<alert name="rtfb_8">推荐商品，商品编号:</alert>
+		<alert name="rtfb_9">推荐成功</alert>
+		<alert name="rtfb_10">您的好友</alert>
+		<alert name="rtfb_11">，向您推荐商品</alert>
+		<alert name="rtfb_12">对不起，</alert>
+		<alert name="rtfb_13">小时只能推荐</alert>
+		<alert name="rtfb_14">次。</alert>
+		</message>
+	</class>
+	<class>
+		<name>GetUserInfo</name>
+		<message>
+		<alert name="guia_1">VIP用户</alert>
+		<alert name="guia_2">普通用户</alert>
+		<alert name="guia_3">未注册沃支付</alert>
+		<alert name="guia_4">尚未开通沃支付</alert>
+		</message>
+	</class>
+	<class>
+		<name>GetVerifycode</name>
+		<message>
+		<alert name="gvca_1">号码验证失败</alert>
+		<alert name="gvca_2">您的注册验证码为</alert>
+		<alert name="gvca_3">，有效时间5分钟</alert>
+		<alert name="gvca_4">发送失败</alert>
+		<alert name="gvca_5">请输入手机号码进行注册</alert>
+		</message>
+	</class>
+	<class>
+		<name>ModifyPwd</name>
+		<message>
+		<alert name="mpa_1">原密码错误</alert>
+		<alert name="mpa_2">修改密码成功</alert>
+		<alert name="mpa_3">修改密码失败</alert>
+		<alert name="mpa_4">两次输入的密码不相同</alert>
+		</message>
+	</class>
+	<class>
+		<name>RegistUser</name>
+		<message>
+		<alert name="rua_1">验证码失效</alert>
+		<alert name="rua_2">验证码错误</alert>
+		<alert name="rua_3">注册失败</alert>
+		<alert name="rua_4">两次输入的密码不相同</alert>
+		<alert name="rua_5">您输入的号码已经是网店用户</alert>
+		<alert name="rua_6">您输入的号码有误，请重新输入</alert>
+		</message>
+	</class>
+	<class>
+		<name>UpdateUserInfo</name>
+		<message>
+		<alert name="uuia_1">姓名长度最多为20个字符</alert>
+		<alert name="uuia_2">昵称不能为空</alert>
+		<alert name="uuia_3">昵称长度最多为20个字符</alert>
+		<alert name="uuia_4">邮箱长度最多为60个字符</alert>
+		<alert name="uuia_5">服务器内部出错</alert>
+		<alert name="uuia_6">无效年龄</alert>
+		</message>
+	</class>
+	<class>
+		<name>ClearInBoxLetter</name>
+		<message>
+		<alert name="cibla_1">无消息</alert>
+		<alert name="cibla_2">清除失败</alert>
+		</message>
+	</class>
+	<class>
+		<name>ClearOutBoxLetter</name>
+		<message>
+		<alert name="cobla_1">清除失败</alert>
+		</message>
+	</class>
+	<class>
+		<name>DeleteInBoxLetter</name>
+		<message>
+		<alert name="dibla_1">服务器内部出错</alert>
+		</message>
+	</class>
+	<class>
+		<name>SendMessage</name>
+		<message>
+		<alert name="sma_1">不存在本用户</alert>
+		<alert name="sma_2">用户</alert>
+		<alert name="sma_3">不接收好友消息</alert>
+		<alert name="sma_4">不是您的好友</alert>
+		<alert name="sma_5">发送失败,您的发件箱已满!</alert>
+		<alert name="sma_6">发送失败,对方收件箱已满!</alert>
+		<alert name="sma_7">发送消息异常</alert>
+		<alert name="sma_8">发送失败</alert>
+		<alert name="sma_9">验证好友</alert>
+		<alert name="sma_10">异常码</alert>
+		<alert name="sma_11">发信箱已满，继续发送站内信</alert>
+		</message>
+	</class>
+	<class>
+		<name>AddFriend</name>
+		<message>
+		<alert name="afa_1">对方已经是您的好友</alert>
+		<alert name="afa_2">添加好友失败</alert>
+		<alert name="afa_3">添加失败,对方已经是自己的好友</alert>
+		<alert name="afa_4">添加失败,被请求人不存在</alert>
+		<alert name="afa_5">添加失败,被请求人拒绝被添加为好友</alert>
+		<alert name="afa_6">添加失败,好友数量已达到上线,无法添加好友</alert>
+		<alert name="afa_7">您已被用户[</alert>
+		<alert name="afa_8">]加为好友</alert>
+		</message>
+	</class>
+	<class>
+		<name>DeleteFriend</name>
+		<message>
+		<alert name="dfa_1">删除失败</alert>
+		</message>
+	</class>
+	<class>
+		<name>InviteFriend</name>
+		<message>
+		<alert name="ifa_1">查询用户错误</alert>
+		<alert name="ifa_2">您邀请的用户[</alert>
+		<alert name="ifa_3">]用户名不正确</alert>
+		<alert name="ifa_4">您邀请的用户[</alert>
+		<alert name="ifa_5">]已经是网店注册用户</alert>
+		<alert name="ifa_6">其他错误</alert>
+		<alert name="ifa_7">尊敬的用户您好！您的好友</alert>
+		<alert name="ifa_8">邀请您加入联通应用商店，点击链接登陆应用商店并加其为好友，享受精彩手机应用</alert>
+		<alert name="ifa_9">对不起，</alert>
+		<alert name="ifa_10">小时只能发送</alert>
+		<alert name="ifa_11">次邀请。</alert>
+		</message>
+	</class>
+	<class>
+		<name>StoreUtil</name>
+		<message>
+		<alert name="su_1">成功</alert>
+		<alert name="su_2">帐户余额不足</alert>
+		<alert name="su_3">网络超时</alert>
+		<alert name="su_4">系统故障</alert>
+		<alert name="su_5">订单号重复</alert>
+		<alert name="su_6">用户信息不存在</alert>
+		<alert name="su_7">查询条件缺失</alert>
+		<alert name="su_8">用户名已存在</alert>
+		<alert name="su_9">帐户类型错误</alert>
+		<alert name="su_10">订单号不存在</alert>
+		<alert name="su_11">帐户状态异常</alert>
+		<alert name="su_12">请求参数错误</alert>
+		<alert name="su_13">受理流水号重复</alert>
+		<alert name="su_14">手机号码错误</alert>
+		<alert name="su_15">手机号码已经存在</alert>
+		<alert name="su_16">业务平台id错误</alert>
+		<alert name="su_17">服务编码错误</alert>
+		<alert name="su_18">请求流水号错误</alert>
+		<alert name="su_19">用户未绑定</alert>
+		<alert name="su_20">用户重复绑定</alert>
+		<alert name="su_21">错误的绑定关系</alert>
+		<alert name="su_22">订单已退款</alert>
+		<alert name="su_23">商户结算id错误</alert>
+		<alert name="su_24">无效订单</alert>
+		<alert name="su_25">帐户不存在</alert>
+		<alert name="su_26">支付类型错误</alert>
+		<alert name="su_27">扣款类型错误</alert>
+		<alert name="su_28">本地未绑定</alert>
+		<alert name="su_29">报文格式错误，不符合XML规范</alert>
+		<alert name="su_30">其他异常</alert>
+		</message>
+	</class>
+	<class>
+		<name>Tools</name>
+		<message>
+		<alert name="tool_1">零元</alert>
+		<alert name="tool_2">元整</alert>
+		<alert name="tool_3">整</alert>
+		<alert name="tool_4">分</alert>
+		<alert name="tool_5">角</alert>
+		<alert name="tool_6">元</alert>
+		<alert name="tool_7">拾</alert>
+		<alert name="tool_8">佰</alert>
+		<alert name="tool_9">仟</alert>
+		<alert name="tool_10">万</alert>
+		<alert name="tool_11">零</alert>
+		<alert name="tool_12">壹</alert>
+		<alert name="tool_13">贰</alert>
+		<alert name="tool_14">叁</alert>
+		<alert name="tool_15">肆</alert>
+		<alert name="tool_16">伍</alert>
+		<alert name="tool_17">陆</alert>
+		<alert name="tool_18">柒</alert>
+		<alert name="tool_19">捌</alert>
+		<alert name="tool_20">玖</alert>
+		<alert name="tool_21">年</alert>
+		<alert name="tool_22">月</alert>
+		<alert name="tool_23">日</alert>
+		<alert name="tool_24">成功!</alert>
+		<alert name="tool_25">失败!</alert>
+		<alert name="tool_26">其他错误！</alert>
+		<alert name="tool_27">长度是</alert>
+		</message>
+	</class>
+	<class>
+		<name>SearchApp</name>
+		<message>
+		<alert name="sad_2">默认分组</alert>
+		</message>
+	</class>
+</messages>

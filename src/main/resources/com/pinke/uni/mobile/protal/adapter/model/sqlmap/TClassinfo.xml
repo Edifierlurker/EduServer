@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+  <sqlMap namespace="TClassinfo">
+	<typeAlias alias="alias_tclassinfo"	type="com.pinke.uni.mobile.protal.adapter.model.TClassinfo" />
+	
+	<resultMap id="tclassinfoResult" class="alias_tclassinfo">
+  		<result column="classindex" property="classindex" />
+  		<result column="classname" property="classname" />
+  		<result column="status" property="status" />
+  		<result column="createtime" property="createtime" />
+  		<result column="graduatetime" property="graduatetime" />
+  		<result column="collegeindex" property="collegeindex" />
+  		<result column="schoolindex" property="schoolindex" />
+  		<result column="teacherindex" property="teacherindex" />
+  		<result column="teachername" property="teachername" />
+	</resultMap>
+
+  <sql id="TClassinfo_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="classindex">
+			    classindex = #classindex#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="classname">
+				classname = #classname#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="status">
+			    status = #status#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="createtime">
+				createtime = #createtime#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="graduatetime">
+				graduatetime = #graduatetime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="collegeindex">
+			    collegeindex = #collegeindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="schoolindex">
+			    schoolindex = #schoolindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="teacherindex">
+			    teacherindex = #teacherindex#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="teachername">
+				teachername = #teachername#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+
+
+  <sql id="TClassinfo_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="classindex">
+			  classindex = #classindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="classname">
+			  classname = #classname#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="createtime">
+			  createtime = #createtime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="graduatetime">
+			  graduatetime = #graduatetime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="collegeindex">
+			  collegeindex = #collegeindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="schoolindex">
+			  schoolindex = #schoolindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="teacherindex">
+			  teacherindex = #teacherindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="teachername">
+			  teachername = #teachername#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+	
+	<insert id="insertTClassinfo" parameterClass="alias_tclassinfo">
+		insert into t_classinfo (
+			classindex
+			<dynamic>
+				<isNotEmpty prepend="," property="classname">
+					classname
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					status
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="createtime">
+					createtime
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="graduatetime">
+					graduatetime
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="collegeindex">
+					collegeindex
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="schoolindex">
+					schoolindex
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="teacherindex">
+					teacherindex
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="teachername">
+					teachername
+				</isNotEmpty>	
+			</dynamic>
+	   	)values(
+			#classindex#			
+			<dynamic>
+				<isNotEmpty prepend="," property="classname">
+					#classname#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					#status#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="createtime">
+					#createtime#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="graduatetime">
+					#graduatetime#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="collegeindex">
+					#collegeindex#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="schoolindex">
+					#schoolindex#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="teacherindex">
+					#teacherindex#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="teachername">
+					#teachername#
+				</isNotEmpty>	
+			</dynamic>	
+	   	)
+	</insert>	    
+	
+	<update id="updateTClassinfo"	parameterClass="alias_tclassinfo">
+	    update t_classinfo
+	    set
+		 classindex = #classindex#
+		<dynamic>
+			<isNotNull prepend="," property="classname">
+			  classname = #classname#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="createtime">
+			  createtime = #createtime#
+			</isNotNull>
+			<isNotNull prepend="," property="graduatetime">
+			  graduatetime = #graduatetime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="collegeindex">
+			  collegeindex = #collegeindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="schoolindex">
+			  schoolindex = #schoolindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="teacherindex">
+			  teacherindex = #teacherindex#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="teachername">
+			  teachername = #teachername#
+			</isNotNull>
+		</dynamic>
+		where classindex = #classindex#
+  	</update>
+	<update id="updateTClassinfoByCond" parameterClass="alias_tclassinfo">
+		update t_classinfo
+		set
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="classname">
+			  classname = #classname#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+			  status = #status#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="createtime">
+			  createtime = #createtime#
+			</isNotNull>
+			<isNotNull prepend="," property="graduatetime">
+			  graduatetime = #graduatetime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="collegeindex">
+			  collegeindex = #collegeindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="schoolindex">
+			  schoolindex = #schoolindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="teacherindex">
+			  teacherindex = #teacherindex#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="teachername">
+			  teachername = #teachername#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+           <isNotEmpty prepend="and" property="classindex">
+		     classindex = #classindex#		
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="classname">
+		     classname = #classname#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="status">
+		     status = #status#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="createtime">
+		     createtime = #createtime#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="graduatetime">
+		     graduatetime = #graduatetime#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="collegeindex">
+		     collegeindex = #collegeindex#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="schoolindex">
+		     schoolindex = #schoolindex#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="teacherindex">
+		     teacherindex = #teacherindex#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="teachername">
+		     teachername = #teachername#
+ 		   </isNotEmpty>
+ 		</dynamic>
+    </update>
+
+	<delete id="deleteTClassinfo" parameterClass="alias_tclassinfo">
+		delete from t_classinfo 
+	    where classindex = #classindex#
+	</delete>
+	<delete id="deleteTClassinfoByCond" parameterClass="alias_tclassinfo">
+		delete from t_classinfo 
+		<dynamic prepend="where">
+          <isNotEmpty prepend="and" property="classindex">
+		    classindex = #classindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="classname">
+		    classname = #classname#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="status">
+		    status = #status#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="createtime">
+		    createtime = #createtime#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="graduatetime">
+		    graduatetime = #graduatetime#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="collegeindex">
+		    collegeindex = #collegeindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="schoolindex">
+		    schoolindex = #schoolindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="teacherindex">
+		    teacherindex = #teacherindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="teachername">
+		    teachername = #teachername#
+          </isNotEmpty>
+        </dynamic>
+	</delete>
+
+	<select id="getTClassinfo" parameterClass="alias_tclassinfo" resultMap="tclassinfoResult">
+		select classindex,classname,status,createtime,graduatetime,collegeindex,schoolindex,teacherindex,teachername
+    	from t_classinfo
+		where classindex = #classindex#
+	</select>
+
+	<select id="queryTClassinfoListByCond" parameterClass="alias_tclassinfo" resultMap="tclassinfoResult" >
+		select 
+		  classindex,classname,status,createtime,graduatetime,collegeindex,schoolindex,teacherindex,teachername
+		from t_classinfo 
+		<include refid="TClassinfo_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>	
+	
+	<select id="queryTClassinfoListCntByCond" parameterClass="alias_tclassinfo" resultClass="java.lang.Integer">
+		select count(1)
+		from t_classinfo 
+		<include refid="TClassinfo_Where_Clause" />
+	</select>
+	
+	<select id="queryTClassinfoListByCondExact" parameterClass="alias_tclassinfo" resultMap="tclassinfoResult" >
+		select 
+		  classindex,classname,status,createtime,graduatetime,collegeindex,schoolindex,teacherindex,teachername
+		from t_classinfo 
+		<include refid="TClassinfo_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+</sqlMap>

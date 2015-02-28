@@ -1,0 +1,814 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="UserScheduleExaminfo">
+	<typeAlias alias="alias_userScheduleExaminfo"
+		type="com.pinke.uni.mobile.protal.exam.model.UserScheduleExaminfo" />
+	<typeAlias alias="alias_userScheduleExaminfo_extends"
+		type="com.pinke.uni.mobile.protal.exam.model.UserScheduleExaminfoExtends" />
+
+	<resultMap id="userScheduleExaminfoResult" class="alias_userScheduleExaminfo">
+		<result column="examindex" property="examindex" />
+		<result column="importexamindex" property="importexamindex" />
+		<result column="studentindex" property="studentindex" />
+		<result column="examname" property="examname" />
+		<result column="courseindex" property="courseindex" />
+		<result column="teacherindex" property="teacherindex" />
+		<result column="moniteachindex" property="moniteachindex" />
+		<result column="examdate" property="examdate" />
+		<result column="examstarttime" property="examstarttime" />
+		<result column="examendtime" property="examendtime" />
+		<result column="site" property="site" />
+		<result column="status" property="status" />
+		<result column="openexam" property="openexam" />
+		<result column="description" property="description" />
+		<result column="note" property="note" />
+		<result column="examtype" property="examtype" />
+	</resultMap>
+
+
+	<resultMap id="userScheduleExaminfoResultExtends" class="alias_userScheduleExaminfo_extends">
+		<result column="examindex" property="examindex" />
+		<result column="importexamindex" property="importexamindex" />
+		<result column="studentindex" property="studentindex" />
+		<result column="examname" property="examname" />
+		<result column="courseindex" property="courseindex" />
+		<result column="teacherindex" property="teacherindex" />
+		<result column="moniteachindex" property="moniteachindex" />
+		<result column="examdate" property="examdate" />
+		<result column="examstarttime" property="examstarttime" />
+		<result column="examendtime" property="examendtime" />
+		<result column="site" property="site" />
+		<result column="status" property="status" />
+		<result column="openexam" property="openexam" />
+		<result column="description" property="description" />
+		<result column="note" property="note" />
+		<result column="examtype" property="examtype" />
+
+		<result column="teachername" property="teachername" />
+		<result column="moniteachername" property="moniteachername" />
+		<result column="coursename" property="coursename" />
+		<result column="userindex" property="userindex" />
+	</resultMap>
+
+	<sql id="UserScheduleExaminfo_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="examindex">
+				examindex = #examindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="importexamindex">
+				importexamindex =
+				#importexamindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examname">
+				examname = #examname#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="courseindex">
+				courseindex =
+				#courseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="teacherindex">
+				teacherindex =
+				#teacherindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="moniteachindex">
+				moniteachindex =
+				#moniteachindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examdate">
+				examdate = #examdate#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examstarttime">
+				examstarttime =
+				#examstarttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examendtime">
+				examendtime =
+				#examendtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="openexam">
+				openexam = #openexam#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="description">
+				description =
+				#description#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examtype">
+				examtype = #examtype#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<sql id="UserScheduleExaminfo_Where_Clause_Extends">
+		<dynamic prepend="where">
+			q.examindex = p.examindex
+			<isNotEmpty prepend="and" property="examindex">
+				examindex = #examindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="importexamindex">
+				importexamindex =
+				#importexamindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examname">
+				examname = #examname#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="courseindex">
+				courseindex =
+				#courseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="teacherindex">
+				teacherindex =
+				#teacherindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="moniteachindex">
+				moniteachindex =
+				#moniteachindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examdate">
+				examdate = #examdate#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examstarttime">
+				examstarttime =
+				#examstarttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examendtime">
+				examendtime =
+				#examendtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="openexam">
+				openexam = #openexam#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="description">
+				description =
+				#description#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examtype">
+				examtype = #examtype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="userindex">
+				userindex = #userindex#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<sql id="UserScheduleExaminfo_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="examindex">
+				examindex = #examindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="importexamindex">
+				importexamindex =
+				#importexamindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examname">
+				examname = #examname#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="courseindex">
+				courseindex =
+				#courseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="teacherindex">
+				teacherindex =
+				#teacherindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="moniteachindex">
+				moniteachindex =
+				#moniteachindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examdate">
+				examdate = #examdate#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examstarttime">
+				examstarttime =
+				#examstarttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examendtime">
+				examendtime =
+				#examendtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="openexam">
+				openexam = #openexam#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="description">
+				description =
+				#description#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examtype">
+				examtype = #examtype#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="insertUserScheduleExaminfo" parameterClass="alias_userScheduleExaminfo">
+		insert into user_schedule_examinfo (
+		examindex
+		<dynamic>
+			<isNotEmpty prepend="," property="importexamindex">
+				importexamindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentindex">
+				studentindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="examname">
+				examname
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="courseindex">
+				courseindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="teacherindex">
+				teacherindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="moniteachindex">
+				moniteachindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="examdate">
+				examdate
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="examstarttime">
+				examstarttime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="examendtime">
+				examendtime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="site">
+				site
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="openexam">
+				openexam
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="description">
+				description
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				note
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="examtype">
+				examtype
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#examindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="importexamindex">
+				#importexamindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentindex">
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="examname">
+				#examname#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="courseindex">
+				#courseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="teacherindex">
+				#teacherindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="moniteachindex">
+				#moniteachindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="examdate">
+				#examdate#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="examstarttime">
+				#examstarttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="examendtime">
+				#examendtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="site">
+				#site#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="openexam">
+				#openexam#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="description">
+				#description#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				#note#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="examtype">
+				#examtype#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateUserScheduleExaminfo" parameterClass="alias_userScheduleExaminfo">
+		update user_schedule_examinfo
+		set
+		examindex = #examindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="importexamindex">
+				importexamindex =
+				#importexamindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="examname">
+				examname = #examname#
+			</isNotNull>
+			<isNotEmpty prepend="," property="courseindex">
+				courseindex =
+				#courseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="teacherindex">
+				teacherindex =
+				#teacherindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="moniteachindex">
+				moniteachindex =
+				#moniteachindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="examdate">
+				examdate = #examdate#
+			</isNotNull>
+			<isNotNull prepend="," property="examstarttime">
+				examstarttime =
+				#examstarttime#
+			</isNotNull>
+			<isNotNull prepend="," property="examendtime">
+				examendtime = #examendtime#
+			</isNotNull>
+			<isNotNull prepend="," property="site">
+				site = #site#
+			</isNotNull>
+			<isNotNull prepend="," property="status">
+				status = #status#
+			</isNotNull>
+			<isNotEmpty prepend="," property="openexam">
+				openexam = #openexam#
+			</isNotEmpty>
+			<isNotNull prepend="," property="description">
+				description = #description#
+			</isNotNull>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+			<isNotNull prepend="," property="examtype">
+				examtype = #examtype#
+			</isNotNull>
+		</dynamic>
+		where examindex = #examindex#		
+	</update>
+	<update id="updateUserScheduleExaminfoByCond" parameterClass="alias_userScheduleExaminfo">
+		update user_schedule_examinfo
+		set
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="importexamindex">
+				importexamindex =
+				#importexamindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="examname">
+				examname = #examname#
+			</isNotNull>
+			<isNotEmpty prepend="," property="courseindex">
+				courseindex =
+				#courseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="teacherindex">
+				teacherindex =
+				#teacherindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="moniteachindex">
+				moniteachindex =
+				#moniteachindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="examdate">
+				examdate = #examdate#
+			</isNotNull>
+			<isNotNull prepend="," property="examstarttime">
+				examstarttime =
+				#examstarttime#
+			</isNotNull>
+			<isNotNull prepend="," property="examendtime">
+				examendtime = #examendtime#
+			</isNotNull>
+			<isNotNull prepend="," property="site">
+				site = #site#
+			</isNotNull>
+			<isNotNull prepend="," property="status">
+				status = #status#
+			</isNotNull>
+			<isNotEmpty prepend="," property="openexam">
+				openexam = #openexam#
+			</isNotEmpty>
+			<isNotNull prepend="," property="description">
+				description = #description#
+			</isNotNull>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+			<isNotNull prepend="," property="examtype">
+				examtype = #examtype#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="examindex">
+				examindex = #examindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="importexamindex">
+				importexamindex =
+				#importexamindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examname">
+				examname = #examname#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="courseindex">
+				courseindex =
+				#courseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="teacherindex">
+				teacherindex =
+				#teacherindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="moniteachindex">
+				moniteachindex =
+				#moniteachindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examdate">
+				examdate = #examdate#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examstarttime">
+				examstarttime =
+				#examstarttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examendtime">
+				examendtime =
+				#examendtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="openexam">
+				openexam = #openexam#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="description">
+				description =
+				#description#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examtype">
+				examtype = #examtype#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteUserScheduleExaminfo" parameterClass="alias_userScheduleExaminfo">
+		delete
+		from user_schedule_examinfo
+		where examindex = #examindex#
+	</delete>
+	<delete id="deleteUserScheduleExaminfoByCond" parameterClass="alias_userScheduleExaminfo">
+		delete from user_schedule_examinfo
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="examindex">
+				examindex = #examindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="importexamindex">
+				importexamindex =
+				#importexamindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examname">
+				examname = #examname#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="courseindex">
+				courseindex =
+				#courseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="teacherindex">
+				teacherindex =
+				#teacherindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="moniteachindex">
+				moniteachindex =
+				#moniteachindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examdate">
+				examdate = #examdate#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examstarttime">
+				examstarttime =
+				#examstarttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examendtime">
+				examendtime =
+				#examendtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="openexam">
+				openexam = #openexam#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="description">
+				description =
+				#description#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="examtype">
+				examtype = #examtype#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="getUserScheduleExaminfo" parameterClass="alias_userScheduleExaminfo"
+		resultMap="userScheduleExaminfoResult">
+		select
+		examindex,importexamindex,studentindex,examname,courseindex,teacherindex,moniteachindex,examdate,examstarttime,examendtime,site,status,openexam,description,note,examtype
+		from user_schedule_examinfo
+		where examindex = #examindex#
+	</select>
+
+	<select id="queryUserScheduleExaminfoListByCond" parameterClass="alias_userScheduleExaminfo"
+		resultMap="userScheduleExaminfoResult">
+		select
+		examindex,importexamindex,studentindex,examname,courseindex,teacherindex,moniteachindex,examdate,examstarttime,examendtime,site,status,openexam,description,note,examtype
+		from user_schedule_examinfo
+		<include refid="UserScheduleExaminfo_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryUserScheduleExaminfoListCntByCond"
+		parameterClass="alias_userScheduleExaminfo" resultClass="java.lang.Integer">
+		select count(1)
+		from user_schedule_examinfo
+		<include refid="UserScheduleExaminfo_Where_Clause" />
+	</select>
+
+	<select id="queryUserScheduleExaminfoListByCondExact"
+		parameterClass="alias_userScheduleExaminfo" resultMap="userScheduleExaminfoResult">
+		select
+		examindex,importexamindex,studentindex,examname,courseindex,teacherindex,moniteachindex,examdate,examstarttime,examendtime,site,status,openexam,description,note,examtype
+		from user_schedule_examinfo
+		<include refid="UserScheduleExaminfo_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+
+	<select id="queryUserScheduleExaminfoListByCondExtends"
+		parameterClass="alias_userScheduleExaminfo_extends" resultMap="userScheduleExaminfoResultExtends">
+		SELECT
+		t.examindex AS examindex,
+		importexamindex,
+		t.studentindex AS
+		studentindex,
+		examname,
+		t.courseindex AS courseindex,
+		t.teacherindex AS
+		teacherindex,
+		moniteachindex,
+		examdate,
+		examstarttime,
+		examendtime,
+		site,
+		t.status AS STATUS,
+		openexam,
+		t.description AS description,
+		t.note AS
+		note,
+		examtype,
+		s.studentname AS teachername,
+		m.studentname AS
+		moniteachername,
+		n.coursename AS coursename,
+		userindex
+		FROM
+		user_schedule_examinfo t
+		LEFT JOIN t_studentinfo s
+		ON t.teacherindex =
+		s.studentindex AND s.status=1
+		LEFT JOIN t_studentinfo m
+		ON
+		t.moniteachindex = m.studentindex AND m.status=1
+		LEFT JOIN t_courseinfo
+		n
+		ON t.courseindex = n.courseindex
+		LEFT JOIN user_examinfo_attend_map p
+		ON t.examindex = p.examindex AND p.status=1 AND
+		p.userindex =
+		#userindex#
+		<include refid="UserScheduleExaminfo_Where_Clause_Extends" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryUserScheduleExaminfoListCntByCondExtends"
+		parameterClass="alias_userScheduleExaminfo_extends" resultClass="java.lang.Integer">
+		select count(1) from
+		user_schedule_examinfo t
+		LEFT JOIN t_studentinfo s
+		ON
+		t.teacherindex =
+		s.studentindex
+		LEFT JOIN t_studentinfo m
+		ON
+		t.moniteachindex =
+		m.studentindex
+		LEFT JOIN t_courseinfo n
+		ON
+		t.courseindex = n.courseindex
+		LEFT JOIN user_examinfo_attend_map p
+		ON
+		t.examindex = p.examindex
+		AND
+		p.userindex = #userindex#
+		<include refid="UserScheduleExaminfo_Where_Clause_Extends" />
+	</select>
+
+
+
+	<select id="queryUserScheduleExaminfoListByCondExtendsMore"
+		parameterClass="alias_userScheduleExaminfo_extends" resultMap="userScheduleExaminfoResultExtends">
+		SELECT
+		t.examindex AS examindex,
+		importexamindex,
+		t.studentindex AS
+		studentindex,
+		examname,
+		t.courseindex AS courseindex,
+		t.teacherindex AS
+		teacherindex,
+		moniteachindex,
+		examdate,
+		examstarttime,
+		examendtime,
+		site,
+		t.status AS STATUS,
+		openexam,
+		t.description AS description,
+		t.note AS
+		note,
+		examtype,
+		s.studentname AS teachername,
+		m.studentname AS
+		moniteachername,
+		n.coursename AS coursename,
+		userindex
+		FROM
+		user_schedule_examinfo t
+		LEFT JOIN t_studentinfo s
+		ON t.teacherindex =
+		s.studentindex
+		AND s.status = 1
+		LEFT JOIN t_studentinfo m
+		ON
+		t.moniteachindex = m.studentindex
+		AND m.status = 1
+		LEFT JOIN
+		t_courseinfo n
+		ON t.courseindex = n.courseindex
+		LEFT JOIN
+		user_examinfo_attend_map p
+		ON t.examindex = p.examindex
+		AND p.status = 1
+		WHERE p.userindex =#userindex#
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryUserScheduleExaminfoListCntByCondExtendsMore"
+		parameterClass="alias_userScheduleExaminfo_extends" resultClass="java.lang.Integer">
+		select count(1)
+		FROM user_schedule_examinfo t
+		LEFT JOIN t_studentinfo s
+		ON t.teacherindex = s.studentindex
+		AND s.status = 1
+		LEFT JOIN
+		t_studentinfo m
+		ON t.moniteachindex = m.studentindex
+		AND m.status = 1
+		LEFT JOIN t_courseinfo n
+		ON t.courseindex = n.courseindex
+		LEFT JOIN
+		user_examinfo_attend_map p
+		ON t.examindex = p.examindex
+		AND p.status = 1
+		WHERE p.userindex =#userindex#
+	</select>
+
+
+
+	<select id="getUserScheduleExaminfoExtends" parameterClass="alias_userScheduleExaminfo_extends"
+		resultMap="userScheduleExaminfoResultExtends">
+		SELECT
+		t.examindex AS examindex,
+		importexamindex,
+		t.studentindex AS studentindex,
+		examname,
+		t.courseindex AS courseindex,
+		t.teacherindex AS teacherindex,
+		moniteachindex,
+		examdate,
+		examstarttime,
+		examendtime,
+		site,
+		t.status AS STATUS,
+		openexam,
+		t.description AS
+		description,
+		t.note AS note,
+		examtype,
+		s.studentname AS teachername,
+		m.studentname AS monteachername,
+		n.coursename AS coursename
+		FROM
+		user_schedule_examinfo t
+		LEFT JOIN t_studentinfo s
+		ON t.teacherindex =
+		s.studentindex
+		LEFT JOIN t_studentinfo m
+		ON t.moniteachindex =
+		m.studentindex
+		LEFT JOIN t_courseinfo n
+		ON t.courseindex = n.courseindex
+		where examindex = #examindex#
+		and t.status = 1
+	</select>
+
+</sqlMap>

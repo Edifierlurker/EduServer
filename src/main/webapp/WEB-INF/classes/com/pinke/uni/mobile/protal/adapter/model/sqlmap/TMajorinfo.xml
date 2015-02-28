@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+  <sqlMap namespace="TMajorinfo">
+	<typeAlias alias="alias_tmajorinfo"	type="com.pinke.uni.mobile.protal.adapter.model.TMajorinfo" />
+	
+	<resultMap id="tmajorinfoResult" class="alias_tmajorinfo">
+  		<result column="majorindex" property="majorindex" />
+  		<result column="majorname" property="majorname" />
+  		<result column="schoolindex" property="schoolindex" />
+  		<result column="collegeindex" property="collegeindex" />
+	</resultMap>
+
+  <sql id="TMajorinfo_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="majorindex">
+			    majorindex = #majorindex#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="majorname">
+				majorname = #majorname#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="schoolindex">
+			    schoolindex = #schoolindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="collegeindex">
+			    collegeindex = #collegeindex#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+
+
+  <sql id="TMajorinfo_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="majorindex">
+			  majorindex = #majorindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="majorname">
+			  majorname = #majorname#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="schoolindex">
+			  schoolindex = #schoolindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="collegeindex">
+			  collegeindex = #collegeindex#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+	
+	<insert id="insertTMajorinfo" parameterClass="alias_tmajorinfo">
+		insert into t_majorinfo (
+			majorindex
+			<dynamic>
+				<isNotEmpty prepend="," property="majorname">
+					majorname
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="schoolindex">
+					schoolindex
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="collegeindex">
+					collegeindex
+				</isNotEmpty>	
+			</dynamic>
+	   	)values(
+			#majorindex#			
+			<dynamic>
+				<isNotEmpty prepend="," property="majorname">
+					#majorname#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="schoolindex">
+					#schoolindex#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="collegeindex">
+					#collegeindex#
+				</isNotEmpty>	
+			</dynamic>	
+	   	)
+	</insert>	    
+	
+	<update id="updateTMajorinfo"	parameterClass="alias_tmajorinfo">
+	    update t_majorinfo
+	    set
+		 majorindex = #majorindex#
+		<dynamic>
+			<isNotNull prepend="," property="majorname">
+			  majorname = #majorname#
+			</isNotNull>
+			<isNotEmpty prepend="," property="schoolindex">
+			  schoolindex = #schoolindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="collegeindex">
+			  collegeindex = #collegeindex#
+			</isNotEmpty> 
+		</dynamic>
+		where majorindex = #majorindex#
+  	</update>
+	<update id="updateTMajorinfoByCond" parameterClass="alias_tmajorinfo">
+		update t_majorinfo
+		set
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="majorname">
+			  majorname = #majorname#
+			</isNotNull>
+			<isNotEmpty prepend="," property="schoolindex">
+			  schoolindex = #schoolindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="collegeindex">
+			  collegeindex = #collegeindex#
+			</isNotEmpty> 
+		</dynamic>
+		<dynamic prepend="where">
+           <isNotEmpty prepend="and" property="majorindex">
+		     majorindex = #majorindex#		
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="majorname">
+		     majorname = #majorname#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="schoolindex">
+		     schoolindex = #schoolindex#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="collegeindex">
+		     collegeindex = #collegeindex#
+ 		   </isNotEmpty>
+ 		</dynamic>
+    </update>
+
+	<delete id="deleteTMajorinfo" parameterClass="alias_tmajorinfo">
+		delete from t_majorinfo 
+	    where majorindex = #majorindex#
+	</delete>
+	<delete id="deleteTMajorinfoByCond" parameterClass="alias_tmajorinfo">
+		delete from t_majorinfo 
+		<dynamic prepend="where">
+          <isNotEmpty prepend="and" property="majorindex">
+		    majorindex = #majorindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="majorname">
+		    majorname = #majorname#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="schoolindex">
+		    schoolindex = #schoolindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="collegeindex">
+		    collegeindex = #collegeindex#
+          </isNotEmpty>
+        </dynamic>
+	</delete>
+
+	<select id="getTMajorinfo" parameterClass="alias_tmajorinfo" resultMap="tmajorinfoResult">
+		select majorindex,majorname,schoolindex,collegeindex
+    	from t_majorinfo
+		where majorindex = #majorindex#
+	</select>
+
+	<select id="queryTMajorinfoListByCond" parameterClass="alias_tmajorinfo" resultMap="tmajorinfoResult" >
+		select 
+		  majorindex,majorname,schoolindex,collegeindex
+		from t_majorinfo 
+		<include refid="TMajorinfo_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>	
+	
+	<select id="queryTMajorinfoListCntByCond" parameterClass="alias_tmajorinfo" resultClass="java.lang.Integer">
+		select count(1)
+		from t_majorinfo 
+		<include refid="TMajorinfo_Where_Clause" />
+	</select>
+	
+	<select id="queryTMajorinfoListByCondExact" parameterClass="alias_tmajorinfo" resultMap="tmajorinfoResult" >
+		select 
+		  majorindex,majorname,schoolindex,collegeindex
+		from t_majorinfo 
+		<include refid="TMajorinfo_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+</sqlMap>

@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TGroupinfo">
+	<typeAlias alias="alias_tgroupinfo"
+		type="com.pinke.uni.mobile.protal.group.model.TGroupinfo" />
+
+	<resultMap id="tgroupinfoResult" class="alias_tgroupinfo">
+		<result column="groupindex" property="groupindex" />
+		<result column="groupid" property="groupid" />
+		<result column="grouplevel" property="grouplevel" />
+		<result column="groupmessage" property="groupmessage" />
+		<result column="grouppic" property="grouppic" />
+		<result column="grouptitle" property="grouptitle" />
+		<result column="groupbref" property="groupbref" />
+		<result column="groupdesc" property="groupdesc" />
+		<result column="createtime" property="createtime" />
+		<result column="site" property="site" />
+		<result column="longitude" property="longitude" />
+		<result column="latitude" property="latitude" />
+		<result column="status" property="status" />
+		<result column="note" property="note" />
+		<result column="categorylevel1" property="categorylevel1" />
+		<result column="categorylevel2" property="categorylevel2" />
+		<result column="groupmanagerindex" property="groupmanagerindex" />
+		<result column="groupcreaterindex" property="groupcreaterindex" />
+		<result column="grouppoints" property="grouppoints" />
+		<result column="groupcomment" property="groupcomment" />
+		<result column="groupstars" property="groupstars" />
+		<result column="grouptype" property="grouptype" />
+	</resultMap>
+
+	<resultMap id="tgroupinfoResultExtends" class="alias_tgroupinfo">
+		<result column="groupindex" property="groupindex" />
+		<result column="groupid" property="groupid" />
+		<result column="grouplevel" property="grouplevel" />
+		<result column="groupmessage" property="groupmessage" />
+		<result column="grouppic" property="grouppic" />
+		<result column="grouptitle" property="grouptitle" />
+		<result column="groupbref" property="groupbref" />
+		<result column="groupdesc" property="groupdesc" />
+		<result column="createtime" property="createtime" />
+		<result column="site" property="site" />
+		<result column="longitude" property="longitude" />
+		<result column="latitude" property="latitude" />
+		<result column="status" property="status" />
+		<result column="note" property="note" />
+		<result column="categorylevel1" property="categorylevel1" />
+		<result column="categorylevel2" property="categorylevel2" />
+		<result column="groupmanagerindex" property="groupmanagerindex" />
+		<result column="groupcreaterindex" property="groupcreaterindex" />
+		<result column="grouppoints" property="grouppoints" />
+		<result column="groupcomment" property="groupcomment" />
+		<result column="groupstars" property="groupstars" />
+		<result column="grouptype" property="grouptype" />
+		<result column="DISTANCE" property="DISTANCE" />
+	</resultMap>
+
+
+
+	<sql id="TGroupinfo_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="groupindex">
+				groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupid">
+				groupid = #groupid#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouplevel">
+				grouplevel =
+				#grouplevel#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupmessage">
+				groupmessage =
+				#groupmessage#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouppic">
+				grouppic = #grouppic#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouptitle">
+				grouptitle =
+				#grouptitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupbref">
+				groupbref = #groupbref#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupdesc">
+				groupdesc = #groupdesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="longitude">
+				longitude = #longitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="latitude">
+				latitude = #latitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="categorylevel1">
+				categorylevel1 =
+				#categorylevel1#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="categorylevel2">
+				categorylevel2 =
+				#categorylevel2#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupmanagerindex">
+				groupmanagerindex =
+				#groupmanagerindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupcreaterindex">
+				groupcreaterindex =
+				#groupcreaterindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouppoints">
+				grouppoints =
+				#grouppoints#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupcomment">
+				groupcomment =
+				#groupcomment#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupstars">
+				groupstars =
+				#groupstars#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouptype">
+				grouptype = #grouptype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="searchcond">
+				groupid = #searchcond#
+				or grouptitle=#searchcond#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<sql id="TGroupinfo_Where_Clause_Extends">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="groupindex">
+				groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupid">
+				groupid like  '%$groupid$%' escape '/'
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouplevel">
+				grouplevel =
+				#grouplevel#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupmessage">
+				groupmessage =
+				#groupmessage#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouppic">
+				grouppic = #grouppic#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouptitle">
+				grouptitle like '%$grouptitle$%' escape '/'
+			
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupbref">
+				groupbref = #groupbref#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupdesc">
+				groupdesc = #groupdesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="categorylevel1">
+				categorylevel1 =
+				#categorylevel1#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="categorylevel2">
+				categorylevel2 =
+				#categorylevel2#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupmanagerindex">
+				groupmanagerindex =
+				#groupmanagerindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupcreaterindex">
+				groupcreaterindex =
+				#groupcreaterindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouppoints">
+				grouppoints =
+				#grouppoints#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupcomment">
+				groupcomment =
+				#groupcomment#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupstars">
+				groupstars =
+				#groupstars#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouptype">
+				grouptype = #grouptype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="searchcond">
+				groupid = #searchcond#
+				or grouptitle=#searchcond#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<sql id="TGroupinfo_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="groupindex">
+				groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupid">
+				groupid = #groupid#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouplevel">
+				grouplevel =
+				#grouplevel#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupmessage">
+				groupmessage =
+				#groupmessage#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouppic">
+				grouppic = #grouppic#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouptitle">
+				grouptitle =
+				#grouptitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupbref">
+				groupbref = #groupbref#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupdesc">
+				groupdesc = #groupdesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="longitude">
+				longitude = #longitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="latitude">
+				latitude = #latitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="categorylevel1">
+				categorylevel1 =
+				#categorylevel1#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="categorylevel2">
+				categorylevel2 =
+				#categorylevel2#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupmanagerindex">
+				groupmanagerindex =
+				#groupmanagerindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupcreaterindex">
+				groupcreaterindex =
+				#groupcreaterindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouppoints">
+				grouppoints =
+				#grouppoints#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupcomment">
+				groupcomment =
+				#groupcomment#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupstars">
+				groupstars =
+				#groupstars#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouptype">
+				grouptype = #grouptype#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="insertTGroupinfo" parameterClass="alias_tgroupinfo">
+		insert into t_groupinfo (
+		groupindex
+		<dynamic>
+			<isNotEmpty prepend="," property="groupid">
+				groupid
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="grouplevel">
+				grouplevel
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupmessage">
+				groupmessage
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="grouppic">
+				grouppic
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="grouptitle">
+				grouptitle
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupbref">
+				groupbref
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupdesc">
+				groupdesc
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="createtime">
+				createtime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="site">
+				site
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="longitude">
+				longitude
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="latitude">
+				latitude
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				note
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="categorylevel1">
+				categorylevel1
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="categorylevel2">
+				categorylevel2
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupmanagerindex">
+				groupmanagerindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupcreaterindex">
+				groupcreaterindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="grouppoints">
+				grouppoints
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupcomment">
+				groupcomment
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupstars">
+				groupstars
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="grouptype">
+				grouptype
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#groupindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="groupid">
+				#groupid#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="grouplevel">
+				#grouplevel#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupmessage">
+				#groupmessage#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="grouppic">
+				#grouppic#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="grouptitle">
+				#grouptitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupbref">
+				#groupbref#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupdesc">
+				#groupdesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="createtime">
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="site">
+				#site#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="longitude">
+				#longitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="latitude">
+				#latitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				#note#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="categorylevel1">
+				#categorylevel1#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="categorylevel2">
+				#categorylevel2#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupmanagerindex">
+				#groupmanagerindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupcreaterindex">
+				#groupcreaterindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="grouppoints">
+				#grouppoints#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupcomment">
+				#groupcomment#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupstars">
+				#groupstars#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="grouptype">
+				#grouptype#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateTGroupinfo" parameterClass="alias_tgroupinfo">
+		update t_groupinfo
+		set
+		groupindex = #groupindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="groupid">
+				groupid = #groupid#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="grouplevel">
+				grouplevel = #grouplevel#
+			</isNotEmpty>
+			<isNotNull prepend="," property="groupmessage">
+				groupmessage =
+				#groupmessage#
+			</isNotNull>
+			<isNotNull prepend="," property="grouppic">
+				grouppic = #grouppic#
+			</isNotNull>
+			<isNotNull prepend="," property="grouptitle">
+				grouptitle = #grouptitle#
+			</isNotNull>
+			<isNotNull prepend="," property="groupbref">
+				groupbref = #groupbref#
+			</isNotNull>
+			<isNotNull prepend="," property="groupdesc">
+				groupdesc = #groupdesc#
+			</isNotNull>
+			<isNotNull prepend="," property="createtime">
+				createtime = #createtime#
+			</isNotNull>
+			<isNotNull prepend="," property="site">
+				site = #site#
+			</isNotNull>
+			<isNotNull prepend="," property="longitude">
+				longitude = #longitude#
+			</isNotNull>
+			<isNotNull prepend="," property="latitude">
+				latitude = #latitude#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+			<isNotEmpty prepend="," property="categorylevel1">
+				categorylevel1 =
+				#categorylevel1#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="categorylevel2">
+				categorylevel2 =
+				#categorylevel2#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupmanagerindex">
+				groupmanagerindex =
+				#groupmanagerindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupcreaterindex">
+				groupcreaterindex =
+				#groupcreaterindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="grouppoints">
+				grouppoints =
+				#grouppoints#
+			</isNotEmpty>
+			<isNotNull prepend="," property="groupcomment">
+				groupcomment =
+				#groupcomment#
+			</isNotNull>
+			<isNotEmpty prepend="," property="groupstars">
+				groupstars = #groupstars#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="grouptype">
+				grouptype = #grouptype#
+			</isNotEmpty>
+		</dynamic>
+		where groupindex = #groupindex#
+	</update>
+	<update id="updateTGroupinfoByCond" parameterClass="alias_tgroupinfo">
+		update t_groupinfo
+		set
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="groupid">
+				groupid = #groupid#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="grouplevel">
+				grouplevel = #grouplevel#
+			</isNotEmpty>
+			<isNotNull prepend="," property="groupmessage">
+				groupmessage =
+				#groupmessage#
+			</isNotNull>
+			<isNotNull prepend="," property="grouppic">
+				grouppic = #grouppic#
+			</isNotNull>
+			<isNotNull prepend="," property="grouptitle">
+				grouptitle = #grouptitle#
+			</isNotNull>
+			<isNotNull prepend="," property="groupbref">
+				groupbref = #groupbref#
+			</isNotNull>
+			<isNotNull prepend="," property="groupdesc">
+				groupdesc = #groupdesc#
+			</isNotNull>
+			<isNotNull prepend="," property="createtime">
+				createtime = #createtime#
+			</isNotNull>
+			<isNotNull prepend="," property="site">
+				site = #site#
+			</isNotNull>
+			<isNotNull prepend="," property="longitude">
+				longitude = #longitude#
+			</isNotNull>
+			<isNotNull prepend="," property="latitude">
+				latitude = #latitude#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+			<isNotEmpty prepend="," property="categorylevel1">
+				categorylevel1 =
+				#categorylevel1#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="categorylevel2">
+				categorylevel2 =
+				#categorylevel2#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupmanagerindex">
+				groupmanagerindex =
+				#groupmanagerindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="groupcreaterindex">
+				groupcreaterindex =
+				#groupcreaterindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="grouppoints">
+				grouppoints =
+				#grouppoints#
+			</isNotEmpty>
+			<isNotNull prepend="," property="groupcomment">
+				groupcomment =
+				#groupcomment#
+			</isNotNull>
+			<isNotEmpty prepend="," property="groupstars">
+				groupstars = #groupstars#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="grouptype">
+				grouptype = #grouptype#
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="groupindex">
+				groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupid">
+				groupid = #groupid#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouplevel">
+				grouplevel =
+				#grouplevel#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupmessage">
+				groupmessage =
+				#groupmessage#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouppic">
+				grouppic = #grouppic#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouptitle">
+				grouptitle =
+				#grouptitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupbref">
+				groupbref = #groupbref#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupdesc">
+				groupdesc = #groupdesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="longitude">
+				longitude = #longitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="latitude">
+				latitude = #latitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="categorylevel1">
+				categorylevel1 =
+				#categorylevel1#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="categorylevel2">
+				categorylevel2 =
+				#categorylevel2#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupmanagerindex">
+				groupmanagerindex =
+				#groupmanagerindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupcreaterindex">
+				groupcreaterindex =
+				#groupcreaterindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouppoints">
+				grouppoints =
+				#grouppoints#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupcomment">
+				groupcomment =
+				#groupcomment#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupstars">
+				groupstars =
+				#groupstars#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouptype">
+				grouptype = #grouptype#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteTGroupinfo" parameterClass="alias_tgroupinfo">
+		delete from
+		t_groupinfo
+		where groupindex = #groupindex#
+	</delete>
+	<delete id="deleteTGroupinfoByCond" parameterClass="alias_tgroupinfo">
+		delete from t_groupinfo
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="groupindex">
+				groupindex =
+				#groupindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupid">
+				groupid = #groupid#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouplevel">
+				grouplevel =
+				#grouplevel#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupmessage">
+				groupmessage =
+				#groupmessage#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouppic">
+				grouppic = #grouppic#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouptitle">
+				grouptitle =
+				#grouptitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupbref">
+				groupbref = #groupbref#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupdesc">
+				groupdesc = #groupdesc#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="longitude">
+				longitude = #longitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="latitude">
+				latitude = #latitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="categorylevel1">
+				categorylevel1 =
+				#categorylevel1#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="categorylevel2">
+				categorylevel2 =
+				#categorylevel2#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupmanagerindex">
+				groupmanagerindex =
+				#groupmanagerindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupcreaterindex">
+				groupcreaterindex =
+				#groupcreaterindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouppoints">
+				grouppoints =
+				#grouppoints#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupcomment">
+				groupcomment =
+				#groupcomment#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="groupstars">
+				groupstars =
+				#groupstars#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="grouptype">
+				grouptype = #grouptype#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="getTGroupinfo" parameterClass="alias_tgroupinfo"
+		resultMap="tgroupinfoResult">
+		SELECT
+		groupindex,
+		groupid,
+		grouplevel,
+		groupmessage,
+		grouppic,
+		grouptitle,
+		groupbref,
+		groupdesc,
+		createtime,
+		site,
+		longitude,
+		latitude,
+		s.status AS STATUS,
+		categorylevel1,
+		categorylevel2,
+		groupmanagerindex,
+		groupcreaterindex,
+		grouppoints,
+		groupcomment,
+		groupstars,
+		grouptype,
+		m.levelname AS note
+		FROM t_groupinfo s
+		LEFT JOIN
+		t_groupinfo_level m
+		ON
+		s.grouplevel = m.levelindex
+		AND m.status=1
+		WHERE
+		groupindex =#groupindex#
+		AND
+		s.status = 1
+	</select>
+
+	<select id="queryTGroupinfoListByCond" parameterClass="alias_tgroupinfo"
+		resultMap="tgroupinfoResult">
+		select
+		groupindex,groupid,grouplevel,groupmessage,grouppic,grouptitle,groupbref,groupdesc,createtime,site,longitude,latitude,status,note,categorylevel1,categorylevel2,groupmanagerindex,groupcreaterindex,grouppoints,groupcomment,groupstars,grouptype
+		from t_groupinfo
+		<include refid="TGroupinfo_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryTGroupinfoListCntByCond" parameterClass="alias_tgroupinfo"
+		resultClass="java.lang.Integer">
+		select count(1)
+		from t_groupinfo
+		<include refid="TGroupinfo_Where_Clause" />
+	</select>
+
+	<select id="queryTGroupinfoListByCondExtends" parameterClass="alias_tgroupinfo"
+		resultMap="tgroupinfoResultExtends">
+		SELECT
+		groupindex,
+		groupid,
+		grouplevel,
+		groupmessage,
+		grouppic,
+		grouptitle,
+		groupbref,
+		groupdesc,
+		createtime,
+		site,
+		longitude,
+		latitude,
+		STATUS,
+		note,
+		categorylevel1,
+		categorylevel2,
+		groupmanagerindex,
+		groupcreaterindex,
+		grouppoints,
+		groupcomment,
+		groupstars,
+		grouptype,
+		GetDistance(latitude
+		,longitude ,#latitude#,#longitude#) AS DISTANCE
+		FROM t_groupinfo
+		<include refid="TGroupinfo_Where_Clause_Extends" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryTGroupinfoListCntByCondExtends" parameterClass="alias_tgroupinfo"
+		resultClass="java.lang.Integer">
+		select count(1)
+		from t_groupinfo
+		<include refid="TGroupinfo_Where_Clause_Extends" />
+	</select>
+
+	<select id="queryTGroupinfoListByCondExact" parameterClass="alias_tgroupinfo"
+		resultMap="tgroupinfoResult">
+		select
+		groupindex,groupid,grouplevel,groupmessage,grouppic,grouptitle,groupbref,groupdesc,createtime,site,longitude,latitude,status,note,categorylevel1,categorylevel2,groupmanagerindex,groupcreaterindex,grouppoints,groupcomment,groupstars,grouptype
+		from t_groupinfo
+		<include refid="TGroupinfo_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+</sqlMap>

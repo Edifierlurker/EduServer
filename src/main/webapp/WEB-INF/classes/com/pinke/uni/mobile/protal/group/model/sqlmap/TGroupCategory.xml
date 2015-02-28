@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+  <sqlMap namespace="TGroupCategory">
+	<typeAlias alias="alias_tgroupCategory"	type="com.pinke.uni.mobile.protal.group.model.TGroupCategory" />
+	
+	<resultMap id="tgroupCategoryResult" class="alias_tgroupCategory">
+  		<result column="categoryindex" property="categoryindex" />
+  		<result column="categoryname" property="categoryname" />
+  		<result column="categorypic" property="categorypic" />
+  		<result column="categorylevel" property="categorylevel" />
+  		<result column="categoryupindex" property="categoryupindex" />
+  		<result column="weight" property="weight" />
+  		<result column="createtime" property="createtime" />
+  		<result column="status" property="status" />
+	</resultMap>
+
+  <sql id="TGroupCategory_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="categoryindex">
+			    categoryindex = #categoryindex#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="categoryname">
+				categoryname = #categoryname#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="categorypic">
+				categorypic = #categorypic#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="categorylevel">
+			    categorylevel = #categorylevel#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="categoryupindex">
+			    categoryupindex = #categoryupindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="weight">
+			    weight = #weight#
+			</isNotEmpty> 
+	 		<isNotEmpty prepend="and" property="createtime">
+				createtime = #createtime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="status">
+			    status = #status#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+
+
+  <sql id="TGroupCategory_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="categoryindex">
+			  categoryindex = #categoryindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="categoryname">
+			  categoryname = #categoryname#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="categorypic">
+			  categorypic = #categorypic#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="categorylevel">
+			  categorylevel = #categorylevel#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="categoryupindex">
+			  categoryupindex = #categoryupindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="weight">
+			  weight = #weight#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="createtime">
+			  createtime = #createtime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="and" property="status">
+			  status = #status#
+			</isNotEmpty> 
+		</dynamic>
+  </sql>
+	
+	<insert id="insertTGroupCategory" parameterClass="alias_tgroupCategory">
+		insert into t_group_category (
+			categoryindex
+			<dynamic>
+				<isNotEmpty prepend="," property="categoryname">
+					categoryname
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="categorypic">
+					categorypic
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="categorylevel">
+					categorylevel
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="categoryupindex">
+					categoryupindex
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="weight">
+					weight
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="createtime">
+					createtime
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					status
+				</isNotEmpty>	
+			</dynamic>
+	   	)values(
+			#categoryindex#			
+			<dynamic>
+				<isNotEmpty prepend="," property="categoryname">
+					#categoryname#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="categorypic">
+					#categorypic#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="categorylevel">
+					#categorylevel#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="categoryupindex">
+					#categoryupindex#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="weight">
+					#weight#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="createtime">
+					#createtime#
+				</isNotEmpty>	
+				<isNotEmpty prepend="," property="status">
+					#status#
+				</isNotEmpty>	
+			</dynamic>	
+	   	)
+	</insert>	    
+	
+	<update id="updateTGroupCategory"	parameterClass="alias_tgroupCategory">
+	    update t_group_category
+	    set
+		 categoryindex = #categoryindex#
+		<dynamic>
+			<isNotNull prepend="," property="categoryname">
+			  categoryname = #categoryname#
+			</isNotNull>
+			<isNotNull prepend="," property="categorypic">
+			  categorypic = #categorypic#
+			</isNotNull>
+			<isNotEmpty prepend="," property="categorylevel">
+			  categorylevel = #categorylevel#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="categoryupindex">
+			  categoryupindex = #categoryupindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="weight">
+			  weight = #weight#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="createtime">
+			  createtime = #createtime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+			  status = #status#
+			</isNotEmpty> 
+		</dynamic>
+		where categoryindex = #categoryindex#
+  	</update>
+	<update id="updateTGroupCategoryByCond" parameterClass="alias_tgroupCategory">
+		update t_group_category
+		set
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="categoryname">
+			  categoryname = #categoryname#
+			</isNotNull>
+			<isNotNull prepend="," property="categorypic">
+			  categorypic = #categorypic#
+			</isNotNull>
+			<isNotEmpty prepend="," property="categorylevel">
+			  categorylevel = #categorylevel#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="categoryupindex">
+			  categoryupindex = #categoryupindex#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="weight">
+			  weight = #weight#
+			</isNotEmpty> 
+			<isNotNull prepend="," property="createtime">
+			  createtime = #createtime#
+			</isNotNull>
+			<isNotEmpty prepend="," property="status">
+			  status = #status#
+			</isNotEmpty> 
+		</dynamic>
+		<dynamic prepend="where">
+           <isNotEmpty prepend="and" property="categoryindex">
+		     categoryindex = #categoryindex#		
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="categoryname">
+		     categoryname = #categoryname#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="categorypic">
+		     categorypic = #categorypic#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="categorylevel">
+		     categorylevel = #categorylevel#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="categoryupindex">
+		     categoryupindex = #categoryupindex#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="weight">
+		     weight = #weight#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="createtime">
+		     createtime = #createtime#
+ 		   </isNotEmpty>
+		   <isNotEmpty prepend="and" property="status">
+		     status = #status#
+ 		   </isNotEmpty>
+ 		</dynamic>
+    </update>
+
+	<delete id="deleteTGroupCategory" parameterClass="alias_tgroupCategory">
+		delete from t_group_category 
+	    where categoryindex = #categoryindex#
+	</delete>
+	<delete id="deleteTGroupCategoryByCond" parameterClass="alias_tgroupCategory">
+		delete from t_group_category 
+		<dynamic prepend="where">
+          <isNotEmpty prepend="and" property="categoryindex">
+		    categoryindex = #categoryindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="categoryname">
+		    categoryname = #categoryname#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="categorypic">
+		    categorypic = #categorypic#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="categorylevel">
+		    categorylevel = #categorylevel#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="categoryupindex">
+		    categoryupindex = #categoryupindex#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="weight">
+		    weight = #weight#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="createtime">
+		    createtime = #createtime#
+          </isNotEmpty>
+ 		  <isNotEmpty prepend="and" property="status">
+		    status = #status#
+          </isNotEmpty>
+        </dynamic>
+	</delete>
+
+	<select id="getTGroupCategory" parameterClass="alias_tgroupCategory" resultMap="tgroupCategoryResult">
+		select categoryindex,categoryname,categorypic,categorylevel,categoryupindex,weight,createtime,status
+    	from t_group_category
+		where categoryindex = #categoryindex#
+	</select>
+
+	<select id="queryTGroupCategoryListByCond" parameterClass="alias_tgroupCategory" resultMap="tgroupCategoryResult" >
+		select 
+		  categoryindex,categoryname,categorypic,categorylevel,categoryupindex,weight,createtime,status
+		from t_group_category 
+		<include refid="TGroupCategory_Where_Clause" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>	
+	
+	<select id="queryTGroupCategoryListCntByCond" parameterClass="alias_tgroupCategory" resultClass="java.lang.Integer">
+		select count(1)
+		from t_group_category 
+		<include refid="TGroupCategory_Where_Clause" />
+	</select>
+	
+	<select id="queryTGroupCategoryListByCondExact" parameterClass="alias_tgroupCategory" resultMap="tgroupCategoryResult" >
+		select 
+		  categoryindex,categoryname,categorypic,categorylevel,categoryupindex,weight,createtime,status
+		from t_group_category 
+		<include refid="TGroupCategory_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+</sqlMap>

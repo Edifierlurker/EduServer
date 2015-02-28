@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="UserScheduleCourse">
+	<typeAlias alias="alias_userScheduleCourse"
+		type="com.pinke.uni.mobile.protal.course.model.UserScheduleCourse" />
+
+	<resultMap id="userScheduleCourseResult" class="alias_userScheduleCourse">
+		<result column="courseindex" property="courseindex" />
+		<result column="importcourseindex" property="importcourseindex" />
+		<result column="studentindex" property="studentindex" />
+		<result column="coursename" property="coursename" />
+		<result column="teacherindex" property="teacherindex" />
+		<result column="teachername" property="teachername" />
+		<result column="roomindex" property="roomindex" />
+		<result column="roomname" property="roomname" />
+		<result column="description" property="description" />
+		<result column="schoolindex" property="schoolindex" />
+		<result column="note" property="note" />
+		<result column="coursetype" property="coursetype" />
+		<result column="weekdays" property="weekdays" />
+		<result column="weeks" property="weeks" />
+		<result column="sections" property="sections" />
+		<result column="status" property="status" />
+	</resultMap>
+
+	<sql id="UserScheduleCourse_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="courseindex">
+				courseindex =
+				#courseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="importcourseindex">
+				importcourseindex =
+				#importcourseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="coursename">
+				coursename =
+				#coursename#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="teacherindex">
+				teacherindex =
+				#teacherindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="teachername">
+				teachername =
+				#teachername#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="roomindex">
+				roomindex = #roomindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="roomname">
+				roomname = #roomname#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="description">
+				description =
+				#description#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="coursetype">
+				coursetype =
+				#coursetype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weekdays">
+				weekdays = #weekdays#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weeks">
+				weeks = #weeks#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="sections">
+				sections = #sections#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<resultMap id="userScheduleCourseResult_Extends" class="alias_userScheduleCourse">
+		<result column="courseindex" property="courseindex" />
+		<result column="importcourseindex" property="importcourseindex" />
+		<result column="studentindex" property="studentindex" />
+		<result column="coursename" property="coursename" />
+		<result column="teacherindex" property="teacherindex" />
+		<result column="teachername" property="teachername" />
+		<result column="roomindex" property="roomindex" />
+		<result column="roomname" property="roomname" />
+		<result column="description" property="description" />
+		<result column="schoolindex" property="schoolindex" />
+		<result column="note" property="note" />
+		<result column="coursetype" property="coursetype" />
+		<result column="weekdays" property="weekdays" />
+		<result column="weeks" property="weeks" />
+		<result column="sections" property="sections" />
+		<result column="status" property="status" />
+		<result column="courseStartTime" property="courseStartTime" />
+		<result column="courseEndTime" property="courseEndTime" />
+		<result column="attendindex" property="attendindex" />
+
+	</resultMap>
+
+	<sql id="UserScheduleCourse_Where_Clause_Extends">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="courseindex">
+				s.courseindex =
+				#courseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="importcourseindex">
+				importcourseindex =
+				#importcourseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="coursename">
+				coursename =
+				#coursename#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="teacherindex">
+				teacherindex =
+				#teacherindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="teachername">
+				teachername =
+				#teachername#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="roomindex">
+				roomindex = #roomindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="roomname">
+				roomname = #roomname#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="description">
+				description =
+				#description#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="coursetype">
+				coursetype =
+				#coursetype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weekdays">
+				weekdays = #weekdays#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weeks">
+				weeks = #weeks#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="sections">
+				sections = #sections#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				s.status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendindex">
+				m.attendindex =
+				#attendindex#
+			</isNotEmpty>
+
+		</dynamic>
+	</sql>
+
+
+	<sql id="UserScheduleCourse_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="courseindex">
+				courseindex =
+				#courseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="importcourseindex">
+				importcourseindex =
+				#importcourseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="coursename">
+				coursename =
+				#coursename#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="teacherindex">
+				teacherindex =
+				#teacherindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="teachername">
+				teachername =
+				#teachername#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="roomindex">
+				roomindex = #roomindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="roomname">
+				roomname = #roomname#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="description">
+				description =
+				#description#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="coursetype">
+				coursetype =
+				#coursetype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weekdays">
+				weekdays = #weekdays#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weeks">
+				weeks = #weeks#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="sections">
+				sections = #sections#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="insertUserScheduleCourse" parameterClass="alias_userScheduleCourse">
+		insert into user_schedule_course (
+		courseindex
+		<dynamic>
+			<isNotEmpty prepend="," property="importcourseindex">
+				importcourseindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentindex">
+				studentindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="coursename">
+				coursename
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="teacherindex">
+				teacherindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="teachername">
+				teachername
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="roomindex">
+				roomindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="roomname">
+				roomname
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="description">
+				description
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="schoolindex">
+				schoolindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				note
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="coursetype">
+				coursetype
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="weekdays">
+				weekdays
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="weeks">
+				weeks
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="sections">
+				sections
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#courseindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="importcourseindex">
+				#importcourseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentindex">
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="coursename">
+				#coursename#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="teacherindex">
+				#teacherindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="teachername">
+				#teachername#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="roomindex">
+				#roomindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="roomname">
+				#roomname#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="description">
+				#description#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="schoolindex">
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				#note#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="coursetype">
+				#coursetype#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="weekdays">
+				#weekdays#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="weeks">
+				#weeks#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="sections">
+				#sections#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateUserScheduleCourse" parameterClass="alias_userScheduleCourse">
+		update user_schedule_course
+		set
+		courseindex = #courseindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="importcourseindex">
+				importcourseindex =
+				#importcourseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="coursename">
+				coursename = #coursename#
+			</isNotNull>
+			<isNotEmpty prepend="," property="teacherindex">
+				teacherindex =
+				#teacherindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="teachername">
+				teachername = #teachername#
+			</isNotNull>
+			<isNotEmpty prepend="," property="roomindex">
+				roomindex = #roomindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="roomname">
+				roomname = #roomname#
+			</isNotNull>
+			<isNotNull prepend="," property="description">
+				description = #description#
+			</isNotNull>
+			<isNotEmpty prepend="," property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+			<isNotNull prepend="," property="coursetype">
+				coursetype = #coursetype#
+			</isNotNull>
+			<isNotNull prepend="," property="weekdays">
+				weekdays = #weekdays#
+			</isNotNull>
+			<isNotNull prepend="," property="weeks">
+				weeks = #weeks#
+			</isNotNull>
+			<isNotNull prepend="," property="sections">
+				sections = #sections#
+			</isNotNull>
+			<isNotNull prepend="," property="status">
+				status = #status#
+			</isNotNull>
+		</dynamic>
+		where courseindex = #courseindex#
+	</update>
+	<update id="updateUserScheduleCourseByCond" parameterClass="alias_userScheduleCourse">
+		update user_schedule_course
+		set
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="importcourseindex">
+				importcourseindex =
+				#importcourseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="coursename">
+				coursename = #coursename#
+			</isNotNull>
+			<isNotEmpty prepend="," property="teacherindex">
+				teacherindex =
+				#teacherindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="teachername">
+				teachername = #teachername#
+			</isNotNull>
+			<isNotEmpty prepend="," property="roomindex">
+				roomindex = #roomindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="roomname">
+				roomname = #roomname#
+			</isNotNull>
+			<isNotNull prepend="," property="description">
+				description = #description#
+			</isNotNull>
+			<isNotEmpty prepend="," property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+			<isNotNull prepend="," property="coursetype">
+				coursetype = #coursetype#
+			</isNotNull>
+			<isNotNull prepend="," property="weekdays">
+				weekdays = #weekdays#
+			</isNotNull>
+			<isNotNull prepend="," property="weeks">
+				weeks = #weeks#
+			</isNotNull>
+			<isNotNull prepend="," property="sections">
+				sections = #sections#
+			</isNotNull>
+			<isNotNull prepend="," property="status">
+				status = #status#
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="courseindex">
+				courseindex =
+				#courseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="importcourseindex">
+				importcourseindex =
+				#importcourseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="coursename">
+				coursename =
+				#coursename#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="teacherindex">
+				teacherindex =
+				#teacherindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="teachername">
+				teachername =
+				#teachername#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="roomindex">
+				roomindex = #roomindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="roomname">
+				roomname = #roomname#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="description">
+				description =
+				#description#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="coursetype">
+				coursetype =
+				#coursetype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weekdays">
+				weekdays = #weekdays#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weeks">
+				weeks = #weeks#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="sections">
+				sections = #sections#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteUserScheduleCourse" parameterClass="alias_userScheduleCourse">
+		delete from
+		user_schedule_course
+		where courseindex = #courseindex#
+	</delete>
+	<delete id="deleteUserScheduleCourseByCond" parameterClass="alias_userScheduleCourse">
+		delete from user_schedule_course
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="courseindex">
+				courseindex =
+				#courseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="importcourseindex">
+				importcourseindex =
+				#importcourseindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="studentindex">
+				studentindex =
+				#studentindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="coursename">
+				coursename =
+				#coursename#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="teacherindex">
+				teacherindex =
+				#teacherindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="teachername">
+				teachername =
+				#teachername#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="roomindex">
+				roomindex = #roomindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="roomname">
+				roomname = #roomname#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="description">
+				description =
+				#description#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="schoolindex">
+				schoolindex =
+				#schoolindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="coursetype">
+				coursetype =
+				#coursetype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weekdays">
+				weekdays = #weekdays#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="weeks">
+				weeks = #weeks#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="sections">
+				sections = #sections#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="getUserScheduleCourse" parameterClass="alias_userScheduleCourse"
+		resultMap="userScheduleCourseResult_Extends">
+		SELECT
+		s.courseindex AS courseindex,
+		importcourseindex,
+		studentindex,
+		coursename,
+		teacherindex,
+		teachername,
+		roomindex,
+		roomname,
+		description,
+		schoolindex,
+		note,
+		coursetype,
+		weekdays,
+		weeks,
+		sections,
+		s.status AS STATUS,
+		m.coursestarttime AS coursestarttime,
+		m.courseendtime AS courseendtime,
+		m.attendindex AS attendindex
+		FROM
+		user_schedule_course s
+		LEFT JOIN
+		user_schedule_course_attend_map m
+		ON
+		s.courseindex = m.courseindex
+		AND
+		m.attendindex = #studentindex#
+		AND
+		m.status = 1
+		where s.courseindex =
+		#courseindex#
+		AND s.status = 1
+	</select>
+
+	<select id="queryUserScheduleCourseListByCond" parameterClass="alias_userScheduleCourse"
+		resultMap="userScheduleCourseResult_Extends">
+		SELECT
+		s.courseindex AS courseindex,
+		importcourseindex,
+		studentindex,
+		coursename,
+		teacherindex,
+		teachername,
+		roomindex,
+		roomname,
+		description,
+		schoolindex,
+		note,
+		coursetype,
+		weekdays,
+		weeks,
+		sections,
+		s.status AS
+		STATUS,
+		m.coursestarttime AS coursestarttime,
+		m.courseendtime AS
+		courseendtime,
+		m.attendindex AS attendindex
+		FROM user_schedule_course s
+		LEFT
+		JOIN user_schedule_course_attend_map m
+		ON
+		s.courseindex=m.courseindex
+		AND m.status=1
+		<include refid="UserScheduleCourse_Where_Clause_Extends" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryUserScheduleCourseListCntByCond"
+		parameterClass="alias_userScheduleCourse" resultClass="java.lang.Integer">
+		select count(1)
+		FROM user_schedule_course s
+		LEFT
+		JOIN
+		user_schedule_course_attend_map m
+		ON s.courseindex=m.courseindex
+		AND
+		m.status=1
+		<include refid="UserScheduleCourse_Where_Clause_Extends" />
+	</select>
+
+	<select id="queryUserScheduleCourseListByCondExact"
+		parameterClass="alias_userScheduleCourse" resultMap="userScheduleCourseResult">
+		select
+		courseindex,importcourseindex,studentindex,coursename,teacherindex,teachername,roomindex,roomname,description,schoolindex,note,coursetype,weekdays,weeks,sections,status
+		from user_schedule_course
+		<include refid="UserScheduleCourse_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+</sqlMap>

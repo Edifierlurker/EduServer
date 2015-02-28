@@ -1,0 +1,902 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="UserScheduleActivity">
+	<typeAlias alias="alias_userScheduleActivity"
+		type="com.pinke.uni.mobile.protal.activity.model.UserScheduleActivity" />
+	<typeAlias alias="alias_userScheduleActivity_extends"
+		type="com.pinke.uni.mobile.protal.activity.model.UserScheduleActivityExtends" />
+
+	<resultMap id="userScheduleActivityResult" class="alias_userScheduleActivity">
+		<result column="activityindex" property="activityindex" />
+		<result column="activitytitle" property="activitytitle" />
+		<result column="originatorindex" property="originatorindex" />
+		<result column="iconurl" property="iconurl" />
+		<result column="content" property="content" />
+		<result column="site" property="site" />
+		<result column="status" property="status" />
+		<result column="starttime" property="starttime" />
+		<result column="endtime" property="endtime" />
+		<result column="createtime" property="createtime" />
+		<result column="updatetime" property="updatetime" />
+		<result column="note" property="note" />
+		<result column="opentype" property="opentype" />
+		<result column="recordurl" property="recordurl" />
+		<result column="longitude" property="longitude" />
+		<result column="latitude" property="latitude" />
+		<result column="attendcount" property="attendcount" />
+
+
+	</resultMap>
+
+	<resultMap id="userScheduleActivityResultMore" class="alias_userScheduleActivity">
+		<result column="activityindex" property="activityindex" />
+		<result column="activitytitle" property="activitytitle" />
+		<result column="originatorindex" property="originatorindex" />
+		<result column="iconurl" property="iconurl" />
+		<result column="content" property="content" />
+		<result column="site" property="site" />
+		<result column="status" property="status" />
+		<result column="starttime" property="starttime" />
+		<result column="endtime" property="endtime" />
+		<result column="createtime" property="createtime" />
+		<result column="updatetime" property="updatetime" />
+		<result column="note" property="note" />
+		<result column="opentype" property="opentype" />
+		<result column="originatorName" property="originatorName" />
+		<result column="recordurl" property="recordurl" />
+		<result column="longitude" property="longitude" />
+		<result column="latitude" property="latitude" />
+		<result column="attendcount" property="attendcount" />
+
+	</resultMap>
+
+
+	<resultMap id="userScheduleActivityResultExtends" class="alias_userScheduleActivity_extends">
+		<result column="activityindex" property="activityindex" />
+		<result column="activitytitle" property="activitytitle" />
+		<result column="originatorindex" property="originatorindex" />
+		<result column="iconurl" property="iconurl" />
+		<result column="content" property="content" />
+		<result column="site" property="site" />
+		<result column="status" property="status" />
+		<result column="starttime" property="starttime" />
+		<result column="endtime" property="endtime" />
+		<result column="createtime" property="createtime" />
+		<result column="updatetime" property="updatetime" />
+		<result column="note" property="note" />
+		<result column="opentype" property="opentype" />
+		<result column="recordurl" property="recordurl" />
+		<result column="attendUserindex" property="attendUserindex" />
+		<result column="attendUserName" property="attendUserName" />
+		<result column="attendUserHeadPic" property="attendUserHeadPic" />
+		<result column="inviteUserindex" property="inviteUserindex" />
+		<result column="inviteUserName" property="inviteUserName" />
+		<result column="inviteUserHeadPic" property="inviteUserHeadPic" />
+		<result column="isaccpet" property="isaccpet" />
+		<result column="originatorName" property="originatorName" />
+		<result column="longitude" property="longitude" />
+		<result column="latitude" property="latitude" />
+		<result column="attendcount" property="attendcount" />
+
+
+	</resultMap>
+
+	<sql id="UserScheduleActivity_Where_Clause">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="activityindex">
+				activityindex =
+				#activityindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="activitytitle">
+				activitytitle =
+				#activitytitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="originatorindex">
+				originatorindex =
+				#originatorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="iconurl">
+				iconurl = #iconurl#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="content">
+				content = #content#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="starttime">
+				starttime like
+				'%$starttime$%' escape '/'
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="endtime">
+				endtime like
+				'%$endtime$%' escape '/'
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="updatetime">
+				updatetime =
+				#updatetime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="opentype">
+				opentype = #opentype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="recordurl">
+				recordurl = #recordurl#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<sql id="UserScheduleActivity_Where_Clause_Exact">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="activityindex">
+				activityindex =
+				#activityindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="activitytitle">
+				activitytitle =
+				#activitytitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="originatorindex">
+				originatorindex =
+				#originatorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="iconurl">
+				iconurl = #iconurl#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="content">
+				content = #content#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="starttime">
+				starttime like
+				'%$starttime$%' escape '/'
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="endtime">
+				endtime like
+				'%$endtime$%' escape '/'
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="updatetime">
+				updatetime =
+				#updatetime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="opentype">
+				opentype = #opentype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="recordurl">
+				recordurl = #recordurl#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendcount">
+				attendcount =
+				#attendcount#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+
+	<sql id="UserScheduleActivity_Where_Clause_More">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="activityindex">
+				activityindex =
+				#activityindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="activitytitle">
+				activitytitle
+				like
+				'%$activitytitle$%' escape '/'
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="originatorindex">
+				originatorindex =
+				#originatorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="iconurl">
+				iconurl = #iconurl#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="content">
+				content = #content#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				t.status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="starttime">
+				starttime like
+				'%$starttime$%' escape '/'
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="endtime">
+				endtime like
+				'%$endtime$%' escape '/'
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="updatetime">
+				updatetime =
+				#updatetime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="opentype">
+				opentype = #opentype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="recordurl">
+				recordurl = #recordurl#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendcount">
+				attendcount =
+				#attendcount#
+			</isNotEmpty>
+
+		</dynamic>
+	</sql>
+
+
+	<sql id="UserScheduleActivity_Where_Clause_Search">
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="activityindex">
+				activityindex =
+				#activityindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="activitytitle">
+				activitytitle =
+				like
+				'%$activitytitle$%' escape '/'
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="originatorindex">
+				originatorindex =
+				#originatorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="iconurl">
+				iconurl = #iconurl#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="content">
+				content = #content#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				t.status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="starttime">
+				starttime like
+				'%$starttime$%' escape '/'
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="endtime">
+				endtime like
+				'%$endtime$%' escape '/'
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="updatetime">
+				updatetime =
+				#updatetime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="opentype">
+				opentype = #opentype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="recordurl">
+				recordurl = #recordurl#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendcount">
+				attendcount =
+				#attendcount#
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<insert id="insertUserScheduleActivity" parameterClass="alias_userScheduleActivity">
+		insert into user_schedule_activity (
+		activityindex
+		<dynamic>
+			<isNotEmpty prepend="," property="activitytitle">
+				activitytitle
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="originatorindex">
+				originatorindex
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="iconurl">
+				iconurl
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="content">
+				content
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="site">
+				site
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				status
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="starttime">
+				starttime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="endtime">
+				endtime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="createtime">
+				createtime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="updatetime">
+				updatetime
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				note
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="opentype">
+				opentype
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="recordurl">
+				recordurl
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="longitude">
+				longitude
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="latitude">
+				latitude
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="attendcount">
+				attendcount
+			</isNotEmpty>
+		</dynamic>
+		)values(
+		#activityindex#
+		<dynamic>
+			<isNotEmpty prepend="," property="activitytitle">
+				#activitytitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="originatorindex">
+				#originatorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="iconurl">
+				#iconurl#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="content">
+				#content#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="site">
+				#site#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="starttime">
+				#starttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="endtime">
+				#endtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="createtime">
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="updatetime">
+				#updatetime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="note">
+				#note#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="opentype">
+				#opentype#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="recordurl">
+				#recordurl#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="longitude">
+				#longitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="latitude">
+				#latitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="attendcount">
+				#attendcount#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+
+	<update id="updateUserScheduleActivity" parameterClass="alias_userScheduleActivity">
+		update user_schedule_activity
+		set
+		activityindex = #activityindex#
+		<dynamic>
+			<isNotNull prepend="," property="activitytitle">
+				activitytitle =
+				#activitytitle#
+			</isNotNull>
+			<isNotEmpty prepend="," property="originatorindex">
+				originatorindex =
+				#originatorindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="iconurl">
+				iconurl = #iconurl#
+			</isNotNull>
+			<isNotNull prepend="," property="content">
+				content = #content#
+			</isNotNull>
+			<isNotNull prepend="," property="site">
+				site = #site#
+			</isNotNull>
+			<isNotNull prepend="," property="status">
+				status = #status#
+			</isNotNull>
+			<isNotNull prepend="," property="starttime">
+				starttime = #starttime#
+			</isNotNull>
+			<isNotNull prepend="," property="endtime">
+				endtime = #endtime#
+			</isNotNull>
+			<isNotNull prepend="," property="createtime">
+				createtime = #createtime#
+			</isNotNull>
+			<isNotNull prepend="," property="updatetime">
+				updatetime = #updatetime#
+			</isNotNull>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+			<isNotNull prepend="," property="opentype">
+				opentype = #opentype#
+			</isNotNull>
+			<isNotNull prepend="," property="recordurl">
+				recordurl= #recordurl#
+			</isNotNull>
+			<isNotNull prepend="," property="longitude">
+				longitude = #longitude#
+			</isNotNull>
+			<isNotNull prepend="," property="latitude">
+				latitude = #latitude#
+			</isNotNull>
+			<isNotEmpty prepend="," property="attendcount">
+				attendcount =
+				#attendcount#
+			</isNotEmpty>
+			<isEmpty prepend="," property="attendcount">
+				attendcount =
+				attendcount+1
+			</isEmpty>
+		</dynamic>
+		where activityindex = #activityindex#
+	</update>
+	<update id="updateUserScheduleActivityByCond" parameterClass="alias_userScheduleActivity">
+		update user_schedule_activity
+		set
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="activitytitle">
+				activitytitle =
+				#activitytitle#
+			</isNotNull>
+			<isNotEmpty prepend="," property="originatorindex">
+				originatorindex =
+				#originatorindex#
+			</isNotEmpty>
+			<isNotNull prepend="," property="iconurl">
+				iconurl = #iconurl#
+			</isNotNull>
+			<isNotNull prepend="," property="content">
+				content = #content#
+			</isNotNull>
+			<isNotNull prepend="," property="site">
+				site = #site#
+			</isNotNull>
+			<isNotNull prepend="," property="status">
+				status = #status#
+			</isNotNull>
+			<isNotNull prepend="," property="starttime">
+				starttime = #starttime#
+			</isNotNull>
+			<isNotNull prepend="," property="endtime">
+				endtime = #endtime#
+			</isNotNull>
+			<isNotNull prepend="," property="createtime">
+				createtime = #createtime#
+			</isNotNull>
+			<isNotNull prepend="," property="updatetime">
+				updatetime = #updatetime#
+			</isNotNull>
+			<isNotNull prepend="," property="note">
+				note = #note#
+			</isNotNull>
+			<isNotNull prepend="," property="opentype">
+				opentype = #opentype#
+			</isNotNull>
+			<isNotNull prepend="," property="recordurl">
+				recordurl= #recordurl#
+			</isNotNull>
+			<isNotNull prepend="," property="longitude">
+				longitude = #longitude#
+			</isNotNull>
+			<isNotNull prepend="," property="latitude">
+				latitude = #latitude#
+			</isNotNull>
+			<isNotEmpty prepend="," property="attendcount">
+				attendcount =
+				#attendcount#
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="activityindex">
+				activityindex =
+				#activityindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="activitytitle">
+				activitytitle =
+				#activitytitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="originatorindex">
+				originatorindex =
+				#originatorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="iconurl">
+				iconurl = #iconurl#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="content">
+				content = #content#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="starttime">
+				starttime = #starttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="endtime">
+				endtime = #endtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="updatetime">
+				updatetime =
+				#updatetime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="opentype">
+				opentype = #opentype#
+			</isNotEmpty>
+			<isNotNull prepend="," property="recordurl">
+				recordurl= #recordurl#
+			</isNotNull>
+			<isNotEmpty prepend="and" property="longitude">
+				longitude = #longitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="latitude">
+				latitude = #latitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendcount">
+				attendcount =
+				#attendcount#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="deleteUserScheduleActivity" parameterClass="alias_userScheduleActivity">
+		delete
+		from user_schedule_activity
+		where activityindex = #activityindex#
+	</delete>
+	<delete id="deleteUserScheduleActivityByCond" parameterClass="alias_userScheduleActivity">
+		delete from user_schedule_activity
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="activityindex">
+				activityindex =
+				#activityindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="activitytitle">
+				activitytitle =
+				#activitytitle#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="originatorindex">
+				originatorindex =
+				#originatorindex#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="iconurl">
+				iconurl = #iconurl#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="content">
+				content = #content#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="site">
+				site = #site#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="status">
+				status = #status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="starttime">
+				starttime = #starttime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="endtime">
+				endtime = #endtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="createtime">
+				createtime =
+				#createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="updatetime">
+				updatetime =
+				#updatetime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="note">
+				note = #note#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="opentype">
+				opentype = #opentype#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="recordurl">
+				recordurl= #recordurl#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="attendcount">
+				attendcount =
+				#attendcount#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<select id="getUserScheduleActivity" parameterClass="alias_userScheduleActivity"
+		resultMap="userScheduleActivityResultMore">
+		select
+		activityindex,activitytitle,originatorindex,iconurl,content,site,t.status
+		as status,starttime,endtime,createtime,updatetime,note,opentype,
+		s.studentname AS originatorName,recordurl,
+		longitude,
+		latitude,attendcount
+		from
+		user_schedule_activity t
+		left join
+		t_studentinfo s
+		on t.originatorindex =
+		s.studentindex
+		where
+		activityindex
+		= #activityindex#
+	</select>
+
+	<select id="queryUserScheduleActivityListByCond" parameterClass="alias_userScheduleActivity"
+		resultMap="userScheduleActivityResultMore">
+		select
+		activityindex,activitytitle,originatorindex,iconurl,content,site,t.status
+		as status,starttime,endtime,createtime,updatetime,note,opentype,
+		s.studentname AS originatorName,recordurl,
+		longitude,
+		latitude,attendcount
+		<isNotNull prepend="," property="latitude">
+			GetDistance(latitude
+			,longitude ,#latitude#,#longitude#) AS DISTANCE
+		</isNotNull>
+		from
+		user_schedule_activity t
+		left join
+		t_studentinfo s
+		on
+		t.originatorindex =
+		s.studentindex and
+		t.status=1
+		<include refid="UserScheduleActivity_Where_Clause_More" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="queryUserScheduleActivityListCntByCond"
+		parameterClass="alias_userScheduleActivity" resultClass="java.lang.Integer">
+		select
+		count(1)
+		from user_schedule_activity t
+		left join
+		t_studentinfo s
+		on
+		t.originatorindex = s.studentindex and
+		t.status=1
+		<include refid="UserScheduleActivity_Where_Clause_More" />
+	</select>
+
+
+
+	<select id="queryUserScheduleActivityListByCondExact"
+		parameterClass="alias_userScheduleActivity" resultMap="userScheduleActivityResult">
+		select
+		activityindex,activitytitle,originatorindex,iconurl,content,site,status,starttime,endtime,createtime,updatetime,note,opentype,recordurl,
+		longitude,
+		latitude,attendcount
+		from user_schedule_activity
+		<include refid="UserScheduleActivity_Where_Clause_Exact" />
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="getUserScheduleActivityExtends" parameterClass="alias_userScheduleActivity_Extends"
+		resultMap="userScheduleActivityResultExtends">
+		select
+		activityindex,activitytitle,originatorindex,iconurl,content,site,p.status,p.starttime,p.endtime,createtime,updatetime,note,opentype,recordurl,
+		longitude,
+		latitude,attendcount,
+		attendUserindex,n.studentname as
+		attendUserName,
+		n.headpic as
+		attendUserHeadPic,
+		inviteUserindex,q.studentname as
+		inviteUserName,
+		q.headpic as
+		inviteUserHeadPic,isaccpet,
+		r.studentname
+		AS
+		originatorName
+		from
+		(select
+		t.activityindex
+		as
+		activityindex,activitytitle,originatorindex,iconurl,content,site,
+		t.status as
+		status,starttime,endtime,createtime,updatetime,note,opentype,s.studentindex
+		AS attendUserindex,m.studentindex AS
+		inviteUserindex,isaccpet,recordurl,
+		longitude,
+		latitude,attendcount
+		from
+		user_schedule_activity t
+		LEFT
+		JOIN user_activity_attend_map s ON
+		t.activityindex=s.activityindex
+		LEFT
+		JOIN user_activity_invite_map m ON
+		t.activityindex = m.activityindex
+		where t.activityindex =
+		#activityindex# and t.status=1 and s.status = 1
+		and m.status =1 ) p
+		LEFT JOIN t_studentinfo n
+		ON p.attendUserindex =
+		n.studentindex
+		LEFT
+		JOIN
+		t_studentinfo q
+		ON p.inviteUserindex =
+		q.studentindex
+		LEFT JOIN
+		t_studentinfo r
+		ON p.originatorindex =
+		r.studentindex
+	</select>
+
+
+	<select id="queryUserScheduleActivityListByCondExtends"
+		parameterClass="alias_userScheduleActivity_Extends" resultMap="userScheduleActivityResultMore">
+		SELECT
+		activityindex,
+		activitytitle,
+		originatorindex,
+		iconurl,
+		content,
+		site,
+		p.status AS STATUS,
+		starttime,
+		endtime,
+		createtime,
+		updatetime,
+		note,
+		opentype,
+		s.studentname AS originatorName,
+		recordurl,
+		longitude,
+		latitude,attendcount
+		FROM (SELECT
+		t.activityindex AS
+		activityindex,
+		activitytitle,
+		originatorindex,
+		iconurl,
+		content,
+		site,
+		t.status AS STATUS,
+		starttime,
+		endtime,
+		createtime,
+		updatetime,
+		note,
+		opentype,
+		recordurl,
+		longitude,
+		latitude,attendcount
+		FROM
+		user_schedule_activity t,
+		user_activity_attend_map m
+		WHERE
+		t.activityindex = m.activityindex
+		AND
+		m.studentindex =
+		#attendUserindex#
+		AND m.status = 1
+		AND t.status = 1) p
+		LEFT JOIN
+		t_studentinfo s
+		ON
+		p.originatorindex = s.studentindex
+		<dynamic prepend="order by">
+			<isNotEmpty property="orderCond">
+				$orderCond$
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+
+	<select id="queryUserScheduleActivityListCntByCondExtends"
+		parameterClass="alias_userScheduleActivity_Extends" resultClass="java.lang.Integer">
+		SELECT
+		count(1)
+		FROM (SELECT
+		t.activityindex AS
+		activityindex,
+		activitytitle,
+		originatorindex,
+		iconurl,
+		content,
+		site,
+		t.status AS STATUS,
+		starttime,
+		endtime,
+		createtime,
+		updatetime,
+		note,
+		opentype,
+		recordurl,
+		longitude,
+		latitude,attendcount
+		FROM
+		user_schedule_activity t,
+		user_activity_attend_map m
+		WHERE
+		t.activityindex = m.activityindex
+		AND
+		m.studentindex =
+		#attendUserindex#
+		AND m.status = 1
+		AND t.status = 1) p
+		LEFT JOIN
+		t_studentinfo s
+		ON
+		p.originatorindex = s.studentindex
+	</select>
+
+
+
+
+
+</sqlMap>

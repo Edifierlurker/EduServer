@@ -1,0 +1,133 @@
+<?xml  version="1.0" encoding="UTF-8"?>
+<config>
+    <services>
+        <service name="bulletin" dataType="html">
+            <classname>com.pinke.uni.mobile.protal.common.page.handle.BulletinHandle</classname>
+            <page>/bulletin.jsp</page>
+        </service>
+        <service name="articleinfo" dataType="html">
+            <classname>com.pinke.uni.mobile.protal.common.page.handle.ArticleInfoHandle</classname>
+            <page>/articleinfo.jsp</page>
+        </service>
+        <service name="articlecommentlist" dataType="html">
+            <classname>com.pinke.uni.mobile.protal.common.page.handle.ArticleCommentListHandle</classname>
+            <page>/articlecommentlist.jsp</page>
+        </service>
+        <service name="activityinfo" dataType="html">
+            <classname>com.pinke.uni.mobile.protal.common.page.handle.ActivityInfoHandle</classname>
+            <page>/activityinfo.jsp</page>
+        </service>
+
+        <service name="login" dataType="json">
+            <classname>com.pinke.uni.lottery.action.LotteryLoginAction</classname>
+            <page>http://127.0.0.1:8080/edu_agent/unistore/servicedata.do?serviceid=login</page>
+        </service>
+        <service name="tologin" dataType="html">
+            <classname>com.pinke.uni.lottery.action.LotteryToLoginAction</classname>
+            <page>/login.jsp</page>
+        </service>
+        <service name="logout" dataType="json">
+            <classname>com.pinke.uni.lottery.action.LotteryLogoutAction</classname>
+            <page>http://127.0.0.1:8080/edu_agent/unistore/servicedata.do?serviceid=logout</page>
+        </service>
+        <service name="caipiao" dataType="html">
+            <classname>com.pinke.uni.lottery.action.LotteryListAction</classname>
+            <page>/lotterylist.jsp</page>
+        </service>
+        <service name="caipiao/ssq" dataType="html">
+            <classname>com.pinke.uni.lottery.action.SsqWelcomeAction</classname>
+            <page>/ssq.jsp</page>
+        </service>
+        <service name="caipiao/ssq/cart" dataType="html">
+            <classname>com.pinke.uni.lottery.action.SsqCartAction</classname>
+            <page>/ssqcart.jsp</page>
+        </service>
+        <service name="caipiao/payconfirm" dataType="html">
+            <classname>com.pinke.uni.lottery.action.PayConfirmAction</classname>
+            <page>/lotterypay.jsp</page>
+        </service>
+        <service name="caipiao/success" dataType="html">
+            <classname>com.pinke.uni.lottery.action.PaySuccessAction</classname>
+            <page>/paysuccess.jsp</page>
+        </service>
+        <service name="caipiao/fail" dataType="html">
+            <classname>com.pinke.uni.lottery.action.PayFailureAction</classname>
+            <page>/payerror.jsp</page>
+        </service>
+        <service name="caipiao/mylottery" dataType="html">
+            <classname>com.pinke.uni.lottery.action.MyLotteryAction</classname>
+            <page>/mylotteries.jsp</page>
+        </service>
+        <service name="caipiao/orderinfo" dataType="html">
+            <classname>com.pinke.uni.lottery.action.LotteryOrderInfoAction</classname>
+            <page>/lotteryorderinfo.jsp</page>
+        </service>
+        <service name="caipiao/jsk3" dataType="html">
+            <classname>com.pinke.uni.lottery.action.JSK3WelcomeAction</classname>
+            <page>/jsk3.jsp</page>
+        </service>
+        <service name="caipiao/dlt" dataType="html">
+            <classname>com.pinke.uni.lottery.action.DLTWelcomeAction</classname>
+            <page>/dlt.jsp</page>
+        </service>
+
+        <service name="caipiao/betresult" dataType="json">
+            <classname>com.pinke.uni.lottery.receiver.BetResultReceiver</classname>
+            <page></page>
+        </service>
+        <service name="caipiao/seriesinfo" dataType="null">
+            <classname>com.pinke.uni.lottery.receiver.IssueInfoReceiver</classname>
+            <page></page>
+        </service>
+        <service name="caipiao/seriesinfochange" dataType="null">
+            <classname>com.pinke.uni.lottery.receiver.IssueInfoChangeReceiver</classname>
+            <page></page>
+        </service>
+        <service name="caipiao/moneyinfochange" dataType="null">
+            <classname>com.pinke.uni.lottery.receiver.MoneyInfoChangeReceiver</classname>
+            <page></page>
+        </service>
+
+        <service name="caipiao/pay" dataType="json">
+            <classname>com.pinke.uni.lottery.action.PayAction</classname>
+            <page>http://127.0.0.1:8080/edu_agent/services/caipiao/print</page>
+        </service>
+
+        <service name="caipiao/time" dataType="json">
+            <classname>com.pinke.uni.lottery.sender.SyncTimeSender</classname>
+            <page>http://www.dongdongma.net/api/time</page>
+        </service>
+        <service name="caipiao/print" dataType="json">
+            <classname>com.pinke.uni.lottery.sender.PrintTicketsSender</classname>
+            <page>http://www.dongdongma.net/api/print</page>
+        </service>
+        <service name="caipiao/issue" dataType="json">
+            <classname>com.pinke.uni.lottery.sender.IssueQuerySender</classname>
+            <page>http://www.dongdongma.net/api/issue</page>
+        </service>
+        <service name="caipiao/lottery" dataType="json">
+            <classname>com.pinke.uni.lottery.sender.LotteryInfoQuerySender</classname>
+            <page>http://www.dongdongma.net/api/lottery</page>
+        </service>
+        <service name="caipiao/lotteries" dataType="json">
+            <classname>com.pinke.uni.lottery.sender.LotteriesQuerySender</classname>
+            <page>http://www.dongdongma.net/api/lotteries</page>
+        </service>
+        <service name="caipiao/rewards" dataType="json">
+            <classname>com.pinke.uni.lottery.sender.RewardsQuerySender</classname>
+            <page>http://www.dongdongma.net/api/rewards</page>
+        </service>
+        <service name="caipiao/omit" dataType="json">
+            <classname>com.pinke.uni.lottery.sender.OmitQuerySender</classname>
+            <page>http://www.dongdongma.net/api/omit</page>
+        </service>
+        <service name="caipiao/order" dataType="json">
+            <classname>com.pinke.uni.lottery.sender.OrderInfoQuerySender</classname>
+            <page>http://www.dongdongma.net/api/order</page>
+        </service>
+        <service name="caipiao/win" dataType="json">
+            <classname>com.pinke.uni.lottery.sender.WinQuerySender</classname>
+            <page>http://www.dongdongma.net/api/win</page>
+        </service>
+    </services>
+</config>
