@@ -1,11 +1,12 @@
-<?xml version='1.0' encoding='utf-8'?>
+﻿<?xml version='1.0' encoding='utf-8'?>
 
 <project name="pccdeploy" default="all" basedir=".">
      <description>
         工程描述信息:V1.0
 		编译环境:ANT1.7 JDK1.6.0
 		引用外部变量:deploy.ftp.dir  hudson.home
-		
+		 
+
 	</description>
         <!--引用变量定义-->
 	<property environment="env"/>
